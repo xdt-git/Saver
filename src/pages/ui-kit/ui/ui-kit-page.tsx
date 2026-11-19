@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { MdMovieFilter } from "react-icons/md";
 import telegramImg from "@/shared/assets/telegram.webp";
 import { Button } from "@/shared/ui/button";
@@ -11,12 +12,7 @@ import { Skeleton } from "@/shared/ui/skeleton";
 import { Text } from "@/shared/ui/text";
 import styles from "./ui-kit-page.module.scss";
 
-const genreOptions = [
-    { value: "drama", label: "Драма" },
-    { value: "comedy", label: "Комедия" },
-    { value: "sci-fi", label: "Фантастика" },
-];
-
+// Section titles are component names, so they are not translated.
 const Section = ({ title, children }: { title: string; children: ReactNode }) => (
     <section className={styles.section}>
         <Text as="h2" glow className={styles.sectionTitle}>
@@ -28,72 +24,83 @@ const Section = ({ title, children }: { title: string; children: ReactNode }) =>
 
 /** Development-only showcase of every shared UI component and its states. */
 export const UiKitPage = () => {
+    const { t } = useTranslation();
     const [isModalOpen, setModalOpen] = useState(false);
     const [retries, setRetries] = useState(0);
+
+    const genreOptions = [
+        { value: "drama", label: t("uiKit.genres.drama") },
+        { value: "comedy", label: t("uiKit.genres.comedy") },
+        { value: "sci-fi", label: t("uiKit.genres.sciFi") },
+    ];
 
     return (
         <main className={styles.page}>
             <Text as="h1" glow>
-                UI kit
+                {t("uiKit.title")}
             </Text>
 
             <Section title="Button">
-                <Button>Начать</Button>
-                <Button size="md">Сохранить</Button>
-                <Button variant="secondary">Отмена</Button>
+                <Button>{t("uiKit.start")}</Button>
+                <Button size="md">{t("common.save")}</Button>
+                <Button variant="secondary">{t("common.cancel")}</Button>
                 <Button size="md" disabled>
-                    Недоступно
+                    {t("uiKit.disabled")}
                 </Button>
                 <Button variant="icon" aria-label="Telegram">
                     <img src={telegramImg} alt="" width={64} height={64} />
                 </Button>
                 <Button to="/ui-kit" variant="nav">
-                    Ссылка-навигация
+                    {t("uiKit.navLink")}
                 </Button>
             </Section>
 
             <Section title="Input">
                 <Input label="Email" type="email" placeholder="you@example.com" />
-                <Input label="Username" hint="От 3 до 20 символов" defaultValue="saver" />
+                <Input label="Username" hint={t("uiKit.usernameHint")} defaultValue="saver" />
                 <Input
-                    label="Пароль"
+                    label={t("uiKit.password")}
                     type="password"
-                    error="Минимум 8 символов"
+                    error={t("uiKit.passwordError")}
                     defaultValue="123"
                 />
-                <Input label="Недоступно" disabled defaultValue="Только чтение" />
+                <Input label={t("uiKit.disabled")} disabled defaultValue={t("uiKit.readOnly")} />
             </Section>
 
             <Section title="Select">
-                <Select label="Жанр" placeholder="Выберите жанр" options={genreOptions} />
                 <Select
-                    label="Жанр"
+                    label={t("uiKit.genre")}
+                    placeholder={t("uiKit.genrePlaceholder")}
                     options={genreOptions}
-                    error="Выберите хотя бы один жанр"
+                />
+                <Select
+                    label={t("uiKit.genre")}
+                    options={genreOptions}
+                    error={t("uiKit.genreError")}
                     defaultValue="drama"
                 />
             </Section>
 
             <Section title="Modal">
                 <Button size="md" onClick={() => setModalOpen(true)}>
-                    Открыть модалку
+                    {t("uiKit.openModal")}
                 </Button>
                 <Modal
                     open={isModalOpen}
                     onClose={() => setModalOpen(false)}
-                    title="Удалить запись?"
+                    title={t("uiKit.modalTitle")}
                     footer={
                         <>
                             <Button variant="secondary" onClick={() => setModalOpen(false)}>
-                                Отмена
+                                {t("common.cancel")}
                             </Button>
                             <Button size="md" onClick={() => setModalOpen(false)}>
-                                Удалить
+                                {t("common.delete")}
                             </Button>
                         </>
                     }
                 >
-                    <Text as="p">«Интерстеллар» будет удалён из вашей библиотеки.</Text>
+                    <Text as="p">{t("uiKit.modalText")}</Text>
                 </Modal>
             </Section>
 
@@ -117,14 +124,14 @@ export const UiKitPage = () => {
                 <div className={styles.panel}>
                     <EmptyState
                         icon={<MdMovieFilter />}
-                        title="Библиотека пуста"
-                        description="Добавьте первый фильм, чтобы начать."
-                        action={<Button size="md">Найти фильм</Button>}
+                        title={t("uiKit.emptyTitle")}
+                        description={t("uiKit.emptyText")}
+                        action={<Button size="md">{t("uiKit.findFilm")}</Button>}
                     />
                 </div>
                 <div className={styles.panel}>
                     <ErrorState
-                        description={`Не удалось загрузить данные. Попыток: ${retries}`}
+                        description={t("uiKit.errorText", { count: retries })}
                         onRetry={() => setRetries((n) => n + 1)}
                     />
                 </div>

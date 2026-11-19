@@ -1,0 +1,97 @@
+{
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "close": "Close",
+        "delete": "Delete",
+        "retry": "Try again",
+        "loading": "Loading",
+        "somethingWentWrong": "Something went wrong"
+    },
+    "nav": {
+        "home": "Home",
+        "random": "Random pick",
+        "library": "My library"
+    },
+    "header": {
+        "logoAlt": "Universal Saver logo",
+        "profile": "Profile"
+    },
+    "language": {
+        "label": "Interface language",
+        "ru": "RU",
+        "en": "EN"
+    },
+    "landing": {
+        "titleFirstLine": "Universal Saver -",
+        "titleSecondLine": "Save your memories",
+        "subtitle": "Save everything you love in one place",
+        "start": "Start",
+        "previewAlt": "Universal Saver in the browser and on a phone",
+        "platforms": {
+            "telegram": "Telegram",
+            "mobile": "Mobile app",
+            "desktop": "Desktop app",
+            "web": "Web version"
+        }
+    },
+    "about": {
+        "title": "About",
+        "text": "UniversalSaver started as a university project and grew into a full idea. Here you can keep the films, series and everything else you have watched or plan to watch.",
+        "productsTitle": "Our products",
+        "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below."
+    },
+    "library": {
+        "bannerAlt": "Library banner"
+    },
+    "categories": {
+        "film": {
+            "alt": "Films",
+            "description": "Save your favorite films and come back to them whenever you like. All your impressions in one place."
+        },
+        "series": {
+            "alt": "Series",
+            "description": "Hooked on a series? Save it to your collection and come back for new impressions!"
+        },
+        "anime": {
+            "alt": "Anime",
+            "description": "Enjoying anime? Save it to your collection and explore new horizons!"
+        },
+        "cartoon": {
+            "alt": "Cartoons",
+            "description": "Save your favorite cartoons and build a collection of your own!"
+        },
+        "game": {
+            "alt": "Games",
+            "description": "Save your favorite games and get the most out of them!"
+        }
+    },
+    "notFound": {
+        "title": "Page not found"
+    },
+    "uiKit": {
+        "title": "UI kit",
+        "start": "Start",
+        "disabled": "Disabled",
+        "navLink": "Navigation link",
+        "usernameHint": "3 to 20 characters",
+        "password": "Password",
+        "passwordError": "At least 8 characters",
+        "readOnly": "Read only",
+        "genre": "Genre",
+        "genrePlaceholder": "Choose a genre",
+        "genreError": "Choose at least one genre",
+        "genres": {
+            "drama": "Drama",
+            "comedy": "Comedy",
+            "sciFi": "Sci-fi"
+        },
+        "openModal": "Open modal",
+        "modalTitle": "Delete entry?",
+        "modalText": "Interstellar will be removed from your library.",
+        "emptyTitle": "Your library is empty",
+        "emptyText": "Add your first film to get started.",
+        "findFilm": "Find a film",
+        "errorText": "Could not load data. Attempts: {{count}}"
+    }
+}

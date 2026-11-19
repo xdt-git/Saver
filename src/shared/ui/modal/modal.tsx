@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "../button";
 import { Text } from "../text";
 import styles from "./modal.module.scss";
@@ -11,7 +12,7 @@ export interface ModalProps {
     children: ReactNode;
     /** Actions at the bottom, e.g. Cancel / Confirm buttons. */
     footer?: ReactNode;
-    /** Accessible label of the close button. */
+    /** Accessible label of the close button. Defaults to the translated "Close". */
     closeLabel?: string;
 }
 
@@ -19,14 +20,8 @@ export interface ModalProps {
  * Dialog rendered in a portal. Closes on Escape and on a click outside the dialog,
  * locks page scroll while open and returns focus to the previously focused element.
  */
-export const Modal = ({
-    open,
-    onClose,
-    title,
-    children,
-    footer,
-    closeLabel = "Закрыть",
-}: ModalProps) => {
+export const Modal = ({ open, onClose, title, children, footer, closeLabel }: ModalProps) => {
+    const { t } = useTranslation();
     const titleId = useId();
     const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -73,7 +68,7 @@ export const Modal = ({
                     </Text>
                     <Button
                         variant="icon"
-                        aria-label={closeLabel}
+                        aria-label={closeLabel ?? t("common.close")}
                         className={styles.close}
                         onClick={onClose}
                     >

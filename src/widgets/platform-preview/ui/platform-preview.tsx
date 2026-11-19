@@ -1,15 +1,14 @@
+import { useTranslation } from "react-i18next";
 import allWeb from "@/shared/assets/all_web.webp";
-import allPhone from "@/shared/assets/all_mobile.webp";
 import styles from "./platform-preview.module.scss";
 
+// The preview per platform (all_mobile.webp and others) is switched in C6.2.
 export const PlatformPreview = () => {
-    const img = [
-        { img: allWeb, alt: "Web Img" },
-        { img: allPhone, alt: "Phone Img" },
-    ] as const;
+    const { t } = useTranslation();
+
     return (
         <div>
-            <img src={img[0].img} alt={img[0].alt} className={styles.preview} />
+            <img src={allWeb} alt={t("landing.previewAlt")} className={styles.preview} />
         </div>
     );
 };

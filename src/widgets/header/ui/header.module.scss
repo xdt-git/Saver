@@ -13,6 +13,12 @@
     justify-content: space-around;
 }
 
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
 .profileIcon {
     font-size: var(--size-icon-lg);
 }

@@ -23,7 +23,7 @@ describe("App routing", () => {
 
     it.each(["/discover", "/some/unknown/path"])("shows the 404 page at %s", (path) => {
         renderWithRouter(<Layout />, path);
-        expect(screen.getByRole("heading", { name: "Not Found Page" })).toBeInTheDocument();
+        expect(screen.getByRole("heading", { name: "Страница не найдена" })).toBeInTheDocument();
     });
 
     it("renders the header on every page", () => {
