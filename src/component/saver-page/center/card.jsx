@@ -2,12 +2,6 @@ import "../../global/css/button.scss";
 import "../../global/global.scss";
 import PropTypes from "prop-types";
 
-Card.propTypes = {
-    imgBlue: PropTypes.string.isRequired,
-    altBlue: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-};
-
 const Card = ({ description, altBlue, imgBlue }) => {
     return (
         <div className="flex">
@@ -18,6 +12,12 @@ const Card = ({ description, altBlue, imgBlue }) => {
             </div>
         </div>
     );
+};
+
+Card.propTypes = {
+    imgBlue: PropTypes.string.isRequired,
+    altBlue: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
 };
 
 export default Card;

@@ -28,7 +28,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C1. Stabilization (no visual changes)
 - [ ] C1.1 Fix routes: "Start" button target, "Random content" link, catch-all 404 route
-- [ ] C1.2 Fix `Card` (propTypes declared before the component) and category images (wrong pink imports)
+- [x] C1.2 Fix `Card` (propTypes declared before the component) and category images (wrong pink imports)
 - [ ] C1.3 Remove leftovers: `console.log`, commented-out code, empty files
 - [ ] C1.4 Convert images to WebP, remove unused ones
 - [ ] C1.5 Project metadata: `package.json` name, README
