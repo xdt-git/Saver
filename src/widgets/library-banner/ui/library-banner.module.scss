@@ -1,5 +1,5 @@
 .subtitle {
     width: 100%;
-    height: 250px;
-    filter: blur(5px);
+    height: var(--size-banner-height);
+    filter: var(--blur-banner);
 }

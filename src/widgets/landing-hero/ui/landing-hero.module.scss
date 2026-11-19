@@ -1,24 +1,23 @@
 .leftContainer {
-    --main-text: aliceblue;
     width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--main-text);
+    color: var(--color-text-soft);
     font-style: italic;
     text-align: center;
 }
 
 .btnMargin {
-    margin-top: 10px;
+    margin-top: var(--space-xs);
 }
 
 .imgLinks {
-    margin-top: 30px;
+    margin-top: var(--space-md);
 }
 
 .picturesSize {
-    width: 128px;
-    height: 128px;
+    width: var(--size-platform-icon);
+    height: var(--size-platform-icon);
 }
