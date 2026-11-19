@@ -44,16 +44,14 @@ export const CategoryItems = () => {
             imgPink: pinkMult,
             altBlue: "Blue Img for Cartoon",
             altPink: "Pink Img for Cartoon",
-            description:
-                "Сохраняйте любимые мультфильмы и создавайте свою уникальную коллекцию!",
+            description: "Сохраняйте любимые мультфильмы и создавайте свою уникальную коллекцию!",
         },
         Game: {
             imgBlue: blueGame,
             imgPink: pinkGame,
             altBlue: "Blue Img for Game",
             altPink: "Pink Img for Game",
-            description:
-                "Сохраняйте свои любимые игры и получайте максимум удовольствия!",
+            description: "Сохраняйте свои любимые игры и получайте максимум удовольствия!",
         },
     };
 

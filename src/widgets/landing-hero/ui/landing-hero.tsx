@@ -21,9 +21,7 @@ export const LandingHero = () => {
                 Universal Saver - <br />
                 Сохрани воспоминания
             </h1>
-            <span className={utilities.glowText}>
-                Сохрани все, что тебе хочется у нас
-            </span>
+            <span className={utilities.glowText}>Сохрани все, что тебе хочется у нас</span>
             <Link to="/Save">
                 <button className={`${buttonStyles.gradientButton} ${styles.btnMargin}`}>
                     Начать
@@ -32,11 +30,7 @@ export const LandingHero = () => {
             <div className={styles.imgLinks}>
                 {platforms.map((platform) => (
                     <button key={platform.id} className={buttonStyles.transparentButton}>
-                        <img
-                            src={platform.img}
-                            className={styles.picturesSize}
-                            alt={platform.id}
-                        />
+                        <img src={platform.img} className={styles.picturesSize} alt={platform.id} />
                     </button>
                 ))}
             </div>
