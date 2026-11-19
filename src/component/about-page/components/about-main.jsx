@@ -1,4 +1,3 @@
-import React from "react";
 import LeftContainer from "./jsx/left-container";
 import { ImgCase } from "./jsx/img-container";
 import Footer from "./jsx/about-foother";

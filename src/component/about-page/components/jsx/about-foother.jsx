@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../global/global.scss";
 import "../css/footer.scss";
 

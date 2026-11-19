@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from "react";
 import "../global/global.scss";
 import "./not-found.scss";
 

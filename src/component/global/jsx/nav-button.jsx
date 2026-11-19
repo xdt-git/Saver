@@ -4,7 +4,6 @@ import "../css/nav-button.scss";
 import "../global.scss";
 
 export const NavButton = ({ label, move }) => {
-    console.log(move, "+", label);
     return (
         <NavLink to={move}>
             <button className="nav-button glow-text">{label}</button>
