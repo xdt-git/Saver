@@ -8,11 +8,7 @@ export const PlatformPreview = () => {
     ] as const;
     return (
         <div>
-            <img
-                src={img[0].img}
-                alt={img[0].alt}
-                width="1000px"
-            />
+            <img src={img[0].img} alt={img[0].alt} width="1000px" />
         </div>
     );
 };
