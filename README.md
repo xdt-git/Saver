@@ -34,7 +34,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 - [x] C1.5 Project metadata: `package.json` name, page title, favicon, README
 
 ### C2. Foundation: TypeScript and FSD
-- [ ] C2.1 Add TypeScript (strict, `allowJs` during migration), path aliases
+- [x] C2.1 Add TypeScript (strict, `allowJs` during migration), path aliases
 - [ ] C2.2 FSD structure: `app`, `pages`, `widgets`, `features`, `entities`, `shared`, public APIs via `index.ts`
 - [ ] C2.3 Move existing components into layers and convert to `.tsx` (visual check before/after)
 - [ ] C2.4 SCSS Modules, shared mixins in `shared/styles`
