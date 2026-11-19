@@ -48,7 +48,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C2.2 FSD structure: move existing components into `app`, `pages`, `widgets`, `entities`, `shared`, public APIs via `index` files (pixel-identical before/after)
 -   [x] C2.3 Convert components to `.tsx` with typed props (pixel-identical before/after)
 -   [x] C2.4 SCSS Modules: every component has scoped styles, shared utilities in `shared/styles`, button styles in `shared/ui/button` (pixel-identical before/after)
--   [ ] C2.5 ESLint, Prettier, FSD import rules
+-   [x] C2.5 ESLint FSD import rules (layer order, no cross-slice imports, public API only), Prettier, LF line endings
 
 ### C3. Design system (based on the current style)
 
