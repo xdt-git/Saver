@@ -64,7 +64,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 -   [x] C4.1 i18n (RU / EN) with typed keys, browser language detection with English fallback, saved choice, all texts moved out of JSX, RU / EN switcher in the header (`features/switch-language`)
 -   [x] C4.2 ThemeProvider: System / Light / Dark (dark neon is the default by product decision), saved choice independent of language, live OS sync in System mode, no flash on load (inline script in `index.html`), first light palette in tokens, shared `SegmentedControl` for theme and language switchers
--   [ ] C4.3 API client: base URL from env, unified response format, error handling, token refresh
+-   [x] C4.3 API client (`shared/api`): base URL from `VITE_API_URL`, cookies included, unified response format unwrapped to `data`, typed `ApiError` with codes and field errors, single shared refresh on 401 with one retry, CSRF header on mutating requests, localized error texts by code
 -   [ ] C4.4 Request caching with TanStack Query
 -   [ ] C4.5 Toast notifications (success, error, warning, info)
 -   [ ] C4.6 Routing: lazy pages, public and protected routes
