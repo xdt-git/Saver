@@ -1,3 +1,5 @@
+@use "../../shared/styles/tokens";
+
 html,
 body,
 #root {
@@ -8,7 +10,7 @@ body,
     overflow-x: hidden;
 }
 body {
-    font-family: Arial, sans-serif;
-    background-color: black;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
     overflow-x: hidden;
 }

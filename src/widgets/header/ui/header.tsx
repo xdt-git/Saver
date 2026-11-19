@@ -22,7 +22,7 @@ export const Header = () => {
                 ))}
             </nav>
             <div className={utilities.glowText}>
-                <FaUser style={{ fontSize: "48px" }} />
+                <FaUser className={styles.profileIcon} />
             </div>
         </header>
     );

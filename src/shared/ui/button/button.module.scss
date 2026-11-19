@@ -1,18 +1,18 @@
 .gradientButton {
     cursor: pointer;
-    width: 285px;
-    height: 80px;
-    background: linear-gradient(#2b5fcf, #a62ad0);
-    border-radius: 30px;
+    width: var(--size-button-width);
+    height: var(--size-button-height);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #d9d9d9;
+    color: var(--color-text-muted);
     font-style: italic;
-    font-size: 32px;
-    line-height: 49px;
-    font-weight: 300;
-    border: #101010;
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+    font-weight: var(--font-weight-light);
+    border: var(--color-border-dark);
 }
 
 .transparentButton {
