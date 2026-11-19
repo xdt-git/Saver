@@ -11,7 +11,6 @@ export const PlatformPreview = () => {
             <img
                 src={img[0].img}
                 alt={img[0].alt}
-                className=""
                 width="1000px"
             />
         </div>
