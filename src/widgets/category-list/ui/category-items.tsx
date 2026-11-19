@@ -8,13 +8,13 @@ import pinkSeries from "@/shared/assets/pink_series.webp";
 import pinkAnime from "@/shared/assets/pink_anime.webp";
 import pinkMult from "@/shared/assets/pink_mult.webp";
 import pinkGame from "@/shared/assets/pink_game.webp";
-import { CategoryCard } from "@/entities/category";
+import { CategoryCard, type Category } from "@/entities/category";
 import "@/shared/styles/global.scss";
 
 export const CategoryItems = () => {
     // TODO
     // this is a temporary imitation of the database
-    const dataBase = {
+    const dataBase: Record<string, Category> = {
         film: {
             imgBlue: blueFilm,
             imgPink: pinkFilm,
@@ -59,14 +59,14 @@ export const CategoryItems = () => {
 
     return (
         <section className="column">
-            {Object.keys(dataBase).map((key) => (
+            {Object.entries(dataBase).map(([key, category]) => (
                 <CategoryCard
                     key={key}
-                    imgBlue={dataBase[key].imgBlue}
-                    // imgPink={dataBase[key].imgPink}
-                    altBlue={dataBase[key].altBlue}
-                    // altPink={dataBase[key].altPink}
-                    description={dataBase[key].description}
+                    imgBlue={category.imgBlue}
+                    // imgPink={category.imgPink}
+                    altBlue={category.altBlue}
+                    // altPink={category.altPink}
+                    description={category.description}
                 />
             ))}
         </section>

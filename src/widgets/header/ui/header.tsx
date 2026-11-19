@@ -3,22 +3,22 @@ import logo from "@/shared/assets/logo.webp";
 import { FaUser } from "react-icons/fa";
 import "./header.scss";
 
+const navItems = [
+    { label: "Начальная страница", to: "/" },
+    { label: "Случайный контент", to: "/discover" },
+    { label: "Основная страница", to: "/Save" },
+];
+
 export const Header = () => {
-    const headerLabels = [
-        "Начальная страница",
-        "Случайный контент",
-        "Основная страница",
-    ];
-    const headerLinks = ["/", "/discover", "/Save"];
     return (
         <header>
             <div className="logo">
                 <img alt="Company Logo" src={logo} />
             </div>
             <nav>
-                <NavButton label={headerLabels[0]} move={headerLinks[0]} />
-                <NavButton label={headerLabels[1]} move={headerLinks[1]} />
-                <NavButton label={headerLabels[2]} move={headerLinks[2]} />
+                {navItems.map((item) => (
+                    <NavButton key={item.to} label={item.label} move={item.to} />
+                ))}
             </nav>
             <div className="glow-text">
                 <FaUser style={{ fontSize: "48px" }} />

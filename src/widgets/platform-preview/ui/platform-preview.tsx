@@ -5,7 +5,7 @@ export const PlatformPreview = () => {
     const img = [
         { img: allWeb, alt: "Web Img" },
         { img: allPhone, alt: "Phone Img" },
-    ];
+    ] as const;
     return (
         <div>
             <img

@@ -1,17 +1,16 @@
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 import "./nav-button.scss";
 import "@/shared/styles/global.scss";
 
-export const NavButton = ({ label, move }) => {
+interface NavButtonProps {
+    label: string;
+    move: string;
+}
+
+export const NavButton = ({ label, move }: NavButtonProps) => {
     return (
         <NavLink to={move}>
             <button className="nav-button glow-text">{label}</button>
         </NavLink>
     );
-};
-
-NavButton.propTypes = {
-    label: PropTypes.string.isRequired,
-    move: PropTypes.string.isRequired,
 };

@@ -1,8 +1,10 @@
 import "@/shared/ui/button/button.scss";
 import "@/shared/styles/global.scss";
-import PropTypes from "prop-types";
+import type { Category } from "../model/types";
 
-export const CategoryCard = ({ description, altBlue, imgBlue }) => {
+type CategoryCardProps = Pick<Category, "description" | "altBlue" | "imgBlue">;
+
+export const CategoryCard = ({ description, altBlue, imgBlue }: CategoryCardProps) => {
     return (
         <div className="flex">
             <img alt={altBlue} src={imgBlue} />
@@ -12,10 +14,4 @@ export const CategoryCard = ({ description, altBlue, imgBlue }) => {
             </div>
         </div>
     );
-};
-
-CategoryCard.propTypes = {
-    imgBlue: PropTypes.string.isRequired,
-    altBlue: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
 };
