@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import telegramImg from "../../../../assets/telegram.png";
 import mobileImg from "../../../../assets/mobile.png";
 import desktopImg from "../../../../assets/desktop.png";
