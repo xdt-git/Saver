@@ -93,5 +93,11 @@
         "emptyText": "Add your first film to get started.",
         "findFilm": "Find a film",
         "errorText": "Could not load data. Attempts: {{count}}"
+    },
+    "theme": {
+        "label": "Color theme",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark"
     }
 }

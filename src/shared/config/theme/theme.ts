@@ -5,7 +5,9 @@ export type ThemeMode = (typeof THEME_MODES)[number];
 /** The theme actually applied to the page. */
 export type ResolvedTheme = Exclude<ThemeMode, "system">;
 
-export const DEFAULT_THEME_MODE: ThemeMode = "system";
+// The neon dark theme is the brand look, so it is the default (decided with the product owner;
+// the spec suggested "system"). Keep in sync with the inline script in index.html.
+export const DEFAULT_THEME_MODE: ThemeMode = "dark";
 // Keep in sync with the inline script in index.html (a test checks it).
 export const THEME_STORAGE_KEY = "saver.theme";
 export const DARK_SCHEME_QUERY = "(prefers-color-scheme: dark)";

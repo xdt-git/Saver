@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { renderWithRouter } from "@/shared/config/tests";
+import { renderWithProviders } from "@/shared/config/tests";
 import { Button } from "./button";
 
 describe("Button", () => {
@@ -23,7 +23,7 @@ describe("Button", () => {
     });
 
     it("renders a router link instead of a button when `to` is passed", () => {
-        renderWithRouter(
+        renderWithProviders(
             <Button to="/library" variant="nav">
                 Library
             </Button>,
