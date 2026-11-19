@@ -6,8 +6,8 @@ The backend lives in a separate repository: **saver-api** (Node.js, Express, Pos
 
 ## Stack
 
-Current: React 18, Vite, React Router, SCSS.
-Target: React, TypeScript, Feature-Sliced Design, SCSS Modules, React Router, i18next, TanStack Query.
+Current: React 18, TypeScript (strict), Vite, React Router, SCSS, Feature-Sliced Design.
+Next: SCSS Modules, i18next, TanStack Query.
 
 ## Getting started
 
@@ -36,7 +36,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 ### C2. Foundation: TypeScript and FSD
 - [x] C2.1 Add TypeScript (strict, `allowJs` during migration), path aliases
 - [x] C2.2 FSD structure: move existing components into `app`, `pages`, `widgets`, `entities`, `shared`, public APIs via `index` files (pixel-identical before/after)
-- [ ] C2.3 Convert components to `.tsx` with typed props (visual check before/after)
+- [x] C2.3 Convert components to `.tsx` with typed props (pixel-identical before/after)
 - [ ] C2.4 SCSS Modules, shared mixins in `shared/styles`
 - [ ] C2.5 ESLint, Prettier, FSD import rules
 
