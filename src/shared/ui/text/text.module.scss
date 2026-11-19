@@ -1,0 +1,6 @@
+// Neon glow text, the signature style of the app.
+.glow {
+    color: var(--color-text);
+    filter: var(--glow-md);
+    font-family: var(--font-display);
+}

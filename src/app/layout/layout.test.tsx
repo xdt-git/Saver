@@ -10,8 +10,10 @@ describe("App routing", () => {
 
     it("links the Start button to the library page", () => {
         renderWithRouter(<Layout />, "/");
-        const startButton = screen.getByRole("button", { name: "Начать" });
-        expect(startButton.closest("a")).toHaveAttribute("href", "/Save");
+        const startLink = screen.getByRole("link", { name: "Начать" });
+        expect(startLink).toHaveAttribute("href", "/Save");
+        // A link must not wrap a <button>: nested interactive elements are invalid HTML.
+        expect(startLink.querySelector("button")).toBeNull();
     });
 
     it("shows the library page with all categories at /Save", () => {

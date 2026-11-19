@@ -1,10 +1,4 @@
-// Shared utility classes used across slices.
-
-.glowText {
-    color: var(--color-text);
-    filter: var(--glow-md);
-    font-family: var(--font-display);
-}
+// Shared layout utilities used across slices.
 
 .flex {
     display: flex;

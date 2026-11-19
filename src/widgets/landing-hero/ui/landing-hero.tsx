@@ -2,10 +2,9 @@ import telegramImg from "@/shared/assets/telegram.webp";
 import mobileImg from "@/shared/assets/mobile.webp";
 import desktopImg from "@/shared/assets/desktop.webp";
 import webImg from "@/shared/assets/web.webp";
-import { utilities } from "@/shared/styles";
-import { buttonStyles } from "@/shared/ui/button";
+import { Button } from "@/shared/ui/button";
+import { Text } from "@/shared/ui/text";
 import styles from "./landing-hero.module.scss";
-import { Link } from "react-router-dom";
 
 const platforms = [
     { id: "telegram", img: telegramImg },
@@ -17,21 +16,19 @@ const platforms = [
 export const LandingHero = () => {
     return (
         <div className={styles.leftContainer}>
-            <h1 className={utilities.glowText}>
+            <Text as="h1" glow>
                 Universal Saver - <br />
                 Сохрани воспоминания
-            </h1>
-            <span className={utilities.glowText}>Сохрани все, что тебе хочется у нас</span>
-            <Link to="/Save">
-                <button className={`${buttonStyles.gradientButton} ${styles.btnMargin}`}>
-                    Начать
-                </button>
-            </Link>
+            </Text>
+            <Text glow>Сохрани все, что тебе хочется у нас</Text>
+            <Button to="/Save" className={styles.btnMargin}>
+                Начать
+            </Button>
             <div className={styles.imgLinks}>
                 {platforms.map((platform) => (
-                    <button key={platform.id} className={buttonStyles.transparentButton}>
+                    <Button key={platform.id} variant="icon">
                         <img src={platform.img} className={styles.picturesSize} alt={platform.id} />
-                    </button>
+                    </Button>
                 ))}
             </div>
         </div>

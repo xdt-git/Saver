@@ -1,5 +1,13 @@
-.gradientButton {
+// Shared base: the same box for <button> and for links rendered as buttons.
+.button {
+    box-sizing: border-box;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center; // <button> centers text by default, links do not
+}
+
+// Gradient call-to-action button ("Начать", "Сохранить").
+.primary {
     width: var(--size-button-width);
     height: var(--size-button-height);
     background: var(--gradient-primary);
@@ -8,6 +16,7 @@
     justify-content: center;
     align-items: center;
     color: var(--color-text-muted);
+    font-family: var(--font-body);
     font-style: italic;
     font-size: var(--font-size-xl);
     line-height: var(--line-height-xl);
@@ -15,8 +24,37 @@
     border: var(--color-border-dark);
 }
 
-.transparentButton {
+// Transparent button around an icon or image (platform icons).
+.icon {
     background-color: transparent;
     border: transparent;
     padding: 0;
+}
+
+// Navigation item with an animated underline on hover.
+.nav {
+    display: inline-block;
+    border: none;
+    background: none;
+    background-color: transparent;
+    padding: var(--space-xs);
+    font-size: var(--font-size-sm);
+    position: relative;
+    margin-top: var(--space-3xs);
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--border-thin);
+        background-color: var(--color-text);
+        transform: scaleX(0);
+        transition: transform var(--duration-fast) var(--easing);
+    }
+
+    &:hover:after {
+        transform: scaleX(1);
+    }
 }
