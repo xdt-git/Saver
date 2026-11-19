@@ -16,7 +16,9 @@ npm install
 npm run dev
 ```
 
-Scripts: `npm run build` (type check + build), `npm run typecheck`, `npm run lint`, `npm run format`.
+Scripts: `npm run build` (type check + build), `npm test`, `npm run check` (types, lint, formatting, tests), `npm run format`.
+
+Every stage ships with tests; `npm run check` must pass before a task branch is merged.
 
 ## Code principles
 
@@ -49,6 +51,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C2.3 Convert components to `.tsx` with typed props (pixel-identical before/after)
 -   [x] C2.4 SCSS Modules: every component has scoped styles, shared utilities in `shared/styles`, button styles in `shared/ui/button` (pixel-identical before/after)
 -   [x] C2.5 ESLint FSD import rules (layer order, no cross-slice imports, public API only), Prettier, LF line endings
+-   [x] C2.6 Tests: Vitest + Testing Library, tests for routing, header, category cards and design rules (only tokens in styles, no inline styles); `npm run check` runs everything
 
 ### C3. Design system (based on the current style)
 
