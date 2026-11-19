@@ -9,7 +9,7 @@ import pinkAnime from "@/shared/assets/pink_anime.webp";
 import pinkMult from "@/shared/assets/pink_mult.webp";
 import pinkGame from "@/shared/assets/pink_game.webp";
 import { CategoryCard, type Category } from "@/entities/category";
-import "@/shared/styles/global.scss";
+import { utilities } from "@/shared/styles";
 
 export const CategoryItems = () => {
     // TODO
@@ -58,7 +58,7 @@ export const CategoryItems = () => {
     };
 
     return (
-        <section className="column">
+        <section className={utilities.column}>
             {Object.entries(dataBase).map(([key, category]) => (
                 <CategoryCard
                     key={key}

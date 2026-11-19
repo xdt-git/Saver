@@ -1,9 +1,8 @@
-import "@/shared/styles/global.scss";
-import "./footer.scss";
+import styles from "./footer.module.scss";
 
 export const Footer = () => {
     return (
-        <div className="about-container">
+        <div className={styles.aboutContainer}>
             {/* <div>
                 <span className="glow-text">О проекте</span>
                 <div className="glow-text">

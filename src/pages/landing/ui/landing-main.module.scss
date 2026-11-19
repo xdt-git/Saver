@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    // These four used to leak in from a global `main` rule on the 404 page; now they are explicit.
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}

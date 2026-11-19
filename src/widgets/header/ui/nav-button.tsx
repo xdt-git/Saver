@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import "./nav-button.scss";
-import "@/shared/styles/global.scss";
+import { utilities } from "@/shared/styles";
+import styles from "./nav-button.module.scss";
 
 interface NavButtonProps {
     label: string;
@@ -10,7 +10,7 @@ interface NavButtonProps {
 export const NavButton = ({ label, move }: NavButtonProps) => {
     return (
         <NavLink to={move}>
-            <button className="nav-button glow-text">{label}</button>
+            <button className={`${styles.navButton} ${utilities.glowText}`}>{label}</button>
         </NavLink>
     );
 };

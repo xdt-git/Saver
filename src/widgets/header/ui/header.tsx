@@ -1,7 +1,8 @@
 import { NavButton } from "./nav-button";
 import logo from "@/shared/assets/logo.webp";
+import { utilities } from "@/shared/styles";
 import { FaUser } from "react-icons/fa";
-import "./header.scss";
+import styles from "./header.module.scss";
 
 const navItems = [
     { label: "Начальная страница", to: "/" },
@@ -11,16 +12,16 @@ const navItems = [
 
 export const Header = () => {
     return (
-        <header>
-            <div className="logo">
+        <header className={styles.header}>
+            <div>
                 <img alt="Company Logo" src={logo} />
             </div>
-            <nav>
+            <nav className={styles.nav}>
                 {navItems.map((item) => (
                     <NavButton key={item.to} label={item.label} move={item.to} />
                 ))}
             </nav>
-            <div className="glow-text">
+            <div className={utilities.glowText}>
                 <FaUser style={{ fontSize: "48px" }} />
             </div>
         </header>
