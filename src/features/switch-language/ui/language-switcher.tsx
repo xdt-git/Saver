@@ -1,9 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { SUPPORTED_LANGUAGES } from "@/shared/config/i18n";
-import { cn } from "@/shared/lib";
-import { Button } from "@/shared/ui/button";
-import { glowClassName } from "@/shared/ui/text";
-import styles from "./language-switcher.module.scss";
+import { SUPPORTED_LANGUAGES, type Language } from "@/shared/config/i18n";
+import { SegmentedControl } from "@/shared/ui/segmented-control";
 
 interface LanguageSwitcherProps {
     className?: string;
@@ -12,31 +9,19 @@ interface LanguageSwitcherProps {
 /** RU / EN toggle. Changes the language instantly, without reloading; the choice is saved. */
 export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
     const { t, i18n } = useTranslation();
-    const current = i18n.resolvedLanguage;
+
+    const options = SUPPORTED_LANGUAGES.map((language) => ({
+        value: language,
+        label: t(`language.${language}`),
+    }));
 
     return (
-        <div
-            role="group"
-            aria-label={t("language.label")}
-            className={cn(styles.switcher, className)}
-        >
-            {SUPPORTED_LANGUAGES.map((language) => {
-                const isActive = current === language;
-                return (
-                    <Button
-                        key={language}
-                        variant="nav"
-                        aria-pressed={isActive}
-                        className={cn(
-                            isActive ? glowClassName : styles.inactive,
-                            isActive && styles.active,
-                        )}
-                        onClick={() => void i18n.changeLanguage(language)}
-                    >
-                        {t(`language.${language}`)}
-                    </Button>
-                );
-            })}
-        </div>
+        <SegmentedControl<Language>
+            options={options}
+            value={i18n.resolvedLanguage as Language | undefined}
+            onChange={(language) => void i18n.changeLanguage(language)}
+            ariaLabel={t("language.label")}
+            className={className}
+        />
     );
 };

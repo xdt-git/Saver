@@ -1,0 +1,18 @@
+.control {
+    display: flex;
+    gap: var(--space-2xs);
+}
+
+// The selected option keeps the nav underline visible.
+.control .active::after {
+    transform: scaleX(1);
+}
+
+.inactive {
+    color: var(--color-text-faint);
+}
+
+.icon {
+    display: inline-flex;
+    font-size: var(--font-size-md);
+}

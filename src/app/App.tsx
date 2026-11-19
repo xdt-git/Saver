@@ -1,13 +1,16 @@
 import "@/shared/config/i18n";
-import { Layout } from "./layout/layout";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "@/shared/config/theme";
+import { Layout } from "./layout/layout";
 import "./styles/index.scss";
 
 function App() {
     return (
-        <BrowserRouter>
-            <Layout />
-        </BrowserRouter>
+        <ThemeProvider>
+            <BrowserRouter>
+                <Layout />
+            </BrowserRouter>
+        </ThemeProvider>
     );
 }
 

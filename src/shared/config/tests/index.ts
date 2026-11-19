@@ -1,1 +1,2 @@
-export { renderWithRouter } from "./render-with-router";
+export { renderWithProviders } from "./render-with-providers";
+export { setSystemPrefersDark } from "./match-media";

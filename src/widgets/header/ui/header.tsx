@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { FaUser } from "react-icons/fa";
 import { LanguageSwitcher } from "@/features/switch-language";
+import { ThemeSwitcher } from "@/features/switch-theme";
 import logo from "@/shared/assets/logo.webp";
 import { Button } from "@/shared/ui/button";
 import { Text, glowClassName } from "@/shared/ui/text";
@@ -28,6 +29,7 @@ export const Header = () => {
                 ))}
             </nav>
             <div className={styles.actions}>
+                <ThemeSwitcher />
                 <LanguageSwitcher />
                 <Text as="div" glow aria-label={t("header.profile")}>
                     <FaUser className={styles.profileIcon} />

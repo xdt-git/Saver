@@ -63,7 +63,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 ### C4. Global providers
 
 -   [x] C4.1 i18n (RU / EN) with typed keys, browser language detection with English fallback, saved choice, all texts moved out of JSX, RU / EN switcher in the header (`features/switch-language`)
--   [ ] C4.2 ThemeProvider: System / Dark / Light, no flash on load
+-   [x] C4.2 ThemeProvider: System / Light / Dark (dark neon is the default by product decision), saved choice independent of language, live OS sync in System mode, no flash on load (inline script in `index.html`), first light palette in tokens, shared `SegmentedControl` for theme and language switchers
 -   [ ] C4.3 API client: base URL from env, unified response format, error handling, token refresh
 -   [ ] C4.4 Request caching with TanStack Query
 -   [ ] C4.5 Toast notifications (success, error, warning, info)
@@ -119,7 +119,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 -   [ ] C11.1 Stats summary: completed count, watch time, average rating, favorite genres, 7 / 30 day activity
 -   [ ] C11.2 Charts: by month, by category, by genre, top content
--   [ ] C11.3 Light theme
+-   [ ] C11.3 Light theme polish (first palette exists since C4.2)
 
 ### C12. Quality
 

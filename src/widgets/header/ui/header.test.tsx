@@ -1,15 +1,15 @@
 import { screen, within } from "@testing-library/react";
-import { renderWithRouter } from "@/shared/config/tests";
+import { renderWithProviders } from "@/shared/config/tests";
 import { Header } from "./header";
 
 describe("Header", () => {
     it("shows the logo", () => {
-        renderWithRouter(<Header />);
+        renderWithProviders(<Header />);
         expect(screen.getByAltText("Логотип Universal Saver")).toBeInTheDocument();
     });
 
     it("has three navigation links with correct targets", () => {
-        renderWithRouter(<Header />);
+        renderWithProviders(<Header />);
         const links = within(screen.getByRole("navigation")).getAllByRole("link");
 
         expect(links.map((link) => link.getAttribute("href"))).toEqual(["/", "/discover", "/Save"]);
@@ -21,7 +21,7 @@ describe("Header", () => {
     });
 
     it("has the language switcher", () => {
-        renderWithRouter(<Header />);
+        renderWithProviders(<Header />);
         expect(screen.getByRole("group", { name: "Язык интерфейса" })).toBeInTheDocument();
     });
 });
