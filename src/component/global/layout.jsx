@@ -11,8 +11,8 @@ export const Layout = () => {
 
             <Routes>
                 <Route path="/" element={<AboutPage />} />
-                <Route path="/notFound" element={<NotFoundPage />} />
                 <Route path="/Save" element={<SaverPage />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </>
     );

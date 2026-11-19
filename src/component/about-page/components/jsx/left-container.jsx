@@ -18,7 +18,7 @@ const LeftContainer = () => {
             <span className="glow-text">
                 Сохрани все, что тебе хочется у нас
             </span>
-            <Link to="./Saver">
+            <Link to="/Save">
                 <button className="gradient-button btn-margin">Начать</button>
             </Link>
             <div className="img_links">

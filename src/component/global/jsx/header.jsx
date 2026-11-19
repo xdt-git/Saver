@@ -9,7 +9,7 @@ export const Header = () => {
         "Случайный контент",
         "Основная страница",
     ];
-    const headerLinks = ["/", "/notFound", "/Save"];
+    const headerLinks = ["/", "/discover", "/Save"];
     return (
         <header>
             <div className="logo">
