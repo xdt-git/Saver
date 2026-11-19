@@ -81,6 +81,13 @@
     --size-skeleton-avatar: 64px;
     --size-skeleton-image: 200px;
 
+    // Interaction states
+    --state-hover-brightness: brightness(1.15);
+    --state-press-scale: scale(0.97);
+    --state-hover-scale: scale(1.08);
+    --state-disabled-opacity: 0.5;
+    --state-modal-enter-scale: scale(0.96);
+
     // Layers
     --z-modal: 1000;
 

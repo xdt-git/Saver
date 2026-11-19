@@ -58,7 +58,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C3.1 Design tokens as CSS variables: colors, neon glow, gradients, spacing, radii, shadows, fonts
 -   [x] C3.2 UI kit, part 1: `Button` (primary, icon, nav; renders a link when `to` is set), `Text` (any tag, `glow`), category card layout fix
 -   [x] C3.2b UI kit, part 2: Input and Select on a shared FormField, Modal, Loader, Skeleton, EmptyState / ErrorState, Button sizes and secondary variant; dev-only showcase at `/ui-kit`
--   [ ] C3.3 Interaction states: hover, focus, disabled, animations
+-   [x] C3.3 Interaction states from tokens: hover, pressed, keyboard focus ring (`:focus-visible`), disabled, modal enter animation, one global reduced-motion rule
 
 ### C4. Global providers
 

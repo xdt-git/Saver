@@ -50,3 +50,48 @@ describe("Design rules", () => {
         expect(offenders).toEqual([]);
     });
 });
+
+describe("Interaction states", () => {
+    const read = (path: string) => readFileSync(join(SRC, path), "utf8");
+    const globalStyles = read("app/styles/index.scss");
+    const buttonStyles = read("shared/ui/button/button.module.scss");
+    const controlStyles = read("shared/ui/form-field/form-field.module.scss");
+
+    it("has one global keyboard focus style and one reduced-motion rule", () => {
+        expect(globalStyles).toMatch(/:focus-visible\s*\{/);
+        expect(globalStyles).toContain("prefers-reduced-motion: reduce");
+    });
+
+    it("does not repeat the reduced-motion rule in components", () => {
+        const offenders = listFiles(SRC, ".module.scss")
+            .filter((file) => readFileSync(file, "utf8").includes("prefers-reduced-motion"))
+            .map((file) => relative(SRC, file));
+        expect(offenders).toEqual([]);
+    });
+
+    it.each(["primary", "secondary", "icon"])("gives the %s button a hover state", (variant) => {
+        const block = buttonStyles.split(`.${variant} {`)[1] ?? "";
+        expect(block.split("\n}")[0]).toContain("&:hover:not(:disabled)");
+    });
+
+    it("gives buttons pressed and disabled states", () => {
+        expect(buttonStyles).toContain("&:active:not(:disabled)");
+        expect(buttonStyles).toContain("&:disabled");
+    });
+
+    it("gives form controls hover, focus and disabled states", () => {
+        expect(controlStyles).toContain("&:hover:not(:disabled)");
+        expect(controlStyles).toContain("&:focus-visible");
+        expect(controlStyles).toContain("&:disabled");
+    });
+
+    it("takes the disabled opacity only from the token", () => {
+        const offenders = listFiles(SRC, ".module.scss").flatMap((file) =>
+            readFileSync(file, "utf8")
+                .split("\n")
+                .filter((line) => /opacity:\s*0\.5/.test(line))
+                .map((line) => `${relative(SRC, file)}: ${line.trim()}`),
+        );
+        expect(offenders).toEqual([]);
+    });
+});
