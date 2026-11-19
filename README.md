@@ -35,8 +35,8 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C2. Foundation: TypeScript and FSD
 - [x] C2.1 Add TypeScript (strict, `allowJs` during migration), path aliases
-- [ ] C2.2 FSD structure: `app`, `pages`, `widgets`, `features`, `entities`, `shared`, public APIs via `index.ts`
-- [ ] C2.3 Move existing components into layers and convert to `.tsx` (visual check before/after)
+- [x] C2.2 FSD structure: move existing components into `app`, `pages`, `widgets`, `entities`, `shared`, public APIs via `index` files (pixel-identical before/after)
+- [ ] C2.3 Convert components to `.tsx` with typed props (visual check before/after)
 - [ ] C2.4 SCSS Modules, shared mixins in `shared/styles`
 - [ ] C2.5 ESLint, Prettier, FSD import rules
 
