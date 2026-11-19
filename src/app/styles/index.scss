@@ -14,3 +14,21 @@ body {
     background-color: var(--color-bg);
     overflow-x: hidden;
 }
+
+// One focus style for every focusable element. :focus-visible shows it for keyboard
+// navigation only, so mouse clicks do not leave a ring.
+:focus-visible {
+    outline: var(--border-medium) solid var(--color-accent);
+    outline-offset: var(--space-2xs);
+}
+
+// Respect the system "reduce motion" setting everywhere instead of in each component.
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -4,6 +4,21 @@
     cursor: pointer;
     text-decoration: none;
     text-align: center; // <button> centers text by default, links do not
+    transition:
+        transform var(--duration-fast) var(--easing),
+        box-shadow var(--duration-fast) var(--easing),
+        filter var(--duration-fast) var(--easing),
+        border-color var(--duration-fast) var(--easing);
+
+    // Pressed state for every variant.
+    &:active:not(:disabled) {
+        transform: var(--state-press-scale);
+    }
+
+    &:disabled {
+        opacity: var(--state-disabled-opacity);
+        cursor: not-allowed;
+    }
 }
 
 // Gradient call-to-action button ("Начать", "Сохранить").
@@ -22,6 +37,11 @@
     line-height: var(--line-height-xl);
     font-weight: var(--font-weight-light);
     border: var(--color-border-dark);
+
+    &:hover:not(:disabled) {
+        box-shadow: var(--glow-accent);
+        filter: var(--state-hover-brightness);
+    }
 }
 
 // Compact size for forms, dialogs and toolbars. Default (no class) is the large hero size.
@@ -47,11 +67,11 @@
     color: var(--color-text);
     font-family: var(--font-body);
     font-size: var(--font-size-md);
-}
 
-.button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+    &:hover:not(:disabled) {
+        border-color: var(--color-accent);
+        box-shadow: var(--glow-accent);
+    }
 }
 
 // Transparent button around an icon or image (platform icons).
@@ -59,9 +79,14 @@
     background-color: transparent;
     border: transparent;
     padding: 0;
+
+    &:hover:not(:disabled) {
+        transform: var(--state-hover-scale);
+        filter: var(--glow-sm);
+    }
 }
 
-// Navigation item with an animated underline on hover.
+// Navigation item with an animated underline on hover and keyboard focus.
 .nav {
     display: inline-block;
     border: none;
@@ -85,7 +110,8 @@
         transition: transform var(--duration-fast) var(--easing);
     }
 
-    &:hover:after {
+    &:hover:after,
+    &:focus-visible:after {
         transform: scaleX(1);
     }
 }

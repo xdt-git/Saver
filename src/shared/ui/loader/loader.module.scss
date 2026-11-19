@@ -30,9 +30,3 @@
         transform: rotate(360deg);
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    .loader {
-        animation-duration: calc(var(--duration-spin) * 4);
-    }
-}
