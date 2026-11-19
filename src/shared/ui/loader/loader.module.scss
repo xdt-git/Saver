@@ -1,0 +1,38 @@
+.loader {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: var(--radius-round);
+    border: var(--border-thick) solid var(--color-skeleton);
+    border-top-color: var(--color-primary);
+    border-right-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+    animation: spin var(--duration-spin) linear infinite;
+}
+
+.sm {
+    width: var(--size-loader-sm);
+    height: var(--size-loader-sm);
+    border-width: var(--border-medium);
+}
+
+.md {
+    width: var(--size-loader-md);
+    height: var(--size-loader-md);
+}
+
+.lg {
+    width: var(--size-loader-lg);
+    height: var(--size-loader-lg);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader {
+        animation-duration: calc(var(--duration-spin) * 4);
+    }
+}

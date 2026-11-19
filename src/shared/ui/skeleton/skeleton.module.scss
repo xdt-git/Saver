@@ -1,0 +1,56 @@
+.skeleton {
+    display: block;
+    background: linear-gradient(
+        90deg,
+        var(--color-skeleton) 25%,
+        var(--color-skeleton-shine) 50%,
+        var(--color-skeleton) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer var(--duration-shimmer) var(--easing) infinite;
+}
+
+.text {
+    width: 100%;
+    height: var(--size-skeleton-line);
+    border-radius: var(--radius-sm);
+}
+
+.title {
+    width: 60%;
+    height: var(--font-size-lg);
+    border-radius: var(--radius-sm);
+}
+
+.avatar {
+    width: var(--size-skeleton-avatar);
+    height: var(--size-skeleton-avatar);
+    border-radius: var(--radius-round);
+}
+
+.image {
+    width: 100%;
+    height: var(--size-skeleton-image);
+    border-radius: var(--radius-md);
+}
+
+.button {
+    width: var(--size-button-width);
+    height: var(--size-input-height);
+    border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skeleton {
+        animation: none;
+    }
+}

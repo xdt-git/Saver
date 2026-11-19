@@ -24,6 +24,36 @@
     border: var(--color-border-dark);
 }
 
+// Compact size for forms, dialogs and toolbars. Default (no class) is the large hero size.
+.md {
+    width: auto;
+    height: var(--size-input-height);
+    padding: 0 var(--space-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-md);
+    line-height: normal;
+}
+
+// Quiet button for secondary actions (Cancel).
+.secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--size-input-height);
+    padding: 0 var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 // Transparent button around an icon or image (platform icons).
 .icon {
     background-color: transparent;
@@ -38,6 +68,7 @@
     background: none;
     background-color: transparent;
     padding: var(--space-xs);
+    color: var(--color-text);
     font-size: var(--font-size-sm);
     position: relative;
     margin-top: var(--space-3xs);
