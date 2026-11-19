@@ -1,5 +1,5 @@
 import { NavButton } from "./nav-button";
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo.webp";
 import { FaUser } from "react-icons/fa";
 import "../css/header.scss";
 

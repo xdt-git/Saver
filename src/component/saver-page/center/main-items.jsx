@@ -1,13 +1,13 @@
-import blueFilm from "../../../assets/blue_film.png";
-import blueSeries from "../../../assets/blue_series.png";
-import blueAnime from "../../../assets/blue_anime.png";
-import blueMult from "../../../assets/blue_mult.png";
-import blueGame from "../../../assets/blue_game.png";
-import pinkFilm from "../../../assets/pink_film.png";
-import pinkSeries from "../../../assets/pink_series.png";
-import pinkAnime from "../../../assets/pink_anime.png";
-import pinkMult from "../../../assets/pink_mult.png";
-import pinkGame from "../../../assets/pink_game.png";
+import blueFilm from "../../../assets/blue_film.webp";
+import blueSeries from "../../../assets/blue_series.webp";
+import blueAnime from "../../../assets/blue_anime.webp";
+import blueMult from "../../../assets/blue_mult.webp";
+import blueGame from "../../../assets/blue_game.webp";
+import pinkFilm from "../../../assets/pink_film.webp";
+import pinkSeries from "../../../assets/pink_series.webp";
+import pinkAnime from "../../../assets/pink_anime.webp";
+import pinkMult from "../../../assets/pink_mult.webp";
+import pinkGame from "../../../assets/pink_game.webp";
 import Card from "./card";
 import "../../global/global.scss";
 
