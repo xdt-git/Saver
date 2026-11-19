@@ -1,7 +1,10 @@
 // Design tokens: the single source of colors, typography, spacing, sizes and motion.
-// Components use these variables instead of raw values. Themes (C4.2) override the color tokens.
+// Components use these variables instead of raw values.
+// Themes: the values below are the dark (neon) theme; [data-theme="light"] at the end overrides colors only.
 
 :root {
+    color-scheme: dark;
+
     // Colors
     --color-bg: #000000;
     --color-surface: #0a0a0a;
@@ -12,6 +15,7 @@
     --color-text-soft: #f0f8ff; // aliceblue
     --color-text-muted: #d9d9d9;
     --color-text-faint: #8a8aa3;
+    --color-on-primary: #d9d9d9; // text on the primary gradient, same in both themes
     --color-primary: #2b5fcf;
     --color-accent: #a62ad0;
     --color-error: #ff4d6d;
@@ -97,4 +101,24 @@
     --duration-spin: 0.9s;
     --duration-shimmer: 1.4s;
     --easing: ease;
+}
+
+// Light theme: overrides colors and glow only; sizes, spacing and motion are shared.
+// First version of the palette; polished in C11.3.
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    --color-bg: #f4f3fa;
+    --color-surface: #ffffff;
+    --color-surface-raised: #ffffff;
+    --color-border-dark: #d6d4e6;
+    --color-border: #c4c1dc;
+    --color-text: #16151f;
+    --color-text-soft: #1f1d2b;
+    --color-text-muted: #4a4860;
+    --color-text-faint: #6f6c88;
+    --color-overlay: rgba(22, 21, 31, 0.45);
+    --color-skeleton: #e6e4f2;
+    --color-skeleton-shine: #f3f2fa;
+    --glow-color: rgba(166, 42, 208, 0.35);
 }
