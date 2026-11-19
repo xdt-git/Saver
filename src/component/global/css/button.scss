@@ -19,15 +19,15 @@
     border: transparent;
     padding: 0;
     #telegram_shadow::before {
-        background-image: url('../../assets/telegram.png');
+        background-image: url('../../assets/telegram.webp');
     }
     #mobile_shadow::before {
-        background-image: url('../../assets/mobile.png');
+        background-image: url('../../assets/mobile.webp');
     }
     #desktop_shadow::before {
-        background-image: url('../../assets/desktop.png');
+        background-image: url('../../assets/desktop.webp');
     }
     #web_shadow::before {
-        background-image: url('../../assets/web.png');
+        background-image: url('../../assets/web.webp');
     }
 }

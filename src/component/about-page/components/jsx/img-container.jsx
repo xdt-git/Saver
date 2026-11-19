@@ -1,5 +1,5 @@
-import allWeb from "../../../../assets/all_web.png";
-import allPhone from "../../../../assets/all_mobile.png";
+import allWeb from "../../../../assets/all_web.webp";
+import allPhone from "../../../../assets/all_mobile.webp";
 
 export const ImgCase = () => {
     const img = [

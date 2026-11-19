@@ -30,7 +30,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 - [x] C1.1 Fix routes: "Start" button target, "Random content" link, catch-all 404 route
 - [x] C1.2 Fix `Card` (propTypes declared before the component) and category images (wrong pink imports)
 - [x] C1.3 Remove leftovers: `console.log`, commented-out code, empty files (footer About text kept for C5.2)
-- [ ] C1.4 Convert images to WebP, remove unused ones
+- [x] C1.4 Convert images to WebP (53.2 MB -> 2.1 MB); unused images kept as style references
 - [ ] C1.5 Project metadata: `package.json` name, README
 
 ### C2. Foundation: TypeScript and FSD

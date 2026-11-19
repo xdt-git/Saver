@@ -1,7 +1,7 @@
-import telegramImg from "../../../../assets/telegram.png";
-import mobileImg from "../../../../assets/mobile.png";
-import desktopImg from "../../../../assets/desktop.png";
-import webImg from "../../../../assets/web.png";
+import telegramImg from "../../../../assets/telegram.webp";
+import mobileImg from "../../../../assets/mobile.webp";
+import desktopImg from "../../../../assets/desktop.webp";
+import webImg from "../../../../assets/web.webp";
 import "../../../global/global.scss";
 import "../../../global/css/button.scss";
 import "../css/left.scss";

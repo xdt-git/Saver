@@ -1,4 +1,4 @@
-import subtitle from "../../assets/subtitle.jpg";
+import subtitle from "../../assets/subtitle.webp";
 import "./saver.scss";
 
 const Subtitle = () => {
