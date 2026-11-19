@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { cn } from "@/shared/lib";
 import styles from "./button.module.scss";
 
-export type ButtonVariant = "primary" | "icon" | "nav";
+export type ButtonVariant = "primary" | "secondary" | "icon" | "nav";
+export type ButtonSize = "md" | "lg";
 
 interface BaseProps {
     /** Visual style of the button. */
     variant?: ButtonVariant;
+    /** Size of the primary button: "lg" is the hero size, "md" fits forms and dialogs. */
+    size?: ButtonSize;
     className?: string;
     children: ReactNode;
 }
@@ -30,11 +33,16 @@ export type ButtonProps = NativeButtonProps | LinkButtonProps;
  * (instead of nesting a <button> inside a link, which is invalid HTML).
  */
 export const Button = (props: ButtonProps) => {
-    const { variant = "primary", className, children } = props;
-    const classes = cn(styles.button, styles[variant], className);
+    const { variant = "primary", size = "lg", className, children } = props;
+    const classes = cn(
+        styles.button,
+        styles[variant],
+        variant === "primary" && size === "md" && styles.md,
+        className,
+    );
 
     if (props.to !== undefined) {
-        const { to, variant: _v, className: _c, children: _ch, ...linkProps } = props;
+        const { to, variant: _v, size: _s, className: _c, children: _ch, ...linkProps } = props;
         return (
             <Link to={to} className={classes} {...linkProps}>
                 {children}
@@ -45,6 +53,7 @@ export const Button = (props: ButtonProps) => {
     const {
         to: _to,
         variant: _v,
+        size: _s,
         className: _c,
         children: _ch,
         type = "button",

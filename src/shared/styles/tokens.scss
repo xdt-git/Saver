@@ -5,32 +5,47 @@
     // Colors
     --color-bg: #000000;
     --color-surface: #0a0a0a;
+    --color-surface-raised: #14141c;
     --color-border-dark: #101010;
+    --color-border: #3a3a52;
     --color-text: #ffffff;
     --color-text-soft: #f0f8ff; // aliceblue
     --color-text-muted: #d9d9d9;
+    --color-text-faint: #8a8aa3;
     --color-primary: #2b5fcf;
     --color-accent: #a62ad0;
+    --color-error: #ff4d6d;
+    --color-success: #2ecc71;
+    --color-warning: #f5a623;
+    --color-overlay: rgba(0, 0, 0, 0.75);
+    --color-skeleton: #1c1c28;
+    --color-skeleton-shine: #2a2a3c;
 
     // Effects
     --gradient-primary: linear-gradient(var(--color-primary), var(--color-accent));
     --glow-color: #ffffff;
     --glow-sm: drop-shadow(0 0 0.5rem var(--glow-color));
     --glow-md: drop-shadow(0 0 0.75rem var(--glow-color));
+    --glow-accent: 0 0 0.75rem var(--color-accent);
+    --focus-ring: 0 0 0 var(--border-medium) var(--color-accent), var(--glow-accent);
     --blur-banner: blur(5px);
 
     // Typography
     --font-display: "Montserrat", sans-serif;
     --font-body: Arial, sans-serif;
     --font-weight-light: 300;
+    --font-weight-medium: 500;
     --font-weight-bold: bold;
+    --font-size-xs: 13px;
     --font-size-sm: 16px;
+    --font-size-md: 20px;
     --font-size-lg: 25px;
     --font-size-xl: 32px;
     --line-height-xl: 49px;
 
     // Spacing
     --space-3xs: 1px;
+    --space-2xs: 5px;
     --space-xs: 10px;
     --space-sm: 20px;
     --space-md: 30px;
@@ -38,24 +53,41 @@
     --space-xl: 100px;
 
     // Radii and borders
+    --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 30px;
+    --radius-round: 50%;
     --border-thin: 1px;
     --border-medium: 2px;
+    --border-thick: 4px;
 
     // Component sizes
     --size-header-height: 100px;
     --size-button-width: 285px;
     --size-button-height: 80px;
+    --size-input-height: 48px;
+    --size-field-width: 360px;
     --size-icon-lg: 48px;
     --size-platform-icon: 128px;
     --size-popup-width: 200px;
     --size-banner-height: 250px;
     --size-preview-width: 1000px;
     --size-card-image: 480px;
+    --size-modal-width: 520px;
+    --size-loader-sm: 20px;
+    --size-loader-md: 40px;
+    --size-loader-lg: 64px;
+    --size-skeleton-line: 16px;
+    --size-skeleton-avatar: 64px;
+    --size-skeleton-image: 200px;
+
+    // Layers
+    --z-modal: 1000;
 
     // Motion
     --duration-fast: 0.3s;
     --duration-slow: 0.55s;
+    --duration-spin: 0.9s;
+    --duration-shimmer: 1.4s;
     --easing: ease;
 }
