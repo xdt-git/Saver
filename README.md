@@ -27,7 +27,7 @@ npm run dev
 Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundation: new screens follow its style.
 
 ### C1. Stabilization (no visual changes)
-- [ ] C1.1 Fix routes: "Start" button target, "Random content" link, catch-all 404 route
+- [x] C1.1 Fix routes: "Start" button target, "Random content" link, catch-all 404 route
 - [x] C1.2 Fix `Card` (propTypes declared before the component) and category images (wrong pink imports)
 - [ ] C1.3 Remove leftovers: `console.log`, commented-out code, empty files
 - [ ] C1.4 Convert images to WebP, remove unused ones
