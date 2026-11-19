@@ -4,10 +4,10 @@ import blueAnime from "../../../assets/blue_anime.png";
 import blueMult from "../../../assets/blue_mult.png";
 import blueGame from "../../../assets/blue_game.png";
 import pinkFilm from "../../../assets/pink_film.png";
-import pinkSeries from "../../../assets/pink_film.png";
-import pinkAnime from "../../../assets/pink_film.png";
-import pinkMult from "../../../assets/pink_film.png";
-import pinkGame from "../../../assets/pink_film.png";
+import pinkSeries from "../../../assets/pink_series.png";
+import pinkAnime from "../../../assets/pink_anime.png";
+import pinkMult from "../../../assets/pink_mult.png";
+import pinkGame from "../../../assets/pink_game.png";
 import Card from "./card";
 import "../../global/global.scss";
 
@@ -25,7 +25,7 @@ const MainItems = () => {
         },
         Series: {
             imgBlue: blueSeries,
-            imgPink: pinkAnime,
+            imgPink: pinkSeries,
             altBlue: "Blue Img for Series",
             altPink: "Pink Img for Series",
             description:
@@ -33,7 +33,7 @@ const MainItems = () => {
         },
         Anime: {
             imgBlue: blueAnime,
-            imgPink: pinkSeries,
+            imgPink: pinkAnime,
             altBlue: "Blue Img for Anime",
             altPink: "Pink Img for Anime",
             description:
