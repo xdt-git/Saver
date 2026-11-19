@@ -93,6 +93,8 @@ export default tseslint.config(
             ...reactRules,
             // TypeScript checks prop types, so runtime PropTypes are not needed in .tsx files.
             "react/prop-types": "off",
+            // Allows dropping props with rest destructuring: const { variant, ...rest } = props.
+            "@typescript-eslint/no-unused-vars": ["error", { ignoreRestSiblings: true }],
         },
     },
     ...fsdConfigs,

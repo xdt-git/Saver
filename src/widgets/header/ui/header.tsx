@@ -1,7 +1,7 @@
-import { NavButton } from "./nav-button";
-import logo from "@/shared/assets/logo.webp";
-import { utilities } from "@/shared/styles";
 import { FaUser } from "react-icons/fa";
+import logo from "@/shared/assets/logo.webp";
+import { Button } from "@/shared/ui/button";
+import { Text, glowClassName } from "@/shared/ui/text";
 import styles from "./header.module.scss";
 
 const navItems = [
@@ -18,12 +18,14 @@ export const Header = () => {
             </div>
             <nav className={styles.nav}>
                 {navItems.map((item) => (
-                    <NavButton key={item.to} label={item.label} move={item.to} />
+                    <Button key={item.to} to={item.to} variant="nav" className={glowClassName}>
+                        {item.label}
+                    </Button>
                 ))}
             </nav>
-            <div className={utilities.glowText}>
+            <Text as="div" glow>
                 <FaUser className={styles.profileIcon} />
-            </div>
+            </Text>
         </header>
     );
 };

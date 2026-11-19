@@ -1,1 +1,2 @@
-export { default as buttonStyles } from "./button.module.scss";
+export { Button } from "./button";
+export type { ButtonProps, ButtonVariant } from "./button";

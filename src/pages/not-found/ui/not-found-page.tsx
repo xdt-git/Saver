@@ -1,10 +1,12 @@
-import { utilities } from "@/shared/styles";
+import { Text } from "@/shared/ui/text";
 import styles from "./not-found-page.module.scss";
 
 export const NotFoundPage = () => {
     return (
         <main className={styles.main}>
-            <h1 className={utilities.glowText}>Not Found Page</h1>
+            <Text as="h1" glow>
+                Not Found Page
+            </Text>
         </main>
     );
 };
