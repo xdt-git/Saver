@@ -1,27 +1,6 @@
 import styles from "./footer.module.scss";
 
+// Footer content (About and Our products texts) is in translations under "about"; popups come in C5.2.
 export const Footer = () => {
-    return (
-        <div className={styles.aboutContainer}>
-            {/* <div>
-                <span className="glow-text">О проекте</span>
-                <div className="glow-text">
-                    UniversalSaver - проект, который изначально подразумевался
-                    как учебная практика, однако с течением времени перерос в
-                    полноценную идею. Здесь вы можете сохранить просмотренные,
-                    запланированные вами фильмы, сериалы и т.д.
-                </div>
-            </div>
-            <div>
-                <span className="glow-text up_text sliding_text2">
-                    Наши продукты
-                </span>
-                <div className="glow-text my_products">
-                    В число наших продуктов входят: Телеграм Бот, Веб-сайт,
-                    Мобильное приложение, а также Десктопное приложение на ПК.
-                    Оценить их дизайн вы можете на кнопочках снизу.
-                </div>
-            </div> */}
-        </div>
-    );
+    return <div className={styles.aboutContainer} />;
 };

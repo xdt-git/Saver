@@ -5,7 +5,7 @@ import { Header } from "./header";
 describe("Header", () => {
     it("shows the logo", () => {
         renderWithRouter(<Header />);
-        expect(screen.getByAltText("Company Logo")).toBeInTheDocument();
+        expect(screen.getByAltText("Логотип Universal Saver")).toBeInTheDocument();
     });
 
     it("has three navigation links with correct targets", () => {
@@ -18,5 +18,10 @@ describe("Header", () => {
             "Случайный контент",
             "Основная страница",
         ]);
+    });
+
+    it("has the language switcher", () => {
+        renderWithRouter(<Header />);
+        expect(screen.getByRole("group", { name: "Язык интерфейса" })).toBeInTheDocument();
     });
 });

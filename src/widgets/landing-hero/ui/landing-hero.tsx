@@ -1,6 +1,7 @@
-import telegramImg from "@/shared/assets/telegram.webp";
-import mobileImg from "@/shared/assets/mobile.webp";
+import { useTranslation } from "react-i18next";
 import desktopImg from "@/shared/assets/desktop.webp";
+import mobileImg from "@/shared/assets/mobile.webp";
+import telegramImg from "@/shared/assets/telegram.webp";
 import webImg from "@/shared/assets/web.webp";
 import { Button } from "@/shared/ui/button";
 import { Text } from "@/shared/ui/text";
@@ -11,23 +12,29 @@ const platforms = [
     { id: "mobile", img: mobileImg },
     { id: "desktop", img: desktopImg },
     { id: "web", img: webImg },
-];
+] as const;
 
 export const LandingHero = () => {
+    const { t } = useTranslation();
+
     return (
         <div className={styles.leftContainer}>
             <Text as="h1" glow>
-                Universal Saver - <br />
-                Сохрани воспоминания
+                {t("landing.titleFirstLine")} <br />
+                {t("landing.titleSecondLine")}
             </Text>
-            <Text glow>Сохрани все, что тебе хочется у нас</Text>
+            <Text glow>{t("landing.subtitle")}</Text>
             <Button to="/Save" className={styles.btnMargin}>
-                Начать
+                {t("landing.start")}
             </Button>
             <div className={styles.imgLinks}>
                 {platforms.map((platform) => (
                     <Button key={platform.id} variant="icon">
-                        <img src={platform.img} className={styles.picturesSize} alt={platform.id} />
+                        <img
+                            src={platform.img}
+                            className={styles.picturesSize}
+                            alt={t(`landing.platforms.${platform.id}`)}
+                        />
                     </Button>
                 ))}
             </div>

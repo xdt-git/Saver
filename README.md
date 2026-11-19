@@ -62,7 +62,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C4. Global providers
 
--   [ ] C4.1 i18n (RU / EN), language detection, all texts moved out of JSX
+-   [x] C4.1 i18n (RU / EN) with typed keys, browser language detection with English fallback, saved choice, all texts moved out of JSX, RU / EN switcher in the header (`features/switch-language`)
 -   [ ] C4.2 ThemeProvider: System / Dark / Light, no flash on load
 -   [ ] C4.3 API client: base URL from env, unified response format, error handling, token refresh
 -   [ ] C4.4 Request caching with TanStack Query

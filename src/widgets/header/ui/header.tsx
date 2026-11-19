@@ -1,31 +1,38 @@
+import { useTranslation } from "react-i18next";
 import { FaUser } from "react-icons/fa";
+import { LanguageSwitcher } from "@/features/switch-language";
 import logo from "@/shared/assets/logo.webp";
 import { Button } from "@/shared/ui/button";
 import { Text, glowClassName } from "@/shared/ui/text";
 import styles from "./header.module.scss";
 
 const navItems = [
-    { label: "Начальная страница", to: "/" },
-    { label: "Случайный контент", to: "/discover" },
-    { label: "Основная страница", to: "/Save" },
-];
+    { labelKey: "nav.home", to: "/" },
+    { labelKey: "nav.random", to: "/discover" },
+    { labelKey: "nav.library", to: "/Save" },
+] as const;
 
 export const Header = () => {
+    const { t } = useTranslation();
+
     return (
         <header className={styles.header}>
             <div>
-                <img alt="Company Logo" src={logo} />
+                <img alt={t("header.logoAlt")} src={logo} />
             </div>
             <nav className={styles.nav}>
                 {navItems.map((item) => (
                     <Button key={item.to} to={item.to} variant="nav" className={glowClassName}>
-                        {item.label}
+                        {t(item.labelKey)}
                     </Button>
                 ))}
             </nav>
-            <Text as="div" glow>
-                <FaUser className={styles.profileIcon} />
-            </Text>
+            <div className={styles.actions}>
+                <LanguageSwitcher />
+                <Text as="div" glow aria-label={t("header.profile")}>
+                    <FaUser className={styles.profileIcon} />
+                </Text>
+            </div>
         </header>
     );
 };

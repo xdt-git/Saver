@@ -1,0 +1,13 @@
+.switcher {
+    display: flex;
+    gap: var(--space-2xs);
+}
+
+// The active language keeps the nav underline visible.
+.switcher .active::after {
+    transform: scaleX(1);
+}
+
+.inactive {
+    color: var(--color-text-faint);
+}
