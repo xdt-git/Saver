@@ -1,0 +1,34 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+}
+
+.image {
+    width: var(--size-card-image);
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+@media (max-width: bp.$md) {
+    .card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .image {
+        width: 100%;
+    }
+}

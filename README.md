@@ -56,7 +56,8 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 ### C3. Design system (based on the current style)
 
 -   [x] C3.1 Design tokens as CSS variables: colors, neon glow, gradients, spacing, radii, shadows, fonts
--   [ ] C3.2 UI kit in `shared/ui`: Button variants, Input, Select, Modal, Card, Loader, Skeleton, EmptyState, ErrorState
+-   [x] C3.2 UI kit, part 1: `Button` (primary, icon, nav; renders a link when `to` is set), `Text` (any tag, `glow`), category card layout fix
+-   [ ] C3.2b UI kit, part 2: Input, Select, Modal, Loader, Skeleton, EmptyState, ErrorState
 -   [ ] C3.3 Interaction states: hover, focus, disabled, animations
 
 ### C4. Global providers
