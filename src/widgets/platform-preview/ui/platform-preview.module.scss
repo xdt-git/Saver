@@ -8,12 +8,13 @@
     justify-content: center;
 }
 
+// Every platform screenshot gets the same frame (wide or square), so they look alike
+// and grow together with the screen.
 .preview {
     display: block;
     width: 100%;
     max-width: var(--size-preview-width);
-    height: auto;
-    max-height: var(--size-preview-max-height);
+    aspect-ratio: var(--ratio-preview);
     object-fit: contain;
 }
 
@@ -23,8 +24,9 @@
         width: 100%;
     }
 
-    // On phones the picture uses the full width; the laptop height cap would make it tiny.
+    // On phones the picture keeps its own shape at full width.
     .preview {
-        max-height: none;
+        aspect-ratio: auto;
+        height: auto;
     }
 }

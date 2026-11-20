@@ -25,20 +25,22 @@ const PageLoader = () => (
 
 export const Layout = () => {
     return (
-        <>
+        <div className={styles.app}>
             <Header />
 
-            <Suspense fallback={<PageLoader />}>
-                <Routes>
-                    <Route path={ROUTES.home} element={<LandingPage />} />
-                    <Route path={ROUTES.library} element={<LibraryPage />} />
-                    {UiKitPage && <Route path={ROUTES.uiKit} element={<UiKitPage />} />}
-                    <Route path="*" element={<NotFoundPage />} />
-                </Routes>
-            </Suspense>
+            <div className={styles.page}>
+                <Suspense fallback={<PageLoader />}>
+                    <Routes>
+                        <Route path={ROUTES.home} element={<LandingPage />} />
+                        <Route path={ROUTES.library} element={<LibraryPage />} />
+                        {UiKitPage && <Route path={ROUTES.uiKit} element={<UiKitPage />} />}
+                        <Route path="*" element={<NotFoundPage />} />
+                    </Routes>
+                </Suspense>
+            </div>
 
             <Footer />
             <SettingsDock />
-        </>
+        </div>
     );
 };
