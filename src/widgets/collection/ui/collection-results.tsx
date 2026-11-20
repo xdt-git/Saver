@@ -16,7 +16,7 @@ import { ROUTES } from "@/shared/config/routes";
 import { formatDate } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
-import { CardGrid, ListingResults } from "@/shared/ui/listing";
+import { ListingResults, ListingSkeleton } from "@/shared/ui/listing";
 import { Pagination } from "@/shared/ui/pagination";
 import {
     COLLECTION_PAGE_SIZE,
@@ -71,11 +71,11 @@ export const CollectionResults = ({ filters, onPageChange }: CollectionResultsPr
 
     if (isPending) {
         return (
-            <CardGrid busy>
+            <ListingSkeleton>
                 {Array.from({ length: COLLECTION_PAGE_SIZE / 2 }, (_, index) => (
                     <ContentCardSkeleton key={index} />
                 ))}
-            </CardGrid>
+            </ListingSkeleton>
         );
     }
     if (isError) {

@@ -50,7 +50,7 @@ export const ContentDetailsPage = () => {
         <ContentPage>
             {back}
             <article className={styles.details}>
-                <ContentPoster item={item} className={styles.poster} />
+                <ContentPoster item={item} size="details" className={styles.poster} />
                 <div className={styles.info}>
                     <Text as="h1" glow className={styles.title}>
                         {item.title}

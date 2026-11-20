@@ -137,6 +137,7 @@
     --size-text-measure: 40ch; // comfortable line length for descriptions
     --size-text-measure-wide: 70ch; // long texts on the details page
     --size-content-max: 1280px; // centered content column
+    --size-page-min-height: 100dvh; // page area under the header (keeps the footer off-screen)
     --space-cards-gap: clamp(48px, 6vw, 96px);
     --size-modal-width: 520px;
     --size-toast-width: 400px;
