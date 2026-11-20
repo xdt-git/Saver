@@ -26,7 +26,16 @@ export const Avatar = ({ name, src, size = "sm", className }: AvatarProps) => {
     const classes = cn(styles.avatar, styles[size], className);
 
     if (src && !broken) {
-        return <img src={src} alt="" className={classes} onError={() => setBroken(true)} />;
+        return (
+            <img
+                src={src}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className={classes}
+                onError={() => setBroken(true)}
+            />
+        );
     }
     return (
         <span className={cn(classes, styles.initials)} aria-hidden="true">

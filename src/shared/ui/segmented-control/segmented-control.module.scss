@@ -1,5 +1,7 @@
+// Options wrap onto the next line on narrow screens instead of sticking out.
 .control {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-2xs);
 }
 

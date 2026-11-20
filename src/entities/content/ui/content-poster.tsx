@@ -15,6 +15,7 @@ export const ContentPoster = ({ item, className }: ContentPosterProps) =>
             src={item.posterUrl}
             alt={item.title}
             loading="lazy"
+            decoding="async"
             className={cn(styles.poster, className)}
         />
     ) : (

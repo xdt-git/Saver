@@ -11,9 +11,16 @@ interface CategoryCardProps {
     reversed?: boolean;
     /** Where the "Save" button leads (the user's library for this category). */
     to: string;
+    /** Load the picture at once (the first card is on screen); the rest load when scrolled to. */
+    eager?: boolean;
 }
 
-export const CategoryCard = ({ category, reversed = false, to }: CategoryCardProps) => {
+export const CategoryCard = ({
+    category,
+    reversed = false,
+    to,
+    eager = false,
+}: CategoryCardProps) => {
     const { t } = useTranslation();
 
     return (
@@ -21,6 +28,8 @@ export const CategoryCard = ({ category, reversed = false, to }: CategoryCardPro
             <img
                 alt={t(`categories.${category.id}.alt`)}
                 src={category.imgBlue}
+                loading={eager ? "eager" : "lazy"}
+                decoding="async"
                 className={styles.image}
             />
             <div className={styles.content}>
