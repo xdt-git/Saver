@@ -60,7 +60,14 @@
         "productsText": "В число наших продуктов входят Telegram-бот, веб-сайт, мобильное приложение и приложение для ПК. Оценить их дизайн можно на кнопках ниже."
     },
     "library": {
-        "bannerAlt": "Баннер библиотеки"
+        "bannerAlt": "Баннер библиотеки",
+        "status": {
+            "planned": "В планах",
+            "watching": "Смотрю",
+            "completed": "Просмотрено"
+        },
+        "statusLabel": "Статус «{{title}}»",
+        "statusSaved": "Статус: {{status}}"
     },
     "categories": {
         "film": {
@@ -192,5 +199,87 @@
         },
         "signedOut": "Вы вышли из аккаунта.",
         "sessionExpired": "Сессия истекла. Войдите снова."
+    },
+    "contentTypes": {
+        "film": "Фильм",
+        "series": "Сериал",
+        "anime": "Аниме",
+        "cartoon": "Мультфильм",
+        "game": "Игра",
+        "other": "Другое"
+    },
+    "genres": {
+        "action": "Боевик",
+        "adventure": "Приключения",
+        "animation": "Анимация",
+        "comedy": "Комедия",
+        "crime": "Криминал",
+        "documentary": "Документальный",
+        "drama": "Драма",
+        "family": "Семейный",
+        "fantasy": "Фэнтези",
+        "history": "История",
+        "horror": "Ужасы",
+        "music": "Музыка",
+        "mystery": "Детектив",
+        "romance": "Мелодрама",
+        "sci-fi": "Фантастика",
+        "thriller": "Триллер",
+        "war": "Военный",
+        "western": "Вестерн"
+    },
+    "content": {
+        "genres": "Жанры",
+        "minutes": "{{value}} мин",
+        "episodes": "{{episodes}} эп. × {{minutes}} мин",
+        "noRatings": "Пока без оценок",
+        "ratingValue": "★ {{average}} · оценок: {{votes}}",
+        "originalTitle": "Оригинальное название",
+        "description": "Описание",
+        "back": "Назад к каталогу",
+        "notFound": "Такого контента нет",
+        "notFoundText": "Возможно, его удалили или ссылка неверна.",
+        "yourActions": "Ваш статус и оценка"
+    },
+    "rating": {
+        "label": "Оценка «{{title}}»",
+        "none": "Оценка",
+        "saved": "Оценка {{value}} сохранена",
+        "removed": "Оценка удалена"
+    },
+    "discover": {
+        "title": "Каталог",
+        "categories": "Категории",
+        "all": "Всё",
+        "search": "Поиск по названию",
+        "searchPlaceholder": "Например, Дюна",
+        "genre": "Жанр",
+        "anyGenre": "Любой жанр",
+        "yearFrom": "Год от",
+        "yearTo": "Год до",
+        "minRating": "Рейтинг от",
+        "anyRating": "Любой",
+        "sort": "Сортировка",
+        "sorts": {
+            "newest": "Сначала новые",
+            "title": "По названию",
+            "year": "По году выхода",
+            "rating": "По рейтингу"
+        },
+        "reset": "Сбросить фильтры",
+        "random": "Случайный выбор",
+        "another": "Другой вариант",
+        "randomTitle": "Случайный выбор",
+        "found": "Найдено: {{total}}",
+        "emptyTitle": "Ничего не нашлось",
+        "emptyText": "Измените фильтры или поищите по-другому.",
+        "randomEmpty": "Под эти фильтры ничего не подходит.",
+        "loadError": "Не удалось загрузить каталог"
+    },
+    "pagination": {
+        "label": "Страницы",
+        "prev": "Назад",
+        "next": "Вперёд",
+        "page": "Страница {{page}} из {{pages}}"
     }
 }

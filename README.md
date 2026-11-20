@@ -97,13 +97,13 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C8. Discover / Random
 
--   [ ] C8.1 Categories: all, films, series, anime, cartoons, games
--   [ ] C8.2 Search with debounce
--   [ ] C8.3 Combined filters: genre, year, rating, type
--   [ ] C8.4 Random pick that respects filters, "another one" action
--   [ ] C8.5 Result card with actions: Planned / Watching / Completed, rate, details
--   [ ] C8.6 Content details page
--   [ ] C8.7 Pagination, skeletons, empty and error states
+-   [x] C8.1 Catalog page `/discover`: category tabs (all, films, series, anime, cartoons, games); filters live in the URL (shareable, back button works)
+-   [x] C8.2 Title search with debounce (`useDebouncedValue`, 400 ms)
+-   [x] C8.3 Combined filters: type, genre (translated, from `/genres`), year range, minimum rating, sorting; reset keeps the sorting
+-   [x] C8.4 Random pick dialog that respects the filters, "another one" action, clear message when nothing matches
+-   [x] C8.5 Content card: poster or placeholder, type, year, real duration, genres, rating; Planned / Watching / Completed (adds to the library or changes the status in place) and a 1–10 rating; guests are sent to sign in and come back; the API returns the viewer's own status and rating with each item
+-   [x] C8.6 Content details page `/content/:id` with the same actions, not-found state
+-   [x] C8.7 Pagination (`shared/ui/pagination`), card skeletons, empty and error states with retry. Checked in the browser against the API with in-memory data, also at 375 px
 
 ### C9. Library
 

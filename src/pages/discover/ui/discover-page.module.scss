@@ -1,0 +1,23 @@
+// Centered column like the library page.
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: var(--size-content-max);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: var(--space-md) var(--space-sm) var(--space-lg);
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.title {
+    margin: 0;
+}

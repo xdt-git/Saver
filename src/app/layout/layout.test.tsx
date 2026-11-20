@@ -30,12 +30,15 @@ describe("App routing", () => {
         expect(await screen.findAllByRole("button", { name: "Сохранить" })).toHaveLength(5);
     });
 
-    it.each([ROUTES.discover, "/some/unknown/path"])("shows the 404 page at %s", async (path) => {
-        renderWithProviders(<Layout />, path, asGuest);
-        expect(
-            await screen.findByRole("heading", { name: "Страница не найдена" }),
-        ).toBeInTheDocument();
-    });
+    it.each(["/some/unknown/path", "/content/1/extra"])(
+        "shows the 404 page at %s",
+        async (path) => {
+            renderWithProviders(<Layout />, path, asGuest);
+            expect(
+                await screen.findByRole("heading", { name: "Страница не найдена" }),
+            ).toBeInTheDocument();
+        },
+    );
 
     it("renders the header on every page, even while a page is loading", () => {
         renderWithProviders(<Layout />, "/some/unknown/path", asGuest);

@@ -32,6 +32,11 @@
 
     // Effects
     --gradient-primary: linear-gradient(var(--color-primary), var(--color-accent));
+    --gradient-poster-placeholder: linear-gradient(
+        160deg,
+        var(--color-surface-raised),
+        var(--color-surface)
+    ); // no poster yet
     --glow-color: #ffffff;
     --glow-sm: drop-shadow(0 0 0.5rem var(--glow-color));
     --glow-md: drop-shadow(0 0 0.75rem var(--glow-color));
@@ -102,8 +107,15 @@
     --size-banner-height: 250px;
     --size-preview-width: 1100px;
     --ratio-preview: 16 / 10; // one frame for every platform screenshot
+    --ratio-poster: 2 / 3; // movie poster frame
+    --size-card-poster: clamp(120px, 12vw, 170px); // poster width in catalog cards
+    --size-content-card-min: 420px; // narrowest catalog card before the grid wraps
+    --size-details-poster: clamp(200px, 24vw, 320px);
+    --size-filter-field: 180px; // compact fields in the filter bar
+    --size-rate-select: 110px;
     --size-card-image: clamp(260px, 30vw, 480px);
     --size-text-measure: 40ch; // comfortable line length for descriptions
+    --size-text-measure-wide: 70ch; // long texts on the details page
     --size-content-max: 1280px; // centered content column
     --space-cards-gap: clamp(48px, 6vw, 96px);
     --size-modal-width: 520px;

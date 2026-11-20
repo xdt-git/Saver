@@ -11,6 +11,8 @@ import styles from "./layout.module.scss";
 
 // Every page is its own chunk, loaded when its route opens.
 const LandingPage = lazyNamed(() => import("@/pages/landing"), "LandingPage");
+const DiscoverPage = lazyNamed(() => import("@/pages/discover"), "DiscoverPage");
+const ContentDetailsPage = lazyNamed(() => import("@/pages/content-details"), "ContentDetailsPage");
 const LibraryPage = lazyNamed(() => import("@/pages/library"), "LibraryPage");
 const LoginPage = lazyNamed(() => import("@/pages/login"), "LoginPage");
 const RegisterPage = lazyNamed(() => import("@/pages/register"), "RegisterPage");
@@ -29,6 +31,8 @@ export const Layout = () => {
                 <Suspense fallback={<PageLoader />}>
                     <Routes>
                         <Route path={ROUTES.home} element={<LandingPage />} />
+                        <Route path={ROUTES.discover} element={<DiscoverPage />} />
+                        <Route path={ROUTES.contentDetails} element={<ContentDetailsPage />} />
                         <Route element={<ProtectedRoutes />}>
                             <Route path={ROUTES.library} element={<LibraryPage />} />
                         </Route>
