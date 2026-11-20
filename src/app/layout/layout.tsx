@@ -15,6 +15,8 @@ const DiscoverPage = lazyNamed(() => import("@/pages/discover"), "DiscoverPage")
 const ContentDetailsPage = lazyNamed(() => import("@/pages/content-details"), "ContentDetailsPage");
 const LibraryPage = lazyNamed(() => import("@/pages/library"), "LibraryPage");
 const CollectionPage = lazyNamed(() => import("@/pages/collection"), "CollectionPage");
+const ProfilePage = lazyNamed(() => import("@/pages/profile"), "ProfilePage");
+const FeedPage = lazyNamed(() => import("@/pages/feed"), "FeedPage");
 const LoginPage = lazyNamed(() => import("@/pages/login"), "LoginPage");
 const RegisterPage = lazyNamed(() => import("@/pages/register"), "RegisterPage");
 const NotFoundPage = lazyNamed(() => import("@/pages/not-found"), "NotFoundPage");
@@ -34,9 +36,11 @@ export const Layout = () => {
                         <Route path={ROUTES.home} element={<LandingPage />} />
                         <Route path={ROUTES.discover} element={<DiscoverPage />} />
                         <Route path={ROUTES.contentDetails} element={<ContentDetailsPage />} />
+                        <Route path={ROUTES.profile} element={<ProfilePage />} />
                         <Route element={<ProtectedRoutes />}>
                             <Route path={ROUTES.library} element={<LibraryPage />} />
                             <Route path={ROUTES.collection} element={<CollectionPage />} />
+                            <Route path={ROUTES.feed} element={<FeedPage />} />
                         </Route>
                         <Route element={<GuestRoutes />}>
                             <Route path={ROUTES.login} element={<LoginPage />} />

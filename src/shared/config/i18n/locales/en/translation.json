@@ -23,7 +23,9 @@
         "signIn": "Sign in",
         "signOut": "Sign out",
         "profileMenu": "Profile menu of {{username}}",
-        "myLibrary": "My library"
+        "myLibrary": "My library",
+        "myProfile": "My profile",
+        "myFeed": "My feed"
     },
     "language": {
         "label": "Interface language",
@@ -342,5 +344,48 @@
             "unknownGenre": "No such genre",
             "invalid": "Check this field"
         }
+    },
+    "profile": {
+        "title": "Profile of {{name}}",
+        "follow": "Follow",
+        "unfollow": "Unfollow",
+        "followers": "followers",
+        "following": "following",
+        "connections": "Followers and following",
+        "empty": {
+            "followers": "No followers yet",
+            "following": "Not following anyone yet"
+        },
+        "joined": "Joined on {{date}}",
+        "privateBadge": "Private profile",
+        "privateTitle": "This profile is private",
+        "privateText": "Only the owner can see the activity.",
+        "activity": "Activity",
+        "noActivity": "No activity yet",
+        "notFound": "No such user",
+        "edit": "Edit profile",
+        "editTitle": "Edit profile",
+        "displayName": "Display name",
+        "displayNameHint": "Leave empty to show the username",
+        "bio": "About",
+        "avatarUrl": "Avatar link",
+        "private": "Private profile",
+        "privateHint": "Your library, statistics and activity are visible only to you",
+        "saved": "Profile saved",
+        "errors": {
+            "tooLong": "No more than {{max}} characters"
+        }
+    },
+    "activity": {
+        "added": "added to the library ({{status}})",
+        "statusChanged": "changed the status: {{from}} → {{to}}",
+        "completed": "finished watching",
+        "rated": "rated it {{value}}",
+        "more": "Show more"
+    },
+    "feed": {
+        "title": "Feed",
+        "emptyTitle": "Your feed is empty",
+        "emptyText": "Actions of the people you follow appear here. Find public profiles through other users' activity and followers."
     }
 }

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "@/entities/session";
-import { ROUTES } from "@/shared/config/routes";
+import { profilePath, ROUTES } from "@/shared/config/routes";
 import { useClickOutside, useEscapeKey } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
 import { glowClassName } from "@/shared/ui/text";
@@ -70,6 +70,24 @@ export const ProfileMenu = () => {
                 <div id={menuId} role="menu" className={styles.profileMenu}>
                     <span className={styles.profileName}>{user.displayName ?? user.username}</span>
                     <span className={styles.profileHandle}>@{user.username}</span>
+                    <Button
+                        role="menuitem"
+                        to={profilePath(user.id)}
+                        variant="nav"
+                        className={styles.profileLink}
+                        onClick={close}
+                    >
+                        {t("header.myProfile")}
+                    </Button>
+                    <Button
+                        role="menuitem"
+                        to={ROUTES.feed}
+                        variant="nav"
+                        className={styles.profileLink}
+                        onClick={close}
+                    >
+                        {t("header.myFeed")}
+                    </Button>
                     <Button
                         role="menuitem"
                         to={ROUTES.collection}
