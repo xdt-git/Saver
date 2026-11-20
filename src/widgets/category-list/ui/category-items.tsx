@@ -10,6 +10,7 @@ export const CategoryItems = () => (
                 key={category.id}
                 category={category}
                 reversed={index % 2 === 1}
+                eager={index === 0}
                 to={`${ROUTES.collection}?type=${category.id}`}
             />
         ))}

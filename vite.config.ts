@@ -16,6 +16,19 @@ export default defineConfig({
     server: {
         proxy: { "/api": "http://localhost:3000" },
     },
+    build: {
+        rollupOptions: {
+            output: {
+                // Libraries change rarely: their own chunks stay cached across releases.
+                manualChunks: {
+                    react: ["react", "react-dom", "scheduler"],
+                    router: ["react-router-dom", "react-router", "@remix-run/router"],
+                    query: ["@tanstack/react-query", "@tanstack/query-core"],
+                    i18n: ["i18next", "react-i18next", "i18next-browser-languagedetector"],
+                },
+            },
+        },
+    },
     css: {
         preprocessorOptions: {
             scss: { api: "modern-compiler" },
