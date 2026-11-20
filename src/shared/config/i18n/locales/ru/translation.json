@@ -19,7 +19,10 @@
         "mainNav": "Основная навигация",
         "mobileNav": "Мобильная навигация",
         "openMenu": "Открыть меню",
-        "closeMenu": "Закрыть меню"
+        "closeMenu": "Закрыть меню",
+        "signIn": "Войти",
+        "signOut": "Выйти",
+        "profileMenu": "Меню профиля {{username}}"
     },
     "language": {
         "label": "Язык интерфейса",
@@ -149,5 +152,45 @@
     },
     "settings": {
         "label": "Настройки"
+    },
+    "auth": {
+        "fields": {
+            "login": "Email или имя пользователя",
+            "email": "Email",
+            "username": "Имя пользователя",
+            "password": "Пароль",
+            "confirmPassword": "Повторите пароль"
+        },
+        "hints": {
+            "username": "От 3 до 32 символов: латиница, цифры и _",
+            "password": "Не меньше {{count}} символов, строчная и заглавная буквы и цифра"
+        },
+        "login": {
+            "title": "Вход",
+            "submit": "Войти",
+            "link": "Войти",
+            "noAccount": "Нет аккаунта?",
+            "invalidCredentials": "Неверный логин или пароль."
+        },
+        "register": {
+            "title": "Регистрация",
+            "submit": "Создать аккаунт",
+            "link": "Зарегистрироваться",
+            "hasAccount": "Уже есть аккаунт?"
+        },
+        "validation": {
+            "required": "Обязательное поле",
+            "email": "Некорректный email",
+            "username": "От 3 до 32 символов: латиница, цифры и _",
+            "passwordLength": "Не меньше 8 символов",
+            "passwordTooLong": "Слишком длинный пароль",
+            "passwordStrength": "Нужны строчная и заглавная буквы и цифра",
+            "passwordsMismatch": "Пароли не совпадают",
+            "emailTaken": "Этот email уже занят",
+            "usernameTaken": "Это имя уже занято",
+            "invalid": "Проверьте это поле"
+        },
+        "signedOut": "Вы вышли из аккаунта.",
+        "sessionExpired": "Сессия истекла. Войдите снова."
     }
 }

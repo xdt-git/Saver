@@ -1,2 +1,2 @@
-export { renderWithProviders } from "./render-with-providers";
+export { renderWithProviders, type RenderOptions } from "./render-with-providers";
 export { setSystemPrefersDark } from "./match-media";

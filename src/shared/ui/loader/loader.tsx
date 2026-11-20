@@ -23,3 +23,10 @@ export const Loader = ({ size = "md", label, className }: LoaderProps) => {
         />
     );
 };
+
+/** Large spinner centered in the page area (lazy pages, session check). */
+export const PageLoader = () => (
+    <div className={styles.page}>
+        <Loader size="lg" />
+    </div>
+);

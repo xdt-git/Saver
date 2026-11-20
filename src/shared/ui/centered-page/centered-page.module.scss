@@ -1,0 +1,12 @@
+// Fills the space between header and footer; the content is centered in it.
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-md) var(--space-sm);
+    overflow-x: hidden;
+}

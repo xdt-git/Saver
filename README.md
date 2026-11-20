@@ -16,6 +16,8 @@ npm install
 npm run dev
 ```
 
+The API (**saver-api**) runs on `http://localhost:3000`; in development Vite proxies `/api` to it, so auth cookies work without CORS and no `.env.local` is needed. Set `VITE_API_URL` only to use another API address.
+
 Scripts: `npm run build` (type check + build), `npm test`, `npm run check` (types, lint, formatting, tests), `npm run format`.
 
 Every stage ships with tests; `npm run check` must pass before a task branch is merged.
@@ -88,10 +90,10 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C7. Authentication
 
--   [ ] C7.1 Registration page with field-level validation
--   [ ] C7.2 Login page (email or username)
--   [ ] C7.3 AuthProvider: current user, logout, expired session handling
--   [ ] C7.4 Protected routes
+-   [x] C7.1 Registration page (`/register`) with field-level validation, the same rules as the API (email, username 3–32 latin letters / digits / \_, password 8+ with lower, upper and digit, up to 72 bytes, confirmation); taken email / username from the API shown next to their fields
+-   [x] C7.2 Login page (`/login`, email or username); one message for wrong credentials, too many attempts explained; links between login and register keep the page to return to
+-   [x] C7.3 `AuthProvider` (`entities/session`): current user from `/auth/me` (renews an expired access token once), sign in stores the returned user, sign out ends the server session and drops cached private data, expired session turns the user into a guest with a notice; header profile icon links guests to login and opens a menu with the name and Sign out
+-   [x] C7.4 Protected routes: the library (`/Save`) for signed-in users, login and register for guests; guards wait for the session check, guests return to the requested page after signing in. Checked end to end in the browser against the API (in-memory repositories)
 
 ### C8. Discover / Random
 

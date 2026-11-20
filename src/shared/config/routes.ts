@@ -1,11 +1,13 @@
 /**
  * All app paths in one place. Components link with ROUTES.x instead of string literals.
- * Pages that do not exist yet (login, register, profile) are added together with their pages.
+ * Pages that do not exist yet (profile) are added together with their pages.
  */
 export const ROUTES = {
     home: "/",
     discover: "/discover",
     library: "/Save",
+    login: "/login",
+    register: "/register",
     uiKit: "/ui-kit",
 } as const;
 
