@@ -4,9 +4,11 @@ import { useTranslation } from "react-i18next";
 import { activityKeys } from "@/entities/activity";
 import { useSession, type SessionUser } from "@/entities/session";
 import { userApi, userKeys, type PublicProfile } from "@/entities/user";
-import { isApiError } from "@/shared/api";
+import { isApiError, uploadImage } from "@/shared/api";
 import { Button } from "@/shared/ui/button";
 import { Checkbox } from "@/shared/ui/checkbox";
+import { isImageSource } from "@/shared/lib";
+import { ImageField } from "@/shared/ui/image-field";
 import { Input } from "@/shared/ui/input";
 import { Modal } from "@/shared/ui/modal";
 import { Textarea } from "@/shared/ui/textarea";
@@ -48,7 +50,7 @@ export const EditProfileButton = ({ profile }: { profile: PublicProfile }) => {
         if (v.bio.trim().length > PROFILE_LIMITS.bio) {
             found.bio = t("profile.errors.tooLong", { max: PROFILE_LIMITS.bio });
         }
-        if (v.avatarUrl.trim() && !/^https?:\/\/\S+$/i.test(v.avatarUrl.trim())) {
+        if (v.avatarUrl.trim() && !isImageSource(v.avatarUrl.trim())) {
             found.avatarUrl = t("contentForm.errors.url");
         }
         return found;
@@ -136,13 +138,15 @@ export const EditProfileButton = ({ profile }: { profile: PublicProfile }) => {
                         label={t("profile.bio")}
                         {...text("bio")}
                     />
-                    <Input
+                    <ImageField
                         fieldClassName={styles.wide}
-                        type="url"
-                        inputMode="url"
+                        shape="avatar"
                         label={t("profile.avatarUrl")}
                         hint={t("contentForm.posterHint")}
-                        {...text("avatarUrl")}
+                        value={values.avatarUrl}
+                        error={errors.avatarUrl}
+                        onChange={(avatarUrl) => setValues((v) => ({ ...v, avatarUrl }))}
+                        onUpload={(file) => uploadImage("avatar", file)}
                     />
                     <Checkbox
                         label={t("profile.private")}

@@ -1,4 +1,5 @@
 export { cn } from "./class-names";
+export { isImageSource } from "./image-source";
 export { lazyNamed } from "./lazy-named";
 export { useClickOutside } from "./use-click-outside";
 export { useEscapeKey } from "./use-escape-key";

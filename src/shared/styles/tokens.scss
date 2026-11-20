@@ -124,6 +124,8 @@
     --ratio-poster: 2 / 3; // movie poster frame
     --size-card-poster: clamp(120px, 12vw, 170px); // poster width in catalog cards
     --size-tmdb-poster: 56px; // posters in the TMDB search list
+    --size-image-field-preview: 96px; // preview next to the image field
+    --size-visually-hidden: 1px; // controls hidden from sight but kept for assistive tech
     --size-page-button: 44px; // page number buttons in the pagination
     --size-suggest-poster: 36px; // posters in the search suggestions
     --size-suggest-height: 420px; // the suggestions list scrolls past this
