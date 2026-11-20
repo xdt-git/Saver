@@ -87,16 +87,24 @@
     --size-input-height: 48px;
     --size-field-width: 360px;
     --size-icon-lg: 48px;
-    --size-platform-icon: 128px;
+    // Fluid sizes: clamp(min, share of the screen width, max).
+    --size-platform-icon: clamp(56px, 5vw, 96px);
+    --space-platform-gap: clamp(20px, 2.5vw, 40px);
+    --size-cta-width: clamp(200px, 17vw, 260px);
+    --size-cta-height: clamp(52px, 4.4vw, 68px);
+    --font-size-cta: clamp(22px, 1.9vw, 28px);
+    --size-hero-share: 45%; // landing hero width next to the preview
+    --size-landing-max: 1600px;
     --size-platform-icon-sm: 64px;
     --size-popup-width: 200px;
     --size-banner-height: 250px;
     --size-preview-width: 1000px;
-    --size-hero-width: 440px; // space the landing hero needs next to the preview
     --size-card-image: 480px;
     --size-modal-width: 520px;
     --size-toast-width: 400px;
     --size-dock-button: 48px;
+    // Room the corner buttons of the settings dock take, incl. their offset from the edge.
+    --size-dock-clearance: calc(var(--size-dock-button) + 2 * var(--space-sm));
     --size-toast-icon: 22px;
     --size-loader-sm: 20px;
     --size-loader-md: 40px;
