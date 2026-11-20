@@ -25,6 +25,10 @@
     --color-skeleton: #1c1c28;
     --color-skeleton-shine: #2a2a3c;
     --color-dock-bg: rgba(20, 20, 28, 0.55); // semi-transparent floating controls
+    --color-platform-telegram: #2aabee;
+    --color-platform-mobile: #a62ad0;
+    --color-platform-desktop: #5b7cff;
+    --color-platform-web: #3fa9ff;
 
     // Effects
     --gradient-primary: linear-gradient(var(--color-primary), var(--color-accent));
@@ -36,6 +40,10 @@
     --glow-error: 0 0 0.75rem var(--color-error);
     --glow-warning: 0 0 0.75rem var(--color-warning);
     --glow-info: 0 0 0.75rem var(--color-primary);
+    --glow-platform-telegram: drop-shadow(0 0 0.75rem var(--color-platform-telegram));
+    --glow-platform-mobile: drop-shadow(0 0 0.75rem var(--color-platform-mobile));
+    --glow-platform-desktop: drop-shadow(0 0 0.75rem var(--color-platform-desktop));
+    --glow-platform-web: drop-shadow(0 0 0.75rem var(--color-platform-web));
     --focus-ring: 0 0 0 var(--border-medium) var(--color-accent), var(--glow-accent);
     --blur-banner: blur(5px);
     --blur-dock: blur(8px);

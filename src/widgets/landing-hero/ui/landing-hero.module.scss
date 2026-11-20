@@ -21,3 +21,21 @@
     width: var(--size-platform-icon);
     height: var(--size-platform-icon);
 }
+
+// The selected platform glows in its own color and stays slightly enlarged.
+.active {
+    transform: var(--state-hover-scale);
+}
+
+.active.telegram {
+    filter: var(--glow-platform-telegram);
+}
+.active.mobile {
+    filter: var(--glow-platform-mobile);
+}
+.active.desktop {
+    filter: var(--glow-platform-desktop);
+}
+.active.web {
+    filter: var(--glow-platform-web);
+}
