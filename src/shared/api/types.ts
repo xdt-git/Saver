@@ -8,6 +8,7 @@ export const API_ERROR_CODES = [
     "VALIDATION_ERROR",
     "TOO_MANY_REQUESTS",
     "INTERNAL_ERROR",
+    "SERVICE_UNAVAILABLE",
     // Client side: the request never reached the server or the answer was unreadable.
     "NETWORK_ERROR",
     "UNKNOWN",

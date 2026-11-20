@@ -42,4 +42,8 @@ const syncDocumentLanguage = (language: string) => {
 syncDocumentLanguage(i18n.resolvedLanguage ?? FALLBACK_LANGUAGE);
 i18n.on("languageChanged", syncDocumentLanguage);
 
+/** The UI language as the API expects it (emails, TMDB texts). */
+export const currentLanguage = (): Language =>
+    (i18n.resolvedLanguage ?? i18n.language ?? "").startsWith("en") ? "en" : "ru";
+
 export { i18n };

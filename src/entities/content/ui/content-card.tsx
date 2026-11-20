@@ -7,6 +7,7 @@ import { useContentLabels } from "../lib/labels";
 import type { ContentItem } from "../model/types";
 import styles from "./content-card.module.scss";
 import { ContentPoster } from "./content-poster";
+import { RatingBadges } from "./rating-badges";
 
 interface ContentCardProps {
     item: ContentItem;
@@ -41,7 +42,7 @@ export const ContentCard = ({ item, extra, actions, className }: ContentCardProp
                         ))}
                     </ul>
                 )}
-                <p className={styles.rating}>{labels.rating(item.rating)}</p>
+                <RatingBadges item={item} />
                 {item.description && <p className={styles.description}>{item.description}</p>}
                 {extra}
                 {actions && <div className={styles.actions}>{actions}</div>}

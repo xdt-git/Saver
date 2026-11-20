@@ -25,6 +25,16 @@ export const useContent = (id: number) =>
         queryFn: ({ signal }) => contentApi.byId(id, signal),
     });
 
+/** Suggestions for the search box; empty text asks nothing. */
+export const useContentSuggest = (query: string, language: string) =>
+    useQuery({
+        queryKey: contentKeys.suggest(query.trim().toLowerCase(), language),
+        queryFn: ({ signal }) => contentApi.suggest(query.trim(), language, signal),
+        enabled: query.trim().length > 0,
+        placeholderData: keepPreviousData,
+        staleTime: 60_000,
+    });
+
 /** Genres rarely change: loaded once per session. */
 export const useGenres = () =>
     useQuery({ queryKey: contentKeys.genres(), queryFn: contentApi.genres, staleTime: Infinity });

@@ -41,7 +41,7 @@ describe("CatalogResults", () => {
         const card = await screen.findByRole("article", { name: "Dark" });
         expect(within(card).getByText("Сериал · 2017 · 26 эп. × 55 мин")).toBeInTheDocument();
         expect(within(card).getByText("Детектив")).toBeInTheDocument();
-        expect(within(card).getByText("★ 8.8 · оценок: 4")).toBeInTheDocument();
+        expect(within(card).getByRole("img", { name: "Saver: 8.8, оценок: 4" })).toBeVisible();
         expect(within(card).getByRole("link", { name: "Dark" })).toHaveAttribute(
             "href",
             "/content/2",
@@ -79,7 +79,7 @@ describe("CatalogResults", () => {
             sort: "rating",
             order: "desc",
             page: "2",
-            pageSize: "12",
+            pageSize: "24",
         });
     });
 
@@ -262,10 +262,10 @@ describe("Card actions", () => {
         await userEvent.selectOptions(select, "9");
         expect(api.calls("PUT /api/content/:id/rating")[0]?.body).toEqual({ value: 9 });
         expect(await screen.findByText("Оценка 9 сохранена")).toBeInTheDocument();
-        expect(screen.getByText("★ 9.0 · оценок: 1")).toBeInTheDocument();
+        expect(screen.getByRole("img", { name: "Saver: 9.0, оценок: 1" })).toBeVisible();
 
         await userEvent.selectOptions(select, "");
         await vi.waitFor(() => expect(api.calls("DELETE /api/content/:id/rating")).toHaveLength(1));
-        expect(await screen.findByText("Пока без оценок")).toBeInTheDocument();
+        expect(await screen.findByRole("img", { name: "Saver: пока без оценок" })).toBeVisible();
     });
 });

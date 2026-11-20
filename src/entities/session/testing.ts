@@ -12,6 +12,7 @@ export const TEST_USER: SessionUser = {
     bio: null,
     avatarUrl: null,
     isPrivate: false,
+    emailVerified: true,
     createdAt: "2026-01-01T00:00:00.000Z",
 };
 

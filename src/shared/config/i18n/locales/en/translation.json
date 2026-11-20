@@ -60,7 +60,9 @@
         "title": "About",
         "text": "UniversalSaver started as a university project and grew into a full idea. Here you can keep the films, series and everything else you have watched or plan to watch.",
         "productsTitle": "Our products",
-        "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below."
+        "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below.",
+        "dataTitle": "Movie data",
+        "dataText": "This product uses the TMDB API but is not endorsed or certified by TMDB. Titles, descriptions and posters of films and series come from"
     },
     "library": {
         "bannerAlt": "Library banner",
@@ -150,7 +152,8 @@
         "TOO_MANY_REQUESTS": "Too many attempts. Please wait a moment and try again.",
         "INTERNAL_ERROR": "Server error. Please try again later.",
         "NETWORK_ERROR": "Cannot reach the server. Check your connection.",
-        "UNKNOWN": "Something went wrong."
+        "UNKNOWN": "Something went wrong.",
+        "SERVICE_UNAVAILABLE": "An outside service is unavailable right now. Try again later."
     },
     "footer": {
         "tagline": "A tracker for films, series, anime and games",
@@ -169,7 +172,8 @@
             "email": "Email",
             "username": "Username",
             "password": "Password",
-            "confirmPassword": "Repeat password"
+            "confirmPassword": "Repeat password",
+            "newPassword": "New password"
         },
         "hints": {
             "username": "3 to 32 characters: latin letters, digits and _",
@@ -180,7 +184,8 @@
             "submit": "Sign in",
             "link": "Sign in",
             "noAccount": "No account yet?",
-            "invalidCredentials": "Wrong login or password."
+            "invalidCredentials": "Wrong login or password.",
+            "forgot": "Forgot your password?"
         },
         "register": {
             "title": "Sign up",
@@ -201,7 +206,33 @@
             "invalid": "Check this field"
         },
         "signedOut": "You have signed out.",
-        "sessionExpired": "Your session has expired. Please sign in again."
+        "sessionExpired": "Your session has expired. Please sign in again.",
+        "backToLogin": "Back to sign in",
+        "linkInvalid": "The link is invalid or expired. Ask for a new one.",
+        "linkInvalidTitle": "The link did not work",
+        "forgot": {
+            "title": "Reset password",
+            "hint": "Enter your account email and we will send a link to set a new password.",
+            "submit": "Send the link",
+            "sentTitle": "Check your inbox",
+            "sentText": "If this address is registered, we have sent a link to it. It works for 1 hour."
+        },
+        "reset": {
+            "title": "New password",
+            "submit": "Save the password",
+            "newLink": "Ask for a new link",
+            "doneTitle": "Password changed",
+            "doneText": "Every session was ended. Sign in with the new password."
+        },
+        "verify": {
+            "doneTitle": "Email confirmed",
+            "doneText": "Thank you! The address is confirmed.",
+            "toCatalog": "Open the catalog",
+            "invalidText": "The link was already used or has expired. You can send a new email.",
+            "banner": "Please confirm your email: we sent a message to {{email}}.",
+            "resend": "Send again",
+            "resent": "Email sent to {{email}}"
+        }
     },
     "contentTypes": {
         "film": "Film",
@@ -235,14 +266,16 @@
         "genres": "Genres",
         "minutes": "{{value}} min",
         "episodes": "{{episodes}} ep. × {{minutes}} min",
-        "noRatings": "No ratings yet",
-        "ratingValue": "★ {{average}} · ratings: {{votes}}",
         "originalTitle": "Original title",
         "description": "Description",
         "back": "Back to the catalog",
         "notFound": "No such content",
         "notFoundText": "It may have been deleted, or the link is wrong.",
-        "yourActions": "Your status and rating"
+        "yourActions": "Your status and rating",
+        "ratings": "Ratings",
+        "ratingOf": "{{source}}: {{value}}, {{votes}} votes",
+        "ratingOfNoVotes": "{{source}}: {{value}}",
+        "ratingNone": "{{source}}: no ratings yet"
     },
     "rating": {
         "label": "Rating of “{{title}}”",
@@ -255,7 +288,7 @@
         "categories": "Categories",
         "all": "All",
         "search": "Search by title",
-        "searchPlaceholder": "For example, Dune",
+        "searchPlaceholder": "For example, Naruto",
         "genre": "Genre",
         "anyGenre": "Any genre",
         "yearFrom": "Year from",
@@ -264,10 +297,12 @@
         "anyRating": "Any",
         "sort": "Sort",
         "sorts": {
+            "popular": "Most popular",
             "newest": "Newest first",
             "title": "By title",
             "year": "By release year",
-            "rating": "By rating"
+            "rating": "Saver rating",
+            "imdb": "IMDb rating"
         },
         "reset": "Reset filters",
         "random": "Random pick",
@@ -283,7 +318,8 @@
         "label": "Pages",
         "prev": "Previous",
         "next": "Next",
-        "page": "Page {{page}} of {{pages}}"
+        "page": "Page {{page}} of {{pages}}",
+        "goTo": "Page {{page}}"
     },
     "collection": {
         "title": "My library",
@@ -331,8 +367,8 @@
         "episodes": "Episodes",
         "episodeRuntime": "Minutes per episode",
         "genres": "Genres",
-        "poster": "Poster link",
-        "posterHint": "Image upload comes later",
+        "poster": "Poster",
+        "posterHint": "A link to an image or a JPEG, PNG, WebP file up to 5 MB",
         "description": "Description",
         "errors": {
             "required": "Required",
@@ -368,7 +404,7 @@
         "displayName": "Display name",
         "displayNameHint": "Leave empty to show the username",
         "bio": "About",
-        "avatarUrl": "Avatar link",
+        "avatarUrl": "Avatar",
         "private": "Private profile",
         "privateHint": "Your library, statistics and activity are visible only to you",
         "saved": "Profile saved",
@@ -412,5 +448,33 @@
         "activity30_other": "{{count}} actions in 30 days",
         "completedValue_one": "{{count}} completed",
         "completedValue_other": "{{count}} completed"
+    },
+    "tmdb": {
+        "title": "Not here? Find it in TMDB",
+        "search": "Search TMDB",
+        "hint": "Type a title: we will find it in the large TMDB database of films and series and add it to the catalog.",
+        "nothing": "Nothing found in TMDB",
+        "unavailable": "TMDB search is unavailable right now",
+        "add": "Add to the catalog",
+        "open": "Open",
+        "addLabel": "Add “{{title}}” to the catalog",
+        "openLabel": "Open “{{title}}”",
+        "imported": "“{{title}}” is in the catalog",
+        "attribution": "Data provided by TMDB."
+    },
+    "suggest": {
+        "label": "Suggestions",
+        "fromTmdb": "add from TMDB"
+    },
+    "imageField": {
+        "upload": "Upload a file",
+        "uploading": "Uploading…",
+        "remove": "Remove",
+        "choose": "Choose an image",
+        "preview": "Image preview",
+        "none": "No image",
+        "wrongType": "JPEG, PNG or WebP only",
+        "tooBig": "The file is larger than {{mb}} MB",
+        "rejected": "This file does not work: a real JPEG, PNG or WebP image is needed"
     }
 }

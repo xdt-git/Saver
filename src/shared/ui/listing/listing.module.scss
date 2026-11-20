@@ -4,19 +4,37 @@
     gap: var(--space-sm);
 }
 
+// Search on its own row, the other fields in equal columns that line up with it at any width.
 .fields {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: var(--space-xs) var(--space-sm);
+    display: grid;
+    // At most --filter-columns per row, never narrower than a compact field.
+    --filter-columns: 5;
+    --filter-gap: var(--space-sm);
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(
+            min(
+                100%,
+                max(
+                    var(--size-filter-field),
+                    (100% - (var(--filter-columns) - 1) * var(--filter-gap)) / var(--filter-columns)
+                )
+            ),
+            1fr
+        )
+    );
+    align-items: end;
+    gap: var(--space-xs) var(--filter-gap);
 }
 
 .searchField {
-    flex: 1 1 var(--size-field-width);
+    grid-column: 1 / -1;
+    width: 100%;
 }
 
 .field {
-    width: var(--size-filter-field);
+    width: 100%;
+    min-width: 0;
 }
 
 .reset {

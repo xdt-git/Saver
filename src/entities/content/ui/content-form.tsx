@@ -1,8 +1,10 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { CONTENT_TYPES } from "@/shared/config/content";
+import { uploadImage } from "@/shared/api";
 import { Button } from "@/shared/ui/button";
 import { ChipGroup } from "@/shared/ui/chip-group";
+import { ImageField } from "@/shared/ui/image-field";
 import { Input } from "@/shared/ui/input";
 import { Select } from "@/shared/ui/select";
 import { Textarea } from "@/shared/ui/textarea";
@@ -158,13 +160,15 @@ export const ContentForm = ({
                 max={CONTENT_LIMITS.genresMax}
                 error={error("genres")}
             />
-            <Input
+            <ImageField
                 fieldClassName={styles.wide}
+                shape="poster"
                 label={t("contentForm.poster")}
                 hint={t("contentForm.posterHint")}
-                type="url"
-                inputMode="url"
-                {...textField("posterUrl")}
+                value={values.posterUrl}
+                error={error("posterUrl")}
+                onChange={(posterUrl) => set({ posterUrl })}
+                onUpload={(file) => uploadImage("poster", file)}
             />
             <Textarea
                 fieldClassName={styles.wide}

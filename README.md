@@ -95,6 +95,8 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C7.3 `AuthProvider` (`entities/session`): current user from `/auth/me` (renews an expired access token once), sign in stores the returned user, sign out ends the server session and drops cached private data, expired session turns the user into a guest with a notice; header profile icon links guests to login and opens a menu with the name and Sign out
 -   [x] C7.4 Protected routes: the library (`/Save`) for signed-in users, login and register for guests; guards wait for the session check, guests return to the requested page after signing in. Checked end to end in the browser against the API (in-memory repositories)
 
+-   [x] C7.5 Email: "Forgot your password?" on the login page, `/forgot-password` (same answer for any email), `/reset-password?token=` (new password, every session ends), `/verify-email?token=` (confirms once, offers a new email when the link is used or expired), a strip under the header with "Send again" until the email is confirmed; emails in the UI language
+
 ### C8. Discover / Random
 
 -   [x] C8.1 Catalog page `/discover`: category tabs (all, films, series, anime, cartoons, games); filters live in the URL (shareable, back button works)
@@ -128,6 +130,17 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C11.1 Stats summary on the profile: completed, watch time from real durations only (items without a duration are named, not guessed), average rating, 7 / 30 day activity; private profiles and an empty library get clear messages
 -   [x] C11.2 Charts (`shared/ui/charts`, no chart library): completions by month as single-hue columns with hover / focus tooltips and a table view, ranked bars by category and favorite genre, top rated list; refreshed after status and rating changes
 -   [x] C11.3 Light theme: status colors darkened to WCAG contrast on white; a test checks text (4.5:1) and UI (3:1) contrast of both themes from `tokens.scss`
+
+### C13. External catalog
+
+-   [x] C13.1 "Not here? Find it in TMDB" under the catalog results (signed-in users, only when the server has a TMDB token): search with the catalog text, "Add to the catalog" imports and opens the item, "Open" for titles already imported; TMDB attribution under the block and in About
+-   [x] C13.2 Suggestions while typing in the catalog search ("нару" → "Наруто"): poster, type, year, IMDb score; arrows, Enter and Escape; TMDB titles to import when the catalog has few matches
+-   [x] C13.3 Rating badges on cards and the details page: Saver next to IMDb and Shikimori (TMDB as the fallback), votes in short form, links to IMDb and Shikimori on the details page
+-   [x] C13.4 Catalog sorted by popularity by default, plus IMDb rating; 24 titles per page and numbered pagination (1 … 6 7 8 … 262) everywhere
+
+### C14. Images
+
+-   [x] C14.1 `ImageField` (`shared/ui/image-field`) for the avatar and the poster: paste a link or upload a file, round / 2:3 preview, "Remove"; type and size checked before sending, server refusals explained; the API client sends `FormData` as multipart
 
 ### C12. Quality
 

@@ -7,6 +7,8 @@ export interface SessionUser {
     bio: string | null;
     avatarUrl: string | null;
     isPrivate: boolean;
+    /** Whether the email address was confirmed through the emailed link. */
+    emailVerified: boolean;
     createdAt: string;
 }
 
@@ -19,6 +21,15 @@ export interface LoginPayload {
 export interface RegisterPayload {
     email: string;
     username: string;
+    password: string;
+    confirmPassword: string;
+}
+
+export interface ForgotPasswordPayload {
+    email: string;
+}
+
+export interface ResetPasswordPayload {
     password: string;
     confirmPassword: string;
 }

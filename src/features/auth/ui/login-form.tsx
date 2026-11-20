@@ -1,9 +1,11 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { sessionApi, type LoginPayload } from "@/entities/session";
 import { ROUTES } from "@/shared/config/routes";
 import { useAuthForm } from "../model/use-auth-form";
 import { validateLogin } from "../model/validation";
 import { AuthCard } from "./auth-card";
+import styles from "./auth-card.module.scss";
 import { AuthSwitchLink } from "./auth-switch-link";
 import { AuthField } from "./auth-field";
 
@@ -26,11 +28,16 @@ export const LoginForm = () => {
             onSubmit={onSubmit}
             formError={formError}
             footer={
-                <AuthSwitchLink
-                    question={t("auth.login.noAccount")}
-                    to={ROUTES.register}
-                    label={t("auth.register.link")}
-                />
+                <>
+                    <p className={styles.footerLine}>
+                        <Link to={ROUTES.forgotPassword}>{t("auth.login.forgot")}</Link>
+                    </p>
+                    <AuthSwitchLink
+                        question={t("auth.login.noAccount")}
+                        to={ROUTES.register}
+                        label={t("auth.register.link")}
+                    />
+                </>
             }
         >
             <AuthField

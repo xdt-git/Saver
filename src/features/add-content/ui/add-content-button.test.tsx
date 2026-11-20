@@ -87,9 +87,9 @@ describe("AddContentButton", () => {
         expect(api.calls("POST /api/content")).toHaveLength(0);
 
         await userEvent.type(within(dialog).getByLabelText("Название"), "Dune");
-        await userEvent.type(within(dialog).getByLabelText("Ссылка на постер"), "not a link");
+        await userEvent.type(within(dialog).getByLabelText("Постер"), "not a link");
         expect(within(dialog).getByText(/Ссылка должна начинаться/)).toBeInTheDocument();
-        await userEvent.clear(within(dialog).getByLabelText("Ссылка на постер"));
+        await userEvent.clear(within(dialog).getByLabelText("Постер"));
 
         await userEvent.click(
             within(dialog).getByRole("button", { name: "Добавить в библиотеку" }),

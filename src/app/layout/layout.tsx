@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { SettingsDock } from "@/widgets/settings-dock";
+import { VerifyEmailBanner } from "@/features/auth";
 import { ROUTES } from "@/shared/config/routes";
 import { lazyNamed } from "@/shared/lib";
 import { PageLoader } from "@/shared/ui/loader";
@@ -19,6 +20,9 @@ const ProfilePage = lazyNamed(() => import("@/pages/profile"), "ProfilePage");
 const FeedPage = lazyNamed(() => import("@/pages/feed"), "FeedPage");
 const LoginPage = lazyNamed(() => import("@/pages/login"), "LoginPage");
 const RegisterPage = lazyNamed(() => import("@/pages/register"), "RegisterPage");
+const ForgotPasswordPage = lazyNamed(() => import("@/pages/forgot-password"), "ForgotPasswordPage");
+const ResetPasswordPage = lazyNamed(() => import("@/pages/reset-password"), "ResetPasswordPage");
+const VerifyEmailPage = lazyNamed(() => import("@/pages/verify-email"), "VerifyEmailPage");
 const NotFoundPage = lazyNamed(() => import("@/pages/not-found"), "NotFoundPage");
 // Component showcase, development only: the import is removed from production builds.
 const UiKitPage = import.meta.env.DEV
@@ -29,6 +33,7 @@ export const Layout = () => {
     return (
         <div className={styles.app}>
             <Header />
+            <VerifyEmailBanner />
 
             <div className={styles.page}>
                 <Suspense fallback={<PageLoader />}>
@@ -37,6 +42,9 @@ export const Layout = () => {
                         <Route path={ROUTES.discover} element={<DiscoverPage />} />
                         <Route path={ROUTES.contentDetails} element={<ContentDetailsPage />} />
                         <Route path={ROUTES.profile} element={<ProfilePage />} />
+                        {/* Email links work signed in or not. */}
+                        <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
+                        <Route path={ROUTES.verifyEmail} element={<VerifyEmailPage />} />
                         <Route element={<ProtectedRoutes />}>
                             <Route path={ROUTES.library} element={<LibraryPage />} />
                             <Route path={ROUTES.collection} element={<CollectionPage />} />
@@ -45,6 +53,7 @@ export const Layout = () => {
                         <Route element={<GuestRoutes />}>
                             <Route path={ROUTES.login} element={<LoginPage />} />
                             <Route path={ROUTES.register} element={<RegisterPage />} />
+                            <Route path={ROUTES.forgotPassword} element={<ForgotPasswordPage />} />
                         </Route>
                         {UiKitPage && <Route path={ROUTES.uiKit} element={<UiKitPage />} />}
                         <Route path="*" element={<NotFoundPage />} />

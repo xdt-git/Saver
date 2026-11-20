@@ -1,5 +1,12 @@
 import { apiClient, isApiError } from "@/shared/api";
-import type { LoginPayload, RegisterPayload, SessionUser } from "../model/types";
+import { currentLanguage } from "@/shared/config/i18n";
+import type {
+    ForgotPasswordPayload,
+    LoginPayload,
+    RegisterPayload,
+    ResetPasswordPayload,
+    SessionUser,
+} from "../model/types";
 
 export const sessionKeys = {
     me: () => ["session", "me"] as const,
@@ -33,7 +40,27 @@ export const sessionApi = {
         }
     },
     login: (payload: LoginPayload) => apiClient.post<SessionUser>("/auth/login", payload, authOnly),
+    /** The verification email is written in the current UI language. */
     register: (payload: RegisterPayload) =>
-        apiClient.post<SessionUser>("/auth/register", payload, authOnly),
+        apiClient.post<SessionUser>(
+            "/auth/register",
+            { ...payload, language: currentLanguage() },
+            authOnly,
+        ),
     logout: () => apiClient.post<void>("/auth/logout", undefined, authOnly),
+    verifyEmail: (token: string) => apiClient.post<null>("/auth/email/verify", { token }, authOnly),
+    resendVerification: () =>
+        apiClient.post<{ alreadyVerified: boolean }>("/auth/email/resend", {
+            language: currentLanguage(),
+        }),
+    /** Answers the same whether or not the email is registered. */
+    forgotPassword: ({ email }: ForgotPasswordPayload) =>
+        apiClient.post<null>(
+            "/auth/password/forgot",
+            { email: email.trim().toLowerCase(), language: currentLanguage() },
+            authOnly,
+        ),
+    /** Ends every session; the user signs in again with the new password. */
+    resetPassword: (token: string, payload: ResetPasswordPayload) =>
+        apiClient.post<null>("/auth/password/reset", { token, ...payload }, authOnly),
 };

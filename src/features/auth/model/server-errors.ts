@@ -30,5 +30,9 @@ export const toSubmitErrors = <T extends object>(
     if (error.code === "UNAUTHORIZED") {
         return { fields: {}, form: i18n.t("auth.login.invalidCredentials") };
     }
+    // The only 400 of the auth forms: a used or expired email link.
+    if (error.code === "BAD_REQUEST") {
+        return { fields: {}, form: i18n.t("auth.linkInvalid") };
+    }
     return { fields: {}, form: getErrorMessage(error) };
 };
