@@ -31,6 +31,10 @@
     --glow-sm: drop-shadow(0 0 0.5rem var(--glow-color));
     --glow-md: drop-shadow(0 0 0.75rem var(--glow-color));
     --glow-accent: 0 0 0.75rem var(--color-accent);
+    --glow-success: 0 0 0.75rem var(--color-success);
+    --glow-error: 0 0 0.75rem var(--color-error);
+    --glow-warning: 0 0 0.75rem var(--color-warning);
+    --glow-info: 0 0 0.75rem var(--color-primary);
     --focus-ring: 0 0 0 var(--border-medium) var(--color-accent), var(--glow-accent);
     --blur-banner: blur(5px);
 
@@ -46,6 +50,7 @@
     --font-size-lg: 25px;
     --font-size-xl: 32px;
     --line-height-xl: 49px;
+    --line-height-body: 1.4;
 
     // Spacing
     --space-3xs: 1px;
@@ -78,6 +83,8 @@
     --size-preview-width: 1000px;
     --size-card-image: 480px;
     --size-modal-width: 520px;
+    --size-toast-width: 400px;
+    --size-toast-icon: 22px;
     --size-loader-sm: 20px;
     --size-loader-md: 40px;
     --size-loader-lg: 64px;
@@ -94,6 +101,7 @@
 
     // Layers
     --z-modal: 1000;
+    --z-toast: 1100; // above modals, so errors inside a dialog stay visible
 
     // Motion
     --duration-fast: 0.3s;

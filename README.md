@@ -66,7 +66,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C4.2 ThemeProvider: System / Light / Dark (dark neon is the default by product decision), saved choice independent of language, live OS sync in System mode, no flash on load (inline script in `index.html`), first light palette in tokens, shared `SegmentedControl` for theme and language switchers
 -   [x] C4.3 API client (`shared/api`): base URL from `VITE_API_URL`, cookies included, unified response format unwrapped to `data`, typed `ApiError` with codes and field errors, single shared refresh on 401 with one retry, CSRF header on mutating requests, localized error texts by code
 -   [x] C4.4 TanStack Query: app-wide `QueryClient` (30 s stale time, retries only for network and 5xx errors, no mutation retries), `createQueryKeys` key factory, providers in `app/providers`
--   [ ] C4.5 Toast notifications (success, error, warning, info)
+-   [x] C4.5 Toast notifications (`shared/ui/toast`): success, error, warning, info, `apiError` translated by code, optional action, auto and manual dismiss, stack limit, screen-reader roles, both themes, phone layout
 -   [ ] C4.6 Routing: lazy pages, public and protected routes
 
 ### C5. Header and footer

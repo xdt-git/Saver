@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { MdMovieFilter } from "react-icons/md";
+import { ApiError } from "@/shared/api";
 import telegramImg from "@/shared/assets/telegram.webp";
 import { Button } from "@/shared/ui/button";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
@@ -10,6 +11,7 @@ import { Modal } from "@/shared/ui/modal";
 import { Select } from "@/shared/ui/select";
 import { Skeleton } from "@/shared/ui/skeleton";
 import { Text } from "@/shared/ui/text";
+import { useToast } from "@/shared/ui/toast";
 import styles from "./ui-kit-page.module.scss";
 
 // Section titles are component names, so they are not translated.
@@ -25,6 +27,7 @@ const Section = ({ title, children }: { title: string; children: ReactNode }) =>
 /** Development-only showcase of every shared UI component and its states. */
 export const UiKitPage = () => {
     const { t } = useTranslation();
+    const toast = useToast();
     const [isModalOpen, setModalOpen] = useState(false);
     const [retries, setRetries] = useState(0);
 
@@ -135,6 +138,40 @@ export const UiKitPage = () => {
                         onRetry={() => setRetries((n) => n + 1)}
                     />
                 </div>
+            </Section>
+
+            <Section title="Toast">
+                <Button size="md" onClick={() => toast.success(t("toast.messages.success"))}>
+                    {t("toast.messages.success")}
+                </Button>
+                <Button size="md" onClick={() => toast.error(t("toast.messages.error"))}>
+                    {t("toast.messages.error")}
+                </Button>
+                <Button size="md" onClick={() => toast.warning(t("toast.messages.warning"))}>
+                    {t("toast.messages.warning")}
+                </Button>
+                <Button size="md" onClick={() => toast.info(t("toast.messages.info"))}>
+                    {t("toast.messages.info")}
+                </Button>
+                <Button
+                    size="md"
+                    onClick={() =>
+                        toast.apiError(new ApiError({ status: 0, code: "NETWORK_ERROR" }))
+                    }
+                >
+                    {t("uiKit.apiErrorToast")}
+                </Button>
+                <Button
+                    variant="secondary"
+                    onClick={() =>
+                        toast.info(t("uiKit.undoToast"), {
+                            label: t("uiKit.undo"),
+                            onClick: () => toast.success(t("toast.messages.success")),
+                        })
+                    }
+                >
+                    {t("uiKit.withAction")}
+                </Button>
             </Section>
         </main>
     );
