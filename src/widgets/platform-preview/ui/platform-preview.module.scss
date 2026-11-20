@@ -1,3 +1,15 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+// Full design size when the screen allows it; on narrower laptops it shrinks so that
+// the hero next to it is never pushed off the screen.
 .preview {
-    width: var(--size-preview-width);
+    width: min(var(--size-preview-width), calc(100vw - var(--size-hero-width)));
+}
+
+@media (max-width: bp.$md) {
+    .preview {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 }
