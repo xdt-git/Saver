@@ -132,6 +132,9 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 ### C13. External catalog
 
 -   [x] C13.1 "Not here? Find it in TMDB" under the catalog results (signed-in users, only when the server has a TMDB token): search with the catalog text, "Add to the catalog" imports and opens the item, "Open" for titles already imported; TMDB attribution under the block and in About
+-   [x] C13.2 Suggestions while typing in the catalog search ("нару" → "Наруто"): poster, type, year, IMDb score; arrows, Enter and Escape; TMDB titles to import when the catalog has few matches
+-   [x] C13.3 Rating badges on cards and the details page: Saver next to IMDb and Shikimori (TMDB as the fallback), votes in short form, links to IMDb and Shikimori on the details page
+-   [x] C13.4 Catalog sorted by popularity by default, plus IMDb rating; 24 titles per page and numbered pagination (1 … 6 7 8 … 262) everywhere
 
 ### C12. Quality
 

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { MdSearchOff } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { CardActions } from "@/widgets/catalog";
-import { ContentPoster, useContent, useContentLabels } from "@/entities/content";
+import { ContentPoster, RatingBadges, useContent, useContentLabels } from "@/entities/content";
 import { isApiError } from "@/shared/api";
 import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
@@ -55,6 +55,9 @@ export const ContentDetailsPage = () => {
                     <Text as="h1" glow className={styles.title}>
                         {item.title}
                     </Text>
+                    {item.titleEn && item.titleEn !== item.originalTitle && (
+                        <p className={styles.original}>{item.titleEn}</p>
+                    )}
                     {item.originalTitle && (
                         <p className={styles.original}>
                             {t("content.originalTitle")}: {item.originalTitle}
@@ -66,7 +69,7 @@ export const ContentDetailsPage = () => {
                             {t("content.genres")}: {item.genres.map(labels.genre).join(", ")}
                         </p>
                     )}
-                    <p className={styles.rating}>{labels.rating(item.rating)}</p>
+                    <RatingBadges item={item} withLinks />
                     <section className={styles.actions} aria-label={t("content.yourActions")}>
                         <CardActions item={item} />
                     </section>

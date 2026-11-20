@@ -1,10 +1,10 @@
 import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
+import { SuggestSearch } from "@/features/content-suggest";
 import { GenreSelect, useContentLabels } from "@/entities/content";
 import { RATING_VALUES } from "@/shared/config/content";
 import { Input } from "@/shared/ui/input";
 import { FilterBar, filterFieldClassNames as fields } from "@/shared/ui/listing";
-import { SearchInput } from "@/shared/ui/search-input";
 import { SegmentedControl } from "@/shared/ui/segmented-control";
 import { Select } from "@/shared/ui/select";
 import {
@@ -71,7 +71,7 @@ export const CatalogFilters = ({ value, onChange }: CatalogFiltersProps) => {
                 />
             }
         >
-            <SearchInput
+            <SuggestSearch
                 fieldClassName={fields.search}
                 label={t("discover.search")}
                 placeholder={t("discover.searchPlaceholder")}

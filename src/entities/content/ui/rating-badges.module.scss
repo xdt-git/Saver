@@ -1,0 +1,48 @@
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.badge {
+    display: inline-flex;
+}
+
+// One chip per source: name, score, number of votes.
+.link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-3xs);
+    padding: var(--space-3xs) var(--space-xs);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-raised);
+    color: var(--color-text);
+    font-size: var(--font-size-xs);
+    text-decoration: none;
+    text-wrap: nowrap;
+}
+
+a.link:hover {
+    box-shadow: var(--glow-accent);
+}
+
+a.link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.source {
+    color: var(--color-text-muted);
+}
+
+.value {
+    font-weight: var(--font-weight-bold);
+}
+
+.votes {
+    color: var(--color-text-faint);
+}

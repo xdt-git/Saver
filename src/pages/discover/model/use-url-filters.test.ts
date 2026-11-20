@@ -27,7 +27,7 @@ describe("catalog filters in the URL", () => {
             yearFrom: undefined,
             yearTo: undefined,
             minRating: undefined,
-            sort: "newest",
+            sort: "popular",
             page: 1,
         });
     });

@@ -22,9 +22,5 @@ export const useContentLabels = () => {
                 ? t("content.minutes", { value: item.runtimeMinutes })
                 : null;
         },
-        rating: ({ average, count }: ContentItem["rating"]) =>
-            average === null
-                ? t("content.noRatings")
-                : t("content.ratingValue", { average: average.toFixed(1), votes: count }),
     };
 };
