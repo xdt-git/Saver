@@ -31,7 +31,7 @@ export const NewsPage = () => {
     const tab: Tab = signedIn ? state.tab : "all";
 
     return (
-        <ContentPage title={t("news.title")}>
+        <ContentPage title={t("news.title")} narrow>
             <div className={styles.layout}>
                 <PeopleSearch />
                 <section className={styles.feed} aria-labelledby="news-feed-title">

@@ -10,6 +10,11 @@
     padding: var(--space-md) var(--space-sm) var(--space-lg);
 }
 
+// Reading width (feeds): a narrower centered column, heading included.
+.narrow {
+    max-width: var(--size-feed-max);
+}
+
 .header {
     display: flex;
     flex-wrap: wrap;

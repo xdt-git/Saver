@@ -103,6 +103,7 @@
     --size-avatar-lg: clamp(96px, 12vw, 140px);
     --size-checkbox: 20px;
     --size-feed-max: 760px; // readable width of the activity feed
+    --size-feed-poster: 56px; // poster next to a feed event
     --size-chart-height: 180px;
     --size-bar-thickness: 16px; // horizontal bars (<= 24px)
     --size-column-max: 24px; // columns never fill their slot

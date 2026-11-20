@@ -7,7 +7,7 @@ import { installMatchMedia, resetMatchMedia } from "./match-media";
 installMatchMedia();
 
 // Lazy pages load their chunk first; under a full parallel run that can exceed the 1 s default.
-configure({ asyncUtilTimeout: 3000 });
+configure({ asyncUtilTimeout: 5000 });
 
 beforeEach(async () => {
     localStorage.clear();

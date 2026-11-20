@@ -494,5 +494,18 @@
         "emptyAllTitle": "No news yet",
         "emptyAllText": "What people add, watch and rate will show up here.",
         "emptyFollowingText": "Find people above and follow them: their activity will show up here."
+    },
+    "social": {
+        "like": "Like",
+        "unlike": "Remove like",
+        "comments_one": "{{count}} comment",
+        "comments_other": "{{count}} comments",
+        "showAll_one": "More · {{count}} comment",
+        "showAll_other": "More · all {{count}} comments",
+        "details": "More",
+        "newComment": "Your comment",
+        "send": "Send",
+        "deleteComment": "Delete comment",
+        "signInToComment": "Sign in to comment."
     }
 }
