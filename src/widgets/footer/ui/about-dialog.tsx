@@ -19,6 +19,15 @@ export const AboutDialog = ({ open, onClose }: DialogProps) => {
                 {t("about.productsTitle")}
             </Text>
             <p className={styles.paragraph}>{t("about.productsText")}</p>
+            <Text as="h3" glow className={styles.subtitle}>
+                {t("about.dataTitle")}
+            </Text>
+            <p className={styles.paragraph}>
+                {t("about.dataText")}{" "}
+                <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
+                    themoviedb.org
+                </a>
+            </p>
         </Modal>
     );
 };

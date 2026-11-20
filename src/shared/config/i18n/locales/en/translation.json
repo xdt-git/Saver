@@ -60,7 +60,9 @@
         "title": "About",
         "text": "UniversalSaver started as a university project and grew into a full idea. Here you can keep the films, series and everything else you have watched or plan to watch.",
         "productsTitle": "Our products",
-        "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below."
+        "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below.",
+        "dataTitle": "Movie data",
+        "dataText": "This product uses the TMDB API but is not endorsed or certified by TMDB. Titles, descriptions and posters of films and series come from"
     },
     "library": {
         "bannerAlt": "Library banner",
@@ -150,7 +152,8 @@
         "TOO_MANY_REQUESTS": "Too many attempts. Please wait a moment and try again.",
         "INTERNAL_ERROR": "Server error. Please try again later.",
         "NETWORK_ERROR": "Cannot reach the server. Check your connection.",
-        "UNKNOWN": "Something went wrong."
+        "UNKNOWN": "Something went wrong.",
+        "SERVICE_UNAVAILABLE": "An outside service is unavailable right now. Try again later."
     },
     "footer": {
         "tagline": "A tracker for films, series, anime and games",
@@ -412,5 +415,18 @@
         "activity30_other": "{{count}} actions in 30 days",
         "completedValue_one": "{{count}} completed",
         "completedValue_other": "{{count}} completed"
+    },
+    "tmdb": {
+        "title": "Not here? Find it in TMDB",
+        "search": "Search TMDB",
+        "hint": "Type a title: we will find it in the large TMDB database of films and series and add it to the catalog.",
+        "nothing": "Nothing found in TMDB",
+        "unavailable": "TMDB search is unavailable right now",
+        "add": "Add to the catalog",
+        "open": "Open",
+        "addLabel": "Add “{{title}}” to the catalog",
+        "openLabel": "Open “{{title}}”",
+        "imported": "“{{title}}” is in the catalog",
+        "attribution": "Data provided by TMDB."
     }
 }
