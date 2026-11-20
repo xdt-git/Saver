@@ -3,6 +3,7 @@ import { MdPersonOff } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { ActivityFeed } from "@/widgets/activity-feed";
 import { ProfileHeader } from "@/widgets/profile";
+import { StatisticsPanel } from "@/widgets/statistics";
 import { EditProfileButton } from "@/features/edit-profile";
 import { FollowButton } from "@/features/follow-user";
 import { useSession } from "@/entities/session";
@@ -51,6 +52,10 @@ export const ProfilePage = () => {
                     )
                 }
             />
+            <section className={styles.activity}>
+                <h2 className={styles.subtitle}>{t("stats.title")}</h2>
+                <StatisticsPanel userId={id} />
+            </section>
             <section className={styles.activity}>
                 <h2 className={styles.subtitle}>{t("profile.activity")}</h2>
                 <ActivityFeed

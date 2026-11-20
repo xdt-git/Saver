@@ -3,6 +3,7 @@ import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { updateContentInCache, type ContentItem } from "@/entities/content";
 import { libraryKeys } from "@/entities/library";
+import { statisticsKeys } from "@/entities/statistics";
 import { useRequireSession } from "@/entities/session";
 import { apiClient } from "@/shared/api";
 import { RATING_VALUES } from "@/shared/config/content";
@@ -48,6 +49,7 @@ export const RatePicker = ({ item }: RatePickerProps) => {
                 },
             }));
             void queryClient.invalidateQueries({ queryKey: libraryKeys.all });
+            void queryClient.invalidateQueries({ queryKey: statisticsKeys.all });
             toast.success(
                 result ? t("rating.saved", { value: result.value }) : t("rating.removed"),
             );
