@@ -1,6 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { LanguageSwitcher } from "@/features/switch-language";
-import { ThemeSwitcher } from "@/features/switch-theme";
 import { useEscapeKey, useScrollLock } from "@/shared/lib";
 import styles from "./header.module.scss";
 import { NavLinks } from "./nav-links";
@@ -11,7 +9,7 @@ interface MobileMenuProps {
     onClose: () => void;
 }
 
-/** Drop-down panel for small screens: navigation plus theme and language switchers. */
+/** Drop-down navigation panel for small screens. Language and theme live in the settings dock. */
 export const MobileMenu = ({ id, open, onClose }: MobileMenuProps) => {
     const { t } = useTranslation();
     useScrollLock(open);
@@ -28,10 +26,6 @@ export const MobileMenu = ({ id, open, onClose }: MobileMenuProps) => {
                     ariaLabel={t("header.mobileNav")}
                     onNavigate={onClose}
                 />
-                <div className={styles.panelSwitchers}>
-                    <ThemeSwitcher />
-                    <LanguageSwitcher />
-                </div>
             </div>
         </>
     );

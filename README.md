@@ -73,6 +73,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 -   [x] C5.1 Header: navigation, language and theme switchers, mobile menu below `md` (burger, drop-down panel, closes on Escape / outside click / navigation, scroll lock); shared `NavLinks`, `useScrollLock`, `useEscapeKey` (Modal uses them too). Profile icon becomes a link in C7
 -   [x] C5.2 Footer on every page: tagline, About and Contacts dialogs on the shared `Modal`, copyright. Contacts come from `shared/config/contacts.ts` (real links only; personal contacts to be added by the author)
+-   [x] C5.3 Settings dock: semi-transparent round language (globe) and theme buttons pinned bottom-left above everything; each opens into its options (RU / EN, Dark / Light) on the shared `ExpandablePicker`. "System" theme removed from the UI by product decision (still supported in the model). Switchers removed from the header and mobile menu
 
 ### C6. Landing
 

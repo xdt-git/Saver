@@ -135,5 +135,8 @@
         "copyright": "© {{year}} Universal Saver",
         "contactsSoon": "The author\u0027s personal contacts will be added later.",
         "projectLinks": "Project"
+    },
+    "settings": {
+        "label": "Settings"
     }
 }

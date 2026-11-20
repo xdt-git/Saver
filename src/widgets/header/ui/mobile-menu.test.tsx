@@ -26,7 +26,7 @@ describe("Header mobile menu", () => {
         expect(mobileNav()).toBeNull();
     });
 
-    it("opens with links and switchers, and locks page scroll", async () => {
+    it("opens with the navigation links and locks page scroll", async () => {
         renderHeader();
         await userEvent.click(burger());
 
@@ -36,13 +36,7 @@ describe("Header mobile menu", () => {
         expect(nav).not.toBeNull();
         expect(within(nav as HTMLElement).getAllByRole("link")).toHaveLength(3);
         const panel = document.getElementById(burger().getAttribute("aria-controls") ?? "");
-        expect(panel).not.toBeNull();
-        expect(
-            within(panel as HTMLElement).getByRole("group", { name: "Тема оформления" }),
-        ).toBeInTheDocument();
-        expect(
-            within(panel as HTMLElement).getByRole("group", { name: "Язык интерфейса" }),
-        ).toBeInTheDocument();
+        expect(panel).toContainElement(nav);
         expect(document.body.style.overflow).toBe("hidden");
     });
 

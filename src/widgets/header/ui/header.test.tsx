@@ -25,8 +25,9 @@ describe("Header", () => {
         ]);
     });
 
-    it("has the language switcher", () => {
+    it("leaves language and theme to the settings dock", () => {
         renderWithProviders(<Header />);
-        expect(screen.getByRole("group", { name: "Язык интерфейса" })).toBeInTheDocument();
+        expect(screen.queryByRole("button", { name: "Язык интерфейса" })).toBeNull();
+        expect(screen.queryByRole("button", { name: "Тема оформления" })).toBeNull();
     });
 });
