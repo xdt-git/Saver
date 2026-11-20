@@ -1,15 +1,23 @@
 @use "../../../shared/styles/breakpoints" as bp;
 
-// Full design size when the screen allows it; on narrower laptops it shrinks so that
-// the hero next to it is never pushed off the screen.
+// Right-hand block: takes the space next to the hero; the screenshot fits inside it.
+.root {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+}
+
 .preview {
-    width: min(var(--size-preview-width), calc(100vw - var(--size-hero-width)));
+    display: block;
+    width: 100%;
+    max-width: var(--size-preview-width);
+    height: auto;
 }
 
 @media (max-width: bp.$md) {
-    .preview {
-        display: block;
+    .root {
+        flex: none;
         width: 100%;
-        height: auto;
     }
 }

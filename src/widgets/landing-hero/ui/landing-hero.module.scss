@@ -1,7 +1,8 @@
 @use "../../../shared/styles/breakpoints" as bp;
 
 .leftContainer {
-    width: 40%;
+    flex: 0 0 var(--size-hero-share);
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +16,12 @@
     margin-top: var(--space-xs);
 }
 
+// Platform icons: always one row, size and spacing follow the screen width.
 .imgLinks {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--space-platform-gap);
     margin-top: var(--space-md);
 }
 
@@ -45,13 +51,8 @@
 // Phones: full-width hero, smaller platform icons so all four fit in one row.
 @media (max-width: bp.$md) {
     .leftContainer {
+        flex: none;
         width: 100%;
-    }
-
-    .imgLinks {
-        display: flex;
-        justify-content: center;
-        gap: var(--space-xs);
     }
 
     .picturesSize {

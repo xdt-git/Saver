@@ -11,9 +11,15 @@
     overflow-x: hidden;
 }
 
+// Hero (left, fixed share) and preview (right, the rest) side by side, padded from the edges.
 .container {
     display: flex;
     align-items: center;
+    gap: var(--space-lg);
+    width: 100%;
+    max-width: var(--size-landing-max);
+    padding: var(--space-md) var(--space-lg);
+    box-sizing: border-box;
 }
 
 // Phones and small tablets: hero above the preview, everything within the screen width.

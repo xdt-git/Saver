@@ -6,7 +6,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
+    margin-top: var(--space-lg);
+    // Side padding keeps the text clear of the language and theme buttons in the bottom corners.
+    padding: var(--space-md) var(--size-dock-clearance);
     border-top: var(--border-thin) solid var(--color-border);
     color: var(--color-text-faint);
     font-family: var(--font-display);

@@ -15,7 +15,7 @@ export const PlatformPreview = ({ platform }: PlatformPreviewProps) => {
     const preview = getPlatform(platform).preview ?? getPlatform(DEFAULT_PLATFORM).preview;
 
     return (
-        <div>
+        <div className={styles.root}>
             <img
                 key={preview}
                 src={preview}

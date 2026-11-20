@@ -21,10 +21,10 @@
     }
 }
 
-// Gradient call-to-action button ("Начать", "Сохранить").
+// Gradient call-to-action button ("Начать", "Сохранить"). Size follows the screen width.
 .primary {
-    width: var(--size-button-width);
-    height: var(--size-button-height);
+    width: var(--size-cta-width);
+    height: var(--size-cta-height);
     background: var(--gradient-primary);
     border-radius: var(--radius-lg);
     display: flex;
@@ -33,8 +33,8 @@
     color: var(--color-on-primary);
     font-family: var(--font-body);
     font-style: italic;
-    font-size: var(--font-size-xl);
-    line-height: var(--line-height-xl);
+    font-size: var(--font-size-cta);
+    line-height: normal;
     font-weight: var(--font-weight-light);
     border: var(--color-border-dark);
 
