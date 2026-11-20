@@ -13,11 +13,18 @@
     width: 100%;
     max-width: var(--size-preview-width);
     height: auto;
+    max-height: var(--size-preview-max-height);
+    object-fit: contain;
 }
 
 @media (max-width: bp.$md) {
     .root {
         flex: none;
         width: 100%;
+    }
+
+    // On phones the picture uses the full width; the laptop height cap would make it tiny.
+    .preview {
+        max-height: none;
     }
 }

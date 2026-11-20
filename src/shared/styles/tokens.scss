@@ -88,7 +88,7 @@
     --size-field-width: 360px;
     --size-icon-lg: 48px;
     // Fluid sizes: clamp(min, share of the screen width, max).
-    --size-platform-icon: clamp(56px, 5vw, 96px);
+    --size-platform-icon: clamp(64px, 6vw, 108px);
     --space-platform-gap: clamp(20px, 2.5vw, 40px);
     --size-cta-width: clamp(200px, 17vw, 260px);
     --size-cta-height: clamp(52px, 4.4vw, 68px);
@@ -99,6 +99,8 @@
     --size-popup-width: 200px;
     --size-banner-height: 250px;
     --size-preview-width: 1000px;
+    // Previews have different shapes (wide desktop, square phone): cap the height so they look alike.
+    --size-preview-max-height: min(30vw, 65vh);
     --size-card-image: 480px;
     --size-modal-width: 520px;
     --size-toast-width: 400px;

@@ -27,7 +27,7 @@ describe("Footer", () => {
         expect(screen.queryByRole("dialog")).toBeNull();
     });
 
-    it("shows only real contacts and a note while personal ones are missing", async () => {
+    it("shows the author's Telegram and the project link", async () => {
         renderWithProviders(<Footer />);
         await userEvent.click(screen.getByRole("button", { name: "Контакты" }));
 
@@ -43,8 +43,10 @@ describe("Footer", () => {
         expect(github).toHaveAttribute("target", "_blank");
         expect(github).toHaveAttribute("rel", "noopener noreferrer");
 
-        if (PERSONAL_CONTACTS.length === 0) {
-            expect(dialog).toHaveTextContent("Личные контакты автора появятся позже.");
-        }
+        const telegram = within(dialog).getByRole("link", { name: /@dabeiteex/ });
+        expect(telegram).toHaveAttribute("href", "https://t.me/dabeiteex");
+        expect(telegram).toHaveAttribute("rel", "noopener noreferrer");
+        // The "coming later" note is shown only while there are no personal contacts.
+        expect(dialog).not.toHaveTextContent("Личные контакты автора появятся позже.");
     });
 });

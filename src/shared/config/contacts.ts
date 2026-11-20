@@ -22,7 +22,9 @@ export const CONTACT_ICONS: Record<ContactKind, IconType> = {
  * when they are, add entries here (e.g. { kind: "telegram", label: "@name", href: "https://t.me/name" })
  * and the "coming soon" note in the Contacts dialog disappears automatically.
  */
-export const PERSONAL_CONTACTS: Contact[] = [];
+export const PERSONAL_CONTACTS: Contact[] = [
+    { kind: "telegram", label: "@dabeiteex", href: "https://t.me/dabeiteex" },
+];
 
 /** Project links that always exist. */
 export const PROJECT_LINKS: Contact[] = [

@@ -4,10 +4,11 @@ import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { createQueryClient } from "@/shared/config/query";
 import { ThemeProvider } from "@/shared/config/theme";
+import { ToastProvider } from "@/shared/ui/toast";
 
 /**
- * Renders a component with the app providers: a fresh query cache per call (no retries,
- * so failed requests settle at once), theme, and a router starting at `path`.
+ * Renders a component with the same providers as the app: a fresh query cache per call
+ * (no retries, so failed requests settle at once), theme, toasts and a router at `path`.
  */
 export const renderWithProviders = (ui: ReactElement, path = "/") => {
     const queryClient = createQueryClient();
@@ -18,7 +19,9 @@ export const renderWithProviders = (ui: ReactElement, path = "/") => {
         ...render(
             <QueryClientProvider client={queryClient}>
                 <ThemeProvider>
-                    <MemoryRouter initialEntries={[path]}>{ui}</MemoryRouter>
+                    <ToastProvider>
+                        <MemoryRouter initialEntries={[path]}>{ui}</MemoryRouter>
+                    </ToastProvider>
                 </ThemeProvider>
             </QueryClientProvider>,
         ),

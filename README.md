@@ -78,8 +78,8 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 ### C6. Landing
 
 -   [x] C6.1 Platform switcher (Telegram, Mobile, Desktop, Web) with per-platform glow color; platforms in `shared/config/platforms.ts`
--   [ ] C6.2 Right case shows the selected platform illustration — done for Web and Mobile; Telegram and Desktop show the general overview until their designs exist (also EN versions of the screenshots)
--   [x] C6.3 "Start" action depends on the platform: Web and Mobile open the library; Telegram and Desktop show a disabled "Soon" until real links exist (auth-aware target comes in C7)
+-   [x] C6.2 Right case shows the selected platform illustration (Telegram bot and desktop mockups added by the owner), heights balanced across platforms; EN versions of the screenshots still to come
+-   [x] C6.3 "Start" action depends on the platform: Web opens the library; Telegram, Mobile and Desktop show an apology toast ("temporarily unavailable") until they are released (auth-aware target comes in C7)
 -   [x] C6.4 Responsive landing: hero above the preview below `md`, full-width preview, smaller platform icons; on laptops (1024–1280) the preview shrinks so the hero is no longer cut off. Checked at 360–1440 px with no element outside the screen; 1440 px layout unchanged
 -   [x] C6.5 Laptop layout (owner feedback): hero 45% with padding from the left edge, preview fills the rest and matches it in size, fluid Start button and platform icons (one row, wider gaps), language and theme buttons split to the bottom corners, footer padded clear of them
 
