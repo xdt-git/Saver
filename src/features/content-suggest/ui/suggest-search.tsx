@@ -152,7 +152,11 @@ export const SuggestSearch = ({ value, onSearch, fieldClassName, ...rest }: Sugg
                                 onClick={() => pick(option)}
                                 onMouseEnter={() => setActive(index)}
                             >
-                                <ContentPoster item={entry} className={styles.poster} />
+                                <ContentPoster
+                                    item={entry}
+                                    size="thumb"
+                                    className={styles.poster}
+                                />
                                 <span className={styles.text}>
                                     <span className={styles.title}>{entry.title}</span>
                                     <span className={styles.meta}>{meta}</span>

@@ -79,7 +79,7 @@ export const TmdbSearch = ({ initialQuery }: TmdbSearchProps) => {
                 <ul className={styles.list}>
                     {search.data.items.map((hit) => (
                         <li key={`${hit.mediaType}:${hit.tmdbId}`} className={styles.row}>
-                            <ContentPoster item={hit} className={styles.poster} />
+                            <ContentPoster item={hit} size="thumb" className={styles.poster} />
                             <div className={styles.info}>
                                 <span className={styles.title}>{hit.title}</span>
                                 <span className={styles.meta}>

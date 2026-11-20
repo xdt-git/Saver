@@ -23,11 +23,11 @@ describe("RatingBadges", () => {
             "IMDb: 8.4, оценок: 120000",
             "Shikimori: 8.03",
         ]);
-        expect(screen.getByRole("link", { name: "IMDb: 8.4, оценок: 120000" })).toHaveAttribute(
+        expect(screen.getByRole("link", { name: /IMDb/ })).toHaveAttribute(
             "href",
             "https://www.imdb.com/title/tt0409591/",
         );
-        expect(screen.getByRole("link", { name: "Shikimori: 8.03" })).toHaveAttribute(
+        expect(screen.getByRole("link", { name: /Shikimori/ })).toHaveAttribute(
             "href",
             "https://shikimori.io/animes/20",
         );

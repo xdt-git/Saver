@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { MdSearchOff } from "react-icons/md";
 import { ContentCard, ContentCardSkeleton, useContentList } from "@/entities/content";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
-import { CardGrid, ListingResults } from "@/shared/ui/listing";
+import { ListingResults, ListingSkeleton } from "@/shared/ui/listing";
 import { Pagination } from "@/shared/ui/pagination";
 import { PAGE_SIZE, toListParams, type CatalogFilters } from "../model/filters";
 import { CardActions } from "./card-actions";
@@ -21,11 +21,11 @@ export const CatalogResults = ({ filters, onPageChange }: CatalogResultsProps) =
 
     if (isPending) {
         return (
-            <CardGrid busy>
+            <ListingSkeleton>
                 {Array.from({ length: PAGE_SIZE / 2 }, (_, index) => (
                     <ContentCardSkeleton key={index} />
                 ))}
-            </CardGrid>
+            </ListingSkeleton>
         );
     }
     if (isError) {

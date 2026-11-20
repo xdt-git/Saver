@@ -18,7 +18,14 @@ const authOnly = { skipAuthRefresh: true } as const;
 
 const isUnauthorized = (error: unknown) => isApiError(error) && error.status === 401;
 
-const fetchMe = () => apiClient.get<SessionUser>("/auth/me", authOnly);
+/** GET /auth/session: never a 401, so a guest visit logs no errors in the console. */
+interface SessionState {
+    user: SessionUser | null;
+    /** An expired access token can be renewed with the refresh cookie. */
+    canRefresh: boolean;
+}
+
+const fetchSession = () => apiClient.get<SessionState>("/auth/session", authOnly);
 
 export const sessionApi = {
     /**
@@ -26,18 +33,16 @@ export const sessionApi = {
      * with the refresh cookie before giving up.
      */
     me: async (): Promise<SessionUser | null> => {
-        try {
-            return await fetchMe();
-        } catch (error) {
-            if (!isUnauthorized(error)) throw error;
-        }
+        const first = await fetchSession();
+        if (first.user || !first.canRefresh) return first.user;
         try {
             await apiClient.post<null>("/auth/refresh", undefined, authOnly);
-            return await fetchMe();
         } catch (error) {
+            // The refresh cookie was stale: a guest after all.
             if (isUnauthorized(error)) return null;
             throw error;
         }
+        return (await fetchSession()).user;
     },
     login: (payload: LoginPayload) => apiClient.post<SessionUser>("/auth/login", payload, authOnly),
     /** The verification email is written in the current UI language. */

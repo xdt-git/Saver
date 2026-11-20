@@ -17,6 +17,9 @@ export const PlatformPreview = ({ platform }: PlatformPreviewProps) => {
                 key={preview}
                 src={preview}
                 alt={t(`landing.previews.${platform}`)}
+                // Frame ratio is fixed in CSS (16:10); the numbers only reserve the space.
+                width={1100}
+                height={688}
                 className={styles.preview}
                 data-platform={platform}
             />

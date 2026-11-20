@@ -79,7 +79,6 @@ export const RatingBadges = ({ item, withLinks = false, className }: RatingBadge
                                 href={href}
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                aria-label={label}
                             >
                                 {body}
                             </a>

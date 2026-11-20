@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { apiFailure, mockApi } from "@/shared/config/tests";
+import { mockApi } from "@/shared/config/tests";
 import App from "./App";
 
 afterEach(() => vi.unstubAllGlobals());
@@ -9,8 +9,7 @@ afterEach(() => vi.unstubAllGlobals());
 describe("App", () => {
     it("starts as a guest when there is no session and shows the landing page", async () => {
         const api = mockApi({
-            "GET /api/auth/me": () => apiFailure(401, "UNAUTHORIZED"),
-            "POST /api/auth/refresh": () => apiFailure(401, "UNAUTHORIZED"),
+            "GET /api/auth/session": () => ({ body: { user: null, canRefresh: false } }),
         });
         render(<App />);
 
@@ -19,7 +18,7 @@ describe("App", () => {
             "href",
             "/login",
         );
-        expect(api.calls("GET /api/auth/me")).toHaveLength(1);
+        expect(api.calls("GET /api/auth/session")).toHaveLength(1);
     });
 
     it("keeps working when the API is unreachable", async () => {

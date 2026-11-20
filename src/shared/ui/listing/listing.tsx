@@ -44,6 +44,16 @@ interface ListingResultsProps {
     footer?: ReactNode;
 }
 
+/** Loading state with the same layout as the results, so nothing jumps when they arrive. */
+export const ListingSkeleton = ({ children }: { children: ReactNode }) => (
+    <div className={styles.results} aria-busy="true">
+        <p className={styles.found} aria-hidden="true">
+            &nbsp;
+        </p>
+        <CardGrid busy>{children}</CardGrid>
+    </div>
+);
+
 /** "Found: N", the cards and the paging. */
 export const ListingResults = ({ total, stale, children, footer }: ListingResultsProps) => {
     const { t } = useTranslation();
