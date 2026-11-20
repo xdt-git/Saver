@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { MdMovieFilter } from "react-icons/md";
 import { ApiError } from "@/shared/api";
 import telegramImg from "@/shared/assets/telegram.webp";
+import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
 import { Input } from "@/shared/ui/input";
@@ -53,7 +54,7 @@ export const UiKitPage = () => {
                 <Button variant="icon" aria-label="Telegram">
                     <img src={telegramImg} alt="" width={64} height={64} />
                 </Button>
-                <Button to="/ui-kit" variant="nav">
+                <Button to={ROUTES.uiKit} variant="nav">
                     {t("uiKit.navLink")}
                 </Button>
             </Section>

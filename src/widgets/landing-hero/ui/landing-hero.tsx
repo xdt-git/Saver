@@ -3,6 +3,7 @@ import desktopImg from "@/shared/assets/desktop.webp";
 import mobileImg from "@/shared/assets/mobile.webp";
 import telegramImg from "@/shared/assets/telegram.webp";
 import webImg from "@/shared/assets/web.webp";
+import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
 import { Text } from "@/shared/ui/text";
 import styles from "./landing-hero.module.scss";
@@ -24,7 +25,7 @@ export const LandingHero = () => {
                 {t("landing.titleSecondLine")}
             </Text>
             <Text glow>{t("landing.subtitle")}</Text>
-            <Button to="/Save" className={styles.btnMargin}>
+            <Button to={ROUTES.library} className={styles.btnMargin}>
                 {t("landing.start")}
             </Button>
             <div className={styles.imgLinks}>

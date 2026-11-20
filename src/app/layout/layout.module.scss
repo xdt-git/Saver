@@ -1,0 +1,7 @@
+// Shown while a lazy page chunk is loading.
+.pageLoader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--size-banner-height);
+}
