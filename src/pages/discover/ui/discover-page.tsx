@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { CatalogFilters, CatalogResults, RandomPick } from "@/widgets/catalog";
-import { Text } from "@/shared/ui/text";
+import { ContentPage } from "@/shared/ui/content-page";
 import { useUrlFilters } from "../model/use-url-filters";
-import styles from "./discover-page.module.scss";
 
 /** Catalog with search, filters, paging and a random pick that respects the filters. */
 export const DiscoverPage = () => {
@@ -10,13 +9,7 @@ export const DiscoverPage = () => {
     const [filters, update] = useUrlFilters();
 
     return (
-        <main className={styles.main}>
-            <div className={styles.header}>
-                <Text as="h1" glow className={styles.title}>
-                    {t("discover.title")}
-                </Text>
-                <RandomPick filters={filters} />
-            </div>
+        <ContentPage title={t("discover.title")} actions={<RandomPick filters={filters} />}>
             <CatalogFilters value={filters} onChange={update} />
             <CatalogResults
                 filters={filters}
@@ -25,6 +18,6 @@ export const DiscoverPage = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
             />
-        </main>
+        </ContentPage>
     );
 };

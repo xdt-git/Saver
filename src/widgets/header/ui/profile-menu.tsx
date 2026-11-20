@@ -72,6 +72,15 @@ export const ProfileMenu = () => {
                     <span className={styles.profileHandle}>@{user.username}</span>
                     <Button
                         role="menuitem"
+                        to={ROUTES.collection}
+                        variant="nav"
+                        className={styles.profileLink}
+                        onClick={close}
+                    >
+                        {t("header.myLibrary")}
+                    </Button>
+                    <Button
+                        role="menuitem"
                         variant="secondary"
                         className={styles.profileAction}
                         onClick={onSignOut}

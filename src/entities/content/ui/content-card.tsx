@@ -10,13 +10,15 @@ import { ContentPoster } from "./content-poster";
 
 interface ContentCardProps {
     item: ContentItem;
+    /** Extra lines under the description (e.g. the user's notes in the library). */
+    extra?: ReactNode;
     /** Controls under the info (status, rating); supplied by features. */
     actions?: ReactNode;
     className?: string;
 }
 
 /** Catalog card: poster, title (link to details), type, year, genres, rating, description. */
-export const ContentCard = ({ item, actions, className }: ContentCardProps) => {
+export const ContentCard = ({ item, extra, actions, className }: ContentCardProps) => {
     const labels = useContentLabels();
     const meta = [labels.type(item.type), item.releaseYear, labels.duration(item)].filter(Boolean);
 
@@ -41,6 +43,7 @@ export const ContentCard = ({ item, actions, className }: ContentCardProps) => {
                 )}
                 <p className={styles.rating}>{labels.rating(item.rating)}</p>
                 {item.description && <p className={styles.description}>{item.description}</p>}
+                {extra}
                 {actions && <div className={styles.actions}>{actions}</div>}
             </div>
         </article>

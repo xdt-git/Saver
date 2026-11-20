@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState, type ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { useGenres, useContentLabels } from "@/entities/content";
+import { GenreSelect, useContentLabels } from "@/entities/content";
 import { RATING_VALUES } from "@/shared/config/content";
-import { useDebouncedValue } from "@/shared/lib";
-import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
+import { FilterBar, filterFieldClassNames as fields } from "@/shared/ui/listing";
+import { SearchInput } from "@/shared/ui/search-input";
 import { SegmentedControl } from "@/shared/ui/segmented-control";
 import { Select } from "@/shared/ui/select";
 import {
@@ -14,7 +14,6 @@ import {
     type CatalogFilters as Filters,
     type SortKey,
 } from "../model/filters";
-import styles from "./catalog.module.scss";
 
 interface CatalogFiltersProps {
     value: Filters;
@@ -32,24 +31,19 @@ const toNumber = (raw: string) => (raw === "" ? undefined : Number(raw));
 export const CatalogFilters = ({ value, onChange }: CatalogFiltersProps) => {
     const { t } = useTranslation();
     const labels = useContentLabels();
-    const genres = useGenres();
-
-    // The search box answers at once; the request waits until typing stops.
-    const [search, setSearch] = useState(value.search);
-    const debouncedSearch = useDebouncedValue(search);
-    // Latest props without re-running the effect below on every render.
-    const latest = useRef({ search: value.search, onChange });
-    latest.current = { search: value.search, onChange };
-    useEffect(() => setSearch(value.search), [value.search]);
-    useEffect(() => {
-        if (debouncedSearch !== latest.current.search) {
-            latest.current.onChange({ search: debouncedSearch, page: 1 });
-        }
-    }, [debouncedSearch]);
 
     const set = (patch: Partial<Filters>) => onChange({ ...patch, page: 1 });
-    const onYear = (key: "yearFrom" | "yearTo") => (event: ChangeEvent<HTMLInputElement>) =>
-        set({ [key]: toNumber(event.target.value) });
+    const yearInput = (key: "yearFrom" | "yearTo") => ({
+        type: "number",
+        inputMode: "numeric" as const,
+        min: YEAR_MIN,
+        max: YEAR_MAX,
+        fieldClassName: fields.field,
+        label: t(`discover.${key}`),
+        value: value[key] ?? "",
+        onChange: (event: ChangeEvent<HTMLInputElement>) =>
+            set({ [key]: toNumber(event.target.value) }),
+    });
 
     const isFiltered =
         value.search !== "" ||
@@ -60,88 +54,58 @@ export const CatalogFilters = ({ value, onChange }: CatalogFiltersProps) => {
         value.minRating !== undefined;
 
     return (
-        <section className={styles.filters} aria-label={t("discover.title")}>
-            <SegmentedControl
-                className={styles.tabs}
-                ariaLabel={t("discover.categories")}
-                value={value.type ?? ALL}
-                onChange={(type) => set({ type: type === ALL ? undefined : type })}
-                options={[
-                    { value: ALL, label: t("discover.all") },
-                    ...CATEGORY_TABS.map((type) => ({ value: type, label: labels.type(type) })),
-                ]}
+        <FilterBar
+            label={t("discover.title")}
+            onReset={
+                isFiltered ? () => onChange({ ...EMPTY_FILTERS, sort: value.sort }) : undefined
+            }
+            tabs={
+                <SegmentedControl
+                    ariaLabel={t("discover.categories")}
+                    value={value.type ?? ALL}
+                    onChange={(type) => set({ type: type === ALL ? undefined : type })}
+                    options={[
+                        { value: ALL, label: t("discover.all") },
+                        ...CATEGORY_TABS.map((type) => ({ value: type, label: labels.type(type) })),
+                    ]}
+                />
+            }
+        >
+            <SearchInput
+                fieldClassName={fields.search}
+                label={t("discover.search")}
+                placeholder={t("discover.searchPlaceholder")}
+                value={value.search}
+                onSearch={(search) => set({ search })}
             />
-            <div className={styles.fields}>
-                <Input
-                    type="search"
-                    fieldClassName={styles.searchField}
-                    label={t("discover.search")}
-                    placeholder={t("discover.searchPlaceholder")}
-                    value={search}
-                    onChange={(event) => setSearch(event.target.value)}
-                />
-                <Select
-                    fieldClassName={styles.field}
-                    label={t("discover.genre")}
-                    placeholder={t("discover.anyGenre")}
-                    value={value.genre ?? ""}
-                    onChange={(event) => set({ genre: event.target.value || undefined })}
-                    options={(genres.data ?? []).map((genre) => ({
-                        value: genre.slug,
-                        label: labels.genre(genre),
-                    }))}
-                />
-                <Input
-                    type="number"
-                    inputMode="numeric"
-                    min={YEAR_MIN}
-                    max={YEAR_MAX}
-                    fieldClassName={styles.field}
-                    label={t("discover.yearFrom")}
-                    value={value.yearFrom ?? ""}
-                    onChange={onYear("yearFrom")}
-                />
-                <Input
-                    type="number"
-                    inputMode="numeric"
-                    min={YEAR_MIN}
-                    max={YEAR_MAX}
-                    fieldClassName={styles.field}
-                    label={t("discover.yearTo")}
-                    value={value.yearTo ?? ""}
-                    onChange={onYear("yearTo")}
-                />
-                <Select
-                    fieldClassName={styles.field}
-                    label={t("discover.minRating")}
-                    placeholder={t("discover.anyRating")}
-                    value={value.minRating ?? ""}
-                    onChange={(event) => set({ minRating: toNumber(event.target.value) })}
-                    options={RATING_VALUES.map((rating) => ({
-                        value: String(rating),
-                        label: `★ ${rating}+`,
-                    }))}
-                />
-                <Select
-                    fieldClassName={styles.field}
-                    label={t("discover.sort")}
-                    value={value.sort}
-                    onChange={(event) => onChange({ sort: event.target.value as SortKey, page: 1 })}
-                    options={SORT_KEYS.map((key) => ({
-                        value: key,
-                        label: t(`discover.sorts.${key}`),
-                    }))}
-                />
-            </div>
-            {isFiltered && (
-                <Button
-                    variant="secondary"
-                    className={styles.reset}
-                    onClick={() => onChange({ ...EMPTY_FILTERS, sort: value.sort })}
-                >
-                    {t("discover.reset")}
-                </Button>
-            )}
-        </section>
+            <GenreSelect
+                fieldClassName={fields.field}
+                value={value.genre}
+                onChange={(genre) => set({ genre })}
+            />
+            <Input {...yearInput("yearFrom")} />
+            <Input {...yearInput("yearTo")} />
+            <Select
+                fieldClassName={fields.field}
+                label={t("discover.minRating")}
+                placeholder={t("discover.anyRating")}
+                value={value.minRating ?? ""}
+                onChange={(event) => set({ minRating: toNumber(event.target.value) })}
+                options={RATING_VALUES.map((rating) => ({
+                    value: String(rating),
+                    label: `★ ${rating}+`,
+                }))}
+            />
+            <Select
+                fieldClassName={fields.field}
+                label={t("discover.sort")}
+                value={value.sort}
+                onChange={(event) => onChange({ sort: event.target.value as SortKey, page: 1 })}
+                options={SORT_KEYS.map((key) => ({
+                    value: key,
+                    label: t(`discover.sorts.${key}`),
+                }))}
+            />
+        </FilterBar>
     );
 };

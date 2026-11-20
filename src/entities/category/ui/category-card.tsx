@@ -9,9 +9,11 @@ interface CategoryCardProps {
     category: Category;
     /** Text on the left and picture on the right (for alternating lists). */
     reversed?: boolean;
+    /** Where the "Save" button leads (the user's library for this category). */
+    to: string;
 }
 
-export const CategoryCard = ({ category, reversed = false }: CategoryCardProps) => {
+export const CategoryCard = ({ category, reversed = false, to }: CategoryCardProps) => {
     const { t } = useTranslation();
 
     return (
@@ -23,7 +25,7 @@ export const CategoryCard = ({ category, reversed = false }: CategoryCardProps) 
             />
             <div className={styles.content}>
                 <Text glow>{t(`categories.${category.id}.description`)}</Text>
-                <Button>{t("common.save")}</Button>
+                <Button to={to}>{t("common.save")}</Button>
             </div>
         </div>
     );

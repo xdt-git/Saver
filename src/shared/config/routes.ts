@@ -7,6 +7,7 @@ export const ROUTES = {
     discover: "/discover",
     contentDetails: "/content/:id",
     library: "/Save",
+    collection: "/collection",
     login: "/login",
     register: "/register",
     uiKit: "/ui-kit",

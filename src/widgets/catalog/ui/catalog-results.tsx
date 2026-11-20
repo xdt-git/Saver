@@ -2,10 +2,10 @@ import { useTranslation } from "react-i18next";
 import { MdSearchOff } from "react-icons/md";
 import { ContentCard, ContentCardSkeleton, useContentList } from "@/entities/content";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
+import { CardGrid, ListingResults } from "@/shared/ui/listing";
 import { Pagination } from "@/shared/ui/pagination";
 import { PAGE_SIZE, toListParams, type CatalogFilters } from "../model/filters";
 import { CardActions } from "./card-actions";
-import styles from "./catalog.module.scss";
 
 interface CatalogResultsProps {
     filters: CatalogFilters;
@@ -21,11 +21,11 @@ export const CatalogResults = ({ filters, onPageChange }: CatalogResultsProps) =
 
     if (isPending) {
         return (
-            <div className={styles.grid} aria-busy="true">
+            <CardGrid busy>
                 {Array.from({ length: PAGE_SIZE / 2 }, (_, index) => (
                     <ContentCardSkeleton key={index} />
                 ))}
-            </div>
+            </CardGrid>
         );
     }
     if (isError) {
@@ -42,19 +42,21 @@ export const CatalogResults = ({ filters, onPageChange }: CatalogResultsProps) =
     }
 
     return (
-        <div className={styles.results} aria-busy={isPlaceholderData}>
-            <p className={styles.found}>{t("discover.found", { total: data.total })}</p>
-            <div className={styles.grid}>
-                {data.items.map((item) => (
-                    <ContentCard key={item.id} item={item} actions={<CardActions item={item} />} />
-                ))}
-            </div>
-            <Pagination
-                page={data.page}
-                totalPages={data.totalPages}
-                onChange={onPageChange}
-                disabled={isPlaceholderData}
-            />
-        </div>
+        <ListingResults
+            total={data.total}
+            stale={isPlaceholderData}
+            footer={
+                <Pagination
+                    page={data.page}
+                    totalPages={data.totalPages}
+                    onChange={onPageChange}
+                    disabled={isPlaceholderData}
+                />
+            }
+        >
+            {data.items.map((item) => (
+                <ContentCard key={item.id} item={item} actions={<CardActions item={item} />} />
+            ))}
+        </ListingResults>
     );
 };

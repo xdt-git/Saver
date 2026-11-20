@@ -1,0 +1,13 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.wide {
+    width: 100%;
+}
+
+.date {
+    width: var(--size-filter-field);
+}
