@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { CatalogFilters, CatalogResults, RandomPick } from "@/widgets/catalog";
+import { TmdbSearch } from "@/features/tmdb-import";
 import { ContentPage } from "@/shared/ui/content-page";
 import { useUrlFilters } from "../model/use-url-filters";
 
@@ -18,6 +19,7 @@ export const DiscoverPage = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
             />
+            <TmdbSearch initialQuery={filters.search} />
         </ContentPage>
     );
 };
