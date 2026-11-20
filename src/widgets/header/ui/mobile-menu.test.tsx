@@ -2,6 +2,7 @@ import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Route, Routes } from "react-router-dom";
 import { ROUTES } from "@/shared/config/routes";
+import { sessionTestOptions } from "@/entities/session";
 import { renderWithProviders } from "@/shared/config/tests";
 import { Header } from "./header";
 
@@ -13,6 +14,8 @@ const renderHeader = () =>
                 <Route path="*" element={<p>page</p>} />
             </Routes>
         </>,
+        "/",
+        sessionTestOptions(null),
     );
 
 const burger = () => screen.getByRole("button", { name: /меню/ });

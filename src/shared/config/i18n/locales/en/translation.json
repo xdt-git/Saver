@@ -19,7 +19,10 @@
         "mainNav": "Main navigation",
         "mobileNav": "Mobile navigation",
         "openMenu": "Open menu",
-        "closeMenu": "Close menu"
+        "closeMenu": "Close menu",
+        "signIn": "Sign in",
+        "signOut": "Sign out",
+        "profileMenu": "Profile menu of {{username}}"
     },
     "language": {
         "label": "Interface language",
@@ -144,10 +147,50 @@
         "about": "About",
         "contacts": "Contacts",
         "copyright": "© {{year}} Universal Saver",
-        "contactsSoon": "The author\u0027s personal contacts will be added later.",
+        "contactsSoon": "The author's personal contacts will be added later.",
         "projectLinks": "Project"
     },
     "settings": {
         "label": "Settings"
+    },
+    "auth": {
+        "fields": {
+            "login": "Email or username",
+            "email": "Email",
+            "username": "Username",
+            "password": "Password",
+            "confirmPassword": "Repeat password"
+        },
+        "hints": {
+            "username": "3 to 32 characters: latin letters, digits and _",
+            "password": "At least {{count}} characters, a lowercase and an uppercase letter and a digit"
+        },
+        "login": {
+            "title": "Sign in",
+            "submit": "Sign in",
+            "link": "Sign in",
+            "noAccount": "No account yet?",
+            "invalidCredentials": "Wrong login or password."
+        },
+        "register": {
+            "title": "Sign up",
+            "submit": "Create account",
+            "link": "Sign up",
+            "hasAccount": "Already have an account?"
+        },
+        "validation": {
+            "required": "Required",
+            "email": "Invalid email",
+            "username": "3 to 32 characters: latin letters, digits and _",
+            "passwordLength": "At least 8 characters",
+            "passwordTooLong": "Password is too long",
+            "passwordStrength": "Needs a lowercase and an uppercase letter and a digit",
+            "passwordsMismatch": "Passwords do not match",
+            "emailTaken": "This email is already taken",
+            "usernameTaken": "This username is already taken",
+            "invalid": "Check this field"
+        },
+        "signedOut": "You have signed out.",
+        "sessionExpired": "Your session has expired. Please sign in again."
     }
 }

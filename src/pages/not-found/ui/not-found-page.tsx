@@ -1,15 +1,15 @@
 import { useTranslation } from "react-i18next";
+import { CenteredPage } from "@/shared/ui/centered-page";
 import { Text } from "@/shared/ui/text";
-import styles from "./not-found-page.module.scss";
 
 export const NotFoundPage = () => {
     const { t } = useTranslation();
 
     return (
-        <main className={styles.main}>
+        <CenteredPage>
             <Text as="h1" glow>
                 {t("notFound.title")}
             </Text>
-        </main>
+        </CenteredPage>
     );
 };

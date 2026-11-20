@@ -1,14 +1,13 @@
 import { useEffect, useId, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaUser } from "react-icons/fa";
 import { MdClose, MdMenu } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import logo from "@/shared/assets/logo.webp";
 import { Button } from "@/shared/ui/button";
-import { Text } from "@/shared/ui/text";
 import styles from "./header.module.scss";
 import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
+import { ProfileMenu } from "./profile-menu";
 
 export const Header = () => {
     const { t } = useTranslation();
@@ -30,9 +29,7 @@ export const Header = () => {
             </div>
             <NavLinks className={styles.nav} ariaLabel={t("header.mainNav")} />
             <div className={styles.actions}>
-                <Text as="div" glow aria-label={t("header.profile")}>
-                    <FaUser className={styles.profileIcon} />
-                </Text>
+                <ProfileMenu />
                 <Button
                     variant="icon"
                     className={styles.burger}

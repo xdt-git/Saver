@@ -11,6 +11,11 @@ export default defineConfig({
             "@": fileURLToPath(new URL("./src", import.meta.url)),
         },
     },
+    // In development the API runs on :3000; proxying /api keeps requests same-origin,
+    // so auth cookies work without CORS.
+    server: {
+        proxy: { "/api": "http://localhost:3000" },
+    },
     css: {
         preprocessorOptions: {
             scss: { api: "modern-compiler" },
