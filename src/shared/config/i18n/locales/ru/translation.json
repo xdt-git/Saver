@@ -15,7 +15,11 @@
     },
     "header": {
         "logoAlt": "Логотип Universal Saver",
-        "profile": "Профиль"
+        "profile": "Профиль",
+        "mainNav": "Основная навигация",
+        "mobileNav": "Мобильная навигация",
+        "openMenu": "Открыть меню",
+        "closeMenu": "Закрыть меню"
     },
     "language": {
         "label": "Язык интерфейса",
