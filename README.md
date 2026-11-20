@@ -67,7 +67,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C4.3 API client (`shared/api`): base URL from `VITE_API_URL`, cookies included, unified response format unwrapped to `data`, typed `ApiError` with codes and field errors, single shared refresh on 401 with one retry, CSRF header on mutating requests, localized error texts by code
 -   [x] C4.4 TanStack Query: app-wide `QueryClient` (30 s stale time, retries only for network and 5xx errors, no mutation retries), `createQueryKeys` key factory, providers in `app/providers`
 -   [x] C4.5 Toast notifications (`shared/ui/toast`): success, error, warning, info, `apiError` translated by code, optional action, auto and manual dismiss, stack limit, screen-reader roles, both themes, phone layout
--   [ ] C4.6 Routing: lazy pages, public and protected routes
+-   [x] C4.6 Routing: all paths in `shared/config/routes.ts`, every page lazy-loaded into its own chunk with a page loader, `RouteGuard` for protected and guest-only routes (remembers the requested page; wired to the session in C7)
 
 ### C5. Header and footer
 

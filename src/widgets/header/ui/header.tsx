@@ -3,14 +3,15 @@ import { FaUser } from "react-icons/fa";
 import { LanguageSwitcher } from "@/features/switch-language";
 import { ThemeSwitcher } from "@/features/switch-theme";
 import logo from "@/shared/assets/logo.webp";
+import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
 import { Text, glowClassName } from "@/shared/ui/text";
 import styles from "./header.module.scss";
 
 const navItems = [
-    { labelKey: "nav.home", to: "/" },
-    { labelKey: "nav.random", to: "/discover" },
-    { labelKey: "nav.library", to: "/Save" },
+    { labelKey: "nav.home", to: ROUTES.home },
+    { labelKey: "nav.random", to: ROUTES.discover },
+    { labelKey: "nav.library", to: ROUTES.library },
 ] as const;
 
 export const Header = () => {

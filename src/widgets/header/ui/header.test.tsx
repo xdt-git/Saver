@@ -1,4 +1,5 @@
 import { screen, within } from "@testing-library/react";
+import { ROUTES } from "@/shared/config/routes";
 import { renderWithProviders } from "@/shared/config/tests";
 import { Header } from "./header";
 
@@ -12,7 +13,11 @@ describe("Header", () => {
         renderWithProviders(<Header />);
         const links = within(screen.getByRole("navigation")).getAllByRole("link");
 
-        expect(links.map((link) => link.getAttribute("href"))).toEqual(["/", "/discover", "/Save"]);
+        expect(links.map((link) => link.getAttribute("href"))).toEqual([
+            ROUTES.home,
+            ROUTES.discover,
+            ROUTES.library,
+        ]);
         expect(links.map((link) => link.textContent)).toEqual([
             "Начальная страница",
             "Случайный контент",
