@@ -367,8 +367,8 @@
         "episodes": "Episodes",
         "episodeRuntime": "Minutes per episode",
         "genres": "Genres",
-        "poster": "Poster link",
-        "posterHint": "Image upload comes later",
+        "poster": "Poster",
+        "posterHint": "A link to an image or a JPEG, PNG, WebP file up to 5 MB",
         "description": "Description",
         "errors": {
             "required": "Required",
@@ -404,7 +404,7 @@
         "displayName": "Display name",
         "displayNameHint": "Leave empty to show the username",
         "bio": "About",
-        "avatarUrl": "Avatar link",
+        "avatarUrl": "Avatar",
         "private": "Private profile",
         "privateHint": "Your library, statistics and activity are visible only to you",
         "saved": "Profile saved",
@@ -465,5 +465,16 @@
     "suggest": {
         "label": "Suggestions",
         "fromTmdb": "add from TMDB"
+    },
+    "imageField": {
+        "upload": "Upload a file",
+        "uploading": "Uploading…",
+        "remove": "Remove",
+        "choose": "Choose an image",
+        "preview": "Image preview",
+        "none": "No image",
+        "wrongType": "JPEG, PNG or WebP only",
+        "tooBig": "The file is larger than {{mb}} MB",
+        "rejected": "This file does not work: a real JPEG, PNG or WebP image is needed"
     }
 }

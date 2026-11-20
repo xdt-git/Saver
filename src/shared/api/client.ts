@@ -43,7 +43,9 @@ const isFailure = (body: unknown): body is Extract<ApiResponse<unknown>, { succe
 const send = async <T>(method: Method, path: string, options: RequestOptions): Promise<T> => {
     const headers: Record<string, string> = { Accept: "application/json", ...options.headers };
     const hasBody = options.body !== undefined;
-    if (hasBody) headers["Content-Type"] = "application/json";
+    // Files go as multipart: the browser sets the Content-Type with its boundary.
+    const isForm = options.body instanceof FormData;
+    if (hasBody && !isForm) headers["Content-Type"] = "application/json";
     if (isMutating(method)) {
         const csrf = readCookie(CSRF_COOKIE_NAME);
         if (csrf) headers[CSRF_HEADER_NAME] = decodeURIComponent(csrf);
@@ -54,7 +56,11 @@ const send = async <T>(method: Method, path: string, options: RequestOptions): P
         response = await fetch(`${API_URL}${path}${buildQuery(options.query)}`, {
             method,
             headers,
-            body: hasBody ? JSON.stringify(options.body) : undefined,
+            body: isForm
+                ? (options.body as FormData)
+                : hasBody
+                  ? JSON.stringify(options.body)
+                  : undefined,
             credentials: "include",
             signal: options.signal,
         });

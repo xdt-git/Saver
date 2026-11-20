@@ -1,4 +1,5 @@
 import { isApiError } from "@/shared/api";
+import { isImageSource } from "@/shared/lib";
 import type { ContentType } from "@/shared/config/content";
 import type { ContentItem } from "./types";
 
@@ -106,7 +107,7 @@ export const validateContentForm = (
     ) {
         errors.releaseYear = "year";
     }
-    if (values.posterUrl.trim() && !/^https?:\/\/\S+$/i.test(values.posterUrl.trim())) {
+    if (values.posterUrl.trim() && !isImageSource(values.posterUrl.trim())) {
         errors.posterUrl = "url";
     }
     if (fields.runtime) positive("runtimeMinutes", CONTENT_LIMITS.runtimeMax);

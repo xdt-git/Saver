@@ -201,12 +201,12 @@ describe("Own profile", () => {
         await userEvent.click(screen.getByRole("button", { name: "Редактировать профиль" }));
 
         const dialog = screen.getByRole("dialog", { name: "Редактирование профиля" });
-        await userEvent.type(within(dialog).getByLabelText("Ссылка на аватар"), "nope");
+        await userEvent.type(within(dialog).getByLabelText("Аватар"), "nope");
         await userEvent.click(within(dialog).getByRole("button", { name: "Сохранить" }));
         expect(within(dialog).getByText(/Ссылка должна начинаться/)).toBeInTheDocument();
         expect(api.calls("PATCH /api/users/me")).toHaveLength(0);
 
-        await userEvent.clear(within(dialog).getByLabelText("Ссылка на аватар"));
+        await userEvent.clear(within(dialog).getByLabelText("Аватар"));
         await userEvent.type(within(dialog).getByLabelText("Отображаемое имя"), " The One ");
         await userEvent.click(within(dialog).getByLabelText("Закрытый профиль"));
         await userEvent.click(within(dialog).getByRole("button", { name: "Сохранить" }));

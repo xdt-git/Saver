@@ -138,6 +138,10 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C13.3 Rating badges on cards and the details page: Saver next to IMDb and Shikimori (TMDB as the fallback), votes in short form, links to IMDb and Shikimori on the details page
 -   [x] C13.4 Catalog sorted by popularity by default, plus IMDb rating; 24 titles per page and numbered pagination (1 … 6 7 8 … 262) everywhere
 
+### C14. Images
+
+-   [x] C14.1 `ImageField` (`shared/ui/image-field`) for the avatar and the poster: paste a link or upload a file, round / 2:3 preview, "Remove"; type and size checked before sending, server refusals explained; the API client sends `FormData` as multipart
+
 ### C12. Quality
 
 -   [x] C12.1 Tests (Vitest, Testing Library): routing and guards, forms, theme, language and plural forms, API errors, catalog, library, profiles, feed, statistics, theme contrast; `npm run test:coverage` — 98.6% lines, 94.9% branches
