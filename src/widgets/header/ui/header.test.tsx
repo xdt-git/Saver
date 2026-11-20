@@ -10,7 +10,7 @@ describe("Header", () => {
         expect(screen.getByAltText("Логотип Universal Saver")).toBeInTheDocument();
     });
 
-    it("has three navigation links with correct targets", () => {
+    it("has four navigation links with correct targets", () => {
         renderWithProviders(<Header />, "/", sessionTestOptions(null));
         const links = within(screen.getByRole("navigation")).getAllByRole("link");
 
@@ -18,11 +18,13 @@ describe("Header", () => {
             ROUTES.home,
             ROUTES.discover,
             ROUTES.library,
+            ROUTES.news,
         ]);
         expect(links.map((link) => link.textContent)).toEqual([
             "Начальная страница",
             "Случайный контент",
             "Основная страница",
+            "Новости",
         ]);
     });
 

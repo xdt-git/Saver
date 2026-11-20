@@ -11,7 +11,8 @@
     "nav": {
         "home": "Начальная страница",
         "random": "Случайный контент",
-        "library": "Основная страница"
+        "library": "Основная страница",
+        "news": "Новости"
     },
     "header": {
         "logoAlt": "Логотип Universal Saver",
@@ -486,5 +487,24 @@
         "wrongType": "Подойдут JPEG, PNG или WebP",
         "tooBig": "Файл больше {{mb}} МБ",
         "rejected": "Этот файл не подходит: нужна настоящая картинка JPEG, PNG или WebP"
+    },
+    "news": {
+        "title": "Новости",
+        "peopleTitle": "Поиск людей",
+        "peopleSearch": "Имя или @ник",
+        "peoplePlaceholder": "Например, neo",
+        "nobody": "Никого не нашлось",
+        "followers_one": "{{count}} подписчик",
+        "followers_few": "{{count}} подписчика",
+        "followers_many": "{{count}} подписчиков",
+        "followers_other": "{{count}} подписчика",
+        "feedTitle": "Что смотрят",
+        "tabs": {
+            "all": "Все",
+            "following": "Подписки"
+        },
+        "emptyAllTitle": "Новостей пока нет",
+        "emptyAllText": "Здесь появится, что люди добавляют, смотрят и оценивают.",
+        "emptyFollowingText": "Найдите людей выше и подпишитесь — их действия появятся здесь."
     }
 }

@@ -37,7 +37,7 @@ describe("Header mobile menu", () => {
         expect(burger()).toHaveAccessibleName("Закрыть меню");
         const nav = mobileNav();
         expect(nav).not.toBeNull();
-        expect(within(nav as HTMLElement).getAllByRole("link")).toHaveLength(3);
+        expect(within(nav as HTMLElement).getAllByRole("link")).toHaveLength(4);
         const panel = document.getElementById(burger().getAttribute("aria-controls") ?? "");
         expect(panel).toContainElement(nav);
         expect(document.body.style.overflow).toBe("hidden");

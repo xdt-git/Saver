@@ -11,7 +11,8 @@
     "nav": {
         "home": "Home",
         "random": "Random pick",
-        "library": "My library"
+        "library": "My library",
+        "news": "News"
     },
     "header": {
         "logoAlt": "Universal Saver logo",
@@ -476,5 +477,22 @@
         "wrongType": "JPEG, PNG or WebP only",
         "tooBig": "The file is larger than {{mb}} MB",
         "rejected": "This file does not work: a real JPEG, PNG or WebP image is needed"
+    },
+    "news": {
+        "title": "News",
+        "peopleTitle": "Find people",
+        "peopleSearch": "Name or @username",
+        "peoplePlaceholder": "For example, neo",
+        "nobody": "Nobody found",
+        "followers_one": "{{count}} follower",
+        "followers_other": "{{count}} followers",
+        "feedTitle": "What people watch",
+        "tabs": {
+            "all": "Everyone",
+            "following": "Following"
+        },
+        "emptyAllTitle": "No news yet",
+        "emptyAllText": "What people add, watch and rate will show up here.",
+        "emptyFollowingText": "Find people above and follow them: their activity will show up here."
     }
 }
