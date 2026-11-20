@@ -5,6 +5,7 @@
 export const ROUTES = {
     home: "/",
     discover: "/discover",
+    contentDetails: "/content/:id",
     library: "/Save",
     login: "/login",
     register: "/register",
@@ -12,3 +13,6 @@ export const ROUTES = {
 } as const;
 
 export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
+
+/** Link to one content item's page. */
+export const contentPath = (id: number) => ROUTES.contentDetails.replace(":id", String(id));

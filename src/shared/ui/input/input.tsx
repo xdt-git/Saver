@@ -7,16 +7,24 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     hint?: string;
     /** Error message; also marks the input as invalid. */
     error?: string;
+    /** Class of the whole field (label + control); `className` styles the control itself. */
+    fieldClassName?: string;
 }
 
 /** Text input with label, hint and error message. Forwards ref for form libraries. */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ label, hint, error, id, className, ...rest }, ref) => {
+    ({ label, hint, error, id, className, fieldClassName, ...rest }, ref) => {
         const autoId = useId();
         const inputId = id ?? autoId;
 
         return (
-            <FormField id={inputId} label={label} hint={hint} error={error}>
+            <FormField
+                id={inputId}
+                label={label}
+                hint={hint}
+                error={error}
+                className={fieldClassName}
+            >
                 <input
                     ref={ref}
                     id={inputId}

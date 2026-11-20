@@ -60,7 +60,14 @@
         "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below."
     },
     "library": {
-        "bannerAlt": "Library banner"
+        "bannerAlt": "Library banner",
+        "status": {
+            "planned": "Planned",
+            "watching": "Watching",
+            "completed": "Completed"
+        },
+        "statusLabel": "Status of “{{title}}”",
+        "statusSaved": "Status: {{status}}"
     },
     "categories": {
         "film": {
@@ -192,5 +199,87 @@
         },
         "signedOut": "You have signed out.",
         "sessionExpired": "Your session has expired. Please sign in again."
+    },
+    "contentTypes": {
+        "film": "Film",
+        "series": "Series",
+        "anime": "Anime",
+        "cartoon": "Cartoon",
+        "game": "Game",
+        "other": "Other"
+    },
+    "genres": {
+        "action": "Action",
+        "adventure": "Adventure",
+        "animation": "Animation",
+        "comedy": "Comedy",
+        "crime": "Crime",
+        "documentary": "Documentary",
+        "drama": "Drama",
+        "family": "Family",
+        "fantasy": "Fantasy",
+        "history": "History",
+        "horror": "Horror",
+        "music": "Music",
+        "mystery": "Mystery",
+        "romance": "Romance",
+        "sci-fi": "Science fiction",
+        "thriller": "Thriller",
+        "war": "War",
+        "western": "Western"
+    },
+    "content": {
+        "genres": "Genres",
+        "minutes": "{{value}} min",
+        "episodes": "{{episodes}} ep. × {{minutes}} min",
+        "noRatings": "No ratings yet",
+        "ratingValue": "★ {{average}} · ratings: {{votes}}",
+        "originalTitle": "Original title",
+        "description": "Description",
+        "back": "Back to the catalog",
+        "notFound": "No such content",
+        "notFoundText": "It may have been deleted, or the link is wrong.",
+        "yourActions": "Your status and rating"
+    },
+    "rating": {
+        "label": "Rating of “{{title}}”",
+        "none": "Rate",
+        "saved": "Rating {{value}} saved",
+        "removed": "Rating removed"
+    },
+    "discover": {
+        "title": "Catalog",
+        "categories": "Categories",
+        "all": "All",
+        "search": "Search by title",
+        "searchPlaceholder": "For example, Dune",
+        "genre": "Genre",
+        "anyGenre": "Any genre",
+        "yearFrom": "Year from",
+        "yearTo": "Year to",
+        "minRating": "Rating from",
+        "anyRating": "Any",
+        "sort": "Sort",
+        "sorts": {
+            "newest": "Newest first",
+            "title": "By title",
+            "year": "By release year",
+            "rating": "By rating"
+        },
+        "reset": "Reset filters",
+        "random": "Random pick",
+        "another": "Another one",
+        "randomTitle": "Random pick",
+        "found": "Found: {{total}}",
+        "emptyTitle": "Nothing found",
+        "emptyText": "Change the filters or search differently.",
+        "randomEmpty": "Nothing matches these filters.",
+        "loadError": "Could not load the catalog"
+    },
+    "pagination": {
+        "label": "Pages",
+        "prev": "Previous",
+        "next": "Next",
+        "page": "Page {{page}} of {{pages}}"
     }
 }

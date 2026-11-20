@@ -1,0 +1,105 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+// Poster on the left, info on the right; stacked on phones.
+.card {
+    display: grid;
+    grid-template-columns: var(--size-card-poster) 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    transition: box-shadow var(--duration-fast) var(--easing);
+
+    &:hover {
+        box-shadow: var(--glow-accent);
+    }
+}
+
+.posterLink {
+    align-self: start;
+}
+
+.posterSkeleton {
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--ratio-poster);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    min-width: 0;
+}
+
+.title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--font-size-md);
+    overflow-wrap: anywhere;
+
+    a {
+        color: var(--color-text);
+        text-decoration: none;
+
+        &:hover {
+            filter: var(--glow-sm);
+        }
+    }
+}
+
+.meta,
+.rating {
+    margin: 0;
+    color: var(--color-text-faint);
+    font-size: var(--font-size-xs);
+}
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.genre {
+    padding: var(--space-3xs) var(--space-xs);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+// Long descriptions are cut to a few lines; the details page shows all of it.
+.description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-body);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: auto;
+    padding-top: var(--space-xs);
+}
+
+@media (max-width: bp.$sm) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+
+    .posterLink {
+        width: var(--size-card-poster);
+    }
+}

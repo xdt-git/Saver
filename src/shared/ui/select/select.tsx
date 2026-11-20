@@ -12,18 +12,26 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     label?: string;
     hint?: string;
     error?: string;
+    /** Class of the whole field (label + control); `className` styles the control itself. */
+    fieldClassName?: string;
     /** Text of an empty first option, e.g. "Choose a genre". */
     placeholder?: string;
 }
 
 /** Native select with the same look and messages as Input. */
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-    ({ options, label, hint, error, placeholder, id, className, ...rest }, ref) => {
+    ({ options, label, hint, error, placeholder, id, className, fieldClassName, ...rest }, ref) => {
         const autoId = useId();
         const selectId = id ?? autoId;
 
         return (
-            <FormField id={selectId} label={label} hint={hint} error={error}>
+            <FormField
+                id={selectId}
+                label={label}
+                hint={hint}
+                error={error}
+                className={fieldClassName}
+            >
                 <select
                     ref={ref}
                     id={selectId}

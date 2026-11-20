@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { cn } from "@/shared/lib";
 import styles from "./form-field.module.scss";
 
 export interface FormFieldProps {
@@ -7,12 +8,14 @@ export interface FormFieldProps {
     label?: string;
     hint?: string;
     error?: string;
+    /** Class of the whole field (label + control), e.g. a narrower width. */
+    className?: string;
     children: ReactNode;
 }
 
 /** Label + control + hint/error. Shared by Input, Select and future form controls. */
-export const FormField = ({ id, label, hint, error, children }: FormFieldProps) => (
-    <div className={styles.field}>
+export const FormField = ({ id, label, hint, error, className, children }: FormFieldProps) => (
+    <div className={cn(styles.field, className)}>
         {label && (
             <label htmlFor={id} className={styles.label}>
                 {label}
