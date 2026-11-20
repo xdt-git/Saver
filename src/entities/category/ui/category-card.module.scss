@@ -18,6 +18,8 @@
     height: auto;
     flex-shrink: 0;
     border-radius: var(--radius-md);
+    // Neon glow along the picture edges.
+    box-shadow: var(--glow-card);
 }
 
 .content {
@@ -27,6 +29,7 @@
     gap: var(--space-sm);
     // A readable line length: the description wraps into a few lines.
     max-width: var(--size-text-measure);
+    font-size: var(--font-size-md);
     line-height: var(--line-height-body);
 }
 

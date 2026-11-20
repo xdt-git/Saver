@@ -84,6 +84,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C6.5 Laptop layout (owner feedback): hero 45% with padding from the left edge, preview fills the rest and matches it in size, fluid Start button and platform icons (one row, wider gaps), language and theme buttons split to the bottom corners, footer padded clear of them
 -   [x] C6.6 Platform previews for Telegram and Desktop (owner mockups), balanced preview heights, apology toast for unreleased platforms, author's Telegram in Contacts
 -   [x] C6.7 Library page layout (owner feedback): centered column, smaller fluid card images, larger gaps, descriptions wrap to a readable width, alternating card layout via `CategoryCard reversed`
+-   [x] C6.8 Full-height page layout (owner feedback): header / page / footer column so the footer stays on screen when content is short, landing content centered vertically, previews in one 16:10 frame and larger on big screens; library cards wider with bigger glowing images and larger text
 
 ### C7. Authentication
 
