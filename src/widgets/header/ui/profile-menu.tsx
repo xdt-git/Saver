@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "@/entities/session";
-import { profilePath, ROUTES } from "@/shared/config/routes";
+import { NEWS_FOLLOWING_PATH, ROUTES, profilePath } from "@/shared/config/routes";
 import { useClickOutside, useEscapeKey } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
 import { glowClassName } from "@/shared/ui/text";
@@ -81,7 +81,7 @@ export const ProfileMenu = () => {
                     </Button>
                     <Button
                         role="menuitem"
-                        to={ROUTES.feed}
+                        to={NEWS_FOLLOWING_PATH}
                         variant="nav"
                         className={styles.profileLink}
                         onClick={close}

@@ -7,6 +7,7 @@ const navItems = [
     { labelKey: "nav.home", to: ROUTES.home },
     { labelKey: "nav.random", to: ROUTES.discover },
     { labelKey: "nav.library", to: ROUTES.library },
+    { labelKey: "nav.news", to: ROUTES.news },
 ] as const;
 
 interface NavLinksProps {

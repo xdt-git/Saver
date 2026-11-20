@@ -1,0 +1,26 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.feedHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.heading {
+    margin: 0;
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+}

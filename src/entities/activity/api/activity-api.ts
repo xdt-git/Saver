@@ -26,8 +26,8 @@ export interface ActivityPage {
     nextCursor: number | null;
 }
 
-/** Whose events: one user's, or the signed-in user's feed of people they follow. */
-export type ActivitySource = { kind: "user"; userId: number } | { kind: "feed" };
+/** Whose events: one user's, the people the signed-in user follows, or everyone's. */
+export type ActivitySource = { kind: "user"; userId: number } | { kind: "feed" } | { kind: "all" };
 
 export const ACTIVITY_PAGE_SIZE = 20;
 
@@ -37,7 +37,11 @@ export const activityKeys = {
 };
 
 const path = (source: ActivitySource) =>
-    source.kind === "feed" ? "/feed" : `/users/${source.userId}/activity`;
+    source.kind === "feed"
+        ? "/feed"
+        : source.kind === "all"
+          ? "/activity"
+          : `/users/${source.userId}/activity`;
 
 export const activityApi = {
     page: (source: ActivitySource, before?: number, signal?: AbortSignal) =>
