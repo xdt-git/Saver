@@ -100,6 +100,7 @@
     --state-modal-enter-scale: scale(0.96);
 
     // Layers
+    --z-header: 900;
     --z-modal: 1000;
     --z-toast: 1100; // above modals, so errors inside a dialog stay visible
 

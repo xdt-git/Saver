@@ -15,7 +15,11 @@
     },
     "header": {
         "logoAlt": "Universal Saver logo",
-        "profile": "Profile"
+        "profile": "Profile",
+        "mainNav": "Main navigation",
+        "mobileNav": "Mobile navigation",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu"
     },
     "language": {
         "label": "Interface language",

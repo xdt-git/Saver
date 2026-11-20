@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
+import { useEscapeKey, useScrollLock } from "@/shared/lib";
 import { Button } from "../button";
 import { Text } from "../text";
 import styles from "./modal.module.scss";
@@ -25,25 +26,15 @@ export const Modal = ({ open, onClose, title, children, footer, closeLabel }: Mo
     const titleId = useId();
     const dialogRef = useRef<HTMLDivElement>(null);
 
+    useScrollLock(open);
+    useEscapeKey(open, onClose);
+
     useEffect(() => {
         if (!open) return;
-
         const previouslyFocused = document.activeElement as HTMLElement | null;
-        const previousOverflow = document.body.style.overflow;
-        document.body.style.overflow = "hidden";
         dialogRef.current?.focus();
-
-        const onKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "Escape") onClose();
-        };
-        document.addEventListener("keydown", onKeyDown);
-
-        return () => {
-            document.removeEventListener("keydown", onKeyDown);
-            document.body.style.overflow = previousOverflow;
-            previouslyFocused?.focus();
-        };
-    }, [open, onClose]);
+        return () => previouslyFocused?.focus();
+    }, [open]);
 
     if (!open) return null;
 
