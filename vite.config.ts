@@ -39,5 +39,20 @@ export default defineConfig({
         globals: true,
         setupFiles: ["./src/shared/config/tests/setup.ts"],
         css: { modules: { classNameStrategy: "non-scoped" } },
+        coverage: {
+            provider: "v8",
+            reporter: ["text-summary", "json-summary"],
+            include: ["src/**/*.{ts,tsx}"],
+            // Tests, test helpers, re-export files and the dev-only showcase are not product code.
+            exclude: [
+                "src/**/*.test.*",
+                "src/**/index.ts",
+                "src/**/testing.ts",
+                "src/**/*.d.ts",
+                "src/shared/config/tests/**",
+                "src/pages/ui-kit/**",
+                "src/main.tsx",
+            ],
+        },
     },
 });
