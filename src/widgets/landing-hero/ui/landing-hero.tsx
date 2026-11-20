@@ -1,22 +1,19 @@
 import { useTranslation } from "react-i18next";
-import desktopImg from "@/shared/assets/desktop.webp";
-import mobileImg from "@/shared/assets/mobile.webp";
-import telegramImg from "@/shared/assets/telegram.webp";
-import webImg from "@/shared/assets/web.webp";
-import { ROUTES } from "@/shared/config/routes";
+import { PLATFORMS, getPlatform, type PlatformId } from "@/shared/config/platforms";
+import { cn } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
 import { Text } from "@/shared/ui/text";
 import styles from "./landing-hero.module.scss";
 
-const platforms = [
-    { id: "telegram", img: telegramImg },
-    { id: "mobile", img: mobileImg },
-    { id: "desktop", img: desktopImg },
-    { id: "web", img: webImg },
-] as const;
+interface LandingHeroProps {
+    selectedPlatform: PlatformId;
+    onSelectPlatform: (platform: PlatformId) => void;
+}
 
-export const LandingHero = () => {
+/** Title, Start button and the platform switcher of the landing page. */
+export const LandingHero = ({ selectedPlatform, onSelectPlatform }: LandingHeroProps) => {
     const { t } = useTranslation();
+    const { action, actionLabel } = getPlatform(selectedPlatform);
 
     return (
         <div className={styles.leftContainer}>
@@ -25,19 +22,36 @@ export const LandingHero = () => {
                 {t("landing.titleSecondLine")}
             </Text>
             <Text glow>{t("landing.subtitle")}</Text>
-            <Button to={ROUTES.library} className={styles.btnMargin}>
-                {t("landing.start")}
-            </Button>
-            <div className={styles.imgLinks}>
-                {platforms.map((platform) => (
-                    <Button key={platform.id} variant="icon">
-                        <img
-                            src={platform.img}
-                            className={styles.picturesSize}
-                            alt={t(`landing.platforms.${platform.id}`)}
-                        />
-                    </Button>
-                ))}
+
+            {action.kind === "route" ? (
+                <Button to={action.to} className={styles.btnMargin}>
+                    {t(`landing.actions.${actionLabel}`)}
+                </Button>
+            ) : (
+                <Button disabled className={styles.btnMargin}>
+                    {t("landing.actions.soon")}
+                </Button>
+            )}
+
+            <div className={styles.imgLinks} role="group" aria-label={t("landing.platformsLabel")}>
+                {PLATFORMS.map((platform) => {
+                    const isActive = platform.id === selectedPlatform;
+                    return (
+                        <Button
+                            key={platform.id}
+                            variant="icon"
+                            aria-pressed={isActive}
+                            className={cn(isActive && styles.active, styles[platform.id])}
+                            onClick={() => onSelectPlatform(platform.id)}
+                        >
+                            <img
+                                src={platform.icon}
+                                className={styles.picturesSize}
+                                alt={t(`landing.platforms.${platform.id}`)}
+                            />
+                        </Button>
+                    );
+                })}
             </div>
         </div>
     );
