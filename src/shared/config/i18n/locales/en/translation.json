@@ -1,0 +1,416 @@
+{
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "close": "Close",
+        "delete": "Delete",
+        "retry": "Try again",
+        "loading": "Loading",
+        "somethingWentWrong": "Something went wrong"
+    },
+    "nav": {
+        "home": "Home",
+        "random": "Random pick",
+        "library": "My library"
+    },
+    "header": {
+        "logoAlt": "Universal Saver logo",
+        "profile": "Profile",
+        "mainNav": "Main navigation",
+        "mobileNav": "Mobile navigation",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "signIn": "Sign in",
+        "signOut": "Sign out",
+        "profileMenu": "Profile menu of {{username}}",
+        "myLibrary": "My library",
+        "myProfile": "My profile",
+        "myFeed": "My feed"
+    },
+    "language": {
+        "label": "Interface language",
+        "ru": "RU",
+        "en": "EN"
+    },
+    "landing": {
+        "titleFirstLine": "Universal Saver -",
+        "titleSecondLine": "Save your memories",
+        "subtitle": "Save everything you love in one place",
+        "platforms": {
+            "telegram": "Telegram",
+            "mobile": "Mobile app",
+            "desktop": "Desktop app",
+            "web": "Web version"
+        },
+        "actions": {
+            "start": "Start",
+            "openBot": "Open the bot",
+            "download": "Download"
+        },
+        "platformsLabel": "Choose a platform",
+        "previews": {
+            "telegram": "Saver Telegram bot",
+            "mobile": "Saver on a phone",
+            "desktop": "Saver desktop app",
+            "web": "Saver in the browser and on a phone"
+        },
+        "unavailable": "We are sorry! This service is temporarily unavailable. Please accept our apologies."
+    },
+    "about": {
+        "title": "About",
+        "text": "UniversalSaver started as a university project and grew into a full idea. Here you can keep the films, series and everything else you have watched or plan to watch.",
+        "productsTitle": "Our products",
+        "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below."
+    },
+    "library": {
+        "bannerAlt": "Library banner",
+        "status": {
+            "planned": "Planned",
+            "watching": "Watching",
+            "completed": "Completed"
+        },
+        "statusLabel": "Status of “{{title}}”",
+        "statusSaved": "Status: {{status}}"
+    },
+    "categories": {
+        "film": {
+            "alt": "Films",
+            "description": "Save your favorite films and come back to them whenever you like. All your impressions in one place."
+        },
+        "series": {
+            "alt": "Series",
+            "description": "Hooked on a series? Save it to your collection and come back for new impressions!"
+        },
+        "anime": {
+            "alt": "Anime",
+            "description": "Enjoying anime? Save it to your collection and explore new horizons!"
+        },
+        "cartoon": {
+            "alt": "Cartoons",
+            "description": "Save your favorite cartoons and build a collection of your own!"
+        },
+        "game": {
+            "alt": "Games",
+            "description": "Save your favorite games and get the most out of them!"
+        }
+    },
+    "notFound": {
+        "title": "Page not found"
+    },
+    "uiKit": {
+        "title": "UI kit",
+        "start": "Start",
+        "disabled": "Disabled",
+        "navLink": "Navigation link",
+        "usernameHint": "3 to 20 characters",
+        "password": "Password",
+        "passwordError": "At least 8 characters",
+        "readOnly": "Read only",
+        "genre": "Genre",
+        "genrePlaceholder": "Choose a genre",
+        "genreError": "Choose at least one genre",
+        "genres": {
+            "drama": "Drama",
+            "comedy": "Comedy",
+            "sciFi": "Sci-fi"
+        },
+        "openModal": "Open modal",
+        "modalTitle": "Delete entry?",
+        "modalText": "Interstellar will be removed from your library.",
+        "emptyTitle": "Your library is empty",
+        "emptyText": "Add your first film to get started.",
+        "findFilm": "Find a film",
+        "errorText": "Could not load data. Attempts: {{count}}",
+        "apiErrorToast": "API error (offline)",
+        "withAction": "With an action",
+        "undoToast": "Film removed from your library",
+        "undo": "Undo"
+    },
+    "theme": {
+        "label": "Color theme",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark"
+    },
+    "toast": {
+        "messages": {
+            "success": "Success",
+            "error": "Error",
+            "warning": "Warning",
+            "info": "Info"
+        }
+    },
+    "errors": {
+        "BAD_REQUEST": "Invalid request. Please check your input.",
+        "UNAUTHORIZED": "Please sign in.",
+        "FORBIDDEN": "You do not have permission to do this.",
+        "NOT_FOUND": "Nothing was found.",
+        "CONFLICT": "This entry already exists.",
+        "VALIDATION_ERROR": "Please check the highlighted fields.",
+        "TOO_MANY_REQUESTS": "Too many attempts. Please wait a moment and try again.",
+        "INTERNAL_ERROR": "Server error. Please try again later.",
+        "NETWORK_ERROR": "Cannot reach the server. Check your connection.",
+        "UNKNOWN": "Something went wrong."
+    },
+    "footer": {
+        "tagline": "A tracker for films, series, anime and games",
+        "about": "About",
+        "contacts": "Contacts",
+        "copyright": "© {{year}} Universal Saver",
+        "contactsSoon": "The author's personal contacts will be added later.",
+        "projectLinks": "Project"
+    },
+    "settings": {
+        "label": "Settings"
+    },
+    "auth": {
+        "fields": {
+            "login": "Email or username",
+            "email": "Email",
+            "username": "Username",
+            "password": "Password",
+            "confirmPassword": "Repeat password"
+        },
+        "hints": {
+            "username": "3 to 32 characters: latin letters, digits and _",
+            "password": "At least {{count}} characters, a lowercase and an uppercase letter and a digit"
+        },
+        "login": {
+            "title": "Sign in",
+            "submit": "Sign in",
+            "link": "Sign in",
+            "noAccount": "No account yet?",
+            "invalidCredentials": "Wrong login or password."
+        },
+        "register": {
+            "title": "Sign up",
+            "submit": "Create account",
+            "link": "Sign up",
+            "hasAccount": "Already have an account?"
+        },
+        "validation": {
+            "required": "Required",
+            "email": "Invalid email",
+            "username": "3 to 32 characters: latin letters, digits and _",
+            "passwordLength": "At least 8 characters",
+            "passwordTooLong": "Password is too long",
+            "passwordStrength": "Needs a lowercase and an uppercase letter and a digit",
+            "passwordsMismatch": "Passwords do not match",
+            "emailTaken": "This email is already taken",
+            "usernameTaken": "This username is already taken",
+            "invalid": "Check this field"
+        },
+        "signedOut": "You have signed out.",
+        "sessionExpired": "Your session has expired. Please sign in again."
+    },
+    "contentTypes": {
+        "film": "Film",
+        "series": "Series",
+        "anime": "Anime",
+        "cartoon": "Cartoon",
+        "game": "Game",
+        "other": "Other"
+    },
+    "genres": {
+        "action": "Action",
+        "adventure": "Adventure",
+        "animation": "Animation",
+        "comedy": "Comedy",
+        "crime": "Crime",
+        "documentary": "Documentary",
+        "drama": "Drama",
+        "family": "Family",
+        "fantasy": "Fantasy",
+        "history": "History",
+        "horror": "Horror",
+        "music": "Music",
+        "mystery": "Mystery",
+        "romance": "Romance",
+        "sci-fi": "Science fiction",
+        "thriller": "Thriller",
+        "war": "War",
+        "western": "Western"
+    },
+    "content": {
+        "genres": "Genres",
+        "minutes": "{{value}} min",
+        "episodes": "{{episodes}} ep. × {{minutes}} min",
+        "noRatings": "No ratings yet",
+        "ratingValue": "★ {{average}} · ratings: {{votes}}",
+        "originalTitle": "Original title",
+        "description": "Description",
+        "back": "Back to the catalog",
+        "notFound": "No such content",
+        "notFoundText": "It may have been deleted, or the link is wrong.",
+        "yourActions": "Your status and rating"
+    },
+    "rating": {
+        "label": "Rating of “{{title}}”",
+        "none": "Rate",
+        "saved": "Rating {{value}} saved",
+        "removed": "Rating removed"
+    },
+    "discover": {
+        "title": "Catalog",
+        "categories": "Categories",
+        "all": "All",
+        "search": "Search by title",
+        "searchPlaceholder": "For example, Dune",
+        "genre": "Genre",
+        "anyGenre": "Any genre",
+        "yearFrom": "Year from",
+        "yearTo": "Year to",
+        "minRating": "Rating from",
+        "anyRating": "Any",
+        "sort": "Sort",
+        "sorts": {
+            "newest": "Newest first",
+            "title": "By title",
+            "year": "By release year",
+            "rating": "By rating"
+        },
+        "reset": "Reset filters",
+        "random": "Random pick",
+        "another": "Another one",
+        "randomTitle": "Random pick",
+        "found": "Found: {{total}}",
+        "emptyTitle": "Nothing found",
+        "emptyText": "Change the filters or search differently.",
+        "randomEmpty": "Nothing matches these filters.",
+        "loadError": "Could not load the catalog"
+    },
+    "pagination": {
+        "label": "Pages",
+        "prev": "Previous",
+        "next": "Next",
+        "page": "Page {{page}} of {{pages}}"
+    },
+    "collection": {
+        "title": "My library",
+        "filters": "Library filters",
+        "statusTabs": "Status",
+        "allStatuses": "All",
+        "anyType": "Any type",
+        "sorts": {
+            "updated": "Recently changed",
+            "added": "Recently added",
+            "title": "By title"
+        },
+        "emptyTitle": "Your library is empty",
+        "emptyText": "Find something in the catalog or add it manually.",
+        "toCatalog": "Open the catalog",
+        "loadError": "Could not load the library",
+        "completedOn": "Completed on {{date}}",
+        "addManually": "Add manually",
+        "addTitle": "New entry",
+        "addSubmit": "Add to the library",
+        "initialStatus": "Status in the library",
+        "added": "“{{title}}” added to the library",
+        "saved": "Changes saved",
+        "editContent": "Edit",
+        "editTitle": "Edit",
+        "editEntry": "Note",
+        "editEntryTitle": "Note: “{{title}}”",
+        "notes": "Your note",
+        "notesTooLong": "No more than {{max}} characters",
+        "completedAt": "Completion date",
+        "completedAtHint": "If you watched it earlier, say when",
+        "futureDate": "The date cannot be in the future",
+        "removeTitle": "Remove from the library?",
+        "removeText": "“{{title}}” leaves your library with its status and note. Your rating stays.",
+        "removeConfirm": "Remove",
+        "removed": "“{{title}}” removed from the library",
+        "emptyHere": "Nothing here yet: {{what}}"
+    },
+    "contentForm": {
+        "type": "Type",
+        "year": "Release year",
+        "title": "Title",
+        "originalTitle": "Original title",
+        "runtime": "Runtime, min",
+        "episodes": "Episodes",
+        "episodeRuntime": "Minutes per episode",
+        "genres": "Genres",
+        "poster": "Poster link",
+        "posterHint": "Image upload comes later",
+        "description": "Description",
+        "errors": {
+            "required": "Required",
+            "tooLong": "Too long",
+            "year": "A year from 1870 to 2100",
+            "positive": "A whole number above zero",
+            "url": "The link must start with http:// or https://",
+            "tooMany": "No more than {{max}} genres",
+            "unknownGenre": "No such genre",
+            "invalid": "Check this field"
+        }
+    },
+    "profile": {
+        "title": "Profile of {{name}}",
+        "follow": "Follow",
+        "unfollow": "Unfollow",
+        "followers": "followers",
+        "following": "following",
+        "connections": "Followers and following",
+        "empty": {
+            "followers": "No followers yet",
+            "following": "Not following anyone yet"
+        },
+        "joined": "Joined on {{date}}",
+        "privateBadge": "Private profile",
+        "privateTitle": "This profile is private",
+        "privateText": "Only the owner can see the activity.",
+        "activity": "Activity",
+        "noActivity": "No activity yet",
+        "notFound": "No such user",
+        "edit": "Edit profile",
+        "editTitle": "Edit profile",
+        "displayName": "Display name",
+        "displayNameHint": "Leave empty to show the username",
+        "bio": "About",
+        "avatarUrl": "Avatar link",
+        "private": "Private profile",
+        "privateHint": "Your library, statistics and activity are visible only to you",
+        "saved": "Profile saved",
+        "errors": {
+            "tooLong": "No more than {{max}} characters"
+        }
+    },
+    "activity": {
+        "added": "added to the library ({{status}})",
+        "statusChanged": "changed the status: {{from}} → {{to}}",
+        "completed": "finished watching",
+        "rated": "rated it {{value}}",
+        "more": "Show more"
+    },
+    "feed": {
+        "title": "Feed",
+        "emptyTitle": "Your feed is empty",
+        "emptyText": "Actions of the people you follow appear here. Find public profiles through other users' activity and followers."
+    },
+    "stats": {
+        "title": "Statistics",
+        "completed": "Completed",
+        "watchTime": "Watch time",
+        "duration": "{{hours}} h {{minutes}} min",
+        "averageRating": "Average rating",
+        "activity": "Activity in 7 days",
+        "byMonth": "Completed by month",
+        "byCategory": "By category",
+        "byGenre": "Favorite genres",
+        "top": "Top rated",
+        "asTable": "Show as a table",
+        "emptyTitle": "No statistics yet",
+        "emptyText": "They appear once the library has entries.",
+        "inLibrary_one": "{{count}} entry in the library",
+        "inLibrary_other": "{{count}} entries in the library",
+        "withoutDuration_one": "{{count}} item not counted: unknown duration",
+        "withoutDuration_other": "{{count}} items not counted: unknown duration",
+        "ratingsCount_one": "{{count}} rating",
+        "ratingsCount_other": "{{count}} ratings",
+        "activity30_one": "{{count}} action in 30 days",
+        "activity30_other": "{{count}} actions in 30 days",
+        "completedValue_one": "{{count}} completed",
+        "completedValue_other": "{{count}} completed"
+    }
+}

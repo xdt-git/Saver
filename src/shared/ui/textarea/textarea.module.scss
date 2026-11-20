@@ -1,0 +1,7 @@
+// The shared control is one line high; a textarea grows with its rows.
+.textarea {
+    height: auto;
+    padding: var(--space-xs);
+    line-height: var(--line-height-body);
+    resize: vertical;
+}

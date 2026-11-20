@@ -1,0 +1,19 @@
+// Same 2:3 frame for every poster, so cards line up.
+.poster {
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--ratio-poster);
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--glow-card);
+    background-color: var(--color-surface-raised);
+}
+
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-faint);
+    font-size: var(--size-icon-lg);
+    background-image: var(--gradient-poster-placeholder);
+}

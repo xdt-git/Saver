@@ -1,0 +1,147 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+.header {
+    position: sticky;
+    display: flex;
+    height: var(--size-header-height);
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md);
+}
+
+.nav {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.profileIcon {
+    font-size: var(--size-icon-lg);
+}
+
+// The burger exists only on small screens.
+.burger {
+    display: none;
+    color: var(--color-text);
+    font-size: var(--size-icon-lg);
+}
+
+// Click-outside area behind the mobile panel.
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-overlay);
+    animation: fade-in var(--duration-fast) var(--easing);
+}
+
+// Mobile panel, drops down right under the header.
+.panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    background-color: var(--color-surface);
+    border-bottom: var(--border-thin) solid var(--color-border);
+    box-shadow: var(--glow-accent);
+    animation: panel-in var(--duration-fast) var(--easing);
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2xs);
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(calc(-1 * var(--space-sm)));
+    }
+}
+
+// Layering is needed only for the mobile menu. On desktop it is left out on purpose:
+// an extra layer makes Chrome rasterize the hero glow differently.
+@media (max-width: bp.$md) {
+    .header {
+        z-index: var(--z-header);
+        padding: var(--space-sm);
+        height: auto;
+
+        // Header items stay above the mobile backdrop (which is rendered first).
+        // The backdrop and the panel keep their own fixed / absolute positioning.
+        > :not(.backdrop, .panel) {
+            position: relative;
+        }
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .burger {
+        display: inline-flex;
+    }
+}
+
+// Profile menu: drops down under the icon, above the page content.
+.profile {
+    position: relative;
+}
+
+.profileMenu {
+    position: absolute;
+    top: calc(100% + var(--space-xs));
+    right: 0;
+    z-index: var(--z-header);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2xs);
+    min-width: var(--size-popup-width);
+    padding: var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    box-shadow: var(--glow-accent);
+    animation: panel-in var(--duration-fast) var(--easing);
+}
+
+.profileName {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    overflow-wrap: anywhere;
+}
+
+.profileHandle {
+    color: var(--color-text-faint);
+    font-size: var(--font-size-sm);
+    overflow-wrap: anywhere;
+}
+
+.profileLink {
+    align-self: flex-start;
+    margin-top: var(--space-xs);
+}
+
+.profileAction {
+    margin-top: var(--space-xs);
+}

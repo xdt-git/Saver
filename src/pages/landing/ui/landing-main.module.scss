@@ -1,0 +1,33 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+// Fills the space between header and footer; the content is centered vertically in it.
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+// Hero (left, fixed share) and preview (right, the rest) side by side, padded from the edges.
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    width: 100%;
+    max-width: var(--size-landing-max);
+    padding: var(--space-md) var(--space-lg);
+    box-sizing: border-box;
+}
+
+// Phones and small tablets: hero above the preview, everything within the screen width.
+@media (max-width: bp.$md) {
+    .container {
+        flex-direction: column;
+        gap: var(--space-md);
+        width: 100%;
+        padding: var(--space-sm);
+        box-sizing: border-box;
+    }
+}

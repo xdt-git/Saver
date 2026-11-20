@@ -1,0 +1,12 @@
+.activity {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.subtitle {
+    margin: 0;
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+}

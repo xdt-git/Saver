@@ -1,0 +1,71 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+    // Side padding keeps the text clear of the language and theme buttons in the bottom corners.
+    padding: var(--space-md) var(--size-dock-clearance);
+    border-top: var(--border-thin) solid var(--color-border);
+    color: var(--color-text-faint);
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+}
+
+.links {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+// Dialog content.
+.paragraph {
+    margin: 0 0 var(--space-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-body);
+}
+
+.subtitle {
+    margin: 0 0 var(--space-xs);
+    font-size: var(--font-size-md);
+}
+
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: 0 0 var(--space-sm);
+    padding: 0;
+    list-style: none;
+}
+
+.contact {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--color-accent);
+    }
+}
+
+.contactIcon {
+    font-size: var(--font-size-md);
+}
+
+.note {
+    margin: 0;
+    color: var(--color-text-faint);
+    font-size: var(--font-size-xs);
+}
+
+@media (max-width: bp.$sm) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}

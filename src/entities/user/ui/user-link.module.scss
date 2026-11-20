@@ -1,0 +1,29 @@
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-width: 0;
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover .name {
+        filter: var(--glow-sm);
+    }
+}
+
+.names {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.name {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-medium);
+    overflow-wrap: anywhere;
+}
+
+.handle {
+    color: var(--color-text-faint);
+    font-size: var(--font-size-xs);
+}

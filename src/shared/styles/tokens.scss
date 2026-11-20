@@ -1,0 +1,194 @@
+// Design tokens: the single source of colors, typography, spacing, sizes and motion.
+// Components use these variables instead of raw values.
+// Themes: the values below are the dark (neon) theme; [data-theme="light"] at the end overrides colors only.
+
+:root {
+    color-scheme: dark;
+
+    // Colors
+    --color-bg: #000000;
+    --color-surface: #0a0a0a;
+    --color-surface-raised: #14141c;
+    --color-border-dark: #101010;
+    --color-border: #3a3a52;
+    --color-text: #ffffff;
+    --color-text-soft: #f0f8ff; // aliceblue
+    --color-text-muted: #d9d9d9;
+    --color-text-faint: #8a8aa3;
+    --color-on-primary: #d9d9d9; // text on the primary gradient, same in both themes
+    --color-primary: #2b5fcf;
+    --color-accent: #a62ad0;
+    --color-error: #ff4d6d;
+    --color-success: #2ecc71;
+    --color-warning: #f5a623;
+    --color-overlay: rgba(0, 0, 0, 0.75);
+    --color-skeleton: #1c1c28;
+    --color-skeleton-shine: #2a2a3c;
+    --color-dock-bg: rgba(20, 20, 28, 0.55); // semi-transparent floating controls
+    --color-platform-telegram: #2aabee;
+    --color-platform-mobile: #a62ad0;
+    --color-platform-desktop: #5b7cff;
+    --color-platform-web: #3fa9ff;
+    // Charts: one hue for single-series bars, a recessive track and hairline grid.
+    --color-chart-bar: var(--color-accent);
+    --color-chart-track: #1c1c28;
+    --color-chart-grid: #2a2a3c;
+
+    // Effects
+    --gradient-primary: linear-gradient(var(--color-primary), var(--color-accent));
+    --gradient-poster-placeholder: linear-gradient(
+        160deg,
+        var(--color-surface-raised),
+        var(--color-surface)
+    ); // no poster yet
+    --glow-color: #ffffff;
+    --glow-sm: drop-shadow(0 0 0.5rem var(--glow-color));
+    --glow-md: drop-shadow(0 0 0.75rem var(--glow-color));
+    --glow-accent: 0 0 0.75rem var(--color-accent);
+    --glow-card: 0 0 1.5rem var(--color-accent), 0 0 0.35rem var(--color-primary); // neon edge of card images
+    --glow-success: 0 0 0.75rem var(--color-success);
+    --glow-error: 0 0 0.75rem var(--color-error);
+    --glow-warning: 0 0 0.75rem var(--color-warning);
+    --glow-info: 0 0 0.75rem var(--color-primary);
+    --glow-platform-telegram: drop-shadow(0 0 0.75rem var(--color-platform-telegram));
+    --glow-platform-mobile: drop-shadow(0 0 0.75rem var(--color-platform-mobile));
+    --glow-platform-desktop: drop-shadow(0 0 0.75rem var(--color-platform-desktop));
+    --glow-platform-web: drop-shadow(0 0 0.75rem var(--color-platform-web));
+    --focus-ring: 0 0 0 var(--border-medium) var(--color-accent), var(--glow-accent);
+    --blur-banner: blur(5px);
+    --blur-dock: blur(8px);
+
+    // Typography
+    --font-display: "Montserrat", sans-serif;
+    --font-body: Arial, sans-serif;
+    --font-weight-light: 300;
+    --font-weight-medium: 500;
+    --font-weight-bold: bold;
+    --font-size-xs: 13px;
+    --font-size-sm: 16px;
+    --font-size-md: 20px;
+    --font-size-lg: 25px;
+    --font-size-xl: 32px;
+    --line-height-xl: 49px;
+    --line-height-body: 1.4;
+
+    // Spacing
+    --space-3xs: 1px;
+    --space-2xs: 5px;
+    --space-xs: 10px;
+    --space-sm: 20px;
+    --space-md: 30px;
+    --space-lg: 50px;
+    --space-xl: 100px;
+
+    // Radii and borders
+    --radius-xs: 4px; // data ends of bars
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 30px;
+    --radius-round: 50%;
+    --border-thin: 1px;
+    --border-medium: 2px;
+    --border-thick: 4px;
+
+    // Component sizes
+    --size-header-height: 100px;
+    --size-button-width: 285px;
+    --size-button-height: 80px;
+    --size-input-height: 48px;
+    --size-field-width: 360px;
+    --size-auth-card-width: 440px; // login and register forms
+    --size-icon-lg: 48px;
+    --size-avatar-sm: 40px;
+    --size-avatar-lg: clamp(96px, 12vw, 140px);
+    --size-checkbox: 20px;
+    --size-feed-max: 760px; // readable width of the activity feed
+    --size-chart-height: 180px;
+    --size-bar-thickness: 16px; // horizontal bars (<= 24px)
+    --size-column-max: 24px; // columns never fill their slot
+    --size-stat-min: 160px; // narrowest stat tile
+    --font-size-hero: clamp(28px, 3vw, 40px); // stat tile values
+    // Fluid sizes: clamp(min, share of the screen width, max).
+    --size-platform-icon: clamp(64px, 6vw, 108px);
+    --space-platform-gap: clamp(20px, 2.5vw, 40px);
+    --size-cta-width: clamp(200px, 17vw, 260px);
+    --size-cta-height: clamp(52px, 4.4vw, 68px);
+    --font-size-cta: clamp(22px, 1.9vw, 28px);
+    --size-hero-share: 45%; // landing hero width next to the preview
+    --size-landing-max: 1800px;
+    --size-platform-icon-sm: 64px;
+    --size-popup-width: 200px;
+    --size-banner-height: 250px;
+    --size-preview-width: 1100px;
+    --ratio-preview: 16 / 10; // one frame for every platform screenshot
+    --ratio-poster: 2 / 3; // movie poster frame
+    --size-card-poster: clamp(120px, 12vw, 170px); // poster width in catalog cards
+    --size-content-card-min: 420px; // narrowest catalog card before the grid wraps
+    --size-details-poster: clamp(200px, 24vw, 320px);
+    --size-filter-field: 180px; // compact fields in the filter bar
+    --size-rate-select: 110px;
+    --size-card-image: clamp(260px, 30vw, 480px);
+    --size-text-measure: 40ch; // comfortable line length for descriptions
+    --size-text-measure-wide: 70ch; // long texts on the details page
+    --size-content-max: 1280px; // centered content column
+    --space-cards-gap: clamp(48px, 6vw, 96px);
+    --size-modal-width: 520px;
+    --size-toast-width: 400px;
+    --size-dock-button: 48px;
+    // Room the corner buttons of the settings dock take, incl. their offset from the edge.
+    --size-dock-clearance: calc(var(--size-dock-button) + 2 * var(--space-sm));
+    --size-toast-icon: 22px;
+    --size-loader-sm: 20px;
+    --size-loader-md: 40px;
+    --size-loader-lg: 64px;
+    --size-skeleton-line: 16px;
+    --size-skeleton-avatar: 64px;
+    --size-skeleton-image: 200px;
+
+    // Interaction states
+    --state-hover-brightness: brightness(1.15);
+    --state-press-scale: scale(0.97);
+    --state-hover-scale: scale(1.08);
+    --state-disabled-opacity: 0.5;
+    --state-modal-enter-scale: scale(0.96);
+
+    // Layers
+    --z-header: 900;
+    --z-modal: 1000;
+    --z-toast: 1100; // above modals, so errors inside a dialog stay visible
+    --z-dock: 1200; // settings dock stays on top of everything
+
+    // Motion
+    --duration-fast: 0.3s;
+    --duration-slow: 0.55s;
+    --duration-spin: 0.9s;
+    --duration-shimmer: 1.4s;
+    --easing: ease;
+}
+
+// Light theme: overrides colors and glow only; sizes, spacing and motion are shared.
+// Status colors are darker than in the dark theme so they keep WCAG contrast on white
+// (checked: text 4.5:1, UI marks 3:1).
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    --color-bg: #f4f3fa;
+    --color-surface: #ffffff;
+    --color-surface-raised: #ffffff;
+    --color-border-dark: #d6d4e6;
+    --color-border: #c4c1dc;
+    --color-text: #16151f;
+    --color-text-soft: #1f1d2b;
+    --color-text-muted: #4a4860;
+    --color-text-faint: #66637e;
+    --color-error: #c81e45;
+    --color-success: #12804a;
+    --color-warning: #a15c00;
+    --color-chart-track: #ebe9f5;
+    --color-chart-grid: #dedcec;
+    --color-overlay: rgba(22, 21, 31, 0.45);
+    --color-skeleton: #e6e4f2;
+    --color-skeleton-shine: #f3f2fa;
+    --color-dock-bg: rgba(255, 255, 255, 0.55);
+    --glow-color: rgba(166, 42, 208, 0.35);
+}

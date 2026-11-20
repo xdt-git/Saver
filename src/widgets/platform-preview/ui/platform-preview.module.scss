@@ -1,0 +1,32 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+// Right-hand block: takes the space next to the hero; the screenshot fits inside it.
+.root {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+}
+
+// Every platform screenshot gets the same frame (wide or square), so they look alike
+// and grow together with the screen.
+.preview {
+    display: block;
+    width: 100%;
+    max-width: var(--size-preview-width);
+    aspect-ratio: var(--ratio-preview);
+    object-fit: contain;
+}
+
+@media (max-width: bp.$md) {
+    .root {
+        flex: none;
+        width: 100%;
+    }
+
+    // On phones the picture keeps its own shape at full width.
+    .preview {
+        aspect-ratio: auto;
+        height: auto;
+    }
+}

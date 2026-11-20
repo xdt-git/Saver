@@ -1,0 +1,13 @@
+// Full-height column: header, page, footer. The page takes the free space,
+// so the footer sits at the bottom of the screen when the content is short.
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}

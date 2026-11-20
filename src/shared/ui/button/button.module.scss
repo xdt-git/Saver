@@ -1,0 +1,117 @@
+// Shared base: the same box for <button> and for links rendered as buttons.
+.button {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center; // <button> centers text by default, links do not
+    transition:
+        transform var(--duration-fast) var(--easing),
+        box-shadow var(--duration-fast) var(--easing),
+        filter var(--duration-fast) var(--easing),
+        border-color var(--duration-fast) var(--easing);
+
+    // Pressed state for every variant.
+    &:active:not(:disabled) {
+        transform: var(--state-press-scale);
+    }
+
+    &:disabled {
+        opacity: var(--state-disabled-opacity);
+        cursor: not-allowed;
+    }
+}
+
+// Gradient call-to-action button ("Начать", "Сохранить"). Size follows the screen width.
+.primary {
+    width: var(--size-cta-width);
+    height: var(--size-cta-height);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-on-primary);
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--font-size-cta);
+    line-height: normal;
+    font-weight: var(--font-weight-light);
+    border: var(--color-border-dark);
+
+    &:hover:not(:disabled) {
+        box-shadow: var(--glow-accent);
+        filter: var(--state-hover-brightness);
+    }
+}
+
+// Compact size for forms, dialogs and toolbars. Default (no class) is the large hero size.
+.md {
+    width: auto;
+    height: var(--size-input-height);
+    padding: 0 var(--space-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-md);
+    line-height: normal;
+}
+
+// Quiet button for secondary actions (Cancel).
+.secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--size-input-height);
+    padding: 0 var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+
+    &:hover:not(:disabled) {
+        border-color: var(--color-accent);
+        box-shadow: var(--glow-accent);
+    }
+}
+
+// Transparent button around an icon or image (platform icons).
+.icon {
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+
+    &:hover:not(:disabled) {
+        transform: var(--state-hover-scale);
+        filter: var(--glow-sm);
+    }
+}
+
+// Navigation item with an animated underline on hover and keyboard focus.
+.nav {
+    display: inline-block;
+    border: none;
+    background: none;
+    background-color: transparent;
+    padding: var(--space-xs);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    position: relative;
+    margin-top: var(--space-3xs);
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--border-thin);
+        background-color: var(--color-text);
+        transform: scaleX(0);
+        transition: transform var(--duration-fast) var(--easing);
+    }
+
+    &:hover:after,
+    &:focus-visible:after {
+        transform: scaleX(1);
+    }
+}

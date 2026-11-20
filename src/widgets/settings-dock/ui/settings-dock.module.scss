@@ -1,0 +1,17 @@
+// A transparent strip along the bottom edge: language in the left corner, theme in the right.
+// Fixed, above everything; scrolling does not move it. Only the buttons catch clicks.
+.dock {
+    position: fixed;
+    left: var(--space-sm);
+    right: var(--space-sm);
+    bottom: var(--space-sm);
+    z-index: var(--z-dock);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+
+    > * {
+        pointer-events: auto;
+    }
+}

@@ -1,0 +1,62 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+.leftContainer {
+    flex: 0 0 var(--size-hero-share);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-soft);
+    font-style: italic;
+    text-align: center;
+}
+
+.btnMargin {
+    margin-top: var(--space-xs);
+}
+
+// Platform icons: always one row, size and spacing follow the screen width.
+.imgLinks {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--space-platform-gap);
+    margin-top: var(--space-md);
+}
+
+.picturesSize {
+    width: var(--size-platform-icon);
+    height: var(--size-platform-icon);
+}
+
+// The selected platform glows in its own color and stays slightly enlarged.
+.active {
+    transform: var(--state-hover-scale);
+}
+
+.active.telegram {
+    filter: var(--glow-platform-telegram);
+}
+.active.mobile {
+    filter: var(--glow-platform-mobile);
+}
+.active.desktop {
+    filter: var(--glow-platform-desktop);
+}
+.active.web {
+    filter: var(--glow-platform-web);
+}
+
+// Phones: full-width hero, smaller platform icons so all four fit in one row.
+@media (max-width: bp.$md) {
+    .leftContainer {
+        flex: none;
+        width: 100%;
+    }
+
+    .picturesSize {
+        width: var(--size-platform-icon-sm);
+        height: var(--size-platform-icon-sm);
+    }
+}
