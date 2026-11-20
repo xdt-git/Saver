@@ -238,14 +238,16 @@
         "genres": "Жанры",
         "minutes": "{{value}} мин",
         "episodes": "{{episodes}} эп. × {{minutes}} мин",
-        "noRatings": "Пока без оценок",
-        "ratingValue": "★ {{average}} · оценок: {{votes}}",
         "originalTitle": "Оригинальное название",
         "description": "Описание",
         "back": "Назад к каталогу",
         "notFound": "Такого контента нет",
         "notFoundText": "Возможно, его удалили или ссылка неверна.",
-        "yourActions": "Ваш статус и оценка"
+        "yourActions": "Ваш статус и оценка",
+        "ratings": "Оценки",
+        "ratingOf": "{{source}}: {{value}}, оценок: {{votes}}",
+        "ratingOfNoVotes": "{{source}}: {{value}}",
+        "ratingNone": "{{source}}: пока без оценок"
     },
     "rating": {
         "label": "Оценка «{{title}}»",
@@ -258,7 +260,7 @@
         "categories": "Категории",
         "all": "Всё",
         "search": "Поиск по названию",
-        "searchPlaceholder": "Например, Дюна",
+        "searchPlaceholder": "Например, Наруто",
         "genre": "Жанр",
         "anyGenre": "Любой жанр",
         "yearFrom": "Год от",
@@ -267,10 +269,12 @@
         "anyRating": "Любой",
         "sort": "Сортировка",
         "sorts": {
+            "popular": "Сначала популярные",
             "newest": "Сначала новые",
             "title": "По названию",
             "year": "По году выхода",
-            "rating": "По рейтингу"
+            "rating": "По оценке Saver",
+            "imdb": "По оценке IMDb"
         },
         "reset": "Сбросить фильтры",
         "random": "Случайный выбор",
@@ -286,7 +290,8 @@
         "label": "Страницы",
         "prev": "Назад",
         "next": "Вперёд",
-        "page": "Страница {{page}} из {{pages}}"
+        "page": "Страница {{page}} из {{pages}}",
+        "goTo": "Страница {{page}}"
     },
     "collection": {
         "title": "Моя библиотека",
@@ -438,5 +443,9 @@
         "openLabel": "Открыть «{{title}}»",
         "imported": "«{{title}}» в каталоге",
         "attribution": "Данные предоставлены TMDB."
+    },
+    "suggest": {
+        "label": "Подсказки",
+        "fromTmdb": "добавить из TMDB"
     }
 }

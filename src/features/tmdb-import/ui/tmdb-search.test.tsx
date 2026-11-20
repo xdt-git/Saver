@@ -1,10 +1,9 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Route, Routes } from "react-router-dom";
-import { makeContent } from "@/entities/content";
+import { makeContent, type TmdbResult } from "@/entities/content";
 import { sessionTestOptions, TEST_USER } from "@/entities/session";
 import { apiFailure, mockApi, renderWithProviders } from "@/shared/config/tests";
-import type { TmdbResult } from "../api/tmdb-api";
 import { TmdbSearch } from "./tmdb-search";
 
 afterEach(() => vi.unstubAllGlobals());

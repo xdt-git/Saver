@@ -238,14 +238,16 @@
         "genres": "Genres",
         "minutes": "{{value}} min",
         "episodes": "{{episodes}} ep. × {{minutes}} min",
-        "noRatings": "No ratings yet",
-        "ratingValue": "★ {{average}} · ratings: {{votes}}",
         "originalTitle": "Original title",
         "description": "Description",
         "back": "Back to the catalog",
         "notFound": "No such content",
         "notFoundText": "It may have been deleted, or the link is wrong.",
-        "yourActions": "Your status and rating"
+        "yourActions": "Your status and rating",
+        "ratings": "Ratings",
+        "ratingOf": "{{source}}: {{value}}, {{votes}} votes",
+        "ratingOfNoVotes": "{{source}}: {{value}}",
+        "ratingNone": "{{source}}: no ratings yet"
     },
     "rating": {
         "label": "Rating of “{{title}}”",
@@ -258,7 +260,7 @@
         "categories": "Categories",
         "all": "All",
         "search": "Search by title",
-        "searchPlaceholder": "For example, Dune",
+        "searchPlaceholder": "For example, Naruto",
         "genre": "Genre",
         "anyGenre": "Any genre",
         "yearFrom": "Year from",
@@ -267,10 +269,12 @@
         "anyRating": "Any",
         "sort": "Sort",
         "sorts": {
+            "popular": "Most popular",
             "newest": "Newest first",
             "title": "By title",
             "year": "By release year",
-            "rating": "By rating"
+            "rating": "Saver rating",
+            "imdb": "IMDb rating"
         },
         "reset": "Reset filters",
         "random": "Random pick",
@@ -286,7 +290,8 @@
         "label": "Pages",
         "prev": "Previous",
         "next": "Next",
-        "page": "Page {{page}} of {{pages}}"
+        "page": "Page {{page}} of {{pages}}",
+        "goTo": "Page {{page}}"
     },
     "collection": {
         "title": "My library",
@@ -428,5 +433,9 @@
         "openLabel": "Open “{{title}}”",
         "imported": "“{{title}}” is in the catalog",
         "attribution": "Data provided by TMDB."
+    },
+    "suggest": {
+        "label": "Suggestions",
+        "fromTmdb": "add from TMDB"
     }
 }

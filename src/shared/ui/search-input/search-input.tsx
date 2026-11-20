@@ -9,13 +9,21 @@ export interface SearchInputProps extends Omit<InputProps, "value" | "onChange" 
     onSearch: (value: string) => void;
     /** Delay in ms; defaults to the shared debounce delay. */
     delay?: number;
+    /** Every keystroke, before the debounce (e.g. for suggestions). */
+    onTextChange?: (text: string) => void;
 }
 
 /**
  * Search box that answers at once on screen but reports the text only after typing stops,
  * so a request is not sent on every key. Follows outside changes (reset, back button).
  */
-export const SearchInput = ({ value, onSearch, delay, ...rest }: SearchInputProps) => {
+export const SearchInput = ({
+    value,
+    onSearch,
+    delay,
+    onTextChange,
+    ...rest
+}: SearchInputProps) => {
     const [text, setText] = useState(value);
     const debounced = useDebouncedValue(text, delay);
     // Latest props without re-running the effect below on every render.
@@ -31,7 +39,10 @@ export const SearchInput = ({ value, onSearch, delay, ...rest }: SearchInputProp
         <Input
             type="search"
             value={text}
-            onChange={(event) => setText(event.target.value)}
+            onChange={(event) => {
+                setText(event.target.value);
+                onTextChange?.(event.target.value);
+            }}
             {...rest}
         />
     );

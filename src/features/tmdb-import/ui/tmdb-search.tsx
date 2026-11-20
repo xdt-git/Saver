@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { ContentPoster, useContentLabels } from "@/entities/content";
+import {
+    ContentPoster,
+    useContentLabels,
+    useTmdbImport,
+    type TmdbResult,
+} from "@/entities/content";
 import { useSession } from "@/entities/session";
 import { isApiError } from "@/shared/api";
 import { contentPath } from "@/shared/config/routes";
@@ -12,7 +17,7 @@ import { Loader } from "@/shared/ui/loader";
 import { Pagination } from "@/shared/ui/pagination";
 import { SearchInput } from "@/shared/ui/search-input";
 import { useToast } from "@/shared/ui/toast";
-import { useTmdbImport, useTmdbSearch, useTmdbStatus, type TmdbResult } from "../api/tmdb-api";
+import { useTmdbSearch, useTmdbStatus } from "../api/tmdb-api";
 import styles from "./tmdb-search.module.scss";
 
 interface TmdbSearchProps {

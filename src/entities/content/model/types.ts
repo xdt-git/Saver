@@ -2,7 +2,14 @@ import type { ContentType, LibraryStatus } from "@/shared/config/content";
 
 export type { ContentType, LibraryStatus };
 
-export const CONTENT_SORTS = ["createdAt", "title", "releaseYear", "rating"] as const;
+export const CONTENT_SORTS = [
+    "popularity",
+    "createdAt",
+    "title",
+    "releaseYear",
+    "rating",
+    "imdbRating",
+] as const;
 export type ContentSort = (typeof CONTENT_SORTS)[number];
 export type SortOrder = "asc" | "desc";
 
@@ -18,12 +25,21 @@ export interface ViewerState {
     rating: number | null;
 }
 
+/** Ratings from outside catalogs, null where the title has none. */
+export interface ExternalRatings {
+    imdb: { id: string; rating: number | null; votes: number | null } | null;
+    tmdb: { rating: number; votes: number } | null;
+    shikimori: { id: number; rating: number | null } | null;
+}
+
 /** A catalog item as GET /content returns it. */
 export interface ContentItem {
     id: number;
     type: ContentType;
     title: string;
     originalTitle: string | null;
+    /** English title when it differs (catalog titles). */
+    titleEn: string | null;
     description: string | null;
     posterUrl: string | null;
     releaseYear: number | null;
@@ -32,7 +48,10 @@ export interface ContentItem {
     episodeRuntimeMinutes: number | null;
     source: "manual" | "tmdb";
     genres: Genre[];
+    /** Saver users' own rating. */
     rating: { average: number | null; count: number };
+    externalRatings: ExternalRatings;
+    popularity: number;
     createdById: number | null;
     createdAt: string;
     updatedAt: string;

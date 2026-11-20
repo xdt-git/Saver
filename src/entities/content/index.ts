@@ -1,9 +1,17 @@
-export { contentApi, contentKeys } from "./api/content-api";
+export { contentApi, contentKeys, type Suggestions } from "./api/content-api";
+export { useTmdbImport, type TmdbMediaType, type TmdbResult } from "./api/tmdb-import";
 export { updateContentInCache } from "./model/cache";
-export { useContent, useContentList, useGenres, useRandomContent } from "./model/queries";
+export {
+    useContent,
+    useContentList,
+    useContentSuggest,
+    useGenres,
+    useRandomContent,
+} from "./model/queries";
 export { useContentLabels } from "./lib/labels";
 export { ContentCard, ContentCardSkeleton } from "./ui/content-card";
 export { ContentPoster } from "./ui/content-poster";
+export { RatingBadges } from "./ui/rating-badges";
 export { GenreSelect } from "./ui/genre-select";
 export { CONTENT_SORTS } from "./model/types";
 export type {
@@ -12,6 +20,7 @@ export type {
     ContentListParams,
     ContentSort,
     ContentType,
+    ExternalRatings,
     Genre,
     LibraryStatus,
     Page,

@@ -3,15 +3,17 @@ import type { ContentType } from "@/shared/config/content";
 
 /** Sort choices offered to the user, each mapped to the API's sort and order. */
 export const SORT_OPTIONS = {
+    popular: { sort: "popularity", order: "desc" },
     newest: { sort: "createdAt", order: "desc" },
     title: { sort: "title", order: "asc" },
     year: { sort: "releaseYear", order: "desc" },
     rating: { sort: "rating", order: "desc" },
+    imdb: { sort: "imdbRating", order: "desc" },
 } as const satisfies Record<string, { sort: ContentSort; order: SortOrder }>;
 
 export type SortKey = keyof typeof SORT_OPTIONS;
 export const SORT_KEYS = Object.keys(SORT_OPTIONS) as SortKey[];
-export const DEFAULT_SORT: SortKey = "newest";
+export const DEFAULT_SORT: SortKey = "popular";
 
 /** Categories offered as tabs; "other" stays reachable through the API but not as a tab. */
 export const CATEGORY_TABS = [
@@ -53,7 +55,7 @@ export const toContentFilters = ({
     minRating,
 });
 
-export const PAGE_SIZE = 12;
+export const PAGE_SIZE = 24;
 
 export const toListParams = (filters: CatalogFilters): ContentListParams => ({
     ...toContentFilters(filters),
