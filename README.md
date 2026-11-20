@@ -131,6 +131,6 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C12. Quality
 
--   [ ] C12.1 Tests (Vitest, Testing Library): routing, forms, theme, language, API errors
--   [ ] C12.2 Performance: code splitting, lazy images, re-renders
--   [ ] C12.3 Responsive check of all pages
+-   [x] C12.1 Tests (Vitest, Testing Library): routing and guards, forms, theme, language and plural forms, API errors, catalog, library, profiles, feed, statistics, theme contrast; `npm run test:coverage` — 98.6% lines, 94.9% branches
+-   [x] C12.2 Performance: every page is its own chunk; React, router, TanStack Query and i18next in separate long-cached chunks (app entry 26 KB gzip); posters, avatars and category pictures below the fold load lazily; context values memoized
+-   [x] C12.3 Responsive check of all pages at 320 / 375 / 768 / 1024 / 1440 / 1920 px, signed in and as a guest (`C:\dev\tools\visual\responsive-check.browser.js`); segmented controls now wrap at 320 px
