@@ -20,9 +20,32 @@ const listFiles = (dir: string): string[] =>
         return /\.tsx?$/.test(path) && !/\.test\.tsx?$/.test(path) ? [path] : [];
     });
 
+// Plural forms differ per language (ru: one / few / many, en: one / other).
+const PLURAL = /_(zero|one|two|few|many|other)$/;
+const baseKeys = (value: unknown) => [
+    ...new Set(keysOf(value).map((key) => key.replace(PLURAL, ""))),
+];
+
 describe("i18n", () => {
-    it("has the same keys in RU and EN", () => {
-        expect(keysOf(en).sort()).toEqual(keysOf(ru).sort());
+    it("has the same keys in RU and EN (plural forms aside)", () => {
+        expect(baseKeys(en).sort()).toEqual(baseKeys(ru).sort());
+    });
+
+    it.each([
+        ["ru", ru],
+        ["en", en],
+    ])("has every plural form %s needs", (language, resources) => {
+        const forms = new Intl.PluralRules(language).resolvedOptions().pluralCategories;
+        const keys = keysOf(resources);
+        const plural = [
+            ...new Set(keys.filter((k) => PLURAL.test(k)).map((k) => k.replace(PLURAL, ""))),
+        ];
+        const missing = plural.flatMap((key) =>
+            forms
+                .filter((form) => !keys.includes(`${key}_${form}`))
+                .map((form) => `${key}_${form}`),
+        );
+        expect(missing).toEqual([]);
     });
 
     it("has no empty translations", () => {

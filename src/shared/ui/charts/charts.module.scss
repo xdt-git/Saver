@@ -1,0 +1,185 @@
+// Charts: the data is the only loud thing. One hue, thin marks, recessive grid, text in
+// text tokens (never the bar color).
+
+// ---- Stat tile ----
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding: var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+.tileLabel {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.tileValue {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: var(--font-size-hero);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+}
+
+.tileNote {
+    color: var(--color-text-faint);
+    font-size: var(--font-size-xs);
+}
+
+// ---- Ranked horizontal bars ----
+.barList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.barRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.barName {
+    min-width: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    overflow-wrap: anywhere;
+}
+
+.barTrack {
+    display: block;
+    height: var(--size-bar-thickness);
+    border-radius: var(--radius-xs);
+    background-color: var(--color-chart-track);
+}
+
+// Square at the baseline, rounded at the data end.
+.bar {
+    display: block;
+    width: calc(var(--bar-share) * 100%);
+    height: 100%;
+    border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+    background-color: var(--color-chart-bar);
+}
+
+.barValue {
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-variant-numeric: tabular-nums;
+}
+
+// ---- Columns over time ----
+.columnFigure {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: 0;
+}
+
+.columns {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    align-items: end;
+    border-bottom: var(--border-thin) solid var(--color-chart-grid);
+}
+
+// The whole slot is the hit target, much bigger than the column.
+.slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: default;
+}
+
+.columnArea {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: var(--size-chart-height);
+}
+
+.column {
+    width: min(70%, var(--size-column-max));
+    height: calc(var(--column-share) * 100%);
+    border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+    background-color: var(--color-chart-bar);
+    transition: filter var(--duration-fast) var(--easing);
+}
+
+.slotActive .column {
+    filter: var(--state-hover-brightness);
+}
+
+.peakLabel {
+    margin-bottom: var(--space-2xs);
+    color: var(--color-text);
+    font-size: var(--font-size-xs);
+}
+
+.axisLabel {
+    padding-top: var(--space-2xs);
+    color: var(--color-text-faint);
+    font-size: var(--font-size-xs);
+    text-wrap: nowrap;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: calc(100% - var(--space-md));
+    z-index: var(--z-header);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-2xs) var(--space-xs);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface-raised);
+    color: var(--color-text);
+    font-size: var(--font-size-xs);
+    text-wrap: nowrap;
+    pointer-events: none;
+}
+
+.tooltipTitle {
+    color: var(--color-text-muted);
+}
+
+// ---- Table view ----
+.tableView {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+
+    summary {
+        cursor: pointer;
+    }
+
+    table {
+        margin-top: var(--space-xs);
+        border-collapse: collapse;
+        font-variant-numeric: tabular-nums;
+    }
+
+    th,
+    td {
+        padding: var(--space-3xs) var(--space-sm) var(--space-3xs) 0;
+        text-align: left;
+        font-weight: inherit;
+    }
+}

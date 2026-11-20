@@ -29,6 +29,10 @@
     --color-platform-mobile: #a62ad0;
     --color-platform-desktop: #5b7cff;
     --color-platform-web: #3fa9ff;
+    // Charts: one hue for single-series bars, a recessive track and hairline grid.
+    --color-chart-bar: var(--color-accent);
+    --color-chart-track: #1c1c28;
+    --color-chart-grid: #2a2a3c;
 
     // Effects
     --gradient-primary: linear-gradient(var(--color-primary), var(--color-accent));
@@ -78,6 +82,7 @@
     --space-xl: 100px;
 
     // Radii and borders
+    --radius-xs: 4px; // data ends of bars
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 30px;
@@ -98,6 +103,11 @@
     --size-avatar-lg: clamp(96px, 12vw, 140px);
     --size-checkbox: 20px;
     --size-feed-max: 760px; // readable width of the activity feed
+    --size-chart-height: 180px;
+    --size-bar-thickness: 16px; // horizontal bars (<= 24px)
+    --size-column-max: 24px; // columns never fill their slot
+    --size-stat-min: 160px; // narrowest stat tile
+    --font-size-hero: clamp(28px, 3vw, 40px); // stat tile values
     // Fluid sizes: clamp(min, share of the screen width, max).
     --size-platform-icon: clamp(64px, 6vw, 108px);
     --space-platform-gap: clamp(20px, 2.5vw, 40px);
@@ -157,7 +167,8 @@
 }
 
 // Light theme: overrides colors and glow only; sizes, spacing and motion are shared.
-// First version of the palette; polished in C11.3.
+// Status colors are darker than in the dark theme so they keep WCAG contrast on white
+// (checked: text 4.5:1, UI marks 3:1).
 :root[data-theme="light"] {
     color-scheme: light;
 
@@ -169,7 +180,12 @@
     --color-text: #16151f;
     --color-text-soft: #1f1d2b;
     --color-text-muted: #4a4860;
-    --color-text-faint: #6f6c88;
+    --color-text-faint: #66637e;
+    --color-error: #c81e45;
+    --color-success: #12804a;
+    --color-warning: #a15c00;
+    --color-chart-track: #ebe9f5;
+    --color-chart-grid: #dedcec;
     --color-overlay: rgba(22, 21, 31, 0.45);
     --color-skeleton: #e6e4f2;
     --color-skeleton-shine: #f3f2fa;

@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { libraryApi, libraryKeys, type LibraryEntry } from "@/entities/library";
+import { statisticsKeys } from "@/entities/statistics";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
 import { Modal } from "@/shared/ui/modal";
@@ -42,6 +43,7 @@ export const EditEntryButton = ({ entry, title }: EditEntryButtonProps) => {
             }),
         onSuccess: () => {
             void queryClient.invalidateQueries({ queryKey: libraryKeys.all });
+            void queryClient.invalidateQueries({ queryKey: statisticsKeys.all });
             toast.success(t("collection.saved"));
             setOpen(false);
         },

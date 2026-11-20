@@ -387,5 +387,30 @@
         "title": "Feed",
         "emptyTitle": "Your feed is empty",
         "emptyText": "Actions of the people you follow appear here. Find public profiles through other users' activity and followers."
+    },
+    "stats": {
+        "title": "Statistics",
+        "completed": "Completed",
+        "watchTime": "Watch time",
+        "duration": "{{hours}} h {{minutes}} min",
+        "averageRating": "Average rating",
+        "activity": "Activity in 7 days",
+        "byMonth": "Completed by month",
+        "byCategory": "By category",
+        "byGenre": "Favorite genres",
+        "top": "Top rated",
+        "asTable": "Show as a table",
+        "emptyTitle": "No statistics yet",
+        "emptyText": "They appear once the library has entries.",
+        "inLibrary_one": "{{count}} entry in the library",
+        "inLibrary_other": "{{count}} entries in the library",
+        "withoutDuration_one": "{{count}} item not counted: unknown duration",
+        "withoutDuration_other": "{{count}} items not counted: unknown duration",
+        "ratingsCount_one": "{{count}} rating",
+        "ratingsCount_other": "{{count}} ratings",
+        "activity30_one": "{{count}} action in 30 days",
+        "activity30_other": "{{count}} actions in 30 days",
+        "completedValue_one": "{{count}} completed",
+        "completedValue_other": "{{count}} completed"
     }
 }

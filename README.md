@@ -125,9 +125,9 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C11. Statistics and theme
 
--   [ ] C11.1 Stats summary: completed count, watch time, average rating, favorite genres, 7 / 30 day activity
--   [ ] C11.2 Charts: by month, by category, by genre, top content
--   [ ] C11.3 Light theme polish (first palette exists since C4.2)
+-   [x] C11.1 Stats summary on the profile: completed, watch time from real durations only (items without a duration are named, not guessed), average rating, 7 / 30 day activity; private profiles and an empty library get clear messages
+-   [x] C11.2 Charts (`shared/ui/charts`, no chart library): completions by month as single-hue columns with hover / focus tooltips and a table view, ranked bars by category and favorite genre, top rated list; refreshed after status and rating changes
+-   [x] C11.3 Light theme: status colors darkened to WCAG contrast on white; a test checks text (4.5:1) and UI (3:1) contrast of both themes from `tokens.scss`
 
 ### C12. Quality
 

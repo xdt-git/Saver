@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { updateContentInCache, type ContentItem } from "@/entities/content";
 import { libraryApi, libraryKeys } from "@/entities/library";
+import { statisticsKeys } from "@/entities/statistics";
 import { useRequireSession } from "@/entities/session";
 import { LIBRARY_STATUSES, type LibraryStatus } from "@/shared/config/content";
 import { SegmentedControl } from "@/shared/ui/segmented-control";
@@ -37,6 +38,7 @@ export const StatusPicker = ({ item }: StatusPickerProps) => {
                 },
             }));
             void queryClient.invalidateQueries({ queryKey: libraryKeys.all });
+            void queryClient.invalidateQueries({ queryKey: statisticsKeys.all });
             toast.success(
                 t("library.statusSaved", { status: t(`library.status.${entry.status}`) }),
             );

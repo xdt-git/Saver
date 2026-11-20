@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { libraryApi, libraryKeys } from "@/entities/library";
+import { statisticsKeys } from "@/entities/statistics";
 import { Button } from "@/shared/ui/button";
 import { Modal } from "@/shared/ui/modal";
 import { useToast } from "@/shared/ui/toast";
@@ -23,6 +24,7 @@ export const RemoveEntryButton = ({ entryId, title }: RemoveEntryButtonProps) =>
         onSuccess: () => {
             setOpen(false);
             void queryClient.invalidateQueries({ queryKey: libraryKeys.all });
+            void queryClient.invalidateQueries({ queryKey: statisticsKeys.all });
             // Catalog cards show the viewer's status: refresh them too.
             void queryClient.invalidateQueries({ queryKey: ["content"] });
             toast.success(t("collection.removed", { title }));
