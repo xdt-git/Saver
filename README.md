@@ -82,6 +82,8 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C6.3 "Start" action depends on the platform: Web opens the library; Telegram, Mobile and Desktop show an apology toast ("temporarily unavailable") until they are released (auth-aware target comes in C7)
 -   [x] C6.4 Responsive landing: hero above the preview below `md`, full-width preview, smaller platform icons; on laptops (1024–1280) the preview shrinks so the hero is no longer cut off. Checked at 360–1440 px with no element outside the screen; 1440 px layout unchanged
 -   [x] C6.5 Laptop layout (owner feedback): hero 45% with padding from the left edge, preview fills the rest and matches it in size, fluid Start button and platform icons (one row, wider gaps), language and theme buttons split to the bottom corners, footer padded clear of them
+-   [x] C6.6 Platform previews for Telegram and Desktop (owner mockups), balanced preview heights, apology toast for unreleased platforms, author's Telegram in Contacts
+-   [x] C6.7 Library page layout (owner feedback): centered column, smaller fluid card images, larger gaps, descriptions wrap to a readable width, alternating card layout via `CategoryCard reversed`
 
 ### C7. Authentication
 

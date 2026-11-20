@@ -101,7 +101,10 @@
     --size-preview-width: 1000px;
     // Previews have different shapes (wide desktop, square phone): cap the height so they look alike.
     --size-preview-max-height: min(30vw, 65vh);
-    --size-card-image: 480px;
+    --size-card-image: clamp(240px, 26vw, 380px);
+    --size-text-measure: 34ch; // comfortable line length for descriptions
+    --size-content-max: 1100px; // centered content column
+    --space-cards-gap: clamp(48px, 6vw, 96px);
     --size-modal-width: 520px;
     --size-toast-width: 400px;
     --size-dock-button: 48px;
