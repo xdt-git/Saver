@@ -1,6 +1,14 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { apiClient } from "@/shared/api";
 import type { ContentType, LibraryStatus } from "@/shared/config/content";
+import type { ActivitySocial } from "./social-api";
+
+export interface ActivityUser {
+    id: number;
+    username: string;
+    displayName: string | null;
+    avatarUrl: string | null;
+}
 
 export type ActivityType = "library_added" | "status_changed" | "rated";
 
@@ -16,8 +24,10 @@ export interface Activity {
         value?: number;
     } | null;
     createdAt: string;
-    user: { id: number; username: string; displayName: string | null; avatarUrl: string | null };
+    user: ActivityUser;
     content: { id: number; title: string; type: ContentType; posterUrl: string | null } | null;
+    /** Likes and comments. */
+    social: ActivitySocial;
 }
 
 export interface ActivityPage {

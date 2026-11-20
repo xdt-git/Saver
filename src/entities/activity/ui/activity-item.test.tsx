@@ -1,17 +1,18 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "@/shared/config/tests";
 import type { Activity } from "../api/activity-api";
+import { makeActivity } from "../testing";
 import { ActivityItem } from "./activity-item";
 
-const event = (overrides: Partial<Activity>): Activity => ({
-    id: 1,
-    type: "status_changed",
-    payload: { from: "planned", to: "watching" },
-    createdAt: new Date(Date.now() - 3 * 3600 * 1000).toISOString(),
-    user: { id: 2, username: "trinity", displayName: null, avatarUrl: null },
-    content: { id: 1, title: "Dark", type: "series", posterUrl: null },
-    ...overrides,
-});
+const event = (overrides: Partial<Activity>): Activity =>
+    makeActivity({
+        type: "status_changed",
+        payload: { from: "planned", to: "watching" },
+        createdAt: new Date(Date.now() - 3 * 3600 * 1000).toISOString(),
+        user: { id: 2, username: "trinity", displayName: null, avatarUrl: null },
+        content: { id: 1, title: "Dark", type: "series", posterUrl: null },
+        ...overrides,
+    });
 
 describe("ActivityItem", () => {
     it("describes a status change with both statuses and a relative time", () => {

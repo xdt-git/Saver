@@ -1,6 +1,6 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import type { Activity } from "@/entities/activity";
+import { makeActivity, type Activity } from "@/entities/activity";
 import { sessionTestOptions, TEST_USER } from "@/entities/session";
 import type { PublicProfile } from "@/entities/user";
 import { apiFailure, mockApi, renderWithProviders } from "@/shared/config/tests";
@@ -22,15 +22,8 @@ const profile = (overrides: Partial<PublicProfile> = {}): PublicProfile => ({
     ...overrides,
 });
 
-const event = (id: number, overrides: Partial<Activity> = {}): Activity => ({
-    id,
-    type: "rated",
-    payload: { value: 9 },
-    createdAt: new Date().toISOString(),
-    user: { id: 2, username: "trinity", displayName: "Trinity", avatarUrl: null },
-    content: { id: 1, title: "The Matrix", type: "film", posterUrl: null },
-    ...overrides,
-});
+const event = (id: number, overrides: Partial<Activity> = {}): Activity =>
+    makeActivity({ id, ...overrides });
 
 const asUser = sessionTestOptions(TEST_USER);
 
