@@ -30,7 +30,6 @@
         "titleFirstLine": "Universal Saver -",
         "titleSecondLine": "Save your memories",
         "subtitle": "Save everything you love in one place",
-        "previewAlt": "Universal Saver in the browser and on a phone",
         "platforms": {
             "telegram": "Telegram",
             "mobile": "Mobile app",
@@ -40,10 +39,16 @@
         "actions": {
             "start": "Start",
             "openBot": "Open the bot",
-            "download": "Download",
-            "soon": "Coming soon"
+            "download": "Download"
         },
-        "platformsLabel": "Choose a platform"
+        "platformsLabel": "Choose a platform",
+        "previews": {
+            "telegram": "Saver Telegram bot",
+            "mobile": "Saver on a phone",
+            "desktop": "Saver desktop app",
+            "web": "Saver in the browser and on a phone"
+        },
+        "unavailable": "We are sorry! This service is temporarily unavailable. Please accept our apologies."
     },
     "about": {
         "title": "About",

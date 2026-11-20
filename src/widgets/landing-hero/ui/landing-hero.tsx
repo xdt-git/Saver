@@ -3,6 +3,7 @@ import { PLATFORMS, getPlatform, type PlatformId } from "@/shared/config/platfor
 import { cn } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
 import { Text } from "@/shared/ui/text";
+import { useToast } from "@/shared/ui/toast";
 import styles from "./landing-hero.module.scss";
 
 interface LandingHeroProps {
@@ -13,6 +14,7 @@ interface LandingHeroProps {
 /** Title, Start button and the platform switcher of the landing page. */
 export const LandingHero = ({ selectedPlatform, onSelectPlatform }: LandingHeroProps) => {
     const { t } = useTranslation();
+    const toast = useToast();
     const { action, actionLabel } = getPlatform(selectedPlatform);
 
     return (
@@ -28,8 +30,12 @@ export const LandingHero = ({ selectedPlatform, onSelectPlatform }: LandingHeroP
                     {t(`landing.actions.${actionLabel}`)}
                 </Button>
             ) : (
-                <Button disabled className={styles.btnMargin}>
-                    {t("landing.actions.soon")}
+                // Not released yet: apologize instead of leading to a fake link.
+                <Button
+                    className={styles.btnMargin}
+                    onClick={() => toast.warning(t("landing.unavailable"))}
+                >
+                    {t(`landing.actions.${actionLabel}`)}
                 </Button>
             )}
 

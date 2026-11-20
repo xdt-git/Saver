@@ -30,7 +30,6 @@
         "titleFirstLine": "Universal Saver -",
         "titleSecondLine": "Сохрани воспоминания",
         "subtitle": "Сохрани все, что тебе хочется у нас",
-        "previewAlt": "Universal Saver в браузере и на телефоне",
         "platforms": {
             "telegram": "Telegram",
             "mobile": "Мобильное приложение",
@@ -40,10 +39,16 @@
         "actions": {
             "start": "Начать",
             "openBot": "Открыть бота",
-            "download": "Скачать",
-            "soon": "Скоро"
+            "download": "Скачать"
         },
-        "platformsLabel": "Выбор платформы"
+        "platformsLabel": "Выбор платформы",
+        "previews": {
+            "telegram": "Telegram-бот Saver",
+            "mobile": "Saver на телефоне",
+            "desktop": "Приложение Saver для ПК",
+            "web": "Saver в браузере и на телефоне"
+        },
+        "unavailable": "Просим прощения! К сожалению, данный сервис временно недоступен. Приносим свои извинения."
     },
     "about": {
         "title": "О проекте",
