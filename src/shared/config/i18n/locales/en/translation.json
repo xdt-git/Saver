@@ -172,7 +172,8 @@
             "email": "Email",
             "username": "Username",
             "password": "Password",
-            "confirmPassword": "Repeat password"
+            "confirmPassword": "Repeat password",
+            "newPassword": "New password"
         },
         "hints": {
             "username": "3 to 32 characters: latin letters, digits and _",
@@ -183,7 +184,8 @@
             "submit": "Sign in",
             "link": "Sign in",
             "noAccount": "No account yet?",
-            "invalidCredentials": "Wrong login or password."
+            "invalidCredentials": "Wrong login or password.",
+            "forgot": "Forgot your password?"
         },
         "register": {
             "title": "Sign up",
@@ -204,7 +206,33 @@
             "invalid": "Check this field"
         },
         "signedOut": "You have signed out.",
-        "sessionExpired": "Your session has expired. Please sign in again."
+        "sessionExpired": "Your session has expired. Please sign in again.",
+        "backToLogin": "Back to sign in",
+        "linkInvalid": "The link is invalid or expired. Ask for a new one.",
+        "linkInvalidTitle": "The link did not work",
+        "forgot": {
+            "title": "Reset password",
+            "hint": "Enter your account email and we will send a link to set a new password.",
+            "submit": "Send the link",
+            "sentTitle": "Check your inbox",
+            "sentText": "If this address is registered, we have sent a link to it. It works for 1 hour."
+        },
+        "reset": {
+            "title": "New password",
+            "submit": "Save the password",
+            "newLink": "Ask for a new link",
+            "doneTitle": "Password changed",
+            "doneText": "Every session was ended. Sign in with the new password."
+        },
+        "verify": {
+            "doneTitle": "Email confirmed",
+            "doneText": "Thank you! The address is confirmed.",
+            "toCatalog": "Open the catalog",
+            "invalidText": "The link was already used or has expired. You can send a new email.",
+            "banner": "Please confirm your email: we sent a message to {{email}}.",
+            "resend": "Send again",
+            "resent": "Email sent to {{email}}"
+        }
     },
     "contentTypes": {
         "film": "Film",

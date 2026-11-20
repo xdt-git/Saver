@@ -1,4 +1,9 @@
-import type { LoginPayload, RegisterPayload } from "@/entities/session";
+import type {
+    ForgotPasswordPayload,
+    LoginPayload,
+    RegisterPayload,
+    ResetPasswordPayload,
+} from "@/entities/session";
 
 /**
  * Client-side rules, the same as the API's (saver-api: src/validators/auth.validators.ts),
@@ -48,6 +53,26 @@ export const validateRegister = (raw: RegisterPayload): FieldErrors<RegisterPayl
     else if (!EMAIL_PATTERN.test(values.email)) errors.email = "email";
     if (!values.username) errors.username = "required";
     else if (!USERNAME_PATTERN.test(values.username)) errors.username = "username";
+    const password = passwordProblem(values.password);
+    if (password) errors.password = password;
+    if (!values.confirmPassword) errors.confirmPassword = "required";
+    else if (values.confirmPassword !== values.password)
+        errors.confirmPassword = "passwordsMismatch";
+    return errors;
+};
+
+export const validateForgot = (
+    values: ForgotPasswordPayload,
+): FieldErrors<ForgotPasswordPayload> => {
+    const email = values.email.trim();
+    if (!email) return { email: "required" };
+    return EMAIL_PATTERN.test(email) ? {} : { email: "email" };
+};
+
+export const validateNewPassword = (
+    values: ResetPasswordPayload,
+): FieldErrors<ResetPasswordPayload> => {
+    const errors: FieldErrors<ResetPasswordPayload> = {};
     const password = passwordProblem(values.password);
     if (password) errors.password = password;
     if (!values.confirmPassword) errors.confirmPassword = "required";
