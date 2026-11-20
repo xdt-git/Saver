@@ -1,0 +1,109 @@
+@use "../../styles/breakpoints" as bp;
+
+// Stack in the top-right corner; clicks pass through the empty area.
+.viewport {
+    position: fixed;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    z-index: var(--z-toast);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    pointer-events: none;
+}
+
+.toast {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    width: var(--size-toast-width);
+    max-width: calc(100vw - 2 * var(--space-sm));
+    padding: var(--space-xs) var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-raised);
+    color: var(--color-text);
+    font-family: var(--font-display);
+    pointer-events: auto;
+    animation: toast-in var(--duration-fast) var(--easing);
+}
+
+.success {
+    border-color: var(--color-success);
+    box-shadow: var(--glow-success);
+}
+
+.error {
+    border-color: var(--color-error);
+    box-shadow: var(--glow-error);
+}
+
+.warning {
+    border-color: var(--color-warning);
+    box-shadow: var(--glow-warning);
+}
+
+.info {
+    border-color: var(--color-primary);
+    box-shadow: var(--glow-info);
+}
+
+.icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: var(--size-toast-icon);
+
+    .success & {
+        color: var(--color-success);
+    }
+    .error & {
+        color: var(--color-error);
+    }
+    .warning & {
+        color: var(--color-warning);
+    }
+    .info & {
+        color: var(--color-primary);
+    }
+}
+
+.message {
+    flex: 1;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-body);
+}
+
+.close {
+    flex-shrink: 0;
+    color: var(--color-text-faint);
+    font-size: var(--font-size-lg);
+    line-height: 1;
+}
+
+@keyframes toast-in {
+    from {
+        opacity: 0;
+        transform: translateX(var(--space-sm));
+    }
+}
+
+// Phones: full-width stack at the bottom.
+@media (max-width: bp.$sm) {
+    .viewport {
+        top: auto;
+        bottom: var(--space-xs);
+        left: var(--space-xs);
+        right: var(--space-xs);
+        align-items: stretch;
+    }
+
+    .toast {
+        width: auto;
+        max-width: none;
+    }
+}

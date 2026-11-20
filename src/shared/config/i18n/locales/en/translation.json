@@ -92,13 +92,25 @@
         "emptyTitle": "Your library is empty",
         "emptyText": "Add your first film to get started.",
         "findFilm": "Find a film",
-        "errorText": "Could not load data. Attempts: {{count}}"
+        "errorText": "Could not load data. Attempts: {{count}}",
+        "apiErrorToast": "API error (offline)",
+        "withAction": "With an action",
+        "undoToast": "Film removed from your library",
+        "undo": "Undo"
     },
     "theme": {
         "label": "Color theme",
         "system": "System",
         "light": "Light",
         "dark": "Dark"
+    },
+    "toast": {
+        "messages": {
+            "success": "Success",
+            "error": "Error",
+            "warning": "Warning",
+            "info": "Info"
+        }
     },
     "errors": {
         "BAD_REQUEST": "Invalid request. Please check your input.",
