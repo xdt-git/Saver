@@ -117,11 +117,11 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C10. Profile and social
 
--   [ ] C10.1 My profile
--   [ ] C10.2 Edit profile
--   [ ] C10.3 Other user's profile, follow / unfollow
--   [ ] C10.4 Followers and following lists
--   [ ] C10.5 Activity feed
+-   [x] C10.1 Profile page `/users/:id` (public): avatar or initials, names, bio, join date, privacy badge, follower and following counters; "My profile" and "My feed" in the profile menu
+-   [x] C10.2 Edit own profile: display name, bio, avatar link, private profile (PATCH `/users/me`); the header menu updates at once
+-   [x] C10.3 Follow / unfollow on other profiles with the counter updated at once; guests are sent to sign in and come back
+-   [x] C10.4 Followers and following in a dialog with tabs and paging, each user links to their profile
+-   [x] C10.5 Activity on profiles and the `/feed` page (followed users, public profiles only): real events in words with relative time, "show more" by cursor; private profiles show a clear message to others. Signing in refreshes data loaded as a guest. Checked in the browser against the API with in-memory data, also at 375 px
 
 ### C11. Statistics and theme
 

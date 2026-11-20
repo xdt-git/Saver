@@ -13,6 +13,7 @@ import { RatePicker } from "@/features/rate-content";
 import { RemoveEntryButton } from "@/features/remove-from-library";
 import { StatusPicker } from "@/features/set-library-status";
 import { ROUTES } from "@/shared/config/routes";
+import { formatDate } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
 import { CardGrid, ListingResults } from "@/shared/ui/listing";
@@ -36,7 +37,7 @@ const EntryDetails = ({ entry }: { entry: Entry }) => {
             {entry.completedAt && (
                 <p>
                     {t("collection.completedOn", {
-                        date: new Date(entry.completedAt).toLocaleDateString(i18n.language),
+                        date: formatDate(entry.completedAt, i18n.language),
                     })}
                 </p>
             )}

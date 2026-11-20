@@ -1,0 +1,28 @@
+.avatar {
+    display: inline-flex;
+    flex-shrink: 0;
+    border-radius: var(--radius-round);
+    object-fit: cover;
+    box-shadow: var(--glow-card);
+}
+
+.sm {
+    width: var(--size-avatar-sm);
+    height: var(--size-avatar-sm);
+    font-size: var(--font-size-xs);
+}
+
+.lg {
+    width: var(--size-avatar-lg);
+    height: var(--size-avatar-lg);
+    font-size: var(--font-size-xl);
+}
+
+.initials {
+    align-items: center;
+    justify-content: center;
+    background-image: var(--gradient-primary);
+    color: var(--color-on-primary);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+}

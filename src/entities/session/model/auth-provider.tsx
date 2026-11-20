@@ -58,9 +58,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [becomeGuest]);
 
+    /**
+     * Stores the signed-in user. When the person changes (guest → user, or another account),
+     * data loaded before (catalog "viewer", "following" flags) is refetched for them.
+     */
+    const signIn = useCallback(
+        (next: SessionUser) => {
+            const previous = queryClient.getQueryData<SessionUser | null>(sessionKeys.me());
+            setUser(next);
+            if (previous?.id !== next.id) {
+                void queryClient.invalidateQueries({
+                    predicate: (query) => query.queryKey[0] !== "session",
+                });
+            }
+        },
+        [queryClient, setUser],
+    );
+
     const value = useMemo<SessionApi>(
-        () => ({ user, status, signIn: setUser, signOut }),
-        [user, status, setUser, signOut],
+        () => ({ user, status, signIn, signOut }),
+        [user, status, signIn, signOut],
     );
 
     return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;

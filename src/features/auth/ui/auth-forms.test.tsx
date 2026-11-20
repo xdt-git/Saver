@@ -143,3 +143,19 @@ describe("RegisterForm", () => {
         expect(screen.getByLabelText("Email")).toHaveAttribute("aria-invalid", "true");
     });
 });
+
+describe("Signing in refreshes data loaded as a guest", () => {
+    it("refetches other cached queries for the new user", async () => {
+        fetchMock.mockResolvedValueOnce(json(200, { success: true, data: TEST_USER }));
+        const { queryClient } = renderForm(<LoginForm />);
+        queryClient.setQueryData(["users", "profile", 2], { isFollowing: null });
+
+        await userEvent.type(screen.getByLabelText("Email или имя пользователя"), "neo");
+        await userEvent.type(screen.getByLabelText("Пароль"), "Follow1Rabbit");
+        await userEvent.click(screen.getByRole("button", { name: "Войти" }));
+
+        await vi.waitFor(() =>
+            expect(queryClient.getQueryState(["users", "profile", 2])?.isInvalidated).toBe(true),
+        );
+    });
+});

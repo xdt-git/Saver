@@ -1,0 +1,15 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+    max-width: var(--size-feed-max);
+}
+
+.skeleton {
+    height: var(--size-input-height);
+}
+
+.more {
+    align-self: center;
+}

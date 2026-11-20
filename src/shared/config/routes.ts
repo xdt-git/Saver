@@ -8,6 +8,8 @@ export const ROUTES = {
     contentDetails: "/content/:id",
     library: "/Save",
     collection: "/collection",
+    profile: "/users/:id",
+    feed: "/feed",
     login: "/login",
     register: "/register",
     uiKit: "/ui-kit",
@@ -17,3 +19,6 @@ export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
 
 /** Link to one content item's page. */
 export const contentPath = (id: number) => ROUTES.contentDetails.replace(":id", String(id));
+
+/** Link to a user's profile. */
+export const profilePath = (id: number) => ROUTES.profile.replace(":id", String(id));

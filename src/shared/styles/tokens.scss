@@ -94,6 +94,10 @@
     --size-field-width: 360px;
     --size-auth-card-width: 440px; // login and register forms
     --size-icon-lg: 48px;
+    --size-avatar-sm: 40px;
+    --size-avatar-lg: clamp(96px, 12vw, 140px);
+    --size-checkbox: 20px;
+    --size-feed-max: 760px; // readable width of the activity feed
     // Fluid sizes: clamp(min, share of the screen width, max).
     --size-platform-icon: clamp(64px, 6vw, 108px);
     --space-platform-gap: clamp(20px, 2.5vw, 40px);

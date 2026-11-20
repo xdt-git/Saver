@@ -1,0 +1,105 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-md);
+    align-items: start;
+    padding: var(--space-md);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    min-width: 0;
+}
+
+.name {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.handle,
+.joined {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+    margin: 0;
+    color: var(--color-text-faint);
+    font-size: var(--font-size-sm);
+}
+
+.private {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    color: var(--color-warning);
+}
+
+.bio {
+    margin: var(--space-xs) 0 0;
+    max-width: var(--size-text-measure-wide);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-body);
+    overflow-wrap: anywhere;
+}
+
+.counters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+}
+
+.counter {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-text-muted);
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-text);
+        filter: var(--glow-sm);
+    }
+}
+
+.count {
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.dialogBody {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.userList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: bp.$md) {
+    .header {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+}
