@@ -127,5 +127,13 @@
         "INTERNAL_ERROR": "Server error. Please try again later.",
         "NETWORK_ERROR": "Cannot reach the server. Check your connection.",
         "UNKNOWN": "Something went wrong."
+    },
+    "footer": {
+        "tagline": "A tracker for films, series, anime and games",
+        "about": "About",
+        "contacts": "Contacts",
+        "copyright": "© {{year}} Universal Saver",
+        "contactsSoon": "The author\u0027s personal contacts will be added later.",
+        "projectLinks": "Project"
     }
 }
