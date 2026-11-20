@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import { FaUser } from "react-icons/fa";
 import { MdClose, MdMenu } from "react-icons/md";
 import { useLocation } from "react-router-dom";
-import { LanguageSwitcher } from "@/features/switch-language";
-import { ThemeSwitcher } from "@/features/switch-theme";
 import logo from "@/shared/assets/logo.webp";
 import { Button } from "@/shared/ui/button";
 import { Text } from "@/shared/ui/text";
@@ -32,10 +30,6 @@ export const Header = () => {
             </div>
             <NavLinks className={styles.nav} ariaLabel={t("header.mainNav")} />
             <div className={styles.actions}>
-                <div className={styles.switchers}>
-                    <ThemeSwitcher />
-                    <LanguageSwitcher />
-                </div>
                 <Text as="div" glow aria-label={t("header.profile")}>
                     <FaUser className={styles.profileIcon} />
                 </Text>

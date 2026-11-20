@@ -1,35 +1,38 @@
 import { useTranslation } from "react-i18next";
-import { MdBrightnessAuto, MdDarkMode, MdLightMode } from "react-icons/md";
-import { THEME_MODES, useTheme, type ThemeMode } from "@/shared/config/theme";
-import { SegmentedControl } from "@/shared/ui/segmented-control";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { useTheme, type ResolvedTheme } from "@/shared/config/theme";
+import { ExpandablePicker } from "@/shared/ui/expandable-picker";
 
-const icons: Record<ThemeMode, JSX.Element> = {
-    system: <MdBrightnessAuto />,
+const icons: Record<ResolvedTheme, JSX.Element> = {
     light: <MdLightMode />,
     dark: <MdDarkMode />,
 };
+
+// The UI offers dark and light only (product decision); "system" stays supported in the model.
+const THEME_OPTIONS: ResolvedTheme[] = ["dark", "light"];
 
 interface ThemeSwitcherProps {
     className?: string;
 }
 
-/** System / light / dark toggle. The choice is saved and does not depend on the language. */
+/** Round button with the current theme icon; opens into Dark / Light. The choice is saved. */
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     const { t } = useTranslation();
-    const { mode, setMode } = useTheme();
+    const { resolvedTheme, setMode } = useTheme();
 
-    const options = THEME_MODES.map((value) => ({
+    const options = THEME_OPTIONS.map((value) => ({
         value,
         label: t(`theme.${value}`),
         icon: icons[value],
     }));
 
     return (
-        <SegmentedControl<ThemeMode>
+        <ExpandablePicker<ResolvedTheme>
+            icon={icons[resolvedTheme]}
+            label={t("theme.label")}
             options={options}
-            value={mode}
+            value={resolvedTheme}
             onChange={setMode}
-            ariaLabel={t("theme.label")}
             className={className}
         />
     );

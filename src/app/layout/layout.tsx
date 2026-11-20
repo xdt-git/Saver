@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
+import { SettingsDock } from "@/widgets/settings-dock";
 import { ROUTES } from "@/shared/config/routes";
 import { lazyNamed } from "@/shared/lib";
 import { Loader } from "@/shared/ui/loader";
@@ -37,6 +38,7 @@ export const Layout = () => {
             </Suspense>
 
             <Footer />
+            <SettingsDock />
         </>
     );
 };

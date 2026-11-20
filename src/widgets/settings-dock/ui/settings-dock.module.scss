@@ -1,0 +1,10 @@
+// Pinned to the bottom-left corner above everything; scrolling does not move it.
+.dock {
+    position: fixed;
+    left: var(--space-sm);
+    bottom: var(--space-sm);
+    z-index: var(--z-dock);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}

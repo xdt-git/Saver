@@ -1,12 +1,13 @@
 import { useTranslation } from "react-i18next";
+import { MdLanguage } from "react-icons/md";
 import { SUPPORTED_LANGUAGES, type Language } from "@/shared/config/i18n";
-import { SegmentedControl } from "@/shared/ui/segmented-control";
+import { ExpandablePicker } from "@/shared/ui/expandable-picker";
 
 interface LanguageSwitcherProps {
     className?: string;
 }
 
-/** RU / EN toggle. Changes the language instantly, without reloading; the choice is saved. */
+/** Round globe button; opens into RU / EN. Changes the language instantly and saves it. */
 export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
     const { t, i18n } = useTranslation();
 
@@ -16,11 +17,12 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
     }));
 
     return (
-        <SegmentedControl<Language>
+        <ExpandablePicker<Language>
+            icon={<MdLanguage />}
+            label={t("language.label")}
             options={options}
             value={i18n.resolvedLanguage as Language | undefined}
             onChange={(language) => void i18n.changeLanguage(language)}
-            ariaLabel={t("language.label")}
             className={className}
         />
     );

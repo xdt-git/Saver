@@ -21,12 +21,6 @@
     gap: var(--space-sm);
 }
 
-.switchers {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-}
-
 .profileIcon {
     font-size: var(--size-icon-lg);
 }
@@ -69,15 +63,6 @@
     gap: var(--space-2xs);
 }
 
-.panelSwitchers {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-sm);
-    padding-top: var(--space-sm);
-    border-top: var(--border-thin) solid var(--color-border);
-}
-
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -106,8 +91,7 @@
         }
     }
 
-    .nav,
-    .switchers {
+    .nav {
         display: none;
     }
 

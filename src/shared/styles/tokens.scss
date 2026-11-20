@@ -24,6 +24,7 @@
     --color-overlay: rgba(0, 0, 0, 0.75);
     --color-skeleton: #1c1c28;
     --color-skeleton-shine: #2a2a3c;
+    --color-dock-bg: rgba(20, 20, 28, 0.55); // semi-transparent floating controls
 
     // Effects
     --gradient-primary: linear-gradient(var(--color-primary), var(--color-accent));
@@ -37,6 +38,7 @@
     --glow-info: 0 0 0.75rem var(--color-primary);
     --focus-ring: 0 0 0 var(--border-medium) var(--color-accent), var(--glow-accent);
     --blur-banner: blur(5px);
+    --blur-dock: blur(8px);
 
     // Typography
     --font-display: "Montserrat", sans-serif;
@@ -84,6 +86,7 @@
     --size-card-image: 480px;
     --size-modal-width: 520px;
     --size-toast-width: 400px;
+    --size-dock-button: 48px;
     --size-toast-icon: 22px;
     --size-loader-sm: 20px;
     --size-loader-md: 40px;
@@ -103,6 +106,7 @@
     --z-header: 900;
     --z-modal: 1000;
     --z-toast: 1100; // above modals, so errors inside a dialog stay visible
+    --z-dock: 1200; // settings dock stays on top of everything
 
     // Motion
     --duration-fast: 0.3s;
@@ -129,5 +133,6 @@
     --color-overlay: rgba(22, 21, 31, 0.45);
     --color-skeleton: #e6e4f2;
     --color-skeleton-shine: #f3f2fa;
+    --color-dock-bg: rgba(255, 255, 255, 0.55);
     --glow-color: rgba(166, 42, 208, 0.35);
 }
