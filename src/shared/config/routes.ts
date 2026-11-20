@@ -12,6 +12,10 @@ export const ROUTES = {
     feed: "/feed",
     login: "/login",
     register: "/register",
+    forgotPassword: "/forgot-password",
+    /** Pages opened from email links (?token=...); the API builds the same paths. */
+    resetPassword: "/reset-password",
+    verifyEmail: "/verify-email",
     uiKit: "/ui-kit",
 } as const;
 

@@ -4,10 +4,12 @@ import { useSession, type SessionUser } from "@/entities/session";
 import { toSubmitErrors } from "./server-errors";
 import { hasErrors, type FieldErrors } from "./validation";
 
-interface UseAuthFormOptions<T extends { [K in keyof T]: string }> {
+interface UseAuthFormOptions<T extends { [K in keyof T]: string }, R> {
     initial: T;
     validate: (values: T) => FieldErrors<T>;
-    submit: (values: T) => Promise<SessionUser>;
+    submit: (values: T) => Promise<R>;
+    /** What happens after success; signing in with the returned user by default. */
+    onSuccess?: (result: R) => void;
 }
 
 /**
@@ -15,11 +17,12 @@ interface UseAuthFormOptions<T extends { [K in keyof T]: string }> {
  * validate → request → store the user in the session (guards then redirect),
  * or show field and form errors. After the first submit, fields re-validate as you type.
  */
-export const useAuthForm = <T extends { [K in keyof T]: string }>({
+export const useAuthForm = <T extends { [K in keyof T]: string }, R = SessionUser>({
     initial,
     validate,
     submit,
-}: UseAuthFormOptions<T>) => {
+    onSuccess,
+}: UseAuthFormOptions<T, R>) => {
     const { signIn } = useSession();
     const [values, setValues] = useState(initial);
     const [fieldErrors, setFieldErrors] = useState<FieldErrors<T>>({});
@@ -28,7 +31,8 @@ export const useAuthForm = <T extends { [K in keyof T]: string }>({
 
     const mutation = useMutation({
         mutationFn: submit,
-        onSuccess: signIn,
+        onSuccess: (result: R) =>
+            onSuccess ? onSuccess(result) : signIn(result as unknown as SessionUser),
         onError: (error) => {
             const result = toSubmitErrors<T>(error, Object.keys(initial) as (keyof T & string)[]);
             setFieldErrors(result.fields);
@@ -60,5 +64,11 @@ export const useAuthForm = <T extends { [K in keyof T]: string }>({
         errorKey: fieldErrors[name],
     });
 
-    return { field, onSubmit, formError, isSubmitting: mutation.isPending };
+    return {
+        field,
+        onSubmit,
+        formError,
+        isSubmitting: mutation.isPending,
+        isSuccess: mutation.isSuccess,
+    };
 };

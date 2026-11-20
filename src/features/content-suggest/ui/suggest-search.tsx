@@ -9,6 +9,7 @@ import {
     type ContentItem,
     type TmdbResult,
 } from "@/entities/content";
+import { currentLanguage } from "@/shared/config/i18n";
 import { contentPath } from "@/shared/config/routes";
 import { cn, useDebouncedValue } from "@/shared/lib";
 import { SearchInput, type SearchInputProps } from "@/shared/ui/search-input";
@@ -34,7 +35,7 @@ const step = (current: number, by: number, count: number) =>
  * the typed text still filters the catalog as usual.
  */
 export const SuggestSearch = ({ value, onSearch, fieldClassName, ...rest }: SuggestSearchProps) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const labels = useContentLabels();
     const navigate = useNavigate();
     const toast = useToast();
@@ -44,7 +45,7 @@ export const SuggestSearch = ({ value, onSearch, fieldClassName, ...rest }: Sugg
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(-1);
     const query = useDebouncedValue(text, SUGGEST_DELAY_MS);
-    const language = i18n.language.startsWith("en") ? "en" : "ru";
+    const language = currentLanguage();
     const { data } = useContentSuggest(query, language);
 
     useEffect(() => setText(value), [value]);

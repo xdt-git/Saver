@@ -9,6 +9,7 @@ import {
 } from "@/entities/content";
 import { useSession } from "@/entities/session";
 import { isApiError } from "@/shared/api";
+import { currentLanguage } from "@/shared/config/i18n";
 import { contentPath } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
@@ -30,7 +31,7 @@ interface TmdbSearchProps {
  * item into the catalog, then opens it. Hidden for guests and when TMDB is not configured.
  */
 export const TmdbSearch = ({ initialQuery }: TmdbSearchProps) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const labels = useContentLabels();
     const toast = useToast();
     const navigate = useNavigate();
@@ -42,12 +43,7 @@ export const TmdbSearch = ({ initialQuery }: TmdbSearchProps) => {
     useEffect(() => setPage(1), [query]);
 
     const available = status === "authenticated" && tmdbStatus.data?.enabled === true;
-    const search = useTmdbSearch(
-        query,
-        i18n.language.startsWith("en") ? "en" : "ru",
-        page,
-        available,
-    );
+    const search = useTmdbSearch(query, currentLanguage(), page, available);
     const importer = useTmdbImport();
 
     if (!available) return null;
