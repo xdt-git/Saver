@@ -1,0 +1,18 @@
+// Layout of filters and results comes from shared/ui/listing.
+.entryDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+    color: var(--color-text-faint);
+    font-size: var(--font-size-xs);
+
+    p {
+        margin: 0;
+    }
+}
+
+.notes {
+    color: var(--color-text-muted);
+    font-style: italic;
+    overflow-wrap: anywhere;
+}

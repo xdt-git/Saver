@@ -6,6 +6,7 @@ import { ContentPoster, useContent, useContentLabels } from "@/entities/content"
 import { isApiError } from "@/shared/api";
 import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
+import { ContentPage } from "@/shared/ui/content-page";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
 import { PageLoader } from "@/shared/ui/loader";
 import { Text } from "@/shared/ui/text";
@@ -28,7 +29,7 @@ export const ContentDetailsPage = () => {
     if (isError) {
         const missing = isApiError(error) && ["NOT_FOUND", "VALIDATION_ERROR"].includes(error.code);
         return (
-            <main className={styles.main}>
+            <ContentPage>
                 {missing ? (
                     <EmptyState
                         icon={<MdSearchOff />}
@@ -39,14 +40,14 @@ export const ContentDetailsPage = () => {
                 ) : (
                     <ErrorState onRetry={() => void refetch()} />
                 )}
-            </main>
+            </ContentPage>
         );
     }
 
     const facts = [labels.type(item.type), item.releaseYear, labels.duration(item)].filter(Boolean);
 
     return (
-        <main className={styles.main}>
+        <ContentPage>
             {back}
             <article className={styles.details}>
                 <ContentPoster item={item} className={styles.poster} />
@@ -81,6 +82,6 @@ export const ContentDetailsPage = () => {
                     )}
                 </div>
             </article>
-        </main>
+        </ContentPage>
     );
 };

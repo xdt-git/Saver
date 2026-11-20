@@ -27,7 +27,7 @@ describe("App routing", () => {
 
     it("shows the library page with all categories to a signed-in user", async () => {
         renderWithProviders(<Layout />, ROUTES.library, asUser);
-        expect(await screen.findAllByRole("button", { name: "Сохранить" })).toHaveLength(5);
+        expect(await screen.findAllByRole("link", { name: "Сохранить" })).toHaveLength(5);
     });
 
     it.each(["/some/unknown/path", "/content/1/extra"])(
@@ -50,7 +50,7 @@ describe("Protected and guest-only routes", () => {
     it("sends a guest from the library to the login page", async () => {
         renderWithProviders(<Layout />, ROUTES.library, asGuest);
         expect(await screen.findByRole("heading", { name: "Вход" })).toBeInTheDocument();
-        expect(screen.queryByRole("button", { name: "Сохранить" })).toBeNull();
+        expect(screen.queryByRole("link", { name: "Сохранить" })).toBeNull();
     });
 
     it.each([ROUTES.login, ROUTES.register])(
@@ -93,7 +93,7 @@ describe("Protected and guest-only routes", () => {
         await userEvent.type(screen.getByLabelText("Повторите пароль"), "Follow1Rabbit");
         await userEvent.click(screen.getByRole("button", { name: "Создать аккаунт" }));
 
-        expect(await screen.findAllByRole("button", { name: "Сохранить" })).toHaveLength(5);
+        expect(await screen.findAllByRole("link", { name: "Сохранить" })).toHaveLength(5);
         vi.unstubAllGlobals();
     });
 

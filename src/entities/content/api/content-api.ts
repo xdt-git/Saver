@@ -1,4 +1,5 @@
 import { apiClient, createQueryKeys, type QueryParams } from "@/shared/api";
+import type { ContentPayload } from "../model/form";
 import type { ContentFilters, ContentItem, ContentListParams, Genre, Page } from "../model/types";
 
 export const contentKeys = {
@@ -19,4 +20,9 @@ export const contentApi = {
     byId: (id: number, signal?: AbortSignal) =>
         apiClient.get<ContentItem>(`/content/${id}`, { signal }),
     genres: () => apiClient.get<Genre[]>("/genres"),
+    /** Manually added content; the signed-in user becomes its author. */
+    create: (payload: ContentPayload) => apiClient.post<ContentItem>("/content", payload),
+    /** Full replacement (PUT); only the author may do it. */
+    replace: (id: number, payload: ContentPayload) =>
+        apiClient.put<ContentItem>(`/content/${id}`, payload),
 };

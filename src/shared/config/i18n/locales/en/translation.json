@@ -22,7 +22,8 @@
         "closeMenu": "Close menu",
         "signIn": "Sign in",
         "signOut": "Sign out",
-        "profileMenu": "Profile menu of {{username}}"
+        "profileMenu": "Profile menu of {{username}}",
+        "myLibrary": "My library"
     },
     "language": {
         "label": "Interface language",
@@ -281,5 +282,65 @@
         "prev": "Previous",
         "next": "Next",
         "page": "Page {{page}} of {{pages}}"
+    },
+    "collection": {
+        "title": "My library",
+        "filters": "Library filters",
+        "statusTabs": "Status",
+        "allStatuses": "All",
+        "anyType": "Any type",
+        "sorts": {
+            "updated": "Recently changed",
+            "added": "Recently added",
+            "title": "By title"
+        },
+        "emptyTitle": "Your library is empty",
+        "emptyText": "Find something in the catalog or add it manually.",
+        "toCatalog": "Open the catalog",
+        "loadError": "Could not load the library",
+        "completedOn": "Completed on {{date}}",
+        "addManually": "Add manually",
+        "addTitle": "New entry",
+        "addSubmit": "Add to the library",
+        "initialStatus": "Status in the library",
+        "added": "“{{title}}” added to the library",
+        "saved": "Changes saved",
+        "editContent": "Edit",
+        "editTitle": "Edit",
+        "editEntry": "Note",
+        "editEntryTitle": "Note: “{{title}}”",
+        "notes": "Your note",
+        "notesTooLong": "No more than {{max}} characters",
+        "completedAt": "Completion date",
+        "completedAtHint": "If you watched it earlier, say when",
+        "futureDate": "The date cannot be in the future",
+        "removeTitle": "Remove from the library?",
+        "removeText": "“{{title}}” leaves your library with its status and note. Your rating stays.",
+        "removeConfirm": "Remove",
+        "removed": "“{{title}}” removed from the library",
+        "emptyHere": "Nothing here yet: {{what}}"
+    },
+    "contentForm": {
+        "type": "Type",
+        "year": "Release year",
+        "title": "Title",
+        "originalTitle": "Original title",
+        "runtime": "Runtime, min",
+        "episodes": "Episodes",
+        "episodeRuntime": "Minutes per episode",
+        "genres": "Genres",
+        "poster": "Poster link",
+        "posterHint": "Image upload comes later",
+        "description": "Description",
+        "errors": {
+            "required": "Required",
+            "tooLong": "Too long",
+            "year": "A year from 1870 to 2100",
+            "positive": "A whole number above zero",
+            "url": "The link must start with http:// or https://",
+            "tooMany": "No more than {{max}} genres",
+            "unknownGenre": "No such genre",
+            "invalid": "Check this field"
+        }
     }
 }

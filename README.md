@@ -107,12 +107,13 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 ### C9. Library
 
--   [ ] C9.1 Status tabs: Planned, Watching, Completed
--   [ ] C9.2 Library grid with search and filters
--   [ ] C9.3 Manual add form with poster upload
--   [ ] C9.4 Edit entries and change status in place
--   [ ] C9.5 Delete with confirmation
--   [ ] C9.6 Rating
+-   [x] C9.1 My library page `/collection` (signed-in only): status tabs All / Planned / Watching / Completed; category cards on `/Save` open it filtered by type, the profile menu links to it; filters live in the URL
+-   [x] C9.2 Library grid with debounced search, type, genre and sorting (recently changed, recently added, title), pagination, skeletons, empty states that tell "nothing added yet" from "nothing found" and link to the catalog for the same category
+-   [x] C9.3 Manual add form (same rules as the API, duration fields by type, genre chips, initial status, type preset from the category); poster by link for now
+-   [ ] C9.3b Poster upload (needs B12)
+-   [x] C9.4 Status changes in place; note and completion date editor (past dates only); the author edits their own content with the same form (PUT)
+-   [x] C9.5 Remove from the library with a confirmation dialog (the catalog item and the rating stay)
+-   [x] C9.6 Rating on library cards (the API returns the owner's status and rating with every entry). Checked in the browser against the API with in-memory data, also at 375 px
 
 ### C10. Profile and social
 

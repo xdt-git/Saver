@@ -137,6 +137,11 @@
     overflow-wrap: anywhere;
 }
 
+.profileLink {
+    align-self: flex-start;
+    margin-top: var(--space-xs);
+}
+
 .profileAction {
     margin-top: var(--space-xs);
 }
