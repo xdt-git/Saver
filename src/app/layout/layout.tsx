@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { ROUTES } from "@/shared/config/routes";
 import { lazyNamed } from "@/shared/lib";
@@ -34,6 +35,8 @@ export const Layout = () => {
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
+
+            <Footer />
         </>
     );
 };

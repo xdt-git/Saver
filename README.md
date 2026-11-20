@@ -72,7 +72,7 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 ### C5. Header and footer
 
 -   [x] C5.1 Header: navigation, language and theme switchers, mobile menu below `md` (burger, drop-down panel, closes on Escape / outside click / navigation, scroll lock); shared `NavLinks`, `useScrollLock`, `useEscapeKey` (Modal uses them too). Profile icon becomes a link in C7
--   [ ] C5.2 Footer with About and Contacts popups
+-   [x] C5.2 Footer on every page: tagline, About and Contacts dialogs on the shared `Modal`, copyright. Contacts come from `shared/config/contacts.ts` (real links only; personal contacts to be added by the author)
 
 ### C6. Landing
 
