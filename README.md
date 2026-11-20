@@ -129,6 +129,10 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 -   [x] C11.2 Charts (`shared/ui/charts`, no chart library): completions by month as single-hue columns with hover / focus tooltips and a table view, ranked bars by category and favorite genre, top rated list; refreshed after status and rating changes
 -   [x] C11.3 Light theme: status colors darkened to WCAG contrast on white; a test checks text (4.5:1) and UI (3:1) contrast of both themes from `tokens.scss`
 
+### C13. External catalog
+
+-   [x] C13.1 "Not here? Find it in TMDB" under the catalog results (signed-in users, only when the server has a TMDB token): search with the catalog text, "Add to the catalog" imports and opens the item, "Open" for titles already imported; TMDB attribution under the block and in About
+
 ### C12. Quality
 
 -   [x] C12.1 Tests (Vitest, Testing Library): routing and guards, forms, theme, language and plural forms, API errors, catalog, library, profiles, feed, statistics, theme contrast; `npm run test:coverage` — 98.6% lines, 94.9% branches
