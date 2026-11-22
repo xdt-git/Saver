@@ -1,0 +1,51 @@
+name: Test and deploy site
+
+on:
+    push:
+        branches: [master]
+    workflow_dispatch:
+
+concurrency:
+    group: deploy-site
+    cancel-in-progress: false
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+            - run: npm ci
+            - run: npm run lint
+            - run: npx prettier --check .
+            - run: npm test
+            # Same-origin API (/api) behind Caddy: no VITE_API_URL needed.
+            - run: npm run build
+
+            - name: SSH access
+              run: |
+                  install -m 700 -d ~/.ssh
+                  echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy
+                  chmod 600 ~/.ssh/deploy
+                  echo "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+
+            - name: Upload a new release and switch to it
+              run: |
+                  RELEASE=$(date -u +%Y%m%d%H%M%S)-${GITHUB_SHA::7}
+                  tar -czf site.tar.gz -C dist .
+                  scp -i ~/.ssh/deploy site.tar.gz deploy@${{ secrets.DEPLOY_HOST }}:/opt/nightreel/site/
+                  ssh -i ~/.ssh/deploy deploy@${{ secrets.DEPLOY_HOST }} "bash -s" <<EOF
+                  set -euo pipefail
+                  cd /opt/nightreel/site
+                  mkdir -p releases/$RELEASE
+                  tar -xzf site.tar.gz -C releases/$RELEASE
+                  rm site.tar.gz
+                  # Atomic switch: a relative link, so it also resolves inside the Caddy container.
+                  ln -sfn releases/$RELEASE current.new && mv -Tf current.new current
+                  # Keep the five newest releases for a quick rollback.
+                  ls -1dt releases/* | tail -n +6 | xargs -r rm -rf
+                  echo "Live: $RELEASE"
+                  EOF
