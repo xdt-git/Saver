@@ -10,6 +10,8 @@ export const ROUTES = {
     collection: "/collection",
     profile: "/users/:id",
     feed: "/feed",
+    /** People search and everyone's activity; the following tab is ?tab=following. */
+    news: "/news",
     login: "/login",
     register: "/register",
     forgotPassword: "/forgot-password",
@@ -23,6 +25,9 @@ export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
 
 /** Link to one content item's page. */
 export const contentPath = (id: number) => ROUTES.contentDetails.replace(":id", String(id));
+
+/** The news page opened on the people the user follows. */
+export const NEWS_FOLLOWING_PATH = `${ROUTES.news}?tab=following`;
 
 /** Link to a user's profile. */
 export const profilePath = (id: number) => ROUTES.profile.replace(":id", String(id));

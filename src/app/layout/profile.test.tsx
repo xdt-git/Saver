@@ -1,6 +1,6 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import type { Activity } from "@/entities/activity";
+import { makeActivity, type Activity } from "@/entities/activity";
 import { sessionTestOptions, TEST_USER } from "@/entities/session";
 import type { PublicProfile } from "@/entities/user";
 import { apiFailure, mockApi, renderWithProviders } from "@/shared/config/tests";
@@ -22,15 +22,8 @@ const profile = (overrides: Partial<PublicProfile> = {}): PublicProfile => ({
     ...overrides,
 });
 
-const event = (id: number, overrides: Partial<Activity> = {}): Activity => ({
-    id,
-    type: "rated",
-    payload: { value: 9 },
-    createdAt: new Date().toISOString(),
-    user: { id: 2, username: "trinity", displayName: "Trinity", avatarUrl: null },
-    content: { id: 1, title: "The Matrix", type: "film", posterUrl: null },
-    ...overrides,
-});
+const event = (id: number, overrides: Partial<Activity> = {}): Activity =>
+    makeActivity({ id, ...overrides });
 
 const asUser = sessionTestOptions(TEST_USER);
 
@@ -224,25 +217,75 @@ describe("Own profile", () => {
     });
 });
 
-describe("Feed page", () => {
-    it("is for signed-in users and explains an empty feed", async () => {
-        renderWithProviders(<Layout />, "/feed", sessionTestOptions(null));
-        expect(await screen.findByRole("heading", { name: "Вход" })).toBeInTheDocument();
-    });
-
-    it("shows events of followed users", async () => {
-        mockApi({ "GET /api/feed": () => ({ body: { items: [event(1)], nextCursor: null } }) });
-        renderWithProviders(<Layout />, "/feed", asUser);
-        expect(await screen.findByRole("heading", { name: "Лента" })).toBeInTheDocument();
+describe("News page", () => {
+    it("shows everyone's events to guests, without the subscriptions tab", async () => {
+        const api = mockApi({
+            "GET /api/activity": () => ({ body: { items: [event(1)], nextCursor: null } }),
+        });
+        renderWithProviders(<Layout />, "/news", sessionTestOptions(null));
+        expect(await screen.findByRole("heading", { name: "Новости" })).toBeInTheDocument();
         expect(await screen.findByRole("link", { name: /Trinity/ })).toHaveAttribute(
             "href",
             "/users/2",
         );
+        expect(screen.queryByRole("button", { name: "Подписки" })).toBeNull();
+        expect(api.calls("GET /api/feed")).toHaveLength(0);
     });
 
-    it("explains an empty feed", async () => {
+    it("switches to the people the user follows, kept in the URL; /feed opens it", async () => {
+        const api = mockApi({
+            "GET /api/activity": () => ({ body: { items: [], nextCursor: null } }),
+            "GET /api/feed": () => ({ body: { items: [event(1)], nextCursor: null } }),
+        });
+        renderWithProviders(<Layout />, "/news", asUser);
+        expect(await screen.findByText("Новостей пока нет")).toBeInTheDocument();
+
+        await userEvent.click(screen.getByRole("button", { name: "Подписки" }));
+        expect(await screen.findByRole("link", { name: /Trinity/ })).toBeInTheDocument();
+        expect(api.calls("GET /api/feed")).toHaveLength(1);
+    });
+
+    it("opens the subscriptions from the old /feed address", async () => {
         mockApi({ "GET /api/feed": () => ({ body: { items: [], nextCursor: null } }) });
         renderWithProviders(<Layout />, "/feed", asUser);
         expect(await screen.findByText("В ленте пока пусто")).toBeInTheDocument();
+    });
+
+    it("finds people and follows them from the list", async () => {
+        let following = false;
+        const person = {
+            id: 2,
+            username: "trinity",
+            displayName: "Trinity",
+            bio: null,
+            avatarUrl: null,
+            isPrivate: false,
+            createdAt: "2026-01-01T00:00:00.000Z",
+            followersCount: 0,
+            followingCount: 0,
+        };
+        const api = mockApi({
+            "GET /api/activity": () => ({ body: { items: [], nextCursor: null } }),
+            "GET /api/users": () => ({
+                body: [
+                    { ...person, isFollowing: following, followersCount: following ? 1 : 0 },
+                    { ...TEST_USER, followersCount: 0, followingCount: 0, isFollowing: null },
+                ],
+            }),
+            "POST /api/users/:id/follow": () => {
+                following = true;
+                return { status: 201, body: null };
+            },
+        });
+        renderWithProviders(<Layout />, "/news", asUser);
+
+        await userEvent.type(await screen.findByLabelText("Имя или @ник"), "tri");
+        expect(await screen.findAllByText("0 подписчиков")).toHaveLength(2);
+        expect(api.calls("GET /api/users").at(-1)?.url.searchParams.get("search")).toBe("tri");
+        // No follow button for yourself.
+        expect(screen.getAllByRole("button", { name: /Подписаться/ })).toHaveLength(1);
+
+        await userEvent.click(screen.getByRole("button", { name: /Подписаться/ }));
+        expect(await screen.findByText("1 подписчик")).toBeInTheDocument();
     });
 });

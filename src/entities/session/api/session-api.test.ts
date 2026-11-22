@@ -18,23 +18,32 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllGlobals());
 
 describe("sessionApi.me", () => {
+    const session = (user: unknown, canRefresh = false) =>
+        json(200, { success: true, data: { user, canRefresh } });
+
     it("returns the signed-in user", async () => {
-        fetchMock.mockResolvedValueOnce(json(200, { success: true, data: TEST_USER }));
+        fetchMock.mockResolvedValueOnce(session(TEST_USER));
         await expect(sessionApi.me()).resolves.toEqual(TEST_USER);
     });
 
-    it("renews an expired access token once, then retries", async () => {
+    it("renews an expired access token once, then asks again", async () => {
         fetchMock
-            .mockResolvedValueOnce(unauthorized())
+            .mockResolvedValueOnce(session(null, true))
             .mockResolvedValueOnce(json(200, { success: true, data: null }))
-            .mockResolvedValueOnce(json(200, { success: true, data: TEST_USER }));
+            .mockResolvedValueOnce(session(TEST_USER));
 
         await expect(sessionApi.me()).resolves.toEqual(TEST_USER);
-        expect(urls()).toEqual(["/api/auth/me", "/api/auth/refresh", "/api/auth/me"]);
+        expect(urls()).toEqual(["/api/auth/session", "/api/auth/refresh", "/api/auth/session"]);
     });
 
-    it("treats a guest (no session to renew) as null, not as an error", async () => {
-        fetchMock.mockResolvedValueOnce(unauthorized()).mockResolvedValueOnce(unauthorized());
+    it("is a guest with one request and no errors when there is nothing to renew", async () => {
+        fetchMock.mockResolvedValueOnce(session(null));
+        await expect(sessionApi.me()).resolves.toBeNull();
+        expect(urls()).toEqual(["/api/auth/session"]);
+    });
+
+    it("is a guest when the refresh cookie turns out stale", async () => {
+        fetchMock.mockResolvedValueOnce(session(null, true)).mockResolvedValueOnce(unauthorized());
         await expect(sessionApi.me()).resolves.toBeNull();
     });
 

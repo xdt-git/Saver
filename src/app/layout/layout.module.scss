@@ -8,6 +8,8 @@
 
 .page {
     flex: 1;
+    // At least a screen tall: content that arrives later does not push a visible footer.
+    min-height: var(--size-page-min-height);
     display: flex;
     flex-direction: column;
 }

@@ -142,6 +142,11 @@ Legend: `[x]` done, `[ ]` to do. The current landing page is the visual foundati
 
 -   [x] C14.1 `ImageField` (`shared/ui/image-field`) for the avatar and the poster: paste a link or upload a file, round / 2:3 preview, "Remove"; type and size checked before sending, server refusals explained; the API client sends `FormData` as multipart
 
+### C15. News
+
+-   [x] C15.1 "News" in the header (`/news`): people search by name or @username with followers and a Follow button (`widgets/people-search`), then activity with "Everyone" and "Following" tabs (the tab is kept in the URL; guests see everyone). The old `/feed` opens the Following tab
+-   [x] C15.2 Feed events with the item's poster, a heart (instant, guests go to sign in) and comments: the two newest under each event, "More" opens the thread with a form and delete for your own; the news page is one centered column; profile menu on a raised surface
+
 ### C12. Quality
 
 -   [x] C12.1 Tests (Vitest, Testing Library): routing and guards, forms, theme, language and plural forms, API errors, catalog, library, profiles, feed, statistics, theme contrast; `npm run test:coverage` — 98.6% lines, 94.9% branches

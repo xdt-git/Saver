@@ -103,6 +103,7 @@
     --size-avatar-lg: clamp(96px, 12vw, 140px);
     --size-checkbox: 20px;
     --size-feed-max: 760px; // readable width of the activity feed
+    --size-feed-poster: 56px; // poster next to a feed event
     --size-chart-height: 180px;
     --size-bar-thickness: 16px; // horizontal bars (<= 24px)
     --size-column-max: 24px; // columns never fill their slot
@@ -137,6 +138,7 @@
     --size-text-measure: 40ch; // comfortable line length for descriptions
     --size-text-measure-wide: 70ch; // long texts on the details page
     --size-content-max: 1280px; // centered content column
+    --size-page-min-height: 100dvh; // page area under the header (keeps the footer off-screen)
     --space-cards-gap: clamp(48px, 6vw, 96px);
     --size-modal-width: 520px;
     --size-toast-width: 400px;

@@ -10,6 +10,10 @@ interface ActivityItemProps {
     activity: Activity;
     /** Who did it (a user link from entities/user, supplied by the widget). */
     author: ReactNode;
+    /** Poster of the item (from entities/content, supplied by the widget). */
+    poster?: ReactNode;
+    /** Likes and comments under the event (a feature, supplied by the widget). */
+    footer?: ReactNode;
 }
 
 /** What the action was, in words: "adds to the library (Planned)", "rates 9", … */
@@ -24,33 +28,46 @@ const useActionText = ({ type, payload }: Activity) => {
 };
 
 /** One event in a feed: author, action, the item it is about and when. */
-export const ActivityItem = ({ activity, author }: ActivityItemProps) => {
+export const ActivityItem = ({ activity, author, poster, footer }: ActivityItemProps) => {
     const { i18n } = useTranslation();
     const action = useActionText(activity);
 
     return (
         <article className={styles.item}>
-            <div className={styles.head}>
-                {author}
-                <time
-                    dateTime={activity.createdAt}
-                    title={formatDate(activity.createdAt, i18n.language)}
-                    className={styles.time}
+            {poster && activity.content && (
+                <Link
+                    to={contentPath(activity.content.id)}
+                    className={styles.poster}
+                    tabIndex={-1}
+                    aria-hidden="true"
                 >
-                    {formatRelativeTime(activity.createdAt, i18n.language)}
-                </time>
+                    {poster}
+                </Link>
+            )}
+            <div className={styles.body}>
+                <div className={styles.head}>
+                    {author}
+                    <time
+                        dateTime={activity.createdAt}
+                        title={formatDate(activity.createdAt, i18n.language)}
+                        className={styles.time}
+                    >
+                        {formatRelativeTime(activity.createdAt, i18n.language)}
+                    </time>
+                </div>
+                <p className={styles.text}>
+                    {action}
+                    {activity.content && (
+                        <>
+                            {": "}
+                            <Link to={contentPath(activity.content.id)} className={styles.content}>
+                                {activity.content.title}
+                            </Link>
+                        </>
+                    )}
+                </p>
+                {footer}
             </div>
-            <p className={styles.text}>
-                {action}
-                {activity.content && (
-                    <>
-                        {": "}
-                        <Link to={contentPath(activity.content.id)} className={styles.content}>
-                            {activity.content.title}
-                        </Link>
-                    </>
-                )}
-            </p>
         </article>
     );
 };

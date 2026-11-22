@@ -25,7 +25,7 @@ export const Header = () => {
             {/* Rendered first so its backdrop stays under the header items. */}
             <MobileMenu id={menuId} open={isMenuOpen} onClose={() => setMenuOpen(false)} />
             <div>
-                <img alt={t("header.logoAlt")} src={logo} />
+                <img alt={t("header.logoAlt")} src={logo} width={93} height={95} />
             </div>
             <NavLinks className={styles.nav} ariaLabel={t("header.mainNav")} />
             <div className={styles.actions}>

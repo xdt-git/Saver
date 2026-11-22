@@ -1,4 +1,11 @@
-export { FOLLOW_PAGE_SIZE, useFollowList, useProfile, userApi, userKeys } from "./api/user-api";
+export {
+    FOLLOW_PAGE_SIZE,
+    useFollowList,
+    useProfile,
+    userApi,
+    userKeys,
+    useUserSearch,
+} from "./api/user-api";
 export { displayNameOf } from "./model/types";
 export type {
     FollowListKind,

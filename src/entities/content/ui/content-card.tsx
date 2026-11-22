@@ -29,9 +29,9 @@ export const ContentCard = ({ item, extra, actions, className }: ContentCardProp
                 <ContentPoster item={item} />
             </Link>
             <div className={styles.body}>
-                <h3 id={`content-${item.id}`} className={styles.title}>
+                <h2 id={`content-${item.id}`} className={styles.title}>
                     <Link to={contentPath(item.id)}>{item.title}</Link>
-                </h3>
+                </h2>
                 <p className={styles.meta}>{meta.join(" · ")}</p>
                 {item.genres.length > 0 && (
                     <ul className={styles.genres} aria-label={labels.genresLabel}>

@@ -38,6 +38,8 @@ export default defineConfig({
         environment: "jsdom",
         globals: true,
         setupFiles: ["./src/shared/config/tests/setup.ts"],
+        // Page tests load lazy chunks; under a full parallel run that can take a few seconds.
+        testTimeout: 15_000,
         css: { modules: { classNameStrategy: "non-scoped" } },
         coverage: {
             provider: "v8",

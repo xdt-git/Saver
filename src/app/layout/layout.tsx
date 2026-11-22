@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { SettingsDock } from "@/widgets/settings-dock";
 import { VerifyEmailBanner } from "@/features/auth";
-import { ROUTES } from "@/shared/config/routes";
+import { NEWS_FOLLOWING_PATH, ROUTES } from "@/shared/config/routes";
 import { lazyNamed } from "@/shared/lib";
 import { PageLoader } from "@/shared/ui/loader";
 import { GuestRoutes, ProtectedRoutes } from "../routing";
@@ -17,7 +17,7 @@ const ContentDetailsPage = lazyNamed(() => import("@/pages/content-details"), "C
 const LibraryPage = lazyNamed(() => import("@/pages/library"), "LibraryPage");
 const CollectionPage = lazyNamed(() => import("@/pages/collection"), "CollectionPage");
 const ProfilePage = lazyNamed(() => import("@/pages/profile"), "ProfilePage");
-const FeedPage = lazyNamed(() => import("@/pages/feed"), "FeedPage");
+const NewsPage = lazyNamed(() => import("@/pages/news"), "NewsPage");
 const LoginPage = lazyNamed(() => import("@/pages/login"), "LoginPage");
 const RegisterPage = lazyNamed(() => import("@/pages/register"), "RegisterPage");
 const ForgotPasswordPage = lazyNamed(() => import("@/pages/forgot-password"), "ForgotPasswordPage");
@@ -42,13 +42,18 @@ export const Layout = () => {
                         <Route path={ROUTES.discover} element={<DiscoverPage />} />
                         <Route path={ROUTES.contentDetails} element={<ContentDetailsPage />} />
                         <Route path={ROUTES.profile} element={<ProfilePage />} />
+                        <Route path={ROUTES.news} element={<NewsPage />} />
                         {/* Email links work signed in or not. */}
                         <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
                         <Route path={ROUTES.verifyEmail} element={<VerifyEmailPage />} />
                         <Route element={<ProtectedRoutes />}>
                             <Route path={ROUTES.library} element={<LibraryPage />} />
                             <Route path={ROUTES.collection} element={<CollectionPage />} />
-                            <Route path={ROUTES.feed} element={<FeedPage />} />
+                            {/* The old feed address opens the news page on subscriptions. */}
+                            <Route
+                                path={ROUTES.feed}
+                                element={<Navigate to={NEWS_FOLLOWING_PATH} replace />}
+                            />
                         </Route>
                         <Route element={<GuestRoutes />}>
                             <Route path={ROUTES.login} element={<LoginPage />} />

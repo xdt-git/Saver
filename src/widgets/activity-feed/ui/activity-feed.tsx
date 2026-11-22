@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { MdLock, MdTimeline } from "react-icons/md";
+import { ActivitySocial } from "@/features/activity-social";
 import { ActivityItem, useActivity, type ActivitySource } from "@/entities/activity";
+import { ContentPoster } from "@/entities/content";
 import { UserLink } from "@/entities/user";
 import { isApiError } from "@/shared/api";
 import { Button } from "@/shared/ui/button";
@@ -59,6 +61,10 @@ export const ActivityFeed = ({ source, empty }: ActivityFeedProps) => {
                     key={activity.id}
                     activity={activity}
                     author={<UserLink user={activity.user} compact />}
+                    poster={
+                        activity.content && <ContentPoster item={activity.content} size="thumb" />
+                    }
+                    footer={<ActivitySocial activity={activity} />}
                 />
             ))}
             {feed.hasNextPage && (
