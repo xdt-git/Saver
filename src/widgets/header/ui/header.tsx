@@ -3,7 +3,9 @@ import { useTranslation } from "react-i18next";
 import { MdClose, MdMenu } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import logo from "@/shared/assets/logo.svg";
+import { cn } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
+import { glowClassName } from "@/shared/ui/text";
 import styles from "./header.module.scss";
 import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
@@ -28,8 +30,8 @@ export const Header = () => {
                 <img
                     alt={t("header.logoAlt")}
                     src={logo}
-                    width={72}
-                    height={72}
+                    width={64}
+                    height={64}
                     className={styles.logo}
                 />
             </div>
@@ -38,7 +40,7 @@ export const Header = () => {
                 <ProfileMenu />
                 <Button
                     variant="icon"
-                    className={styles.burger}
+                    className={cn(styles.burger, glowClassName)}
                     aria-label={isMenuOpen ? t("header.closeMenu") : t("header.openMenu")}
                     aria-expanded={isMenuOpen}
                     aria-controls={menuId}

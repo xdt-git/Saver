@@ -87,6 +87,11 @@
 // Layering is needed only for the mobile menu. On desktop it is left out on purpose:
 // an extra layer makes Chrome rasterize the hero glow differently.
 @media (max-width: bp.$md) {
+    .logo {
+        width: var(--size-logo-mobile);
+        height: var(--size-logo-mobile);
+    }
+
     .header {
         z-index: var(--z-header);
         padding: var(--space-sm);
