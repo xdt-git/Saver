@@ -13,7 +13,7 @@ describe("App routing", () => {
     it("shows a loader, then the landing page at /", async () => {
         renderWithProviders(<Layout />, ROUTES.home, asGuest);
         expect(screen.getByRole("status", { name: "Загрузка" })).toBeInTheDocument();
-        expect(await screen.findByRole("heading", { name: /Universal Saver/ })).toBeInTheDocument();
+        expect(await screen.findByRole("heading", { name: /NightReel/ })).toBeInTheDocument();
         expect(screen.queryByRole("status", { name: "Загрузка" })).toBeNull();
     });
 
@@ -57,9 +57,7 @@ describe("Protected and guest-only routes", () => {
         "sends a signed-in user away from %s",
         async (path) => {
             renderWithProviders(<Layout />, path, asUser);
-            expect(
-                await screen.findByRole("heading", { name: /Universal Saver/ }),
-            ).toBeInTheDocument();
+            expect(await screen.findByRole("heading", { name: /NightReel/ })).toBeInTheDocument();
         },
     );
 

@@ -1,6 +1,6 @@
-# Universal Saver — Client
+# NightReel — Client
 
-Web client for **Universal Saver**, a movie and series tracker: discover films, series, anime, cartoons and games, keep them in a personal library (Planned / Watching / Completed), rate them, follow other users and see your viewing statistics.
+Web client for **NightReel**, a movie and series tracker: discover films, series, anime, cartoons and games, keep them in a personal library (Planned / Watching / Completed), rate them, follow other users and see your viewing statistics.
 
 The backend lives in a separate repository: **saver-api** (Node.js, Express, PostgreSQL).
 

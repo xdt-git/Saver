@@ -10,9 +10,7 @@ describe("Footer", () => {
         expect(screen.getByRole("contentinfo")).toHaveTextContent(
             "Трекер фильмов, сериалов, аниме и игр",
         );
-        expect(
-            screen.getByText(`© ${new Date().getFullYear()} Universal Saver`),
-        ).toBeInTheDocument();
+        expect(screen.getByText(`© ${new Date().getFullYear()} NightReel`)).toBeInTheDocument();
     });
 
     it("opens and closes the About dialog with the project texts", async () => {
