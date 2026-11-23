@@ -9,6 +9,7 @@ export const CONTENT_SORTS = [
     "releaseYear",
     "rating",
     "imdbRating",
+    "random",
 ] as const;
 export type ContentSort = (typeof CONTENT_SORTS)[number];
 export type SortOrder = "asc" | "desc";
@@ -81,4 +82,6 @@ export interface ContentListParams extends ContentFilters {
     pageSize?: number;
     sort?: ContentSort;
     order?: SortOrder;
+    /** With sort "random": the same seed keeps the same shuffled order across pages. */
+    seed?: number;
 }

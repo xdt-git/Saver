@@ -1,3 +1,4 @@
+import { toListParams } from "@/widgets/catalog";
 import { parseFilters, serializeFilters } from "./use-url-filters";
 
 describe("catalog filters in the URL", () => {
@@ -27,12 +28,23 @@ describe("catalog filters in the URL", () => {
             yearFrom: undefined,
             yearTo: undefined,
             minRating: undefined,
-            sort: "popular",
+            sort: "shuffled",
             page: 1,
         });
     });
 
     it("keeps a clean URL for the defaults", () => {
         expect(serializeFilters(parseFilters(new URLSearchParams())).toString()).toBe("");
+    });
+
+    it("keeps the shuffle seed for the shuffled order only, and sends it to the API", () => {
+        const shuffled = parseFilters(new URLSearchParams("seed=42"));
+        expect(shuffled).toMatchObject({ sort: "shuffled", seed: 42 });
+        expect(serializeFilters(shuffled).toString()).toBe("seed=42");
+        expect(toListParams(shuffled)).toMatchObject({ sort: "random", seed: 42 });
+
+        const byTitle = parseFilters(new URLSearchParams("sort=title&seed=42"));
+        expect(serializeFilters(byTitle).toString()).toBe("sort=title");
+        expect(toListParams(byTitle)).not.toHaveProperty("seed");
     });
 });

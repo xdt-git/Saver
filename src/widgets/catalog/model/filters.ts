@@ -3,6 +3,7 @@ import type { ContentType } from "@/shared/config/content";
 
 /** Sort choices offered to the user, each mapped to the API's sort and order. */
 export const SORT_OPTIONS = {
+    shuffled: { sort: "random", order: "desc" },
     popular: { sort: "popularity", order: "desc" },
     newest: { sort: "createdAt", order: "desc" },
     title: { sort: "title", order: "asc" },
@@ -13,7 +14,8 @@ export const SORT_OPTIONS = {
 
 export type SortKey = keyof typeof SORT_OPTIONS;
 export const SORT_KEYS = Object.keys(SORT_OPTIONS) as SortKey[];
-export const DEFAULT_SORT: SortKey = "popular";
+/** A new shuffled catalog on every visit (see the seed). */
+export const DEFAULT_SORT: SortKey = "shuffled";
 
 /** Categories offered as tabs; "other" stays reachable through the API but not as a tab. */
 export const CATEGORY_TABS = [
@@ -34,6 +36,8 @@ export interface CatalogFilters {
     minRating?: number;
     sort: SortKey;
     page: number;
+    /** Seed of the shuffled order; kept in the URL so paging and Back keep the order. */
+    seed?: number;
 }
 
 export const EMPTY_FILTERS: CatalogFilters = { search: "", sort: DEFAULT_SORT, page: 1 };
@@ -60,6 +64,7 @@ export const PAGE_SIZE = 24;
 export const toListParams = (filters: CatalogFilters): ContentListParams => ({
     ...toContentFilters(filters),
     ...SORT_OPTIONS[filters.sort],
+    ...(filters.sort === "shuffled" && filters.seed !== undefined && { seed: filters.seed }),
     page: filters.page,
     pageSize: PAGE_SIZE,
 });

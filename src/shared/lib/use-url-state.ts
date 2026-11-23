@@ -32,8 +32,10 @@ export const useUrlState = <T>(
     const [params, setParams] = useSearchParams();
     const state = useMemo(() => parse(params), [params, parse]);
 
+    /** `replace` changes the URL without a new history entry (state the user did not pick). */
     const update = useCallback(
-        (patch: Partial<T>) => setParams((current) => serialize({ ...parse(current), ...patch })),
+        (patch: Partial<T>, options?: { replace?: boolean }) =>
+            setParams((current) => serialize({ ...parse(current), ...patch }), options),
         [setParams, parse, serialize],
     );
 
