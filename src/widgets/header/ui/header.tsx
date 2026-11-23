@@ -2,7 +2,7 @@ import { useEffect, useId, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MdClose, MdMenu } from "react-icons/md";
 import { useLocation } from "react-router-dom";
-import logo from "@/shared/assets/logo.webp";
+import logo from "@/shared/assets/logo.svg";
 import { Button } from "@/shared/ui/button";
 import styles from "./header.module.scss";
 import { MobileMenu } from "./mobile-menu";
@@ -25,7 +25,13 @@ export const Header = () => {
             {/* Rendered first so its backdrop stays under the header items. */}
             <MobileMenu id={menuId} open={isMenuOpen} onClose={() => setMenuOpen(false)} />
             <div>
-                <img alt={t("header.logoAlt")} src={logo} width={93} height={95} />
+                <img
+                    alt={t("header.logoAlt")}
+                    src={logo}
+                    width={72}
+                    height={72}
+                    className={styles.logo}
+                />
             </div>
             <NavLinks className={styles.nav} ariaLabel={t("header.mainNav")} />
             <div className={styles.actions}>
