@@ -298,6 +298,7 @@
         "anyRating": "Any",
         "sort": "Sort",
         "sorts": {
+            "shuffled": "Shuffled",
             "popular": "Most popular",
             "newest": "Newest first",
             "title": "By title",

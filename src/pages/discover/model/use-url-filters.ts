@@ -12,6 +12,7 @@ export const parseFilters = (params: URLSearchParams): Filters => ({
     minRating: intParam(params.get("rating")),
     sort: oneOfParam(params.get("sort"), SORT_KEYS) ?? DEFAULT_SORT,
     page: Math.max(1, intParam(params.get("page")) ?? 1),
+    seed: intParam(params.get("seed")),
 });
 
 /** Writes only what differs from the defaults, so a clean catalog has a clean URL. */
@@ -25,6 +26,7 @@ export const serializeFilters = (filters: Filters) =>
         rating: filters.minRating,
         sort: filters.sort === DEFAULT_SORT ? undefined : filters.sort,
         page: filters.page > 1 ? filters.page : undefined,
+        seed: filters.sort === "shuffled" ? filters.seed : undefined,
     });
 
 /** Catalog filters kept in the URL. */
