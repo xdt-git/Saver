@@ -51,5 +51,5 @@
         "vite": "^5.4.8",
         "vitest": "^2.1.5"
     },
-    "description": "Web client for Universal Saver, a movie and series tracker"
+    "description": "Web client for NightReel, a movie and series tracker"
 }

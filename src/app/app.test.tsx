@@ -13,7 +13,7 @@ describe("App", () => {
         });
         render(<App />);
 
-        expect(await screen.findByRole("heading", { name: /Universal Saver/ })).toBeInTheDocument();
+        expect(await screen.findByRole("heading", { name: /NightReel/ })).toBeInTheDocument();
         expect(await screen.findByRole("link", { name: "Войти" })).toHaveAttribute(
             "href",
             "/login",
@@ -24,6 +24,6 @@ describe("App", () => {
     it("keeps working when the API is unreachable", async () => {
         vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new TypeError("Failed to fetch")));
         render(<App />);
-        expect(await screen.findByRole("heading", { name: /Universal Saver/ })).toBeInTheDocument();
+        expect(await screen.findByRole("heading", { name: /NightReel/ })).toBeInTheDocument();
     });
 });

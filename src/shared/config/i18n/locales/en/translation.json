@@ -15,7 +15,7 @@
         "news": "News"
     },
     "header": {
-        "logoAlt": "Universal Saver logo",
+        "logoAlt": "NightReel logo",
         "profile": "Profile",
         "mainNav": "Main navigation",
         "mobileNav": "Mobile navigation",
@@ -34,7 +34,7 @@
         "en": "EN"
     },
     "landing": {
-        "titleFirstLine": "Universal Saver -",
+        "titleFirstLine": "NightReel -",
         "titleSecondLine": "Save your memories",
         "subtitle": "Save everything you love in one place",
         "platforms": {
@@ -59,7 +59,7 @@
     },
     "about": {
         "title": "About",
-        "text": "UniversalSaver started as a university project and grew into a full idea. Here you can keep the films, series and everything else you have watched or plan to watch.",
+        "text": "NightReel started as a university project and grew into a full idea. Here you can keep the films, series and everything else you have watched or plan to watch.",
         "productsTitle": "Our products",
         "productsText": "Our products include a Telegram bot, a website, a mobile app and a desktop app. You can preview their design with the buttons below.",
         "dataTitle": "Movie data",
@@ -160,7 +160,7 @@
         "tagline": "A tracker for films, series, anime and games",
         "about": "About",
         "contacts": "Contacts",
-        "copyright": "© {{year}} Universal Saver",
+        "copyright": "© {{year}} NightReel",
         "contactsSoon": "The author's personal contacts will be added later.",
         "projectLinks": "Project"
     },

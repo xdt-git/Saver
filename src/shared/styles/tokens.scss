@@ -45,6 +45,7 @@
     --glow-sm: drop-shadow(0 0 0.5rem var(--glow-color));
     --glow-md: drop-shadow(0 0 0.75rem var(--glow-color));
     --glow-accent: 0 0 0.75rem var(--color-accent);
+    --glow-logo: drop-shadow(0 0 0.6rem rgb(255 255 255 / 0.55)); // white neon around the logo
     --glow-card: 0 0 1.5rem var(--color-accent), 0 0 0.35rem var(--color-primary); // neon edge of card images
     --glow-success: 0 0 0.75rem var(--color-success);
     --glow-error: 0 0 0.75rem var(--color-error);
@@ -99,6 +100,8 @@
     --size-field-width: 360px;
     --size-auth-card-width: 440px; // login and register forms
     --size-icon-lg: 48px;
+    --size-icon-md: 30px; // the user icon in the header
+    --size-logo: 72px; // header logo
     --size-avatar-sm: 40px;
     --size-avatar-lg: clamp(96px, 12vw, 140px);
     --size-checkbox: 20px;

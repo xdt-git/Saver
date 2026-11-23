@@ -21,8 +21,16 @@
     gap: var(--space-sm);
 }
 
+// Square NightReel logo with a white neon glow.
+.logo {
+    display: block;
+    width: var(--size-logo);
+    height: var(--size-logo);
+    filter: var(--glow-logo);
+}
+
 .profileIcon {
-    font-size: var(--size-icon-lg);
+    font-size: var(--size-icon-md);
 }
 
 // The burger exists only on small screens.

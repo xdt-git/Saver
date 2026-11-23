@@ -7,7 +7,7 @@ import { Header } from "./header";
 describe("Header", () => {
     it("shows the logo", () => {
         renderWithProviders(<Header />, "/", sessionTestOptions(null));
-        expect(screen.getByAltText("Логотип Universal Saver")).toBeInTheDocument();
+        expect(screen.getByAltText("Логотип NightReel")).toBeInTheDocument();
     });
 
     it("has four navigation links with correct targets", () => {
