@@ -39,6 +39,11 @@ export interface RegisterRequest extends RegisterPayload {
     notificationsConsent: boolean;
 }
 
+export interface GoogleSignInPayload {
+    credential: string;
+    notificationsConsent?: boolean;
+}
+
 export interface ForgotPasswordPayload {
     email: string;
 }

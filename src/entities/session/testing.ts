@@ -26,5 +26,7 @@ export const sessionTestOptions = (user: SessionUser | null): RenderOptions => (
     wrapper: AuthProvider,
     setup: (queryClient) => {
         queryClient.setQueryData<SessionUser | null>(sessionKeys.me(), user);
+        // Password sign-in only, unless a test sets a Google client id itself.
+        queryClient.setQueryData(sessionKeys.providers(), { google: null });
     },
 });

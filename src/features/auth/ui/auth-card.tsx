@@ -12,6 +12,8 @@ interface AuthCardProps {
     formError?: string;
     /** Link to the other auth page under the form. */
     footer: ReactNode;
+    /** Another way in under the submit button ("Continue with Google"). */
+    alternative?: ReactNode;
     children: ReactNode;
 }
 
@@ -23,6 +25,7 @@ export const AuthCard = ({
     onSubmit,
     formError,
     footer,
+    alternative,
     children,
 }: AuthCardProps) => (
     <form className={styles.card} onSubmit={onSubmit} noValidate aria-busy={isSubmitting}>
@@ -38,6 +41,7 @@ export const AuthCard = ({
         <Button type="submit" size="md" disabled={isSubmitting}>
             {submitLabel}
         </Button>
+        {alternative}
         <div className={styles.footer}>{footer}</div>
     </form>
 );

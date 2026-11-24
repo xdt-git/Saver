@@ -235,7 +235,8 @@
             "banner": "Please confirm your email: we sent a message to {{email}}.",
             "resend": "Send again",
             "resent": "Email sent to {{email}}"
-        }
+        },
+        "or": "or"
     },
     "contentTypes": {
         "film": "Film",
