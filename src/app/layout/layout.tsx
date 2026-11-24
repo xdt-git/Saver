@@ -4,6 +4,8 @@ import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { SettingsDock } from "@/widgets/settings-dock";
 import { VerifyEmailBanner } from "@/features/auth";
+import { CookieConsent } from "@/features/cookie-consent";
+import { NotificationConsentPrompt } from "@/features/notification-settings";
 import { NEWS_FOLLOWING_PATH, ROUTES } from "@/shared/config/routes";
 import { lazyNamed } from "@/shared/lib";
 import { PageLoader } from "@/shared/ui/loader";
@@ -18,6 +20,7 @@ const LibraryPage = lazyNamed(() => import("@/pages/library"), "LibraryPage");
 const CollectionPage = lazyNamed(() => import("@/pages/collection"), "CollectionPage");
 const ProfilePage = lazyNamed(() => import("@/pages/profile"), "ProfilePage");
 const NewsPage = lazyNamed(() => import("@/pages/news"), "NewsPage");
+const NotificationsPage = lazyNamed(() => import("@/pages/notifications"), "NotificationsPage");
 const LoginPage = lazyNamed(() => import("@/pages/login"), "LoginPage");
 const RegisterPage = lazyNamed(() => import("@/pages/register"), "RegisterPage");
 const ForgotPasswordPage = lazyNamed(() => import("@/pages/forgot-password"), "ForgotPasswordPage");
@@ -49,6 +52,7 @@ export const Layout = () => {
                         <Route element={<ProtectedRoutes />}>
                             <Route path={ROUTES.library} element={<LibraryPage />} />
                             <Route path={ROUTES.collection} element={<CollectionPage />} />
+                            <Route path={ROUTES.notifications} element={<NotificationsPage />} />
                             {/* The old feed address opens the news page on subscriptions. */}
                             <Route
                                 path={ROUTES.feed}
@@ -68,6 +72,8 @@ export const Layout = () => {
 
             <Footer />
             <SettingsDock />
+            <NotificationConsentPrompt />
+            <CookieConsent />
         </div>
     );
 };

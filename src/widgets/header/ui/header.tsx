@@ -1,14 +1,14 @@
 import { useEffect, useId, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MdClose, MdMenu } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/shared/assets/logo.svg";
-import { cn } from "@/shared/lib";
+import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
-import { glowClassName } from "@/shared/ui/text";
 import styles from "./header.module.scss";
 import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
+import { NotificationBell } from "./notification-bell";
 import { ProfileMenu } from "./profile-menu";
 
 export const Header = () => {
@@ -26,7 +26,8 @@ export const Header = () => {
         <header className={styles.header}>
             {/* Rendered first so its backdrop stays under the header items. */}
             <MobileMenu id={menuId} open={isMenuOpen} onClose={() => setMenuOpen(false)} />
-            <div>
+            {/* The logo leads to the "Our products" page. */}
+            <Link to={ROUTES.home} className={styles.logoLink} aria-label={t("nav.home")}>
                 <img
                     alt={t("header.logoAlt")}
                     src={logo}
@@ -34,13 +35,14 @@ export const Header = () => {
                     height={64}
                     className={styles.logo}
                 />
-            </div>
+            </Link>
             <NavLinks className={styles.nav} ariaLabel={t("header.mainNav")} />
             <div className={styles.actions}>
+                <NotificationBell />
                 <ProfileMenu />
                 <Button
                     variant="icon"
-                    className={cn(styles.burger, glowClassName)}
+                    className={styles.burger}
                     aria-label={isMenuOpen ? t("header.closeMenu") : t("header.openMenu")}
                     aria-expanded={isMenuOpen}
                     aria-controls={menuId}

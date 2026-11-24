@@ -75,7 +75,7 @@ describe("i18n", () => {
         expect(document.documentElement.lang).toBe("en");
 
         await i18n.changeLanguage("ru");
-        expect(i18n.t("nav.home")).toBe("Начальная страница");
+        expect(i18n.t("nav.home")).toBe("Наши продукты");
         expect(document.documentElement.lang).toBe("ru");
     });
 

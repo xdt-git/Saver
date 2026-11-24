@@ -6,6 +6,8 @@ export type {
     ForgotPasswordPayload,
     LoginPayload,
     RegisterPayload,
+    RegisterRequest,
+    NotificationSettings,
     ResetPasswordPayload,
     SessionStatus,
     SessionUser,

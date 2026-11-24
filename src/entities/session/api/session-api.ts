@@ -3,7 +3,7 @@ import { currentLanguage } from "@/shared/config/i18n";
 import type {
     ForgotPasswordPayload,
     LoginPayload,
-    RegisterPayload,
+    RegisterRequest,
     ResetPasswordPayload,
     SessionUser,
 } from "../model/types";
@@ -46,7 +46,7 @@ export const sessionApi = {
     },
     login: (payload: LoginPayload) => apiClient.post<SessionUser>("/auth/login", payload, authOnly),
     /** The verification email is written in the current UI language. */
-    register: (payload: RegisterPayload) =>
+    register: (payload: RegisterRequest) =>
         apiClient.post<SessionUser>(
             "/auth/register",
             { ...payload, language: currentLanguage() },

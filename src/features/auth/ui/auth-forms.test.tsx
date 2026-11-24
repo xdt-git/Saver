@@ -116,6 +116,7 @@ describe("RegisterForm", () => {
             password: "Follow1Rabbit",
             confirmPassword: "Follow1Rabbit",
             language: "ru",
+            notificationsConsent: false,
         });
         await vi.waitFor(() =>
             expect(queryClient.getQueryData(sessionKeys.me())).toEqual(TEST_USER),

@@ -2,3 +2,8 @@
 .randomButton {
     gap: var(--space-xs);
 }
+
+// Category switch above the random card.
+.randomCategories {
+    margin-bottom: var(--space-sm);
+}

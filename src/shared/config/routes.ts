@@ -12,6 +12,8 @@ export const ROUTES = {
     feed: "/feed",
     /** People search and everyone's activity; the following tab is ?tab=following. */
     news: "/news",
+    /** The signed-in user's notifications and their settings. */
+    notifications: "/notifications",
     login: "/login",
     register: "/register",
     forgotPassword: "/forgot-password",

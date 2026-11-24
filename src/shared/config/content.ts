@@ -2,7 +2,15 @@
  * Domain values shared by several entities (content, library) and the API.
  * Kept in shared so entities do not import each other (FSD).
  */
-export const CONTENT_TYPES = ["film", "series", "anime", "cartoon", "game", "other"] as const;
+export const CONTENT_TYPES = [
+    "film",
+    "series",
+    "anime",
+    "dorama",
+    "cartoon",
+    "game",
+    "other",
+] as const;
 export type ContentType = (typeof CONTENT_TYPES)[number];
 
 export const LIBRARY_STATUSES = ["planned", "watching", "completed"] as const;
