@@ -4,6 +4,7 @@ export { useSession, type SessionApi } from "./model/session-context";
 export { useRequireSession } from "./model/use-require-session";
 export type {
     ForgotPasswordPayload,
+    GoogleSignInPayload,
     LoginPayload,
     RegisterPayload,
     RegisterRequest,
