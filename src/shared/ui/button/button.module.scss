@@ -80,9 +80,11 @@
     border: transparent;
     padding: 0;
 
-    &:hover:not(:disabled) {
-        transform: var(--state-hover-scale);
-        filter: var(--glow-sm);
+    @media (hover: hover) {
+        &:hover:not(:disabled) {
+            transform: var(--state-hover-scale);
+            filter: var(--icon-hover-glow, var(--glow-sm));
+        }
     }
 }
 

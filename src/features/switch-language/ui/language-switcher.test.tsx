@@ -25,7 +25,7 @@ describe("LanguageSwitcher", () => {
                 <Greeting />
             </>,
         );
-        expect(screen.getByText("Начальная страница")).toBeInTheDocument();
+        expect(screen.getByText("Наши продукты")).toBeInTheDocument();
 
         await userEvent.click(screen.getByRole("button", { name: "Язык интерфейса" }));
         await userEvent.click(screen.getByRole("button", { name: "EN" }));

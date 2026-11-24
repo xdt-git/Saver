@@ -1,9 +1,9 @@
-import previewMobile from "@/shared/assets/all_mobile.webp";
+import previewMobile from "@/shared/assets/preview_mobile.png";
 import previewWeb from "@/shared/assets/all_web.webp";
 import desktopIcon from "@/shared/assets/desktop.webp";
 import mobileIcon from "@/shared/assets/mobile.webp";
-import previewDesktop from "@/shared/assets/preview_desktop.webp";
-import previewTelegram from "@/shared/assets/preview_telegram.webp";
+import previewDesktop from "@/shared/assets/preview_desktop.png";
+import previewTelegram from "@/shared/assets/preview_telegram.png";
 import telegramIcon from "@/shared/assets/telegram.webp";
 import webIcon from "@/shared/assets/web.webp";
 import { ROUTES } from "./routes";

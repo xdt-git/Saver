@@ -47,7 +47,11 @@ export const LandingHero = ({ selectedPlatform, onSelectPlatform }: LandingHeroP
                             key={platform.id}
                             variant="icon"
                             aria-pressed={isActive}
-                            className={cn(isActive && styles.active, styles[platform.id])}
+                            className={cn(
+                                styles.platform,
+                                isActive && styles.active,
+                                styles[platform.id],
+                            )}
                             onClick={() => onSelectPlatform(platform.id)}
                         >
                             <img

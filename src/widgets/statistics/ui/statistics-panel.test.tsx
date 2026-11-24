@@ -17,7 +17,7 @@ const stats = (overrides: Partial<Statistics<ContentItem>> = {}): Statistics<Con
     library: { planned: 2, watching: 1, completed: 5, total: 8 },
     completed: {
         total: 5,
-        byType: { film: 3, series: 2, anime: 0, cartoon: 0, game: 0, other: 0 },
+        byType: { film: 3, series: 2, anime: 0, dorama: 0, cartoon: 0, game: 0, other: 0 },
     },
     watchTime: { minutes: 125 * 60 + 30, itemsWithDuration: 4, itemsWithoutDuration: 1 },
     ratings: { average: 8.25, count: 4 },

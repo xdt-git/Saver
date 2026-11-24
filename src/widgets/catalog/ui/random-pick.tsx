@@ -6,20 +6,42 @@ import { isApiError } from "@/shared/api";
 import { Button } from "@/shared/ui/button";
 import { EmptyState, ErrorState } from "@/shared/ui/empty-state";
 import { Modal } from "@/shared/ui/modal";
-import { toContentFilters, type CatalogFilters } from "../model/filters";
+import { SegmentedControl } from "@/shared/ui/segmented-control";
+import type { ContentType } from "@/shared/config/content";
+import { useContentLabels } from "@/entities/content";
+import { RANDOM_CATEGORIES, toContentFilters, type CatalogFilters } from "../model/filters";
 import { CardActions } from "./card-actions";
 import styles from "./catalog.module.scss";
 
-/** "Random pick" button: shows one random item matching the current filters, real data only. */
+const ANY = "any";
+type RandomCategory = (typeof RANDOM_CATEGORIES)[number] | typeof ANY;
+
+const isRandomCategory = (
+    type: ContentType | undefined,
+): type is (typeof RANDOM_CATEGORIES)[number] =>
+    RANDOM_CATEGORIES.some((category) => category === type);
+
+/**
+ * "Random pick" button: one random item matching the current filters, real data only.
+ * The dialog lets the user pick the category (films, series, anime, doramas or any).
+ */
 export const RandomPick = ({ filters }: { filters: CatalogFilters }) => {
     const { t } = useTranslation();
+    const labels = useContentLabels();
     const [open, setOpen] = useState(false);
     const [attempt, setAttempt] = useState(0);
+    const [category, setCategory] = useState<RandomCategory>(ANY);
     const { data, isFetching, isError, error, refetch } = useRandomContent(
-        toContentFilters(filters),
+        { ...toContentFilters(filters), type: category === ANY ? undefined : category },
         attempt,
         open,
     );
+
+    const openPick = () => {
+        // Starts from the category the catalog is filtered by.
+        setCategory(isRandomCategory(filters.type) ? filters.type : ANY);
+        setOpen(true);
+    };
     const nothingMatches = isError && isApiError(error) && error.code === "NOT_FOUND";
 
     const body = () => {
@@ -31,7 +53,7 @@ export const RandomPick = ({ filters }: { filters: CatalogFilters }) => {
 
     return (
         <>
-            <Button size="md" className={styles.randomButton} onClick={() => setOpen(true)}>
+            <Button size="md" className={styles.randomButton} onClick={openPick}>
                 <GiPerspectiveDiceSixFacesRandom aria-hidden="true" /> {t("discover.random")}
             </Button>
             <Modal
@@ -50,6 +72,19 @@ export const RandomPick = ({ filters }: { filters: CatalogFilters }) => {
                     )
                 }
             >
+                <SegmentedControl
+                    className={styles.randomCategories}
+                    ariaLabel={t("discover.randomCategory")}
+                    value={category}
+                    onChange={setCategory}
+                    options={[
+                        { value: ANY, label: t("discover.all") },
+                        ...RANDOM_CATEGORIES.map((type) => ({
+                            value: type,
+                            label: labels.type(type),
+                        })),
+                    ]}
+                />
                 {body()}
             </Modal>
         </>

@@ -36,8 +36,8 @@ describe("Footer", () => {
             expect(link.getAttribute("href")).toMatch(/^(https:\/\/|mailto:)/);
         }
 
-        const github = within(dialog).getByRole("link", { name: /github\.com\/xdt-git\/Saver/ });
-        expect(github).toHaveAttribute("href", "https://github.com/xdt-git/Saver");
+        const github = within(dialog).getByRole("link", { name: /github\.com\/xdt-git/ });
+        expect(github).toHaveAttribute("href", "https://github.com/xdt-git");
         expect(github).toHaveAttribute("target", "_blank");
         expect(github).toHaveAttribute("rel", "noopener noreferrer");
 

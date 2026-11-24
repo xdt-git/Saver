@@ -64,7 +64,7 @@ describe("Header mobile menu", () => {
         renderHeader();
         await userEvent.click(burger());
         const libraryLink = within(mobileNav() as HTMLElement).getByRole("link", {
-            name: "Основная страница",
+            name: "Моя библиотека",
         });
         expect(libraryLink).toHaveAttribute("href", ROUTES.library);
 

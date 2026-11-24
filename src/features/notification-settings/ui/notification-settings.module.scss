@@ -1,0 +1,27 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+    max-width: var(--size-feed-max);
+    margin: 0 0 var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+.title {
+    padding: 0 var(--space-2xs);
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: var(--font-size-md);
+}
+
+// The kinds sit under the main switch.
+.kinds {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-left: var(--space-md);
+}

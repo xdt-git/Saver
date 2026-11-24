@@ -22,8 +22,16 @@ export const CATEGORY_TABS = [
     "film",
     "series",
     "anime",
+    "dorama",
     "cartoon",
-    "game",
+] as const satisfies readonly ContentType[];
+
+/** Categories the random pick offers. */
+export const RANDOM_CATEGORIES = [
+    "film",
+    "series",
+    "anime",
+    "dorama",
 ] as const satisfies readonly ContentType[];
 
 /** Everything the catalog screen can be filtered by (kept in the URL by the page). */

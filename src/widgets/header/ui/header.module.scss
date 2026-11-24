@@ -21,6 +21,11 @@
     gap: var(--space-sm);
 }
 
+.logoLink {
+    display: block;
+    border-radius: var(--radius-lg);
+}
+
 // Square NightReel logo with a white neon glow.
 .logo {
     display: block;
@@ -33,11 +38,17 @@
     font-size: var(--size-icon-md);
 }
 
-// The burger exists only on small screens.
+// The burger exists only on small screens. The glow sits on the icon itself, so the
+// button's own hover / press styles never replace it.
 .burger {
     display: none;
     color: var(--color-text);
     font-size: var(--size-icon-lg);
+
+    svg {
+        display: block;
+        filter: var(--glow-logo);
+    }
 }
 
 // Click-outside area behind the mobile panel.
@@ -158,4 +169,32 @@
 
 .profileAction {
     margin-top: var(--space-xs);
+}
+
+// Bell with the number of unread notifications.
+.bell {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: calc(-1 * var(--space-3xs));
+    right: calc(-1 * var(--space-3xs));
+    min-width: var(--size-badge);
+    height: var(--size-badge);
+    padding: 0 var(--space-3xs);
+    border-radius: var(--radius-round);
+    background: var(--gradient-primary);
+    color: var(--color-on-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--size-badge);
+    text-align: center;
+    box-shadow: var(--glow-accent);
+}
+
+.bellIcon {
+    display: block;
+    font-size: var(--size-icon-md);
+    filter: var(--glow-logo);
 }

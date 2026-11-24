@@ -9,7 +9,16 @@ export interface SessionUser {
     isPrivate: boolean;
     /** Whether the email address was confirmed through the emailed link. */
     emailVerified: boolean;
+    notifications: NotificationSettings;
     createdAt: string;
+}
+
+/** consent is null until the user answered the one-time question. */
+export interface NotificationSettings {
+    consent: boolean | null;
+    following: boolean;
+    likes: boolean;
+    comments: boolean;
 }
 
 export interface LoginPayload {
@@ -23,6 +32,11 @@ export interface RegisterPayload {
     username: string;
     password: string;
     confirmPassword: string;
+}
+
+/** The sign-up form with the answer of its notifications checkbox. */
+export interface RegisterRequest extends RegisterPayload {
+    notificationsConsent: boolean;
 }
 
 export interface ForgotPasswordPayload {
