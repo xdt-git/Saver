@@ -23,6 +23,10 @@ export interface ProfilePatch {
     bio?: string;
     avatarUrl?: string;
     isPrivate?: boolean;
+    notificationsConsent?: boolean;
+    notifyFollowing?: boolean;
+    notifyLikes?: boolean;
+    notifyComments?: boolean;
 }
 
 export type FollowListKind = "followers" | "following";

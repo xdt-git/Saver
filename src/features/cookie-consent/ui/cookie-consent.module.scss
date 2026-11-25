@@ -1,0 +1,33 @@
+@use "../../../shared/styles/breakpoints" as bp;
+
+// Card at the bottom of the screen, above the settings dock row.
+.banner {
+    position: fixed;
+    left: 50%;
+    bottom: calc(var(--size-input-height) + var(--space-md));
+    z-index: var(--z-toast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    width: min(var(--size-feed-max), calc(100% - 2 * var(--space-sm)));
+    padding: var(--space-sm) var(--space-md);
+    transform: translateX(-50%);
+    border: var(--border-thin) solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-raised);
+    box-shadow: var(--glow-accent);
+}
+
+.text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: bp.$md) {
+    .banner {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}

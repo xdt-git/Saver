@@ -1,23 +1,27 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sessionApi, type RegisterPayload } from "@/entities/session";
 import { ROUTES } from "@/shared/config/routes";
+import { Checkbox } from "@/shared/ui/checkbox";
 import { useAuthForm } from "../model/use-auth-form";
 import { normalizeRegister, PASSWORD_MIN, validateRegister } from "../model/validation";
 import { AuthCard } from "./auth-card";
 import { AuthSwitchLink } from "./auth-switch-link";
 import { AuthField } from "./auth-field";
+import { GoogleSignIn } from "./google-sign-in";
 
 const INITIAL: RegisterPayload = { email: "", username: "", password: "", confirmPassword: "" };
-
-const register = (values: RegisterPayload) => sessionApi.register(normalizeRegister(values));
 
 /** Create an account; the user is signed in right after. */
 export const RegisterForm = () => {
     const { t } = useTranslation();
+    // Notifications are opt-in: the box starts unchecked.
+    const [notificationsConsent, setNotificationsConsent] = useState(false);
     const { field, onSubmit, formError, isSubmitting } = useAuthForm({
         initial: INITIAL,
         validate: validateRegister,
-        submit: register,
+        submit: (values: RegisterPayload) =>
+            sessionApi.register({ ...normalizeRegister(values), notificationsConsent }),
     });
 
     return (
@@ -27,6 +31,7 @@ export const RegisterForm = () => {
             isSubmitting={isSubmitting}
             onSubmit={onSubmit}
             formError={formError}
+            alternative={<GoogleSignIn notificationsConsent={notificationsConsent} />}
             footer={
                 <AuthSwitchLink
                     question={t("auth.register.hasAccount")}
@@ -60,6 +65,13 @@ export const RegisterForm = () => {
                 type="password"
                 autoComplete="new-password"
                 {...field("confirmPassword")}
+            />
+            <Checkbox
+                name="notificationsConsent"
+                label={t("notifications.consentLabel")}
+                hint={t("notifications.consentHint")}
+                checked={notificationsConsent}
+                onChange={(event) => setNotificationsConsent(event.target.checked)}
             />
         </AuthCard>
     );

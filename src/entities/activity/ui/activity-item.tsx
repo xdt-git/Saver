@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { contentPath } from "@/shared/config/routes";
 import { formatDate, formatRelativeTime } from "@/shared/lib";
 import type { Activity } from "../api/activity-api";
+import { useActivityActionText } from "../lib/action-text";
 import styles from "./activity-item.module.scss";
 
 interface ActivityItemProps {
@@ -16,21 +17,10 @@ interface ActivityItemProps {
     footer?: ReactNode;
 }
 
-/** What the action was, in words: "adds to the library (Planned)", "rates 9", … */
-const useActionText = ({ type, payload }: Activity) => {
-    const { t } = useTranslation();
-    const status = (value?: string) =>
-        value ? t(`library.status.${value}` as "library.status.planned") : "";
-    if (type === "rated") return t("activity.rated", { value: payload?.value });
-    if (type === "library_added") return t("activity.added", { status: status(payload?.status) });
-    if (payload?.to === "completed") return t("activity.completed");
-    return t("activity.statusChanged", { from: status(payload?.from), to: status(payload?.to) });
-};
-
 /** One event in a feed: author, action, the item it is about and when. */
 export const ActivityItem = ({ activity, author, poster, footer }: ActivityItemProps) => {
     const { i18n } = useTranslation();
-    const action = useActionText(activity);
+    const action = useActivityActionText(activity);
 
     return (
         <article className={styles.item}>

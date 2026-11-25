@@ -99,6 +99,15 @@ export const ProfileMenu = () => {
                     </Button>
                     <Button
                         role="menuitem"
+                        to={ROUTES.notifications}
+                        variant="nav"
+                        className={styles.profileLink}
+                        onClick={close}
+                    >
+                        {t("header.notifications")}
+                    </Button>
+                    <Button
+                        role="menuitem"
                         variant="secondary"
                         className={styles.profileAction}
                         onClick={onSignOut}

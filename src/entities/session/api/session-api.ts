@@ -3,13 +3,15 @@ import { currentLanguage } from "@/shared/config/i18n";
 import type {
     ForgotPasswordPayload,
     LoginPayload,
-    RegisterPayload,
+    GoogleSignInPayload,
+    RegisterRequest,
     ResetPasswordPayload,
     SessionUser,
 } from "../model/types";
 
 export const sessionKeys = {
     me: () => ["session", "me"] as const,
+    providers: () => ["session", "providers"] as const,
 };
 
 // These requests handle 401 themselves: a wrong password or a guest visit is not an
@@ -46,12 +48,18 @@ export const sessionApi = {
     },
     login: (payload: LoginPayload) => apiClient.post<SessionUser>("/auth/login", payload, authOnly),
     /** The verification email is written in the current UI language. */
-    register: (payload: RegisterPayload) =>
+    register: (payload: RegisterRequest) =>
         apiClient.post<SessionUser>(
             "/auth/register",
             { ...payload, language: currentLanguage() },
             authOnly,
         ),
+    /** Sign-in methods besides the password: Google's public client id or null. */
+    providers: (signal?: AbortSignal) =>
+        apiClient.get<{ google: string | null }>("/auth/providers", { ...authOnly, signal }),
+    /** Signs in (or up) with the ID token from Google's button. */
+    google: (payload: GoogleSignInPayload) =>
+        apiClient.post<SessionUser>("/auth/google", payload, authOnly),
     logout: () => apiClient.post<void>("/auth/logout", undefined, authOnly),
     verifyEmail: (token: string) => apiClient.post<null>("/auth/email/verify", { token }, authOnly),
     resendVerification: () =>

@@ -21,6 +21,7 @@ export const DURATION_FIELDS: Record<ContentType, { runtime: boolean; episodes: 
     cartoon: { runtime: true, episodes: false },
     other: { runtime: true, episodes: false },
     series: { runtime: false, episodes: true },
+    dorama: { runtime: false, episodes: true },
     anime: { runtime: true, episodes: true },
     game: { runtime: false, episodes: false },
 };

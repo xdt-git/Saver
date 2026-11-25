@@ -1,0 +1,77 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+    max-width: var(--size-feed-max);
+}
+
+.skeleton {
+    height: var(--size-input-height);
+}
+
+.more {
+    align-self: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding: var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+// Not read yet: the accent edge.
+.unread {
+    border-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 0 var(--space-xs);
+    border-radius: var(--radius-sm);
+    background: var(--gradient-primary);
+    color: var(--color-on-primary);
+    font-size: var(--font-size-xs);
+}
+
+.time {
+    margin-left: auto;
+    color: var(--color-text-faint);
+    font-size: var(--font-size-xs);
+}
+
+.text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    overflow-wrap: anywhere;
+}
+
+.content {
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+
+    &:hover {
+        filter: var(--glow-sm);
+    }
+}
+
+.comment {
+    margin: 0;
+    padding-left: var(--space-sm);
+    border-left: var(--border-medium) solid var(--color-accent);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    overflow-wrap: anywhere;
+}

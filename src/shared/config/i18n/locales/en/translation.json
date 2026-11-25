@@ -26,7 +26,9 @@
         "profileMenu": "Profile menu of {{username}}",
         "myLibrary": "My library",
         "myProfile": "My profile",
-        "myFeed": "My feed"
+        "myFeed": "My feed",
+        "notifications": "Notifications",
+        "notificationsUnread": "Notifications, {{count}} unread"
     },
     "language": {
         "label": "Interface language",
@@ -88,13 +90,13 @@
             "alt": "Anime",
             "description": "Enjoying anime? Save it to your collection and explore new horizons!"
         },
+        "dorama": {
+            "alt": "Doramas",
+            "description": "Korean, Chinese, Japanese and Thai dramas: save your favorites and never lose an episode!"
+        },
         "cartoon": {
             "alt": "Cartoons",
             "description": "Save your favorite cartoons and build a collection of your own!"
-        },
-        "game": {
-            "alt": "Games",
-            "description": "Save your favorite games and get the most out of them!"
         }
     },
     "notFound": {
@@ -233,12 +235,14 @@
             "banner": "Please confirm your email: we sent a message to {{email}}.",
             "resend": "Send again",
             "resent": "Email sent to {{email}}"
-        }
+        },
+        "or": "or"
     },
     "contentTypes": {
         "film": "Film",
         "series": "Series",
         "anime": "Anime",
+        "dorama": "Dorama",
         "cartoon": "Cartoon",
         "game": "Game",
         "other": "Other"
@@ -314,7 +318,8 @@
         "emptyTitle": "Nothing found",
         "emptyText": "Change the filters or search differently.",
         "randomEmpty": "Nothing matches these filters.",
-        "loadError": "Could not load the catalog"
+        "loadError": "Could not load the catalog",
+        "randomCategory": "Random pick category"
     },
     "pagination": {
         "label": "Pages",
@@ -508,5 +513,32 @@
         "send": "Send",
         "deleteComment": "Delete comment",
         "signInToComment": "Sign in to comment."
+    },
+    "notifications": {
+        "title": "Notifications",
+        "consentLabel": "Send me notifications",
+        "consentHint": "About people you follow and about likes and comments on your events. You can change this in the notification settings.",
+        "promptTitle": "Turn on notifications?",
+        "promptText": "We will tell you when people you follow watch or rate something, and when someone likes or comments your event. You can change your mind any time on the Notifications page.",
+        "promptYes": "Yes, send them",
+        "promptNo": "Not now",
+        "settingsTitle": "Notification settings",
+        "enabled": "Receive notifications",
+        "following": "Activity of people I follow",
+        "likes": "Likes on my events",
+        "comments": "Comments on my events",
+        "saved": "Notification settings saved",
+        "liked": "likes your event",
+        "commented": "comments on your event",
+        "markAll": "Mark all as read",
+        "emptyTitle": "No notifications yet",
+        "emptyText": "Activity of people you follow and likes and comments on your events will show up here.",
+        "disabledText": "Notifications are off: turn them on in the settings above.",
+        "unread": "New"
+    },
+    "cookies": {
+        "label": "Cookies",
+        "text": "We only use necessary cookies, to keep you signed in, and local storage for the theme and language. No ads, no analytics. By using the site you agree to this.",
+        "accept": "Got it"
     }
 }

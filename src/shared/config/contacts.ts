@@ -28,5 +28,5 @@ export const PERSONAL_CONTACTS: Contact[] = [
 
 /** Project links that always exist. */
 export const PROJECT_LINKS: Contact[] = [
-    { kind: "github", label: "github.com/xdt-git/Saver", href: "https://github.com/xdt-git/Saver" },
+    { kind: "github", label: "github.com/xdt-git", href: "https://github.com/xdt-git" },
 ];

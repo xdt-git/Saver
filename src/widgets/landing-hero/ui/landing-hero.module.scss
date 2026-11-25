@@ -30,22 +30,43 @@
     height: var(--size-platform-icon);
 }
 
-// The selected platform glows in its own color and stays slightly enlarged.
+// Each platform glows in its own color. The glow is drawn by the image (its real outline)
+// and not by the button box, so it is never cut into a square by the scale transform.
+.platform {
+    --icon-hover-glow: none;
+    border-radius: var(--radius-round);
+}
+
+.telegram {
+    --platform-glow: var(--glow-platform-telegram);
+}
+.mobile {
+    --platform-glow: var(--glow-platform-mobile);
+}
+.desktop {
+    --platform-glow: var(--glow-platform-desktop);
+}
+.web {
+    --platform-glow: var(--glow-platform-web);
+}
+
+.picturesSize {
+    transition: filter var(--duration-fast) var(--easing);
+}
+
+// The selected platform stays slightly enlarged and glowing.
 .active {
     transform: var(--state-hover-scale);
 }
 
-.active.telegram {
-    filter: var(--glow-platform-telegram);
+.active .picturesSize {
+    filter: var(--platform-glow);
 }
-.active.mobile {
-    filter: var(--glow-platform-mobile);
-}
-.active.desktop {
-    filter: var(--glow-platform-desktop);
-}
-.active.web {
-    filter: var(--glow-platform-web);
+
+@media (hover: hover) {
+    .platform:hover .picturesSize {
+        filter: var(--platform-glow);
+    }
 }
 
 // Phones: full-width hero, smaller platform icons so all four fit in one row.
