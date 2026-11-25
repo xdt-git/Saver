@@ -17,7 +17,7 @@ export const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <span>{t("footer.tagline")}</span>
+            <span className={styles.tagline}>{t("footer.tagline")}</span>
             <div className={styles.links}>
                 <Button
                     variant="nav"
@@ -37,7 +37,9 @@ export const Footer = () => {
                     {t("footer.privacy")}
                 </Button>
             </div>
-            <span>{t("footer.copyright", { year: new Date().getFullYear() })}</span>
+            <span className={styles.copyright}>
+                {t("footer.copyright", { year: new Date().getFullYear() })}
+            </span>
 
             <AboutDialog open={openDialog === "about"} onClose={close} />
             <ContactsDialog open={openDialog === "contacts"} onClose={close} />
