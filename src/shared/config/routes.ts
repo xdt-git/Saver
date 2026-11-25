@@ -6,7 +6,8 @@ export const ROUTES = {
     home: "/",
     discover: "/discover",
     contentDetails: "/content/:id",
-    library: "/Save",
+    /** Old address of the library: redirects to the collection. */
+    legacyLibrary: "/Save",
     collection: "/collection",
     profile: "/users/:id",
     feed: "/feed",

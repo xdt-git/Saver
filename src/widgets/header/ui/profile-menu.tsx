@@ -90,15 +90,6 @@ export const ProfileMenu = () => {
                     </Button>
                     <Button
                         role="menuitem"
-                        to={ROUTES.collection}
-                        variant="nav"
-                        className={styles.profileLink}
-                        onClick={close}
-                    >
-                        {t("header.myLibrary")}
-                    </Button>
-                    <Button
-                        role="menuitem"
                         to={ROUTES.notifications}
                         variant="nav"
                         className={styles.profileLink}

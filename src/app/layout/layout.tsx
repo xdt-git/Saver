@@ -8,6 +8,7 @@ import { CookieConsent } from "@/features/cookie-consent";
 import { NotificationConsentPrompt } from "@/features/notification-settings";
 import { NEWS_FOLLOWING_PATH, ROUTES } from "@/shared/config/routes";
 import { lazyNamed } from "@/shared/lib";
+import { BackgroundLines } from "@/shared/ui/background-lines";
 import { PageLoader } from "@/shared/ui/loader";
 import { GuestRoutes, ProtectedRoutes } from "../routing";
 import styles from "./layout.module.scss";
@@ -16,7 +17,6 @@ import styles from "./layout.module.scss";
 const LandingPage = lazyNamed(() => import("@/pages/landing"), "LandingPage");
 const DiscoverPage = lazyNamed(() => import("@/pages/discover"), "DiscoverPage");
 const ContentDetailsPage = lazyNamed(() => import("@/pages/content-details"), "ContentDetailsPage");
-const LibraryPage = lazyNamed(() => import("@/pages/library"), "LibraryPage");
 const CollectionPage = lazyNamed(() => import("@/pages/collection"), "CollectionPage");
 const ProfilePage = lazyNamed(() => import("@/pages/profile"), "ProfilePage");
 const NewsPage = lazyNamed(() => import("@/pages/news"), "NewsPage");
@@ -36,6 +36,7 @@ const UiKitPage = import.meta.env.DEV
 export const Layout = () => {
     return (
         <div className={styles.app}>
+            <BackgroundLines />
             <Header />
             <VerifyEmailBanner />
 
@@ -52,7 +53,10 @@ export const Layout = () => {
                         <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
                         <Route path={ROUTES.verifyEmail} element={<VerifyEmailPage />} />
                         <Route element={<ProtectedRoutes />}>
-                            <Route path={ROUTES.library} element={<LibraryPage />} />
+                            <Route
+                                path={ROUTES.legacyLibrary}
+                                element={<Navigate to={ROUTES.collection} replace />}
+                            />
                             <Route path={ROUTES.collection} element={<CollectionPage />} />
                             <Route path={ROUTES.notifications} element={<NotificationsPage />} />
                             {/* The old feed address opens the news page on subscriptions. */}

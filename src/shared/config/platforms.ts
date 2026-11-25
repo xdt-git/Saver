@@ -56,7 +56,7 @@ export const PLATFORMS: readonly Platform[] = [
         id: "web",
         icon: webIcon,
         preview: previewWeb,
-        action: { kind: "route", to: ROUTES.library },
+        action: { kind: "route", to: ROUTES.collection },
         actionLabel: "start",
     },
 ];
