@@ -8,7 +8,7 @@ describe("Footer", () => {
     it("shows the tagline and the current year", () => {
         renderWithProviders(<Footer />);
         expect(screen.getByRole("contentinfo")).toHaveTextContent(
-            "Трекер фильмов, сериалов, аниме и игр",
+            "Трекер фильмов, сериалов, аниме и дорам",
         );
         expect(screen.getByText(`© ${new Date().getFullYear()} NightReel`)).toBeInTheDocument();
     });

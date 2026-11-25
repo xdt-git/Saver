@@ -97,4 +97,7 @@
     justify-content: center;
     width: 100%;
     min-height: var(--size-input-height);
+    // Google's button is an iframe with a light color scheme; on a dark page a scheme
+    // mismatch makes the browser paint it on an opaque white box.
+    color-scheme: light;
 }
