@@ -17,7 +17,7 @@ describe("Header", () => {
         expect(links.map((link) => link.getAttribute("href"))).toEqual([
             ROUTES.home,
             ROUTES.discover,
-            ROUTES.library,
+            ROUTES.collection,
             ROUTES.news,
         ]);
         expect(links.map((link) => link.textContent)).toEqual([

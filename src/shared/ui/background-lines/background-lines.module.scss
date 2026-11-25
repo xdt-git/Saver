@@ -1,0 +1,19 @@
+// Fixed behind the whole app; the page content paints over it.
+.lines {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100dvh;
+    pointer-events: none;
+    opacity: var(--lines-opacity);
+}
+
+// Gradient stops take the theme colors (SVG attributes cannot read CSS variables).
+.primary {
+    stop-color: var(--color-primary);
+}
+
+.accent {
+    stop-color: var(--color-accent);
+}

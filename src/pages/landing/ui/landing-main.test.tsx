@@ -16,7 +16,7 @@ describe("Landing platform switcher", () => {
         expect(platformButton("Веб-версия")).toHaveAttribute("aria-pressed", "true");
         expect(screen.getByRole("link", { name: "Начать" })).toHaveAttribute(
             "href",
-            ROUTES.library,
+            ROUTES.collection,
         );
         expect(screen.getByAltText("Saver в браузере и на телефоне")).toHaveAttribute(
             "src",
