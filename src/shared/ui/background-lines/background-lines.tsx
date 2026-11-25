@@ -11,8 +11,9 @@ interface Ribbon {
 }
 
 /**
- * Soft neon ribbons in a 1920×1080 frame stretched to the screen: one sweeps across the
- * top, one rises from the bottom left, a thin strand curls down the right side.
+ * Neon ribbons in a 1920×1080 frame stretched to the screen: one sweeps across the top,
+ * one rises from the bottom left, a thin strand curls down the right side. Each is a wide
+ * soft glow with a crisp line along its middle, so the curves read as lines.
  */
 const RIBBONS: Ribbon[] = [
     {
@@ -38,6 +39,9 @@ const RIBBONS: Ribbon[] = [
     },
 ];
 
+/** Slight softness of the crisp middle line (a glowing tube, not a vector stroke). */
+const CORE_BLUR = 3;
+
 /** Decorative background of every page; sits behind the content and ignores the pointer. */
 export const BackgroundLines = () => {
     const id = useId().replace(/:/g, "");
@@ -62,6 +66,16 @@ export const BackgroundLines = () => {
                         </linearGradient>
                         {/* A region far wider than the frame, so the blur is never cut off. */}
                         <filter
+                            id={`${id}-c${index}`}
+                            filterUnits="userSpaceOnUse"
+                            x="-2000"
+                            y="-2000"
+                            width="6000"
+                            height="5000"
+                        >
+                            <feGaussianBlur stdDeviation={CORE_BLUR} />
+                        </filter>
+                        <filter
                             id={`${id}-f${index}`}
                             filterUnits="userSpaceOnUse"
                             x="-2000"
@@ -75,16 +89,25 @@ export const BackgroundLines = () => {
                 ))}
             </defs>
             {RIBBONS.map((ribbon, index) => (
-                <path
-                    key={index}
-                    d={ribbon.d}
-                    fill="none"
-                    stroke={`url(#${id}-g${index})`}
-                    strokeWidth={ribbon.width}
-                    strokeLinecap="round"
-                    strokeOpacity={ribbon.opacity}
-                    filter={`url(#${id}-f${index})`}
-                />
+                <g key={index}>
+                    <path
+                        d={ribbon.d}
+                        fill="none"
+                        stroke={`url(#${id}-g${index})`}
+                        strokeWidth={ribbon.width}
+                        strokeLinecap="round"
+                        strokeOpacity={ribbon.opacity}
+                        filter={`url(#${id}-f${index})`}
+                    />
+                    <path
+                        d={ribbon.d}
+                        fill="none"
+                        stroke={`url(#${id}-g${index})`}
+                        strokeWidth={Math.max(3, ribbon.width / 10)}
+                        strokeLinecap="round"
+                        filter={`url(#${id}-c${index})`}
+                    />
+                </g>
             ))}
         </svg>
     );
