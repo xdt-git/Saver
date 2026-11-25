@@ -164,7 +164,8 @@
         "contacts": "Contacts",
         "copyright": "© {{year}} NightReel",
         "contactsSoon": "The author's personal contacts will be added later.",
-        "projectLinks": "Project"
+        "projectLinks": "Project",
+        "privacy": "Privacy"
     },
     "settings": {
         "label": "Settings"
@@ -540,5 +541,40 @@
         "label": "Cookies",
         "text": "We only use necessary cookies, to keep you signed in, and local storage for the theme and language. No ads, no analytics. By using the site you agree to this.",
         "accept": "Got it"
+    },
+    "privacy": {
+        "title": "Privacy policy",
+        "updated": "Effective November 25, 2026",
+        "intro": "NightReel is a tracker for films, series, anime and doramas. Here is, briefly and honestly, what data we keep, why, and how to have it removed.",
+        "sections": {
+            "data": {
+                "title": "What we keep",
+                "text": "Your email, username and a hash of your password (we never know the password itself). If you add them: display name, bio and avatar. And what you do on the site: your library, statuses, ratings, follows, likes and comments."
+            },
+            "google": {
+                "title": "Sign in with Google",
+                "text": "If you sign in with Google, we receive only your Google account id, email, whether it is verified, and your name. We have no access to your mail, contacts or files."
+            },
+            "use": {
+                "title": "Why",
+                "text": "So you can sign in, keep your library, see your friends' feed and get notifications (only if you agreed to them). We send emails only to confirm your address and to reset your password."
+            },
+            "cookies": {
+                "title": "Cookies and local storage",
+                "text": "We only use necessary cookies, to keep you signed in. The theme and language are stored in your browser. No ads, analytics or trackers."
+            },
+            "sharing": {
+                "title": "Who we share it with",
+                "text": "Nobody: we do not sell or share your data. A public profile and its activity are visible to other users; a private profile is visible only to you. The data is stored on our own server."
+            },
+            "rights": {
+                "title": "Your rights",
+                "text": "You can edit your profile, make it private, turn notifications off in the settings, or ask us to delete your account with all its data — just write to us."
+            },
+            "contact": {
+                "title": "Contact us",
+                "text": "See Contacts in the site footer."
+            }
+        }
     }
 }

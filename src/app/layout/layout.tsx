@@ -26,6 +26,7 @@ const RegisterPage = lazyNamed(() => import("@/pages/register"), "RegisterPage")
 const ForgotPasswordPage = lazyNamed(() => import("@/pages/forgot-password"), "ForgotPasswordPage");
 const ResetPasswordPage = lazyNamed(() => import("@/pages/reset-password"), "ResetPasswordPage");
 const VerifyEmailPage = lazyNamed(() => import("@/pages/verify-email"), "VerifyEmailPage");
+const PrivacyPage = lazyNamed(() => import("@/pages/privacy"), "PrivacyPage");
 const NotFoundPage = lazyNamed(() => import("@/pages/not-found"), "NotFoundPage");
 // Component showcase, development only: the import is removed from production builds.
 const UiKitPage = import.meta.env.DEV
@@ -46,6 +47,7 @@ export const Layout = () => {
                         <Route path={ROUTES.contentDetails} element={<ContentDetailsPage />} />
                         <Route path={ROUTES.profile} element={<ProfilePage />} />
                         <Route path={ROUTES.news} element={<NewsPage />} />
+                        <Route path={ROUTES.privacy} element={<PrivacyPage />} />
                         {/* Email links work signed in or not. */}
                         <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
                         <Route path={ROUTES.verifyEmail} element={<VerifyEmailPage />} />
