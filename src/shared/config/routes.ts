@@ -20,6 +20,8 @@ export const ROUTES = {
     /** Pages opened from email links (?token=...); the API builds the same paths. */
     resetPassword: "/reset-password",
     verifyEmail: "/verify-email",
+    /** Privacy policy (also the link Google shows on its sign-in screen). */
+    privacy: "/privacy",
     uiKit: "/ui-kit",
 } as const;
 

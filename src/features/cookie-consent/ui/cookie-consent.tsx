@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
 import styles from "./cookie-consent.module.scss";
 
@@ -34,7 +36,12 @@ export const CookieConsent = () => {
 
     return (
         <section className={styles.banner} role="region" aria-label={t("cookies.label")}>
-            <p className={styles.text}>{t("cookies.text")}</p>
+            <p className={styles.text}>
+                {t("cookies.text")}{" "}
+                <Link to={ROUTES.privacy} className={styles.link}>
+                    {t("footer.privacy")}
+                </Link>
+            </p>
             <Button size="md" onClick={accept}>
                 {t("cookies.accept")}
             </Button>

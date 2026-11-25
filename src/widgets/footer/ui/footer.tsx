@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ROUTES } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
 import { glowClassName } from "@/shared/ui/text";
 import { AboutDialog } from "./about-dialog";
@@ -31,6 +32,9 @@ export const Footer = () => {
                     onClick={() => setOpenDialog("contacts")}
                 >
                     {t("footer.contacts")}
+                </Button>
+                <Button variant="nav" className={glowClassName} to={ROUTES.privacy}>
+                    {t("footer.privacy")}
                 </Button>
             </div>
             <span>{t("footer.copyright", { year: new Date().getFullYear() })}</span>

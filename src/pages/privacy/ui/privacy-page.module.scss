@@ -1,0 +1,25 @@
+.policy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    max-width: var(--size-feed-max);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-body);
+
+    p {
+        margin: 0;
+    }
+}
+
+.updated {
+    color: var(--color-text-faint);
+    font-size: var(--font-size-sm);
+}
+
+.heading {
+    margin: var(--space-sm) 0 var(--space-2xs);
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+}
