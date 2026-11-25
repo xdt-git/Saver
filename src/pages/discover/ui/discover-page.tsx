@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { CatalogFilters, CatalogResults, RandomPick } from "@/widgets/catalog";
+import { LibraryBanner } from "@/widgets/library-banner";
 import { TmdbSearch } from "@/features/tmdb-import";
 import { ContentPage } from "@/shared/ui/content-page";
 import { useUrlFilters } from "../model/use-url-filters";
@@ -19,16 +20,19 @@ export const DiscoverPage = () => {
     }, [filters.sort, filters.seed, update]);
 
     return (
-        <ContentPage title={t("discover.title")} actions={<RandomPick filters={filters} />}>
-            <CatalogFilters value={filters} onChange={update} />
-            <CatalogResults
-                filters={filters}
-                onPageChange={(page) => {
-                    update({ page });
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-            />
-            <TmdbSearch initialQuery={filters.search} />
-        </ContentPage>
+        <>
+            <LibraryBanner />
+            <ContentPage title={t("discover.title")} actions={<RandomPick filters={filters} />}>
+                <CatalogFilters value={filters} onChange={update} />
+                <CatalogResults
+                    filters={filters}
+                    onPageChange={(page) => {
+                        update({ page });
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                />
+                <TmdbSearch initialQuery={filters.search} />
+            </ContentPage>
+        </>
     );
 };

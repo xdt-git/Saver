@@ -77,28 +77,6 @@
         "statusLabel": "Status of “{{title}}”",
         "statusSaved": "Status: {{status}}"
     },
-    "categories": {
-        "film": {
-            "alt": "Films",
-            "description": "Save your favorite films and come back to them whenever you like. All your impressions in one place."
-        },
-        "series": {
-            "alt": "Series",
-            "description": "Hooked on a series? Save it to your collection and come back for new impressions!"
-        },
-        "anime": {
-            "alt": "Anime",
-            "description": "Enjoying anime? Save it to your collection and explore new horizons!"
-        },
-        "dorama": {
-            "alt": "Doramas",
-            "description": "Korean, Chinese, Japanese and Thai dramas: save your favorites and never lose an episode!"
-        },
-        "cartoon": {
-            "alt": "Cartoons",
-            "description": "Save your favorite cartoons and build a collection of your own!"
-        }
-    },
     "notFound": {
         "title": "Page not found"
     },

@@ -62,11 +62,11 @@ describe("ProfileMenu", () => {
             <Routes>
                 <Route path={ROUTES.home} element={<p>home page</p>} />
                 <Route element={<RequireUser />}>
-                    <Route path={ROUTES.library} element={<p>library</p>} />
+                    <Route path={ROUTES.collection} element={<p>library</p>} />
                 </Route>
                 <Route path={ROUTES.login} element={<p>login page</p>} />
             </Routes>,
-            ROUTES.library,
+            ROUTES.collection,
             sessionTestOptions(TEST_USER),
         );
         await userEvent.click(screen.getByRole("button", { name: "Меню профиля neo" }));

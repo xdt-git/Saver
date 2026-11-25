@@ -17,17 +17,17 @@ describe("App routing", () => {
         expect(screen.queryByRole("status", { name: "Загрузка" })).toBeNull();
     });
 
-    it("links the Start button to the library page", async () => {
+    it("links the Start button to the library (collection) page", async () => {
         renderWithProviders(<Layout />, ROUTES.home, asGuest);
         const startLink = await screen.findByRole("link", { name: "Начать" });
-        expect(startLink).toHaveAttribute("href", ROUTES.library);
+        expect(startLink).toHaveAttribute("href", ROUTES.collection);
         // A link must not wrap a <button>: nested interactive elements are invalid HTML.
         expect(startLink.querySelector("button")).toBeNull();
     });
 
-    it("shows the library page with all categories to a signed-in user", async () => {
-        renderWithProviders(<Layout />, ROUTES.library, asUser);
-        expect(await screen.findAllByRole("link", { name: "Сохранить" })).toHaveLength(5);
+    it("sends the old /Save address to the library (collection)", async () => {
+        renderWithProviders(<Layout />, ROUTES.legacyLibrary, asUser);
+        expect(await screen.findByRole("heading", { name: "Моя библиотека" })).toBeInTheDocument();
     });
 
     it.each(["/some/unknown/path", "/content/1/extra"])(
@@ -48,9 +48,9 @@ describe("App routing", () => {
 
 describe("Protected and guest-only routes", () => {
     it("sends a guest from the library to the login page", async () => {
-        renderWithProviders(<Layout />, ROUTES.library, asGuest);
+        renderWithProviders(<Layout />, ROUTES.collection, asGuest);
         expect(await screen.findByRole("heading", { name: "Вход" })).toBeInTheDocument();
-        expect(screen.queryByRole("link", { name: "Сохранить" })).toBeNull();
+        expect(screen.queryByRole("heading", { name: "Моя библиотека" })).toBeNull();
     });
 
     it.each([ROUTES.login, ROUTES.register])(
@@ -82,7 +82,7 @@ describe("Protected and guest-only routes", () => {
                     }),
             ),
         );
-        renderWithProviders(<Layout />, ROUTES.library, asGuest);
+        renderWithProviders(<Layout />, ROUTES.collection, asGuest);
 
         await userEvent.click(await screen.findByRole("link", { name: "Зарегистрироваться" }));
         await userEvent.type(await screen.findByLabelText("Email"), "neo@matrix.io");
@@ -91,7 +91,7 @@ describe("Protected and guest-only routes", () => {
         await userEvent.type(screen.getByLabelText("Повторите пароль"), "Follow1Rabbit");
         await userEvent.click(screen.getByRole("button", { name: "Создать аккаунт" }));
 
-        expect(await screen.findAllByRole("link", { name: "Сохранить" })).toHaveLength(5);
+        expect(await screen.findByRole("heading", { name: "Моя библиотека" })).toBeInTheDocument();
         vi.unstubAllGlobals();
     });
 
@@ -101,7 +101,7 @@ describe("Protected and guest-only routes", () => {
             "fetch",
             vi.fn(() => new Promise<Response>(() => {})),
         );
-        renderWithProviders(<Layout />, ROUTES.library, { wrapper: asGuest.wrapper });
+        renderWithProviders(<Layout />, ROUTES.collection, { wrapper: asGuest.wrapper });
         expect(screen.getByRole("status", { name: "Загрузка" })).toBeInTheDocument();
         vi.unstubAllGlobals();
     });

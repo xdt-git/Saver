@@ -42,16 +42,16 @@ describe("My library page", () => {
         );
     });
 
-    it("leads from the category cards and the profile menu", async () => {
+    it("is the main nav's library link, also from the old /Save address", async () => {
         mockApi({});
         renderWithProviders(<Layout />, "/Save", sessionTestOptions(TEST_USER));
-        const links = await screen.findAllByRole("link", { name: "Сохранить" });
-        expect(links[0]).toHaveAttribute("href", "/collection?type=film");
-
-        await userEvent.click(screen.getByRole("button", { name: "Меню профиля neo" }));
-        expect(screen.getByRole("menuitem", { name: "Моя библиотека" })).toHaveAttribute(
+        expect(await screen.findByRole("heading", { name: "Моя библиотека" })).toBeInTheDocument();
+        expect(screen.getByRole("link", { name: "Моя библиотека" })).toHaveAttribute(
             "href",
             "/collection",
         );
+
+        await userEvent.click(screen.getByRole("button", { name: "Меню профиля neo" }));
+        expect(screen.queryByRole("menuitem", { name: "Моя библиотека" })).toBeNull();
     });
 });

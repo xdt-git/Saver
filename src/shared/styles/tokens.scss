@@ -45,6 +45,7 @@
     --glow-sm: drop-shadow(0 0 0.5rem var(--glow-color));
     --glow-md: drop-shadow(0 0 0.75rem var(--glow-color));
     --glow-accent: 0 0 0.75rem var(--color-accent);
+    --lines-opacity: 0.9; // neon ribbons behind the pages
     --glow-logo: drop-shadow(
         0 0 0.35rem rgb(255 255 255 / 0.45)
     ); // soft white neon around the logo
@@ -207,4 +208,5 @@
     --color-skeleton-shine: #f3f2fa;
     --color-dock-bg: rgba(255, 255, 255, 0.55);
     --glow-color: rgba(166, 42, 208, 0.35);
+    --lines-opacity: 0.55;
 }
