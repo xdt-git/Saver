@@ -82,7 +82,8 @@ export const VerifyEmailBanner = () => {
     const { t } = useTranslation();
     const { user, status } = useSession();
     const resend = useResend();
-    if (status !== "authenticated" || !user || user.emailVerified) return null;
+    // Accounts made in Telegram have no email to confirm.
+    if (status !== "authenticated" || !user?.email || user.emailVerified) return null;
 
     return (
         <div className={styles.banner} role="status">

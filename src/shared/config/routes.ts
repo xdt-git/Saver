@@ -21,6 +21,8 @@ export const ROUTES = {
     /** Pages opened from email links (?token=...); the API builds the same paths. */
     resetPassword: "/reset-password",
     verifyEmail: "/verify-email",
+    /** Opened from the Telegram bot (?code=...): links the bot to the signed-in account. */
+    telegramLink: "/telegram/link",
     /** Privacy policy (also the link Google shows on its sign-in screen). */
     privacy: "/privacy",
     uiKit: "/ui-kit",

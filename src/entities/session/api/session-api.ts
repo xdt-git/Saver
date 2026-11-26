@@ -1,12 +1,14 @@
 import { apiClient, isApiError } from "@/shared/api";
 import { currentLanguage } from "@/shared/config/i18n";
 import type {
+    AuthProviders,
     ForgotPasswordPayload,
     LoginPayload,
     GoogleSignInPayload,
     RegisterRequest,
     ResetPasswordPayload,
     SessionUser,
+    TelegramLoginPayload,
 } from "../model/types";
 
 export const sessionKeys = {
@@ -54,9 +56,12 @@ export const sessionApi = {
             { ...payload, language: currentLanguage() },
             authOnly,
         ),
-    /** Sign-in methods besides the password: Google's public client id or null. */
+    /** Sign-in methods besides the password: Google's client id, the Telegram bot. */
     providers: (signal?: AbortSignal) =>
-        apiClient.get<{ google: string | null }>("/auth/providers", { ...authOnly, signal }),
+        apiClient.get<AuthProviders>("/auth/providers", { ...authOnly, signal }),
+    /** Signs in (or up) with what the "Log in with Telegram" widget returned. */
+    telegram: (payload: TelegramLoginPayload) =>
+        apiClient.post<SessionUser>("/auth/telegram", payload, authOnly),
     /** Signs in (or up) with the ID token from Google's button. */
     google: (payload: GoogleSignInPayload) =>
         apiClient.post<SessionUser>("/auth/google", payload, authOnly),
