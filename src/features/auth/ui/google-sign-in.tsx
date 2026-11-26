@@ -1,7 +1,7 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { sessionApi, sessionKeys, useSession } from "@/entities/session";
+import { sessionApi, useSession } from "@/entities/session";
 import { loadScript } from "@/shared/lib";
 import { useToast } from "@/shared/ui/toast";
 import styles from "./auth-card.module.scss";
@@ -30,6 +30,8 @@ declare global {
 }
 
 interface GoogleSignInProps {
+    /** Google's public client id (from the API's providers). */
+    clientId: string;
     /** The sign-up checkbox; sent with the token so a new account keeps the answer. */
     notificationsConsent?: boolean;
 }
@@ -37,23 +39,16 @@ interface GoogleSignInProps {
 /**
  * "Continue with Google": Google's own button (popup). Its ID token goes to the API, which
  * signs in the linked account, links one with the same email, or creates a new account.
- * Hidden while the API has no Google client id or Google's script cannot load.
+ * Hidden when Google's script cannot load.
  */
-export const GoogleSignIn = ({ notificationsConsent }: GoogleSignInProps) => {
-    const { t, i18n } = useTranslation();
+export const GoogleSignIn = ({ clientId, notificationsConsent }: GoogleSignInProps) => {
+    const { i18n } = useTranslation();
     const toast = useToast();
     const { signIn } = useSession();
     const container = useRef<HTMLDivElement>(null);
     const consent = useRef(notificationsConsent);
     consent.current = notificationsConsent;
     const [failed, setFailed] = useState(false);
-
-    const { data: providers } = useQuery({
-        queryKey: sessionKeys.providers(),
-        queryFn: ({ signal }) => sessionApi.providers(signal),
-        staleTime: Infinity,
-    });
-    const clientId = providers?.google ?? null;
 
     const mutation = useMutation({
         mutationFn: (credential: string) =>
@@ -64,7 +59,6 @@ export const GoogleSignIn = ({ notificationsConsent }: GoogleSignInProps) => {
     const { mutate } = mutation;
 
     useEffect(() => {
-        if (!clientId) return;
         let active = true;
         loadScript(GSI_SRC)
             .then(() => {
@@ -91,12 +85,7 @@ export const GoogleSignIn = ({ notificationsConsent }: GoogleSignInProps) => {
         };
     }, [clientId, i18n.language, mutate]);
 
-    if (!clientId || failed) return null;
+    if (failed) return null;
 
-    return (
-        <div className={styles.alternative} aria-busy={mutation.isPending}>
-            <span className={styles.divider}>{t("auth.or")}</span>
-            <div ref={container} className={styles.google} />
-        </div>
-    );
+    return <div ref={container} className={styles.google} aria-busy={mutation.isPending} />;
 };

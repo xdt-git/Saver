@@ -101,3 +101,11 @@
     // mismatch makes the browser paint it on an opaque white box.
     color-scheme: light;
 }
+
+.telegram {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: var(--size-input-height);
+    color-scheme: light;
+}

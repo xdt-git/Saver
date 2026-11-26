@@ -8,7 +8,7 @@ import { AuthCard } from "./auth-card";
 import styles from "./auth-card.module.scss";
 import { AuthSwitchLink } from "./auth-switch-link";
 import { AuthField } from "./auth-field";
-import { GoogleSignIn } from "./google-sign-in";
+import { AlternativeSignIn } from "./alternative-sign-in";
 
 const INITIAL: LoginPayload = { login: "", password: "" };
 
@@ -28,7 +28,7 @@ export const LoginForm = () => {
             isSubmitting={isSubmitting}
             onSubmit={onSubmit}
             formError={formError}
-            alternative={<GoogleSignIn />}
+            alternative={<AlternativeSignIn />}
             footer={
                 <>
                     <p className={styles.footerLine}>

@@ -26,6 +26,7 @@ const RegisterPage = lazyNamed(() => import("@/pages/register"), "RegisterPage")
 const ForgotPasswordPage = lazyNamed(() => import("@/pages/forgot-password"), "ForgotPasswordPage");
 const ResetPasswordPage = lazyNamed(() => import("@/pages/reset-password"), "ResetPasswordPage");
 const VerifyEmailPage = lazyNamed(() => import("@/pages/verify-email"), "VerifyEmailPage");
+const TelegramLinkPage = lazyNamed(() => import("@/pages/telegram-link"), "TelegramLinkPage");
 const PrivacyPage = lazyNamed(() => import("@/pages/privacy"), "PrivacyPage");
 const NotFoundPage = lazyNamed(() => import("@/pages/not-found"), "NotFoundPage");
 // Component showcase, development only: the import is removed from production builds.
@@ -59,6 +60,7 @@ export const Layout = () => {
                             />
                             <Route path={ROUTES.collection} element={<CollectionPage />} />
                             <Route path={ROUTES.notifications} element={<NotificationsPage />} />
+                            <Route path={ROUTES.telegramLink} element={<TelegramLinkPage />} />
                             {/* The old feed address opens the news page on subscriptions. */}
                             <Route
                                 path={ROUTES.feed}

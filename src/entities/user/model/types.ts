@@ -27,6 +27,7 @@ export interface ProfilePatch {
     notifyFollowing?: boolean;
     notifyLikes?: boolean;
     notifyComments?: boolean;
+    notifyTelegram?: boolean;
 }
 
 export type FollowListKind = "followers" | "following";

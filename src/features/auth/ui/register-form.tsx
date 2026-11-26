@@ -8,7 +8,7 @@ import { normalizeRegister, PASSWORD_MIN, validateRegister } from "../model/vali
 import { AuthCard } from "./auth-card";
 import { AuthSwitchLink } from "./auth-switch-link";
 import { AuthField } from "./auth-field";
-import { GoogleSignIn } from "./google-sign-in";
+import { AlternativeSignIn } from "./alternative-sign-in";
 
 const INITIAL: RegisterPayload = { email: "", username: "", password: "", confirmPassword: "" };
 
@@ -31,7 +31,7 @@ export const RegisterForm = () => {
             isSubmitting={isSubmitting}
             onSubmit={onSubmit}
             formError={formError}
-            alternative={<GoogleSignIn notificationsConsent={notificationsConsent} />}
+            alternative={<AlternativeSignIn notificationsConsent={notificationsConsent} />}
             footer={
                 <AuthSwitchLink
                     question={t("auth.register.hasAccount")}
