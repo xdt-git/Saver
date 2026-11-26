@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { NotificationList } from "@/widgets/notification-list";
-import { NotificationSettings } from "@/features/notification-settings";
+import { NotificationSettings, TelegramSettings } from "@/features/notification-settings";
 import { useMarkAllRead, useUnreadNotifications } from "@/entities/activity";
 import { useSession } from "@/entities/session";
 import { ContentPage } from "@/shared/ui/content-page";
@@ -25,6 +25,7 @@ export const NotificationsPage = () => {
     return (
         <ContentPage title={t("notifications.title")} narrow>
             <NotificationSettings />
+            <TelegramSettings />
             <NotificationList
                 emptyText={enabled ? t("notifications.emptyText") : t("notifications.disabledText")}
             />

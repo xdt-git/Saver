@@ -554,5 +554,23 @@
                 "text": "See Contacts in the site footer."
             }
         }
+    },
+    "telegram": {
+        "title": "Telegram bot",
+        "pitch": "Search, random picks and your library right in Telegram, plus notifications. Connect the bot and your lists are merged.",
+        "connect": "Connect Telegram",
+        "linked": "Telegram is connected.",
+        "linkedAs": "Telegram @{{username}} is connected.",
+        "copyNotifications": "Copy notifications to Telegram",
+        "openBot": "Open the bot",
+        "unlink": "Disconnect",
+        "unlinked": "Telegram disconnected",
+        "linkTitle": "Link Telegram",
+        "linkConfirm": "Link the Telegram bot to @{{username}}? The lists are merged: for a title in both, the one added later stays.",
+        "linkButton": "Link",
+        "linkDone": "Done! Telegram is linked and your lists are merged. You can go back to the bot.",
+        "linkInvalid": "This link has expired or was already used. Open the settings in the bot and make a new one.",
+        "backToBot": "Back to the bot",
+        "toCollection": "My library"
     }
 }

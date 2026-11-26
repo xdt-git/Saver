@@ -5,7 +5,7 @@ import { useToast } from "@/shared/ui/toast";
 
 type NotificationPatch = Pick<
     ProfilePatch,
-    "notificationsConsent" | "notifyFollowing" | "notifyLikes" | "notifyComments"
+    "notificationsConsent" | "notifyFollowing" | "notifyLikes" | "notifyComments" | "notifyTelegram"
 >;
 
 /** Saves notification settings (PATCH /users/me) and puts the answer into the session. */
